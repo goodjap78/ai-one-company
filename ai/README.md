@@ -1,6 +1,3 @@
-\# Docs
+# AI
 
-
-
-AI ONE COMPANY Documents
-
+AI 추천 시스템, 프롬프트, 평가 기준을 관리합니다.

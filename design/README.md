@@ -1,6 +1,3 @@
-\# Docs
+# Design
 
-
-
-AI ONE COMPANY Documents
-
+디자인 토큰, 컴포넌트 기준, 브랜드 자산을 관리합니다.

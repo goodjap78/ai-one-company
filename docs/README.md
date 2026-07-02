@@ -1,6 +1,9 @@
-\# Docs
+# Docs
 
+AI ONE COMPANY 공식 문서 폴더입니다.
 
-
-AI ONE COMPANY Documents
-
+## Sections
+- product
+- engineering
+- business
+- decisions

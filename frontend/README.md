@@ -1,6 +1,3 @@
-\# Docs
+# frontend
 
-
-
-AI ONE COMPANY Documents
-
+Reserved for AI ONE COMPANY.

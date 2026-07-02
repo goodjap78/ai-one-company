@@ -1,6 +1,3 @@
-\# Docs
+# Backend
 
-
-
-AI ONE COMPANY Documents
-
+FastAPI 기반 API 서버입니다.
