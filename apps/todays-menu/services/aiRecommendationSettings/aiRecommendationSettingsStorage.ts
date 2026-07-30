@@ -6,19 +6,43 @@ import {
   type HouseholdSize,
   type MaxCookTimePreference,
   type PreferredCuisine,
+  type PreferredDishType,
+  type PreferredSituation,
   type SpicyTolerance,
 } from '../../types/aiRecommendationSettings';
 
 const STORAGE_KEY = '@hankki/ai_recommendation_settings';
 
-const SPICY_LEVELS = new Set<SpicyTolerance>(['like', 'normal', 'dislike']);
+const SPICY_LEVELS = new Set<SpicyTolerance>(['mild', 'like', 'normal', 'dislike']);
 const CUISINES = new Set<PreferredCuisine>([
   'korean',
   'western',
   'chinese',
   'japanese',
   'snack',
+  'asian',
+  'fusion',
   'healthy',
+]);
+const DISH_TYPES = new Set<PreferredDishType>([
+  'rice',
+  'rice_bowl',
+  'noodle',
+  'soup',
+  'stew',
+  'stir_fry',
+  'grilled',
+  'fried',
+  'salad',
+  'sandwich',
+]);
+const SITUATIONS = new Set<PreferredSituation>([
+  'solo_meal',
+  'family_meal',
+  'kids_meal',
+  'quick_meal',
+  'comfort_food',
+  'light_meal',
 ]);
 const AVOIDED = new Set<AvoidedFoodPreset>([
   'cucumber',
@@ -29,6 +53,16 @@ const AVOIDED = new Set<AvoidedFoodPreset>([
 ]);
 const HOUSEHOLDS = new Set<HouseholdSize>(['solo', 'two', 'three_four', 'family']);
 const COOK_TIMES = new Set<MaxCookTimePreference>(['10', '20', '30', 'any']);
+
+let aiSettingsRevision = 0;
+
+export function getAiSettingsRevision(): number {
+  return aiSettingsRevision;
+}
+
+function bumpAiSettingsRevision(): void {
+  aiSettingsRevision += 1;
+}
 
 function parseSettings(raw: string | null): AiRecommendationSettings {
   if (!raw) return { ...DEFAULT_AI_RECOMMENDATION_SETTINGS };
@@ -41,6 +75,16 @@ function parseSettings(raw: string | null): AiRecommendationSettings {
       preferredCuisines: Array.isArray(parsed.preferredCuisines)
         ? parsed.preferredCuisines.filter((value): value is PreferredCuisine =>
             CUISINES.has(value as PreferredCuisine),
+          )
+        : [],
+      preferredDishTypes: Array.isArray(parsed.preferredDishTypes)
+        ? parsed.preferredDishTypes.filter((value): value is PreferredDishType =>
+            DISH_TYPES.has(value as PreferredDishType),
+          )
+        : [],
+      preferredSituations: Array.isArray(parsed.preferredSituations)
+        ? parsed.preferredSituations.filter((value): value is PreferredSituation =>
+            SITUATIONS.has(value as PreferredSituation),
           )
         : [],
       avoidedFoods: Array.isArray(parsed.avoidedFoods)
@@ -79,6 +123,7 @@ export async function saveAiRecommendationSettings(
     updatedAt: new Date().toISOString(),
   };
   await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+  bumpAiSettingsRevision();
   return next;
 }
 

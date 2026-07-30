@@ -376,6 +376,76 @@ function testExtremeExclusionNoUnsafeFallback(): void {
   }
 }
 
+function testKoreanRiceAndDishType(): void {
+  console.log('\n## Test: 한식 + 밥 선택');
+  const context = contextFor({
+    ...DEFAULT_AI_RECOMMENDATION_SETTINGS,
+    preferredCuisines: ['korean'],
+    preferredDishTypes: ['rice'],
+    updatedAt: new Date().toISOString(),
+  });
+
+  const boosted = CATALOG.filter((menu) => {
+    const score = scoreMetadataPreferences(menu, 'dinner', context);
+    return score.hits.some((hit) => hit.key === 'dish_pref_rice' || hit.key === 'cuisine_korean');
+  }).length;
+
+  assert(boosted > 0, `korean + rice preferences score menus (${boosted})`);
+}
+
+function testNoodleSpicy(): void {
+  console.log('\n## Test: 면 + 매운맛');
+  const context = contextFor({
+    ...DEFAULT_AI_RECOMMENDATION_SETTINGS,
+    preferredDishTypes: ['noodle'],
+    spicyLevel: 'like',
+    updatedAt: new Date().toISOString(),
+  });
+
+  const hitMenu = CATALOG.find((menu) => {
+    const score = scoreMetadataPreferences(menu, 'dinner', context);
+    return score.hits.some((hit) => hit.key === 'dish_pref_noodle' || hit.key === 'spice_like');
+  });
+
+  assert(Boolean(hitMenu), 'noodle + spicy settings produce metadata hits');
+}
+
+function testSoloSituation(): void {
+  console.log('\n## Test: 혼밥 상황');
+  const context = contextFor({
+    ...DEFAULT_AI_RECOMMENDATION_SETTINGS,
+    preferredSituations: ['solo_meal'],
+    updatedAt: new Date().toISOString(),
+  });
+
+  const matched = CATALOG.filter((menu) => {
+    const score = scoreMetadataPreferences(menu, 'dinner', context);
+    return score.hits.some((hit) => hit.key === 'situation_solo_meal');
+  }).length;
+
+  assert(matched > 0, `solo_meal situation scores menus (${matched})`);
+}
+
+function testMildSpicyPreference(): void {
+  console.log('\n## Test: 순한맛 선호');
+  const context = contextFor({
+    ...DEFAULT_AI_RECOMMENDATION_SETTINGS,
+    spicyLevel: 'mild',
+    updatedAt: new Date().toISOString(),
+  });
+
+  const mildHits = CATALOG.filter((menu) => {
+    const score = scoreMetadataPreferences(menu, 'dinner', context);
+    return score.hits.some((hit) => hit.key === 'taste_mild_prefer');
+  }).length;
+
+  assert(mildHits > 0, `mild preference scores mild menus (${mildHits})`);
+  const excludedSpicy = CATALOG.filter(
+    (menu) => evaluateAiRecommendationExclusions(menu, context).excluded,
+  ).length;
+  assert(excludedSpicy === 0, 'mild preference does not hard-exclude spicy menus');
+}
+
 function testDefaultSettingsUnchanged(): void {
   console.log('\n## Test: 설정 없음 — 기존 추천 유지');
   const defaultContext = contextFor(DEFAULT_AI_RECOMMENDATION_SETTINGS);
@@ -407,5 +477,9 @@ testFavoriteChickenBonus();
 testFavoriteAvoidConflict();
 testSeafoodExclusionSurvivesRelaxation();
 testExtremeExclusionNoUnsafeFallback();
+testKoreanRiceAndDishType();
+testNoodleSpicy();
+testSoloSituation();
+testMildSpicyPreference();
 testDefaultSettingsUnchanged();
 console.log('\n===================================================');

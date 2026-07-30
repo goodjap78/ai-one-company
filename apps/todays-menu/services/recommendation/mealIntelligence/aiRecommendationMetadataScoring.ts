@@ -11,7 +11,8 @@ import type {
   AiRecommendationSettings,
   HouseholdSize,
   PreferredCuisine,
-  SpicyTolerance,
+  PreferredDishType,
+  PreferredSituation,
 } from '../../../types/aiRecommendationSettings';
 import type { MealType } from '../../../types/home';
 import type { MetadataScoreHit } from '../../../types/mealIntelligenceEngine';
@@ -92,6 +93,8 @@ function hasAnySettings(settings: AiRecommendationSettings): boolean {
   return (
     settings.spicyLevel !== null ||
     settings.preferredCuisines.length > 0 ||
+    settings.preferredDishTypes.length > 0 ||
+    settings.preferredSituations.length > 0 ||
     settings.avoidedFoods.length > 0 ||
     settings.customAvoidedFood.trim().length > 0 ||
     settings.customFavoriteFood.trim().length > 0 ||
@@ -203,6 +206,19 @@ function scoreTasteAndSpice(
   notes: string[],
 ): number {
   let points = 0;
+
+  if (settings.spicyLevel === 'mild') {
+    if (metadata.spiceLevel === 'mild' || metadata.tasteProfile.includes('mild')) {
+      points += METADATA_SCORE_POINTS.tasteProfile;
+      hits.push({
+        key: 'taste_mild_prefer',
+        points: METADATA_SCORE_POINTS.tasteProfile,
+        dimension: 'tasteProfile',
+        label: '순한맛을 선호해서 골라봤어요.',
+      });
+      notes.push('metadata_taste_mild_prefer');
+    }
+  }
 
   if (settings.spicyLevel === 'like') {
     if (metadata.spiceLevel === 'spicy' || metadata.tasteProfile.includes('spicy')) {
@@ -343,7 +359,29 @@ function scoreMealType(
   return METADATA_SCORE_POINTS.mealType;
 }
 
-function scoreSituation(
+function scorePreferredDishTypes(
+  settings: AiRecommendationSettings,
+  metadata: RecipeStandardMetadata,
+  hits: MetadataScoreHit[],
+  notes: string[],
+): number {
+  if (settings.preferredDishTypes.length === 0) return 0;
+
+  const matched = settings.preferredDishTypes.find((dishType) => metadata.dishType === dishType);
+  if (!matched) return 0;
+
+  const label = DISH_TYPE_LABELS[matched] ?? '한 끼';
+  hits.push({
+    key: `dish_pref_${matched}`,
+    points: METADATA_SCORE_POINTS.dishType,
+    dimension: 'dishType',
+    label: `좋아하는 ${label} 취향에 맞는 메뉴예요.`,
+  });
+  notes.push(`metadata_dish_pref_${matched}`);
+  return METADATA_SCORE_POINTS.dishType;
+}
+
+function scoreSituationFromHousehold(
   settings: AiRecommendationSettings,
   metadata: RecipeStandardMetadata,
   hits: MetadataScoreHit[],
@@ -363,6 +401,93 @@ function scoreSituation(
   });
   notes.push(`metadata_situation_${matched}`);
   return METADATA_SCORE_POINTS.situation;
+}
+
+const PREFERRED_SITUATION_LABELS: Record<PreferredSituation, string> = {
+  solo_meal: '혼밥에 어울리는',
+  family_meal: '가족 식사에 어울리는',
+  kids_meal: '아이와 함께 먹기 좋은',
+  quick_meal: '간단하게 만들 수 있는',
+  comfort_food: '든든한 한 끼에 어울리는',
+  light_meal: '가벼운 한 끼에 어울리는',
+};
+
+function scorePreferredSituations(
+  settings: AiRecommendationSettings,
+  metadata: RecipeStandardMetadata,
+  hits: MetadataScoreHit[],
+  notes: string[],
+): number {
+  if (settings.preferredSituations.length === 0) {
+    return scoreSituationFromHousehold(settings, metadata, hits, notes);
+  }
+
+  let bestPoints = 0;
+  let bestHit: MetadataScoreHit | null = null;
+
+  for (const pref of settings.preferredSituations) {
+    if (pref === 'light_meal') {
+      const matches =
+        metadata.dietaryTags.includes('light_meal') || metadata.situationTags.includes('diet_meal');
+      if (!matches) continue;
+      const points = METADATA_SCORE_POINTS.dietary;
+      if (points > bestPoints) {
+        bestPoints = points;
+        bestHit = {
+          key: 'situation_light_meal',
+          points,
+          dimension: 'dietary',
+          label: `${PREFERRED_SITUATION_LABELS.light_meal} 메뉴예요.`,
+        };
+      }
+      continue;
+    }
+
+    if (pref === 'comfort_food') {
+      const matches =
+        metadata.situationTags.includes('comfort_food') ||
+        metadata.dietaryTags.includes('filling_meal');
+      if (!matches) continue;
+      const points = METADATA_SCORE_POINTS.situation;
+      if (points > bestPoints) {
+        bestPoints = points;
+        bestHit = {
+          key: 'situation_comfort_food',
+          points,
+          dimension: 'situation',
+          label: `${PREFERRED_SITUATION_LABELS.comfort_food} 메뉴예요.`,
+        };
+      }
+      continue;
+    }
+
+    if (!metadata.situationTags.includes(pref)) continue;
+    const points = METADATA_SCORE_POINTS.situation;
+    if (points > bestPoints) {
+      bestPoints = points;
+      bestHit = {
+        key: `situation_${pref}`,
+        points,
+        dimension: 'situation',
+        label: `${PREFERRED_SITUATION_LABELS[pref]} 메뉴예요.`,
+      };
+    }
+  }
+
+  if (!bestHit) return 0;
+
+  hits.push(bestHit);
+  notes.push(bestHit.key);
+  return bestPoints;
+}
+
+function scoreSituation(
+  settings: AiRecommendationSettings,
+  metadata: RecipeStandardMetadata,
+  hits: MetadataScoreHit[],
+  notes: string[],
+): number {
+  return scorePreferredSituations(settings, metadata, hits, notes);
 }
 
 function scoreDishTypeFromCuisine(
@@ -459,6 +584,7 @@ export function scoreMetadataPreferences(
 
   total += scoreCuisine(settings, metadata, hits, notes);
   total += scoreDishType(settings, metadata, hits, notes);
+  total += scorePreferredDishTypes(settings, metadata, hits, notes);
   total += scoreDishTypeFromCuisine(settings, metadata, hits, notes);
   total += scoreTasteAndSpice(settings, metadata, hits, notes);
   total += scoreCookTime(menu, context, metadata, hits, notes);
