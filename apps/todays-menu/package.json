@@ -11,6 +11,7 @@
     "build:ios:preview": "eas build --platform ios --profile preview --non-interactive",
     "eas:init": "eas init",
     "smoke:rc": "npx tsx scripts/release/smokeRc.ts",
+    "audit:home-hero": "npx tsx scripts/audit-home-hero-images.ts",
     "audit:recommendation": "npx tsx scripts/release/auditRecommendationCandidates.ts",
     "web": "expo start --web",
     "recipe-assets:check": "npx tsx scripts/recipe-assets/index.ts --mode=check",

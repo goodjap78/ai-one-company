@@ -35,7 +35,8 @@ import type { FavoriteFeedbackKind } from './HomeFavoritePopup';
 export type HomeScreenState = 'loading' | 'ready' | 'refreshing' | 'error';
 
 const DEFAULT_MEAL_MODE: MealMode = 'homemade';
-const REFRESH_COOLDOWN_MS = 1500;
+/** Minimum gap between refresh taps — prevents duplicate in-flight requests only. */
+const REFRESH_DEBOUNCE_MS = 300;
 
 export function useHomeScreen(nickname: string) {
   const router = useRouter();
@@ -50,7 +51,7 @@ export function useHomeScreen(nickname: string) {
   const [toastVisible, setToastVisible] = useState(false);
   const [toastShowSaveMascot, setToastShowSaveMascot] = useState(false);
   const [favoriteFeedback, setFavoriteFeedback] = useState<FavoriteFeedbackKind | null>(null);
-  const [refreshDisabled, setRefreshDisabled] = useState(false);
+  const [isRefreshing, setIsRefreshing] = useState(false);
   const [contextSelection, setContextSelection] = useState<ContextMemorySelection>({
     diningSituation: null,
     mealGoal: null,
@@ -58,6 +59,7 @@ export function useHomeScreen(nickname: string) {
   });
 
   const lastRefreshRef = useRef(0);
+  const refreshInFlightRef = useRef(false);
   const initialLoadDoneRef = useRef(false);
   const aiSettingsRevisionRef = useRef(getAiSettingsRevision());
 
@@ -170,7 +172,7 @@ export function useHomeScreen(nickname: string) {
       field: K,
       value: NonNullable<ContextMemorySelection[K]>,
     ) => {
-      if (screenState === 'loading' || refreshDisabled) return;
+      if (screenState === 'loading' || isRefreshing) return;
 
       const next = await toggleContextField(field, value);
       setContextSelection({
@@ -180,23 +182,25 @@ export function useHomeScreen(nickname: string) {
       });
       await refreshRecommendation(mealMode);
     },
-    [screenState, refreshDisabled, mealMode, refreshRecommendation],
+    [screenState, isRefreshing, mealMode, refreshRecommendation],
   );
 
   const handleRefresh = useCallback(async () => {
-    if (!recommendation || refreshDisabled) return;
+    if (!recommendation || refreshInFlightRef.current) return;
 
     const now = Date.now();
-    if (now - lastRefreshRef.current < REFRESH_COOLDOWN_MS) return;
+    if (now - lastRefreshRef.current < REFRESH_DEBOUNCE_MS) return;
     lastRefreshRef.current = now;
 
-    setRefreshDisabled(true);
+    const previousRecipeId = recommendation.recipe.id;
+    refreshInFlightRef.current = true;
+    setIsRefreshing(true);
 
     try {
       const next = await refreshHomeRecommendation(
         mealType,
         mealMode,
-        recommendation.recipe.id,
+        previousRecipeId,
       );
       setRecommendation(next);
       setScreenState('ready');
@@ -204,9 +208,10 @@ export function useHomeScreen(nickname: string) {
     } catch {
       setScreenState('ready');
     } finally {
-      setTimeout(() => setRefreshDisabled(false), REFRESH_COOLDOWN_MS);
+      refreshInFlightRef.current = false;
+      setIsRefreshing(false);
     }
-  }, [recommendation, refreshDisabled, mealType, mealMode]);
+  }, [recommendation, mealType, mealMode]);
 
   const handleAccept = useCallback(async () => {
     if (!recommendation) return;
@@ -235,7 +240,7 @@ export function useHomeScreen(nickname: string) {
   }, [recommendation, mealType, mealMode, router]);
 
   const handleSaveMeal = useCallback(async () => {
-    if (!recommendation || refreshDisabled) return;
+    if (!recommendation || isRefreshing) return;
 
     const labels = getHankkiHomeDecisionMessages();
     await saveHomeRecommendation(
@@ -247,7 +252,7 @@ export function useHomeScreen(nickname: string) {
     setToastMessage(labels.saveMealToast);
     setToastShowSaveMascot(true);
     setToastVisible(true);
-  }, [recommendation, refreshDisabled, mealType, mealMode]);
+  }, [recommendation, isRefreshing, mealType, mealMode]);
 
   const handleHeartPress = useCallback(async () => {
     if (!recommendation) return;
@@ -282,7 +287,7 @@ export function useHomeScreen(nickname: string) {
 
   const handleSelectAlternative = useCallback(
     async (alternativeId: string) => {
-      if (!recommendation || refreshDisabled) return;
+      if (!recommendation || isRefreshing) return;
 
       const swapped = promoteAlternative(recommendation, alternativeId);
       if (!swapped) return;
@@ -296,7 +301,7 @@ export function useHomeScreen(nickname: string) {
       setRecommendation(next);
       setRecommendationSession({ mealType, mealMode, recommendation: next });
     },
-    [recommendation, refreshDisabled, mealType, mealMode],
+    [recommendation, isRefreshing, mealType, mealMode],
   );
 
   const setToastVisibleStable = useCallback((visible: boolean) => {
@@ -321,7 +326,7 @@ export function useHomeScreen(nickname: string) {
     toastVisible,
     toastShowSaveMascot,
     favoriteFeedback,
-    refreshDisabled,
+    isRefreshing,
     contextSelection,
     setToastVisible: setToastVisibleStable,
     dismissFavoriteFeedback,
