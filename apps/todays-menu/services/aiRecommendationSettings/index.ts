@@ -4,3 +4,4 @@ export {
   saveAiRecommendationSettings,
   updateAiRecommendationSettings,
 } from './aiRecommendationSettingsStorage';
+export { hasUserConfiguredAiRecommendationSettings } from './hasUserConfiguredAiRecommendationSettings';

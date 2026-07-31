@@ -17,6 +17,7 @@ import {
   DEFAULT_AI_RECOMMENDATION_SETTINGS,
   type AiRecommendationSettings,
 } from '../types/aiRecommendationSettings';
+import { hasUserConfiguredAiRecommendationSettings } from '../services/aiRecommendationSettings/hasUserConfiguredAiRecommendationSettings';
 import type { MealType } from '../types/home';
 import type { MealTimeSlot } from '../types/mealTime';
 import type { MenuItem } from '../types/recommendation';
@@ -467,6 +468,37 @@ function testDefaultSettingsUnchanged(): void {
   assert(candidates.length > 0, 'default settings still produce recommendation candidates');
 }
 
+function testAiSettingsConfiguredDetection(): void {
+  console.log('\n## Test: AI 설정 완료 판정');
+  assert(
+    !hasUserConfiguredAiRecommendationSettings(DEFAULT_AI_RECOMMENDATION_SETTINGS),
+    'default settings are not configured',
+  );
+  assert(
+    hasUserConfiguredAiRecommendationSettings({
+      ...DEFAULT_AI_RECOMMENDATION_SETTINGS,
+      preferredCuisines: ['korean'],
+      updatedAt: new Date().toISOString(),
+    }),
+    'preferredCuisines counts as configured',
+  );
+  assert(
+    hasUserConfiguredAiRecommendationSettings({
+      ...DEFAULT_AI_RECOMMENDATION_SETTINGS,
+      customFavoriteFood: '계란',
+      updatedAt: new Date().toISOString(),
+    }),
+    'customFavoriteFood counts as configured',
+  );
+  assert(
+    !hasUserConfiguredAiRecommendationSettings({
+      ...DEFAULT_AI_RECOMMENDATION_SETTINGS,
+      updatedAt: new Date().toISOString(),
+    }),
+    'updatedAt alone does not count as configured',
+  );
+}
+
 console.log('========== AI Recommendation Metadata QA ==========');
 for (const scenario of scenarios) {
   runScenario(scenario);
@@ -482,4 +514,5 @@ testNoodleSpicy();
 testSoloSituation();
 testMildSpicyPreference();
 testDefaultSettingsUnchanged();
+testAiSettingsConfiguredDetection();
 console.log('\n===================================================');
