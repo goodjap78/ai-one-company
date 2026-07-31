@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
-  DEFAULT_AI_RECOMMENDATION_SETTINGS,
+  createDefaultAiRecommendationSettings,
   type AiRecommendationSettings,
   type AvoidedFoodPreset,
   type HouseholdSize,
@@ -65,7 +65,7 @@ function bumpAiSettingsRevision(): void {
 }
 
 function parseSettings(raw: string | null): AiRecommendationSettings {
-  if (!raw) return { ...DEFAULT_AI_RECOMMENDATION_SETTINGS };
+  if (!raw) return createDefaultAiRecommendationSettings();
 
   try {
     const parsed = JSON.parse(raw) as Partial<AiRecommendationSettings>;
@@ -106,7 +106,7 @@ function parseSettings(raw: string | null): AiRecommendationSettings {
         typeof parsed.updatedAt === 'string' ? parsed.updatedAt : new Date().toISOString(),
     };
   } catch {
-    return { ...DEFAULT_AI_RECOMMENDATION_SETTINGS };
+    return createDefaultAiRecommendationSettings();
   }
 }
 
@@ -132,4 +132,9 @@ export async function updateAiRecommendationSettings(
 ): Promise<AiRecommendationSettings> {
   const current = await getAiRecommendationSettings();
   return saveAiRecommendationSettings({ ...current, ...patch });
+}
+
+/** Resets AI recommendation settings to defaults. Only touches the dedicated storage key. */
+export async function resetAiRecommendationSettings(): Promise<AiRecommendationSettings> {
+  return saveAiRecommendationSettings(createDefaultAiRecommendationSettings());
 }

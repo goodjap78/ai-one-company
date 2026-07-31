@@ -68,3 +68,14 @@ export const DEFAULT_AI_RECOMMENDATION_SETTINGS: AiRecommendationSettings = {
   maxCookTime: null,
   updatedAt: new Date(0).toISOString(),
 };
+
+/** Returns a fresh copy of the official AI recommendation settings defaults. */
+export function createDefaultAiRecommendationSettings(): AiRecommendationSettings {
+  return {
+    ...DEFAULT_AI_RECOMMENDATION_SETTINGS,
+    preferredCuisines: [],
+    preferredDishTypes: [],
+    preferredSituations: [],
+    avoidedFoods: [],
+  };
+}

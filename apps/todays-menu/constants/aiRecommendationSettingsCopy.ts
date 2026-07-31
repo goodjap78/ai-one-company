@@ -17,6 +17,16 @@ export const AI_RECOMMENDATION_SETTINGS_COPY = {
   saveSuccess: '추천 설정을 저장했어요.',
   saveNoChanges: '변경된 내용이 없어요.',
   saving: '저장 중…',
+  resetButton: '추천 설정 초기화',
+  resetHint: '입력한 음식 취향과 추천 조건을 처음 상태로 되돌립니다.',
+  resetConfirmTitle: '추천 설정을 초기화할까요?',
+  resetConfirmBody:
+    '좋아하는 음식, 먹지 않는 재료, 조리시간 등\n저장한 추천 설정이 모두 삭제됩니다.\n즐겨찾기와 최근 먹은 메뉴는 삭제되지 않아요.',
+  resetCancel: '취소',
+  resetConfirm: '초기화',
+  resetSuccess: '추천 설정을 초기화했어요.',
+  resetFailure: '초기화에 실패했어요. 다시 시도해 주세요.',
+  resetting: '초기화 중…',
   sections: {
     cuisine: '선호 음식 종류',
     dishType: '좋아하는 메뉴 형태',

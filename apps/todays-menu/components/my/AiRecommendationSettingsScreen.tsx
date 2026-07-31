@@ -24,6 +24,7 @@ import { NAV_BACK } from '../../constants/navigationCopy';
 import { ds } from '../../constants/designSystem';
 import {
   getAiRecommendationSettings,
+  resetAiRecommendationSettings,
   saveAiRecommendationSettings,
 } from '../../services/aiRecommendationSettings';
 import { clearRecommendationSession } from '../../services/recommendationSession';
@@ -122,6 +123,7 @@ export function AiRecommendationSettingsScreen() {
   const [favoriteDraft, setFavoriteDraft] = useState('');
   const [avoidedDraft, setAvoidedDraft] = useState('');
   const [saving, setSaving] = useState(false);
+  const [resetting, setResetting] = useState(false);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
 
   const loadSettings = useCallback(async () => {
@@ -219,7 +221,7 @@ export function AiRecommendationSettingsScreen() {
   };
 
   const handleSave = async () => {
-    if (!draftWithTags || saving) return;
+    if (!draftWithTags || saving || resetting) return;
 
     if (!isDirty) {
       setStatusMessage(copy.saveNoChanges);
@@ -243,6 +245,54 @@ export function AiRecommendationSettingsScreen() {
     } finally {
       setSaving(false);
     }
+  };
+
+  const applyResetState = (next: AiRecommendationSettings) => {
+    setSavedSettings(next);
+    setDraft(next);
+    setFavoriteTags(parseIngredientTagList(next.customFavoriteFood));
+    setAvoidedTags(parseIngredientTagList(next.customAvoidedFood));
+    setFavoriteDraft('');
+    setAvoidedDraft('');
+  };
+
+  const handleResetConfirm = async () => {
+    if (saving || resetting) return;
+
+    setResetting(true);
+    setStatusMessage(null);
+
+    try {
+      const next = await resetAiRecommendationSettings();
+      applyResetState(next);
+      clearRecommendationSession();
+      setStatusMessage(copy.resetSuccess);
+      void Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+    } catch {
+      setStatusMessage(copy.resetFailure);
+    } finally {
+      setResetting(false);
+    }
+  };
+
+  const handleResetPress = () => {
+    if (saving || resetting) return;
+
+    Alert.alert(
+      copy.resetConfirmTitle,
+      copy.resetConfirmBody,
+      [
+        {
+          text: copy.resetCancel,
+          style: 'cancel',
+        },
+        {
+          text: copy.resetConfirm,
+          onPress: () => void handleResetConfirm(),
+        },
+      ],
+      { cancelable: true },
+    );
   };
 
   if (!draft || !draftWithTags) {
@@ -411,23 +461,53 @@ export function AiRecommendationSettingsScreen() {
               />
             </View>
 
-            {statusMessage ? <Text style={styles.statusMessage}>{statusMessage}</Text> : null}
+            {statusMessage ? (
+              <Text
+                style={styles.statusMessage}
+                accessibilityRole="text"
+                accessibilityLiveRegion="polite"
+              >
+                {statusMessage}
+              </Text>
+            ) : null}
 
             <Pressable
               style={({ pressed }) => [
                 appChrome.primaryButton,
                 pressed && appChrome.primaryButtonPressed,
-                (!isDirty || saving) && styles.saveDisabled,
+                (!isDirty || saving || resetting) && styles.actionDisabled,
               ]}
               onPress={() => void handleSave()}
-              disabled={!isDirty || saving}
+              disabled={!isDirty || saving || resetting}
               accessibilityRole="button"
               accessibilityLabel={copy.saveButton}
+              accessibilityState={{ disabled: !isDirty || saving || resetting }}
             >
               <Text style={appChrome.primaryButtonText}>
                 {saving ? copy.saving : copy.saveButton}
               </Text>
             </Pressable>
+
+            <View style={styles.resetSection}>
+              <Text style={styles.resetHint}>{copy.resetHint}</Text>
+              <Pressable
+                style={({ pressed }) => [
+                  appChrome.secondaryButton,
+                  pressed && appChrome.pressed,
+                  (saving || resetting) && styles.actionDisabled,
+                ]}
+                onPress={handleResetPress}
+                disabled={saving || resetting}
+                accessibilityRole="button"
+                accessibilityLabel={copy.resetButton}
+                accessibilityHint={copy.resetHint}
+                accessibilityState={{ disabled: saving || resetting }}
+              >
+                <Text style={appChrome.secondaryButtonText}>
+                  {resetting ? copy.resetting : copy.resetButton}
+                </Text>
+              </Pressable>
+            </View>
           </View>
         </ScrollView>
       </View>
@@ -487,7 +567,18 @@ const styles = StyleSheet.create({
     color: ds.colors.textSecondary,
     textAlign: 'center',
   },
-  saveDisabled: {
+  actionDisabled: {
     opacity: 0.55,
+  },
+  resetSection: {
+    gap: ds.spacing.sm,
+    marginTop: ds.spacing.md,
+    alignItems: 'stretch',
+  },
+  resetHint: {
+    ...ds.typography.caption,
+    color: ds.colors.textMuted,
+    textAlign: 'center',
+    lineHeight: 18,
   },
 });

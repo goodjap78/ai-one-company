@@ -1,6 +1,7 @@
 export {
   getAiRecommendationSettings,
   getAiSettingsRevision,
+  resetAiRecommendationSettings,
   saveAiRecommendationSettings,
   updateAiRecommendationSettings,
 } from './aiRecommendationSettingsStorage';

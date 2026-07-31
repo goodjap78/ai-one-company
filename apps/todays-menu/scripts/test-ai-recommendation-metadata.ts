@@ -14,6 +14,7 @@ import {
   scoreMetadataPreferences,
 } from '../services/recommendation/mealIntelligence/aiRecommendationMetadataScoring';
 import {
+  createDefaultAiRecommendationSettings,
   DEFAULT_AI_RECOMMENDATION_SETTINGS,
   type AiRecommendationSettings,
 } from '../types/aiRecommendationSettings';
@@ -499,6 +500,53 @@ function testAiSettingsConfiguredDetection(): void {
   );
 }
 
+function testAiSettingsResetDefaults(): void {
+  console.log('\n## Test: AI 설정 초기화 기본값');
+  const reset = createDefaultAiRecommendationSettings();
+  const configuredSample: AiRecommendationSettings = {
+    ...DEFAULT_AI_RECOMMENDATION_SETTINGS,
+    spicyLevel: 'like',
+    preferredCuisines: ['korean', 'japanese'],
+    preferredDishTypes: ['noodle'],
+    preferredSituations: ['solo_meal'],
+    avoidedFoods: ['seafood'],
+    customAvoidedFood: '새우',
+    customFavoriteFood: '계란, 닭고기',
+    householdSize: 'two',
+    maxCookTime: '20',
+    updatedAt: new Date().toISOString(),
+  };
+
+  assert(
+    hasUserConfiguredAiRecommendationSettings(configuredSample),
+    'sample configured settings are detected',
+  );
+  assert(
+    !hasUserConfiguredAiRecommendationSettings(reset),
+    'factory defaults are not configured',
+  );
+  assert(reset.spicyLevel === null, 'reset spicyLevel is null');
+  assert(reset.preferredCuisines.length === 0, 'reset preferredCuisines is empty');
+  assert(reset.preferredDishTypes.length === 0, 'reset preferredDishTypes is empty');
+  assert(reset.preferredSituations.length === 0, 'reset preferredSituations is empty');
+  assert(reset.avoidedFoods.length === 0, 'reset avoidedFoods is empty');
+  assert(reset.customAvoidedFood === '', 'reset customAvoidedFood is empty');
+  assert(reset.customFavoriteFood === '', 'reset customFavoriteFood is empty');
+  assert(reset.householdSize === null, 'reset householdSize is null');
+  assert(reset.maxCookTime === null, 'reset maxCookTime is null');
+  assert(
+    reset.updatedAt === DEFAULT_AI_RECOMMENDATION_SETTINGS.updatedAt,
+    'factory preserves canonical updatedAt default',
+  );
+
+  const second = createDefaultAiRecommendationSettings();
+  second.preferredCuisines.push('korean');
+  assert(
+    reset.preferredCuisines.length === 0,
+    'factory returns independent array copies',
+  );
+}
+
 console.log('========== AI Recommendation Metadata QA ==========');
 for (const scenario of scenarios) {
   runScenario(scenario);
@@ -515,4 +563,5 @@ testSoloSituation();
 testMildSpicyPreference();
 testDefaultSettingsUnchanged();
 testAiSettingsConfiguredDetection();
+testAiSettingsResetDefaults();
 console.log('\n===================================================');
