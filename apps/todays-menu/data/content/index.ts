@@ -26,3 +26,8 @@ export {
   recipeToContentBase,
 } from './index/index';
 export type { ContentCatalogIndex } from './index/index';
+
+export {
+  HANKKI_CONTENT_CATALOG,
+  HANKKI_CONTENT_ITEMS,
+} from './hankkiContentCatalog';
