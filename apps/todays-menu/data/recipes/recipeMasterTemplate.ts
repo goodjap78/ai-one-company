@@ -9,8 +9,10 @@
  * missing values are derived so Batch 01/02 stay compatible.
  */
 import { deriveRecipeStandardMetadata } from './deriveRecipeStandardMetadata';
+import { deriveCollectionIds } from './deriveCollectionIds';
 import { enrichDecisionMetadata } from './enrichDecisionMetadata';
 import type { RecipeDecisionInput } from './decisionTypes';
+import type { CollectionId } from '../content/types/contentBase';
 import type { RecipeStandardMetadataOverride } from './recipeStandardMetadataTypes';
 import type {
   Recipe,
@@ -29,9 +31,13 @@ export type HankkiRecipeInput = Omit<
   | 'searchTags'
   | 'recommendationPriority'
   | 'standardMetadata'
+  | 'contentType'
+  | 'collectionIds'
 > & {
   image?: string;
   recipe: RecipeBody;
+  /** Optional manual collection override (merged with auto-derived ids). */
+  collectionIds?: CollectionId[];
 } & RecipeDecisionInput & {
   /** Optional per-recipe override for standardized metadata derivation. */
   standardMetadata?: RecipeStandardMetadataOverride;
@@ -138,6 +144,12 @@ export function createHankkiRecipe(input: HankkiRecipeInput): Recipe {
     input.standardMetadata,
   );
 
+  const collectionIds = deriveCollectionIds({
+    standardMetadata,
+    serving: input.serving,
+    override: input.collectionIds,
+  });
+
   return {
     id: input.id.trim(),
     name: input.name.trim(),
@@ -161,6 +173,8 @@ export function createHankkiRecipe(input: HankkiRecipeInput): Recipe {
     searchTags: decision.searchTags,
     recommendationPriority: decision.recommendationPriority,
     standardMetadata,
+    contentType: 'recipe',
+    collectionIds,
   };
 }
 

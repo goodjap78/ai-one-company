@@ -19,6 +19,7 @@
     "recipe-assets:generate": "npx tsx scripts/recipe-assets/index.ts --mode=generate",
     "recipe-assets:validate": "npx tsx scripts/recipe-assets/index.ts --mode=validate",
     "validate:hankki-recipes": "npx tsx scripts/validate-hankki-production.ts",
+    "validate:content-catalog": "npx tsx scripts/validate-content-catalog.ts",
     "validate:recipe-metadata": "npx tsx scripts/validate-recipe-standard-metadata.ts",
     "test:ai-recommendation-metadata": "npx tsx scripts/test-ai-recommendation-metadata.ts",
     "validate:recipe-factory": "npx tsx scripts/validate-recipe-factory.ts",

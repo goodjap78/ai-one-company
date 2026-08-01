@@ -7,6 +7,7 @@
 
 import type { RecipeDecisionTags } from './decisionTypes';
 import type { RecipeStandardMetadata } from './recipeStandardMetadataTypes';
+import type { CollectionId } from '../content/types/contentBase';
 
 export type {
   DecisionBudget,
@@ -127,4 +128,8 @@ export interface Recipe {
    * Attached via `createHankkiRecipe` — do not hand-author in batch files.
    */
   standardMetadata: RecipeStandardMetadata;
+
+  // ——— Sprint 46-B — Content catalog ———
+  contentType: 'recipe';
+  collectionIds: CollectionId[];
 }
