@@ -11,6 +11,7 @@ import { loadRecommendationContext } from '../../services/recommendation/recomme
 import { getPantry } from '../../services/pantry/pantryService';
 import type { FridgeRaidDisplayGroups } from '../../services/fridge/fridgeRaidTypes';
 import { FridgeRaidMealCard } from './FridgeRaidMealCard';
+import { FridgeShoppingBridge } from './FridgeShoppingBridge';
 import { ScreenBackButton } from '../ui/ScreenBackButton';
 import { ScreenLoading } from '../ui/ScreenLoading';
 import { screenLayout } from '../ui/screenLayout';
@@ -128,6 +129,8 @@ export function FridgeRaidResultsScreen() {
               <ResultSection title={FRIDGE_RAID_COPY.groupSideDishes} items={results.sideDishes} />
             </>
           )}
+
+          <FridgeShoppingBridge />
         </View>
       </ScrollView>
     </SafeAreaView>

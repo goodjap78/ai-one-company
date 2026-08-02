@@ -9,6 +9,7 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  useWindowDimensions,
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -18,6 +19,11 @@ import {
 } from '../../constants/fridgeRaidCopy';
 import { NAV_BACK } from '../../constants/navigationCopy';
 import { ds } from '../../constants/designSystem';
+import {
+  FRIDGE_CHIP_GAP,
+  FRIDGE_CHIP_MIN_HEIGHT,
+  resolveFridgeChipItemWidth,
+} from '../../constants/fridgeRaidChipLayout';
 import { getPantry, removePantryIngredient, registerPantryIngredient, clearPantry } from '../../services/pantry/pantryService';
 import {
   resolvePantryItemMatchKey,
@@ -34,6 +40,11 @@ const MAX_SELECTION = 40;
 
 export function FridgeRaidScreen() {
   const router = useRouter();
+  const { width: windowWidth } = useWindowDimensions();
+  const chipWidth = useMemo(
+    () => resolveFridgeChipItemWidth(windowWidth, FRIDGE_CHIP_GAP),
+    [windowWidth],
+  );
   const [items, setItems] = useState<PantryItem[]>([]);
   const [draft, setDraft] = useState('');
   const [loading, setLoading] = useState(true);
@@ -145,7 +156,7 @@ export function FridgeRaidScreen() {
 
               <View style={styles.section}>
                 <Text style={styles.sectionTitle}>{FRIDGE_RAID_COPY.popularTitle}</Text>
-                <View style={styles.chipRow}>
+                <View style={[styles.chipRow, { gap: FRIDGE_CHIP_GAP }]}>
                   {FRIDGE_POPULAR_CHIPS.map((chip) => {
                     const matchKey = resolvePantryItemMatchKey(chip.iconKey, chip.label);
                     const active = ownedMatchKeys.has(matchKey);
@@ -154,6 +165,10 @@ export function FridgeRaidScreen() {
                         key={`${chip.label}_${chip.iconKey}`}
                         style={({ pressed }) => [
                           styles.chip,
+                          {
+                            width: chipWidth,
+                            height: FRIDGE_CHIP_MIN_HEIGHT,
+                          },
                           active && styles.chipActive,
                           pressed && styles.chipPressed,
                         ]}
@@ -162,7 +177,12 @@ export function FridgeRaidScreen() {
                         accessibilityState={{ selected: active }}
                         accessibilityLabel={chip.label}
                       >
-                        <Text style={[styles.chipLabel, active && styles.chipLabelActive]}>
+                        <Text
+                          style={[styles.chipLabel, active && styles.chipLabelActive]}
+                          numberOfLines={2}
+                          adjustsFontSizeToFit
+                          minimumFontScale={0.8}
+                        >
                           {chip.label}
                         </Text>
                       </Pressable>
@@ -245,15 +265,15 @@ const styles = StyleSheet.create({
   chipRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: ds.spacing.sm,
   },
   chip: {
     borderRadius: ds.radius.chip,
     borderWidth: 1,
     borderColor: ds.colors.border,
     backgroundColor: ds.colors.card,
-    paddingHorizontal: ds.spacing.md,
-    paddingVertical: 8,
+    paddingHorizontal: 4,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   chipActive: {
     borderColor: ds.colors.primary,
@@ -264,6 +284,9 @@ const styles = StyleSheet.create({
   },
   chipLabel: {
     ...ds.typography.caption,
+    fontSize: 12,
+    lineHeight: 14,
+    textAlign: 'center',
     color: ds.colors.textPrimary,
     fontWeight: '600',
   },

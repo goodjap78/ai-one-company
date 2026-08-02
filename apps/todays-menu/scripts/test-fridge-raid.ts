@@ -31,6 +31,13 @@ import {
 } from '../types/aiRecommendationSettings';
 import type { PantrySnapshot } from '../types/pantry';
 import type { RecommendationContext } from '../types/preference';
+import {
+  FRIDGE_CHIP_COLUMNS_DEFAULT,
+  FRIDGE_CHIP_COLUMNS_NARROW,
+  resolveFridgeChipColumnCount,
+  resolveFridgeChipItemWidth,
+} from '../constants/fridgeRaidChipLayout';
+import { FRIDGE_SHOPPING_CONFIG } from '../constants/fridgeShoppingConfig';
 
 const ALL_RECIPES = HANKKI_RECIPES;
 
@@ -510,6 +517,32 @@ runScenario('시금치 선택 시 브로콜리-only 매칭 없음', () => {
     ...broccoliOnly.sideDishes,
   ];
   assert(broccoliHits.length === 0, 'broccoli must not match spinach-only recipe');
+});
+
+runScenario('인기 재료 칩 그리드 — 일반 폭 5열', () => {
+  assert(resolveFridgeChipColumnCount(390) === FRIDGE_CHIP_COLUMNS_DEFAULT);
+  assert(resolveFridgeChipColumnCount(430) === 5);
+});
+
+runScenario('인기 재료 칩 그리드 — 좁은 폭 4열', () => {
+  assert(resolveFridgeChipColumnCount(359) === FRIDGE_CHIP_COLUMNS_NARROW);
+  assert(resolveFridgeChipColumnCount(320) === 4);
+});
+
+runScenario('인기 재료 칩 동일 폭 계산', () => {
+  const widthAt430 = resolveFridgeChipItemWidth(430);
+  const widthAt320 = resolveFridgeChipItemWidth(320);
+  assert(widthAt430 > 0 && widthAt320 > 0);
+  assert(resolveFridgeChipItemWidth(430) === widthAt430);
+  assert(resolveFridgeChipItemWidth(320) === widthAt320);
+});
+
+runScenario('쇼핑 브릿지 비활성 — 외부 연결 없음', () => {
+  assert(FRIDGE_SHOPPING_CONFIG.enabled === false);
+  assert(!FRIDGE_SHOPPING_CONFIG.targetUrl);
+  assert(!FRIDGE_SHOPPING_CONFIG.bannerImageUrl);
+  assert(!FRIDGE_SHOPPING_CONFIG.provider);
+  assert(FRIDGE_SHOPPING_CONFIG.isAffiliate === false);
 });
 
 console.log('\nFridge Raid QA — done');
