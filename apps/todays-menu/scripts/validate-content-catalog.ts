@@ -19,9 +19,9 @@ import type { ConvenienceCombo } from '../data/content/types/convenienceCombo';
 import type { ContentBase } from '../data/content/types/contentBase';
 
 const REGISTERED_COLLECTION_IDS = new Set(listRegisteredCollectionIds());
-const EXPECTED_RECIPES = 140;
+const EXPECTED_RECIPES = 160;
 const EXPECTED_COMBOS = 50;
-const EXPECTED_TOTAL = 190;
+const EXPECTED_TOTAL = 210;
 const EXPECTED_SIDE_DISHES = listSideDishRecipeIds().length;
 const EXPECTED_HOME_MEALS = EXPECTED_RECIPES - EXPECTED_SIDE_DISHES;
 const SOLO_BATCH_IDS = new Set(

@@ -21,6 +21,7 @@ const SEAFOOD_ICON_KEYS = new Set([
   'fish_cake',
   'squid',
   'octopus',
+  'shrimp',
 ]);
 
 const SEAFOOD_NAME_PATTERN = /새우|게|조개|홍합|멸치|오징어|문어|전복|굴|해산|어묵|북어|고등어|갈치|꽁치|삼치|낙지|문어|조개|바지락/;

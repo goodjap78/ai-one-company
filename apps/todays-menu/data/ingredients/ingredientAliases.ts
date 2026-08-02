@@ -132,6 +132,8 @@ export const INGREDIENT_ALIASES: Record<string, string> = {
   김: 'seaweed',
   미역: 'seaweed',
   무: 'radish',
+  연근: 'lotus_root',
+  우엉: 'burdock',
   숙주: 'bean_sprout',
   고사리: 'bean_sprout',
   풋고추: 'green_chili',
@@ -249,6 +251,8 @@ export const INGREDIENT_ICON_CATEGORY: Record<string, IngredientIconCategory> = 
   jellyfish: 'meat',
   fishcake: 'processed',
   radish: 'vegetable',
+  lotus_root: 'vegetable',
+  burdock: 'vegetable',
   cheese: 'dairy',
   vinegar: 'sauce',
 };
@@ -303,7 +307,7 @@ export function inferIngredientIconCategory(rawName: string): IngredientIconCate
   if (/소금|설탕|후추|가루|마늘|양념/.test(n)) return 'seasoning';
   if (/햄|스팸|소시지|김치|두부|어묵|게맛살|맛살|유부/.test(n)) return 'processed';
   if (/고등어|갈치|멸치|생선|참치|오징어|새우|낙지|해파리/.test(n)) return 'meat';
-  if (/양파|파|당근|호박|버섯|감자|배추|상추|고추|채소|나물|깻잎|시금치|브로콜리/.test(n)) {
+  if (/양파|파|당근|호박|버섯|감자|배추|상추|고추|채소|나물|깻잎|시금치|브로콜리|연근|우엉/.test(n)) {
     return 'vegetable';
   }
   return 'generic';

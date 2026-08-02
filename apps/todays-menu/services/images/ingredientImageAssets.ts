@@ -57,6 +57,8 @@ export type IngredientImageKey =
   | 'anchovy'
   | 'tuna'
   | 'shrimp'
+  | 'lotus_root'
+  | 'burdock'
   | 'sausage'
   | 'fried_tofu'
   | 'imitation_crab'
@@ -188,6 +190,8 @@ export const KNOWN_INGREDIENT_IMAGE_KEYS = new Set<string>([
   'anchovy',
   'tuna',
   'shrimp',
+  'lotus_root',
+  'burdock',
   'sausage',
   'fried_tofu',
   'imitation_crab',

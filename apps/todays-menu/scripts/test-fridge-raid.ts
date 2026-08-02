@@ -451,7 +451,7 @@ runScenario('냉장고 반찬 그룹에는 SIDE_DISH만 표시', () => {
   );
 });
 
-runScenario('반찬 분류 정책 — 9개 핵심 메뉴 + 꽈리고추참치볶음', () => {
+runScenario('반찬 분류 정책 — SIDE_DISH 30개', () => {
   const expected = [
     '018',
     '029',
@@ -459,10 +459,30 @@ runScenario('반찬 분류 정책 — 9개 핵심 메뉴 + 꽈리고추참치볶
     '097',
     '098',
     '100',
+    'recipe_0128',
     'recipe_0136',
     'recipe_0137',
     'recipe_0138',
-    'recipe_0128',
+    'recipe_0141',
+    'recipe_0142',
+    'recipe_0143',
+    'recipe_0144',
+    'recipe_0145',
+    'recipe_0146',
+    'recipe_0147',
+    'recipe_0148',
+    'recipe_0149',
+    'recipe_0150',
+    'recipe_0151',
+    'recipe_0152',
+    'recipe_0153',
+    'recipe_0154',
+    'recipe_0155',
+    'recipe_0156',
+    'recipe_0157',
+    'recipe_0158',
+    'recipe_0159',
+    'recipe_0160',
   ];
   const classified = listSideDishRecipeIds().sort();
   assert(classified.length === expected.length, `expected ${expected.length} side dishes, got ${classified.length}`);
@@ -520,21 +540,103 @@ runScenario('시금치 선택 시 브로콜리-only 매칭 없음', () => {
 });
 
 runScenario('인기 재료 칩 그리드 — 일반 폭 5열', () => {
-  assert(resolveFridgeChipColumnCount(390) === FRIDGE_CHIP_COLUMNS_DEFAULT);
-  assert(resolveFridgeChipColumnCount(430) === 5);
+  assert(resolveFridgeChipColumnCount(390) === FRIDGE_CHIP_COLUMNS_DEFAULT, '390px should use 5 columns');
+  assert(resolveFridgeChipColumnCount(430) === 5, '430px should use 5 columns');
 });
 
 runScenario('인기 재료 칩 그리드 — 좁은 폭 4열', () => {
-  assert(resolveFridgeChipColumnCount(359) === FRIDGE_CHIP_COLUMNS_NARROW);
-  assert(resolveFridgeChipColumnCount(320) === 4);
+  assert(resolveFridgeChipColumnCount(359) === FRIDGE_CHIP_COLUMNS_NARROW, '359px should use 4 columns');
+  assert(resolveFridgeChipColumnCount(320) === 4, '320px should use 4 columns');
 });
 
 runScenario('인기 재료 칩 동일 폭 계산', () => {
   const widthAt430 = resolveFridgeChipItemWidth(430);
   const widthAt320 = resolveFridgeChipItemWidth(320);
-  assert(widthAt430 > 0 && widthAt320 > 0);
-  assert(resolveFridgeChipItemWidth(430) === widthAt430);
-  assert(resolveFridgeChipItemWidth(320) === widthAt320);
+  assert(widthAt430 > 0 && widthAt320 > 0, 'chip widths should be positive');
+  assert(resolveFridgeChipItemWidth(430) === widthAt430, '430px width should be stable');
+  assert(resolveFridgeChipItemWidth(320) === widthAt320, '320px width should be stable');
+});
+
+runScenario('새우·생선 matchKey 분리', () => {
+  const shrimpRecipe = ALL_RECIPES.find((item) => item.id === 'recipe_0149');
+  const sauryRecipe = ALL_RECIPES.find((item) => item.id === 'recipe_0158');
+  assert(Boolean(shrimpRecipe), '새우볶음 missing');
+  assert(Boolean(sauryRecipe), '꽁치간장조림 missing');
+
+  const shrimpResolved = resolveFridgeIngredientInput('새우');
+  assert(shrimpResolved?.iconKey === 'shrimp', '새우 -> shrimp');
+  assert(shrimpResolved?.matchKey === 'shrimp', '새우 matchKey -> shrimp');
+
+  const shrimpResults = scoreWithIconKeys(['shrimp']);
+  const shrimpHits = [
+    ...shrimpResults.ready,
+    ...shrimpResults.oneMissing,
+    ...shrimpResults.similar,
+    ...shrimpResults.sideDishes,
+  ];
+  assert(shrimpHits.some((item) => item.recipeId === shrimpRecipe!.id), 'shrimp should match 새우볶음');
+
+  const fishResults = scoreWithIconKeys(['fish_generic']);
+  const fishHits = [
+    ...fishResults.ready,
+    ...fishResults.oneMissing,
+    ...fishResults.similar,
+    ...fishResults.sideDishes,
+  ];
+  assert(!fishHits.some((item) => item.recipeId === shrimpRecipe!.id), 'fish_generic must not match 새우볶음');
+
+  const shrimpOnlyAgainstSaury = scoreWithIconKeys(['shrimp'], [sauryRecipe!]);
+  const sauryShrimpHits = [
+    ...shrimpOnlyAgainstSaury.ready,
+    ...shrimpOnlyAgainstSaury.oneMissing,
+    ...shrimpOnlyAgainstSaury.similar,
+    ...shrimpOnlyAgainstSaury.sideDishes,
+  ];
+  assert(sauryShrimpHits.length === 0, 'shrimp must not match fish-only 꽁치간장조림');
+});
+
+runScenario('연근·무 matchKey 분리', () => {
+  const lotusRecipe = ALL_RECIPES.find((item) => item.id === 'recipe_0151');
+  assert(Boolean(lotusRecipe), '연근조림 missing');
+
+  const lotusResolved = resolveFridgeIngredientInput('연근');
+  assert(lotusResolved?.iconKey === 'lotus_root', '연근 -> lotus_root');
+  assert(lotusResolved?.matchKey === 'lotus_root', '연근 matchKey -> lotus_root');
+
+  const lotusResults = scoreWithIconKeys(['lotus_root']);
+  const lotusHits = [...lotusResults.sideDishes];
+  assert(lotusHits.some((item) => item.recipeId === lotusRecipe!.id), 'lotus_root should match 연근조림');
+
+  const radishResults = scoreWithIconKeys(['radish']);
+  const radishHits = [...radishResults.sideDishes];
+  assert(!radishHits.some((item) => item.recipeId === lotusRecipe!.id), 'radish must not match 연근조림');
+});
+
+runScenario('우엉·당근 matchKey 분리', () => {
+  const burdockRecipe = ALL_RECIPES.find((item) => item.id === 'recipe_0152');
+  assert(Boolean(burdockRecipe), '우엉조림 missing');
+
+  const burdockResolved = resolveFridgeIngredientInput('우엉');
+  assert(burdockResolved?.iconKey === 'burdock', '우엉 -> burdock');
+  assert(burdockResolved?.matchKey === 'burdock', '우엉 matchKey -> burdock');
+
+  const burdockResults = scoreWithIconKeys(['burdock']);
+  const burdockHits = [...burdockResults.sideDishes];
+  assert(burdockHits.some((item) => item.recipeId === burdockRecipe!.id), 'burdock should match 우엉조림');
+
+  const carrotResults = scoreWithIconKeys(['carrot']);
+  const carrotHits = [...carrotResults.sideDishes];
+  assert(!carrotHits.some((item) => item.recipeId === burdockRecipe!.id), 'carrot must not match 우엉조림');
+});
+
+runScenario('해산물 제외 시 새우볶음 미노출', () => {
+  const shrimpRecipe = ALL_RECIPES.find((item) => item.id === 'recipe_0149');
+  assert(Boolean(shrimpRecipe), '새우볶음 missing');
+  const context = contextFor({ avoidedFoods: ['seafood'] });
+  assert(
+    !menuPassesAiRecommendationExclusions(recipeToFridgeMenuItem(shrimpRecipe!), context),
+    'seafood avoid should exclude 새우볶음',
+  );
 });
 
 runScenario('쇼핑 브릿지 비활성 — 외부 연결 없음', () => {

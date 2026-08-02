@@ -48,6 +48,7 @@ const ICON_KEY_ALLERGIES: Record<string, StandardAllergyTag[]> = {
   anchovy: ['fish'],
   fish_cake: ['fish'],
   squid: ['shellfish'],
+  shrimp: ['shellfish'],
   octopus: ['shellfish'],
   pork: ['pork'],
   beef: ['beef'],

@@ -13,6 +13,26 @@ export const SIDE_DISH_FORCE_IDS = new Set<string>([
   'recipe_0137', // 오이무침
   'recipe_0138', // 콩나물잡채
   'recipe_0128', // 꽈리고추참치볶음
+  'recipe_0141', // 콩나물무침
+  'recipe_0142', // 숙주나물
+  'recipe_0143', // 가지무침
+  'recipe_0144', // 무생채
+  'recipe_0145', // 미역초무침
+  'recipe_0146', // 어묵볶음
+  'recipe_0147', // 진미채볶음
+  'recipe_0148', // 감자채볶음
+  'recipe_0149', // 새우볶음
+  'recipe_0150', // 메추리알장조림
+  'recipe_0151', // 연근조림
+  'recipe_0152', // 우엉조림
+  'recipe_0153', // 꽈리고추감자조림
+  'recipe_0154', // 계란장조림
+  'recipe_0155', // 두부부침
+  'recipe_0156', // 두부강정
+  'recipe_0157', // 소고기장조림
+  'recipe_0158', // 꽁치간장조림
+  'recipe_0159', // 애호박전
+  'recipe_0160', // 두부전
 ]);
 
 /**
