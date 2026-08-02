@@ -17,4 +17,5 @@ export const HOME_HERO_FOCAL_OVERRIDES: Readonly<Record<string, HeroFocalPoint>>
   '078': { x: 0.5, y: 0.39 }, // 토마토파스타
   '084': { x: 0.5, y: 0.41 }, // 그릭요거트볼
   '098': { x: 0.5, y: 0.41 }, // 팟타이우동
+  'recipe_0110': { x: 0.5, y: 0.38 }, // 전자레인지계란찜 — centroid low, clear bottom mascot/tip
 };
