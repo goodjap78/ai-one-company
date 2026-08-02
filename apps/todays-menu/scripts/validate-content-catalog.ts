@@ -3,6 +3,8 @@
  * Run: npm run validate:content-catalog
  */
 import { HANKKI_RECIPES } from '../data/recipes/hankkiRecipes';
+import { listSideDishRecipeIds } from '../data/recipes/sideDishRecipeIds';
+import { recipeHasHomeCollection, recipeHasSideDishCollection } from '../data/recipes/sideDishPolicy';
 import { HANKKI_CONTENT_CATALOG } from '../data/content/hankkiContentCatalog';
 import { CONVENIENCE_COMBOS } from '../data/content/combos';
 import { listRegisteredCollectionIds } from '../data/content/collections/collectionRegistry';
@@ -20,6 +22,8 @@ const REGISTERED_COLLECTION_IDS = new Set(listRegisteredCollectionIds());
 const EXPECTED_RECIPES = 140;
 const EXPECTED_COMBOS = 50;
 const EXPECTED_TOTAL = 190;
+const EXPECTED_SIDE_DISHES = listSideDishRecipeIds().length;
+const EXPECTED_HOME_MEALS = EXPECTED_RECIPES - EXPECTED_SIDE_DISHES;
 const SOLO_BATCH_IDS = new Set(
   Array.from({ length: 20 }, (_, i) => `recipe_${String(101 + i).padStart(4, '0')}`),
 );
@@ -92,7 +96,18 @@ function runChecks(): CheckResult[] {
       results.push(check(false, `[${recipe.id}] contentType is not recipe`));
     }
 
-    if (!recipe.collectionIds.includes('HOME')) {
+    const isSideDish = recipeHasSideDishCollection(recipe.collectionIds);
+    const isHomeMeal = recipeHasHomeCollection(recipe.collectionIds);
+
+    if (isSideDish && isHomeMeal) {
+      results.push(check(false, `[${recipe.id}] cannot belong to HOME and SIDE_DISH`));
+    }
+
+    if (isSideDish && !recipe.collectionIds.includes('SIDE_DISH')) {
+      results.push(check(false, `[${recipe.id}] missing SIDE_DISH collection`));
+    }
+
+    if (!isSideDish && !isHomeMeal) {
       results.push(check(false, `[${recipe.id}] missing HOME collection`));
     }
 
@@ -143,8 +158,14 @@ function runChecks(): CheckResult[] {
   );
   results.push(
     check(
-      getContentIdsByCollection(index, 'HOME').size === EXPECTED_RECIPES,
-      `HOME collection size === ${EXPECTED_RECIPES} (got ${getContentIdsByCollection(index, 'HOME').size})`,
+      getContentIdsByCollection(index, 'HOME').size === EXPECTED_HOME_MEALS,
+      `HOME collection size === ${EXPECTED_HOME_MEALS} (got ${getContentIdsByCollection(index, 'HOME').size})`,
+    ),
+  );
+  results.push(
+    check(
+      getContentIdsByCollection(index, 'SIDE_DISH').size === EXPECTED_SIDE_DISHES,
+      `SIDE_DISH collection size === ${EXPECTED_SIDE_DISHES} (got ${getContentIdsByCollection(index, 'SIDE_DISH').size})`,
     ),
   );
   results.push(

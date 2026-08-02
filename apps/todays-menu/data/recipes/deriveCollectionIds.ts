@@ -1,7 +1,12 @@
 import type { CollectionId } from '../content/types/contentBase';
 import type { RecipeStandardMetadata } from './recipeStandardMetadataTypes';
+import { isSideDishRecipe } from './sideDishPolicy';
 
 export type DeriveCollectionIdsInput = {
+  recipeId: string;
+  name: string;
+  category: string[];
+  ingredients: Array<{ group: 'main' | 'sub' | 'seasoning'; iconKey: string }>;
   standardMetadata: RecipeStandardMetadata;
   serving: number;
   /** Merged with auto-derived ids; duplicates removed. */
@@ -20,7 +25,19 @@ export function deriveCollectionIds(input: DeriveCollectionIdsInput): Collection
   const { standardMetadata, serving } = input;
   const ids = new Set<CollectionId>();
 
-  ids.add('HOME');
+  const sideDish = isSideDishRecipe({
+    id: input.recipeId,
+    name: input.name,
+    category: input.category,
+    standardMetadata,
+    ingredients: input.ingredients,
+  });
+
+  if (sideDish) {
+    ids.add('SIDE_DISH');
+  } else {
+    ids.add('HOME');
+  }
 
   if (standardMetadata.situationTags.includes('solo_meal') || serving <= 1) {
     ids.add('SOLO');

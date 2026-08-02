@@ -145,6 +145,10 @@ export function createHankkiRecipe(input: HankkiRecipeInput): Recipe {
   );
 
   const collectionIds = deriveCollectionIds({
+    recipeId: input.id.trim(),
+    name: input.name.trim(),
+    category: input.category,
+    ingredients,
     standardMetadata,
     serving: input.serving,
     override: input.collectionIds,

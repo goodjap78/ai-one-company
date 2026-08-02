@@ -1,5 +1,6 @@
 import { ScrollView, StyleSheet, View } from 'react-native';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
+import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ComingSoonSurveyModal } from '../surveys/ComingSoonSurveyModal';
 import { useComingSoonSurvey } from '../surveys/useComingSoonSurvey';
@@ -15,6 +16,7 @@ import { TodayMealCard } from './TodayMealCard';
 import { Toast } from './Toast';
 import { useHomeScreen } from './useHomeScreen';
 import { logHomeRootMount, logHomeRootUnmount } from '../../utils/homeDebugLog';
+import type { ComingSoonFeatureId } from '../../types/featureSurvey';
 
 type Props = {
   nickname: string;
@@ -25,6 +27,7 @@ type Props = {
  * Coming Soon taps open priority surveys (H3-12) without changing card layout.
  */
 export function HomeScreen({ nickname }: Props) {
+  const router = useRouter();
   const rootMountCount = useRef(0);
 
   useEffect(() => {
@@ -67,6 +70,17 @@ export function HomeScreen({ nickname }: Props) {
   const { scrollPaddingBottom } = useTabScreenPadding();
   const modeSelectorDisabled = screenState === 'loading';
 
+  const handleComingSoonPress = useCallback(
+    (featureId: ComingSoonFeatureId) => {
+      if (featureId === 'fridge') {
+        router.push('/fridge-raid');
+        return;
+      }
+      openSurvey(featureId);
+    },
+    [openSurvey, router],
+  );
+
   return (
     // Top only — bottom inset is owned by the tab bar.
     <SafeAreaView style={styles.safeArea} edges={['top']}>
@@ -106,7 +120,7 @@ export function HomeScreen({ nickname }: Props) {
               onRetry={handleRetry}
             />
 
-            <HomeComingSoonSection onComingSoonPress={openSurvey} />
+            <HomeComingSoonSection onComingSoonPress={handleComingSoonPress} />
             <HomeRewardCard onPress={() => openSurvey('reward')} />
           </View>
         </ScrollView>

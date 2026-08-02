@@ -165,6 +165,13 @@ export const COLLECTION_REGISTRY: CollectionDefinition[] = [
     sortOrder: 320,
     status: 'hidden',
   },
+  {
+    id: 'SIDE_DISH',
+    label: '반찬',
+    description: '한 끼에 곁들이기 좋은 반찬',
+    sortOrder: 330,
+    status: 'hidden',
+  },
 ];
 
 const REGISTRY_BY_ID = new Map<CollectionId, CollectionDefinition>(

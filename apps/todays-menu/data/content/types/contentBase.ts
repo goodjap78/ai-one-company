@@ -34,6 +34,7 @@ export const COLLECTION_IDS = [
   'POPULAR',
   'NEW',
   'EDITOR_PICK',
+  'SIDE_DISH',
 ] as const;
 export type CollectionId = (typeof COLLECTION_IDS)[number];
 

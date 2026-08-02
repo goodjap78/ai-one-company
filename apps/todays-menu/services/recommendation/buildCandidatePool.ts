@@ -10,6 +10,7 @@ import {
   menuPassesCookTimeHardFilter,
 } from './cookTimePreference';
 import { menuPassesAiRecommendationExclusions } from './mealIntelligence/aiRecommendationExclusions';
+import { isSideDishRecipeId } from '../../data/recipes/sideDishRecipeIds';
 
 const DEBUG_PREFIX = '[HANKKI candidates]';
 
@@ -52,6 +53,10 @@ export function logCandidatePoolDebug(debug: CandidatePoolDebug): void {
 
 function filterByMode(menus: MenuItem[], mealMode: MealMode): MenuItem[] {
   return menus.filter((menu) => menu.mode === mealMode);
+}
+
+function filterHomeMealCandidates(menus: MenuItem[]): MenuItem[] {
+  return menus.filter((menu) => !isSideDishRecipeId(menu.id));
 }
 
 export type CandidatePoolRelaxation =
@@ -191,8 +196,9 @@ export function buildRecommendationCandidatePool(input: {
   } = input;
 
   const afterMode = filterByMode(menus, mealMode);
+  const afterHomeMeal = filterHomeMealCandidates(afterMode);
   const { pool: afterMealType, usedFallback } = filterByMealType(
-    afterMode,
+    afterHomeMeal,
     mealType,
     poolOptions,
   );
