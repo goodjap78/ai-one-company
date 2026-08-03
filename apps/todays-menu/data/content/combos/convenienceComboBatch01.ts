@@ -1,9 +1,9 @@
 /**
  * Sprint 46-C — Convenience combos combo_0001–combo_0025.
  */
-import type { ConvenienceCombo } from '../types/convenienceCombo';
+import type { ConvenienceComboDraft } from '../types/convenienceCombo';
 
-export const CONVENIENCE_COMBO_BATCH_01: ConvenienceCombo[] = [
+export const CONVENIENCE_COMBO_BATCH_01: ConvenienceComboDraft[] = [
   {
     id: 'combo_0001',
     contentType: 'combo',

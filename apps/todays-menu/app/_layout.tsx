@@ -39,6 +39,7 @@ export default function RootLayout() {
         <Stack.Screen name="fridge-raid/index" />
         <Stack.Screen name="fridge-raid/results" />
         <Stack.Screen name="convenience-combos/index" />
+        <Stack.Screen name="convenience-combos/[id]" />
       </Stack>
     </SafeAreaProvider>
   );
