@@ -344,11 +344,21 @@ runScenario('pantry matchKey 스냅샷 복원', () => {
   assert(pantry.matchKeys.includes('onion') && pantry.matchKeys.includes('egg'), 'match keys restored');
 });
 
-runScenario('홈 준비 중 카드 설문 배지 유지 (냉장고 제외)', () => {
-  const others = northStarHomeCopy.comingSoon.cards.filter((card) => card.id !== 'fridge');
-  assert(others.every((card) => card.badge === '준비 중'), 'other coming-soon cards should stay 준비 중');
-  const fridge = northStarHomeCopy.comingSoon.cards.find((card) => card.id === 'fridge');
-  assert(fridge?.badge === '지금 시작', 'fridge card should show live badge');
+runScenario('홈 준비 중 카드 설문 배지 유지 (상단 냉장고 제외)', () => {
+  const cards = northStarHomeCopy.comingSoon.cards;
+  assert(cards.length === 4, 'coming soon grid should have 4 cards');
+  assert(
+    cards.every((card) => card.badge === '준비 중'),
+    'coming-soon cards should show 준비 중 badge',
+  );
+  assert(
+    !cards.some((card) => card.id === 'fridge' || card.id === 'pet'),
+    'fridge and pet should be hidden from home coming-soon grid',
+  );
+  assert(
+    cards.some((card) => card.id === 'dineOut'),
+    'dineOut card should be in coming-soon grid',
+  );
 });
 
 runScenario('결과 카드 recipeId는 상세 라우트로 연결 가능', () => {

@@ -72,13 +72,9 @@ export function HomeScreen({ nickname }: Props) {
 
   const handleComingSoonPress = useCallback(
     (featureId: ComingSoonFeatureId) => {
-      if (featureId === 'fridge') {
-        router.push('/fridge-raid');
-        return;
-      }
       openSurvey(featureId);
     },
-    [openSurvey, router],
+    [openSurvey],
   );
 
   return (
@@ -103,8 +99,9 @@ export function HomeScreen({ nickname }: Props) {
             <HomeFeatureCards
               mealMode={mealMode}
               disabled={modeSelectorDisabled}
-              onHomemadePress={() => handleMealModeChange('homemade')}
-              onComingSoonPress={openSurvey}
+              onRecommendationPress={() => handleMealModeChange('homemade')}
+              onConveniencePress={() => router.push('/convenience-combos')}
+              onFridgePress={() => router.push('/fridge-raid')}
             />
 
             <TodayMealCard
