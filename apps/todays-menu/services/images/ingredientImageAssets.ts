@@ -25,6 +25,14 @@ export type IngredientImageKey =
   | 'cabbage'
   | 'spinach'
   | 'broccoli'
+  | 'avocado'
+  | 'banana'
+  | 'blueberry'
+  | 'butter'
+  | 'milk'
+  | 'salmon'
+  | 'seed'
+  | 'tomato'
   | 'bean_sprout'
   | 'green_chili'
   | 'sweet_potato'
@@ -83,6 +91,7 @@ export const INGREDIENT_IMAGE_ASSETS: Partial<
   beef: require('../../assets/ingredients/beef.png'),
   blueberry: require('../../assets/ingredients/blueberry.png'),
   bread_crumbs: require('../../assets/ingredients/bread_crumbs.png'),
+  burdock: require('../../assets/ingredients/burdock.png'),
   butter: require('../../assets/ingredients/butter.png'),
   cabbage: require('../../assets/ingredients/cabbage.png'),
   carrot: require('../../assets/ingredients/carrot.png'),
@@ -92,10 +101,8 @@ export const INGREDIENT_IMAGE_ASSETS: Partial<
   curry_powder: require('../../assets/ingredients/curry_powder.png'),
   doenjang: require('../../assets/ingredients/doenjang.png'),
   egg: require('../../assets/ingredients/egg.png'),
-  fish: require('../../assets/ingredients/fish.png'),
   fish_cake: require('../../assets/ingredients/fish_cake.png'),
   fish_generic: require('../../assets/ingredients/fish_generic.png'),
-  fishcake: require('../../assets/ingredients/fishcake.png'),
   flour: require('../../assets/ingredients/flour.png'),
   fried_tofu: require('../../assets/ingredients/fried_tofu.png'),
   garlic: require('../../assets/ingredients/garlic.png'),
@@ -105,6 +112,7 @@ export const INGREDIENT_IMAGE_ASSETS: Partial<
   green_onion: require('../../assets/ingredients/green_onion.png'),
   ham: require('../../assets/ingredients/ham.png'),
   kimchi: require('../../assets/ingredients/kimchi.png'),
+  lotus_root: require('../../assets/ingredients/lotus_root.png'),
   mackerel: require('../../assets/ingredients/mackerel.png'),
   milk: require('../../assets/ingredients/milk.png'),
   mushroom: require('../../assets/ingredients/mushroom.png'),
@@ -125,6 +133,7 @@ export const INGREDIENT_IMAGE_ASSETS: Partial<
   seaweed: require('../../assets/ingredients/seaweed.png'),
   seed: require('../../assets/ingredients/seed.png'),
   sesame_oil: require('../../assets/ingredients/sesame_oil.png'),
+  shrimp: require('../../assets/ingredients/shrimp.png'),
   soy_sauce: require('../../assets/ingredients/soy_sauce.png'),
   spinach: require('../../assets/ingredients/spinach.png'),
   squid: require('../../assets/ingredients/squid.png'),

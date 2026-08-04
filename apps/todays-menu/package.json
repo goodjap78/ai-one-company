@@ -57,6 +57,7 @@
     "ingredient:generate": "npx tsx scripts/ingredient-factory/commands/generate.ts",
     "ingredient:approve": "npx tsx scripts/ingredient-factory/commands/approve.ts",
     "ingredient:validate": "npx tsx scripts/ingredient-factory/commands/validate.ts",
+    "ingredient:restore-approvals": "npx tsx scripts/ingredient-factory/commands/restore-approvals.ts",
     "step:queue": "npx tsx scripts/step-image-factory/commands/queue.ts",
     "step:generate": "npx tsx scripts/step-image-factory/commands/generate.ts",
     "step:approve": "npx tsx scripts/step-image-factory/commands/approve.ts",
