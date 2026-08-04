@@ -12,6 +12,17 @@ type Props = {
   useRemote?: boolean;
 };
 
+/** Align with MealImageView — remount when meal image identity changes on web. */
+function resolveHomeHeroImageKey(
+  recipeId: string,
+  image: RecipeImage,
+  useRemote: boolean,
+): string {
+  if (useRemote && image.url) return `${recipeId}:url:${image.url}`;
+  if (image.source != null) return `${recipeId}:src:${String(image.source)}`;
+  return `${recipeId}:emoji:${image.emoji ?? ''}`;
+}
+
 /**
  * Home hero food layer with consistent focal positioning.
  * Detail / thumb screens keep using plain MealImageView.
@@ -30,10 +41,12 @@ export function HomeHeroFocalImage({
   const source = useRemote && image.url ? { uri: image.url } : image.source;
   if (!source) return null;
 
+  const imageKey = resolveHomeHeroImageKey(recipeId, image, useRemote);
+
   return (
     <View style={styles.clip}>
       <Image
-        key={`focal-${recipeId}-${useRemote ? 'url' : 'local'}`}
+        key={`focal-${imageKey}`}
         source={source}
         style={[styles.image, layout, style]}
         resizeMode="cover"
