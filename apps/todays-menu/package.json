@@ -39,6 +39,8 @@
     "hero:approve": "npx tsx scripts/image-factory/commands/approve.ts",
     "hero:rollback": "npx tsx scripts/image-factory/commands/rollback.ts",
     "hero:validate": "npx tsx scripts/image-factory/commands/validate.ts",
+    "hero:reset-side-dishes": "npx tsx scripts/image-factory/commands/reset-side-dishes.ts",
+    "hero:audit-side-dishes": "npx tsx scripts/image-factory/commands/audit-side-dishes.ts",
     "content-center": "npx tsx scripts/content-center/commands/launch.ts",
     "content:scale": "npx tsx scripts/content-center/commands/scaleContent2.ts",
     "produce:progress": "npx tsx scripts/content-center/commands/produceProgress.ts",
