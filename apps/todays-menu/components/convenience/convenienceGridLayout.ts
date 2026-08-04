@@ -47,3 +47,13 @@ export function resolveConvenienceCardWidth(
     (contentWidth - gap * (columns - 1)) / columns,
   );
 }
+
+/** List card hero — fixed height (not width-scaled aspect ratio). */
+export const CONVENIENCE_CARD_HERO_HEIGHT_MOBILE = 196;
+export const CONVENIENCE_CARD_HERO_HEIGHT_DESKTOP = 168;
+
+export function resolveConvenienceCardHeroHeight(width: number): number {
+  return width >= CONVENIENCE_GRID_BREAKPOINTS.twoCol
+    ? CONVENIENCE_CARD_HERO_HEIGHT_DESKTOP
+    : CONVENIENCE_CARD_HERO_HEIGHT_MOBILE;
+}

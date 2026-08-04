@@ -475,9 +475,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     width: '100%',
+    alignItems: 'stretch',
   },
   gridItem: {
     minWidth: 0,
+    flexDirection: 'column',
   },
   gridItemFull: {
     width: '100%',

@@ -1,5 +1,5 @@
 import * as Haptics from 'expo-haptics';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { convenienceCombosCopy } from '../../constants/convenienceCombosCopy';
 import { ds } from '../../constants/designSystem';
 import type { ConvenienceCombo } from '../../data/content/types/convenienceCombo';
@@ -12,12 +12,14 @@ import {
   situationTagToLabel,
   summarizeAssemblyGuide,
 } from '../../services/convenience/convenienceComboCatalog';
+import { resolveConvenienceComboImage } from '../../services/images/resolveConvenienceComboImage';
 import { FavoriteHeartButton } from '../favorites/FavoriteHeartButton';
+import { resolveConvenienceCardHeroHeight } from './convenienceGridLayout';
 
-const CARD_MIN_HEIGHT = 148;
 const TITLE_LINES = 2;
 const DESC_LINES = 2;
 const ITEMS_LINES = 2;
+const BODY_MIN_HEIGHT = 228;
 
 type Props = {
   combo: ConvenienceCombo;
@@ -34,6 +36,8 @@ export function ConvenienceComboCard({
   onView,
   accentColor = '#E8834A',
 }: Props) {
+  const { width: windowWidth } = useWindowDimensions();
+  const heroHeight = resolveConvenienceCardHeroHeight(windowWidth);
   const situationTag = getPrimarySituationTag(combo);
   const situationLabel = situationTag ? situationTagToLabel(situationTag) : null;
   const { visible, extraCount } = formatComboItemsPreview(combo.items);
@@ -53,80 +57,92 @@ export function ConvenienceComboCard({
   const highlightLine = isHack
     ? summarizeAssemblyGuide(combo.assemblyGuide, 2)
     : visible.join(' · ') + (extraCount > 0 ? ` ${convenienceCombosCopy.extraItems(extraCount)}` : '');
-  const descriptionLine = isHack
-    ? combo.whyItWorks
-    : combo.whyItWorks;
+  const descriptionLine = combo.whyItWorks;
+  const heroImage = resolveConvenienceComboImage(combo);
 
   return (
-    <View style={[styles.card, { minHeight: CARD_MIN_HEIGHT }]}>
-      <View style={[styles.accentBar, { backgroundColor: accentColor }]} />
-      <View style={styles.body}>
-        <View style={styles.topRow}>
-          <View style={styles.tagRow}>
-            <View
-              style={[
-                styles.kindBadge,
-                isHack ? styles.kindBadgeHack : styles.kindBadgeEasy,
-              ]}
-            >
-              <Text
-                style={[
-                  styles.kindBadgeText,
-                  isHack ? styles.kindBadgeTextHack : styles.kindBadgeTextEasy,
-                ]}
-                numberOfLines={1}
-              >
-                {kindLabel}
-              </Text>
-            </View>
-            {situationLabel ? (
-              <View style={styles.situationTag}>
-                <Text style={styles.situationTagText} numberOfLines={1}>
-                  {situationLabel}
-                </Text>
-              </View>
-            ) : null}
-            <Text style={styles.storeLabel} numberOfLines={1}>
-              {formatStoreScopeLabel(combo.storeScope)}
-            </Text>
-          </View>
-          <FavoriteHeartButton
-            isFavorite={isFavorite}
-            onPress={onToggleFavorite}
-            size="sm"
+    <View style={styles.card}>
+      {heroImage ? (
+        <View style={[styles.heroWrap, { height: heroHeight }]}>
+          <Image
+            source={heroImage}
+            style={styles.heroImage}
+            resizeMode="cover"
+            accessibilityIgnoresInvertColors
           />
         </View>
+      ) : (
+        <View style={[styles.accentBar, { backgroundColor: accentColor }]} />
+      )}
+      <View style={styles.body}>
+        <View style={styles.contentBlock}>
+          <View style={styles.topRow}>
+            <View style={styles.tagRow}>
+              <View
+                style={[
+                  styles.kindBadge,
+                  isHack ? styles.kindBadgeHack : styles.kindBadgeEasy,
+                ]}
+              >
+                <Text
+                  style={[
+                    styles.kindBadgeText,
+                    isHack ? styles.kindBadgeTextHack : styles.kindBadgeTextEasy,
+                  ]}
+                  numberOfLines={1}
+                >
+                  {kindLabel}
+                </Text>
+              </View>
+              {situationLabel ? (
+                <View style={styles.situationTag}>
+                  <Text style={styles.situationTagText} numberOfLines={1}>
+                    {situationLabel}
+                  </Text>
+                </View>
+              ) : null}
+              <Text style={styles.storeLabel} numberOfLines={1}>
+                {formatStoreScopeLabel(combo.storeScope)}
+              </Text>
+            </View>
+            <FavoriteHeartButton
+              isFavorite={isFavorite}
+              onPress={onToggleFavorite}
+              size="sm"
+            />
+          </View>
 
-        <View style={styles.titleArea}>
-          <Text style={styles.title} numberOfLines={TITLE_LINES} ellipsizeMode="tail">
-            {displayTitle}
-          </Text>
-          {subtitle ? (
-            <Text style={styles.subtitle} numberOfLines={1} ellipsizeMode="tail">
-              {subtitle}
+          <View style={styles.titleArea}>
+            <Text style={styles.title} numberOfLines={TITLE_LINES} ellipsizeMode="tail">
+              {displayTitle}
+            </Text>
+            {subtitle ? (
+              <Text style={styles.subtitle} numberOfLines={1} ellipsizeMode="tail">
+                {subtitle}
+              </Text>
+            ) : null}
+          </View>
+
+          <View style={styles.itemsArea}>
+            <Text style={styles.itemsLabel} numberOfLines={1}>
+              {isHack ? convenienceCombosCopy.assemblyHackHint : convenienceCombosCopy.assemblyEasyHint}
+            </Text>
+            <Text style={styles.itemsText} numberOfLines={ITEMS_LINES} ellipsizeMode="tail">
+              {highlightLine}
+            </Text>
+          </View>
+
+          {metaLine ? (
+            <Text style={styles.metaLine} numberOfLines={1} ellipsizeMode="tail">
+              {metaLine}
             </Text>
           ) : null}
-        </View>
 
-        <View style={styles.itemsArea}>
-          <Text style={styles.itemsLabel} numberOfLines={1}>
-            {isHack ? convenienceCombosCopy.assemblyHackHint : convenienceCombosCopy.assemblyEasyHint}
-          </Text>
-          <Text style={styles.itemsText} numberOfLines={ITEMS_LINES} ellipsizeMode="tail">
-            {highlightLine}
-          </Text>
-        </View>
-
-        {metaLine ? (
-          <Text style={styles.metaLine} numberOfLines={1} ellipsizeMode="tail">
-            {metaLine}
-          </Text>
-        ) : null}
-
-        <View style={styles.descArea}>
-          <Text style={styles.description} numberOfLines={DESC_LINES} ellipsizeMode="tail">
-            {descriptionLine}
-          </Text>
+          <View style={styles.descArea}>
+            <Text style={styles.description} numberOfLines={DESC_LINES} ellipsizeMode="tail">
+              {descriptionLine}
+            </Text>
+          </View>
         </View>
 
         <Pressable
@@ -147,6 +163,7 @@ export function ConvenienceComboCard({
 
 const styles = StyleSheet.create({
   card: {
+    flex: 1,
     backgroundColor: ds.colors.card,
     borderRadius: ds.radius.card,
     borderWidth: StyleSheet.hairlineWidth,
@@ -159,12 +176,29 @@ const styles = StyleSheet.create({
     height: 3,
     width: '100%',
   },
+  heroWrap: {
+    width: '100%',
+    overflow: 'hidden',
+    backgroundColor: '#F3E7DB',
+    position: 'relative',
+  },
+  heroImage: {
+    ...StyleSheet.absoluteFillObject,
+    width: '100%',
+    height: '100%',
+  },
   body: {
     flex: 1,
+    minHeight: BODY_MIN_HEIGHT,
     paddingHorizontal: 12,
     paddingTop: 10,
     paddingBottom: 10,
+    justifyContent: 'space-between',
+    gap: 8,
+  },
+  contentBlock: {
     gap: 4,
+    flexShrink: 1,
   },
   topRow: {
     flexDirection: 'row',
@@ -274,7 +308,6 @@ const styles = StyleSheet.create({
     color: ds.colors.warmText,
   },
   viewButton: {
-    marginTop: 2,
     alignSelf: 'stretch',
     backgroundColor: ds.colors.primary,
     borderRadius: ds.radius.button,
