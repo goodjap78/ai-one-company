@@ -25,6 +25,7 @@
     "test:ai-recommendation-metadata": "npx tsx scripts/test-ai-recommendation-metadata.ts",
     "test:fridge-raid": "npx tsx scripts/test-fridge-raid.ts",
     "test:convenience-combos": "npx tsx scripts/test-convenience-combos.ts",
+    "test:serving-scaler": "npx tsx scripts/test-serving-scaler.ts",
     "validate:recipe-factory": "npx tsx scripts/validate-recipe-factory.ts",
     "recipes:validate": "npx tsx scripts/recipe-factory/validateRecipes.ts",
     "recipes:production-report": "npx tsx scripts/recipe-factory/writeProductionReport.ts",
