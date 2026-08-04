@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import {
   Alert,
+  Image,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -26,6 +27,7 @@ import {
   getConvenienceFavoriteIds,
   toggleConvenienceFavorite,
 } from '../../services/convenience/convenienceFavoritesStorage';
+import { resolveConvenienceComboImage } from '../../services/images/resolveConvenienceComboImage';
 import { FavoriteHeartButton } from '../favorites/FavoriteHeartButton';
 import { ScreenBackButton } from '../ui/ScreenBackButton';
 import { screenLayout } from '../ui/screenLayout';
@@ -143,6 +145,7 @@ function ComboDetailContent({
     isHack &&
     combo.transformationName &&
     combo.transformationName.trim() !== combo.title.trim();
+  const heroImage = resolveConvenienceComboImage(combo);
 
   return (
     <SafeAreaView style={screenLayout.safeArea} edges={['top', 'bottom']}>
@@ -159,6 +162,15 @@ function ComboDetailContent({
               />
               <FavoriteHeartButton isFavorite={isFavorite} onPress={onToggleFavorite} />
             </View>
+
+            {heroImage ? (
+              <Image
+                source={heroImage}
+                style={styles.detailHeroImage}
+                resizeMode="cover"
+                accessibilityIgnoresInvertColors
+              />
+            ) : null}
 
             <View style={styles.hero}>
               <View style={styles.tagRow}>
@@ -300,6 +312,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: ds.spacing.sm,
+  },
+  detailHeroImage: {
+    width: '100%',
+    aspectRatio: 16 / 9,
+    borderRadius: ds.radius.card,
+    backgroundColor: '#F3E7DB',
+    ...ds.shadow.card,
   },
   hero: {
     gap: ds.spacing.sm,

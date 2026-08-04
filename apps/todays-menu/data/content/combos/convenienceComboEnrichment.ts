@@ -16,11 +16,13 @@ type ComboEnrichment = {
   description?: string;
   items?: { name: string }[];
   assemblyGuide?: string[];
+  imageKey?: string;
 };
 
 const PATCHES: Record<string, ComboEnrichment> = {
   combo_0001: {
     comboKind: 'hack_combo',
+    imageKey: 'triangle_kimbap_rice_noodle_combo',
     title: '삼각김밥 라밥',
     transformationName: '삼각김밥 라밥',
     description: '끓인 컵라면에 삼각김밥을 넣고 비벼 라밥처럼 먹어요.',
@@ -185,6 +187,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0020: {
     comboKind: 'hack_combo',
+    imageKey: 'spicy_cheese_stir_noodles_combo',
     title: '매운 볶음면 치즈',
     transformationName: '치즈 매운볶음면',
     description: '매운 볶음면에 치즈를 넣어 맵기를 부드럽게 완화해요.',
@@ -401,6 +404,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0044: {
     comboKind: 'hack_combo',
+    imageKey: 'ice_cream_coffee_combo',
     title: '아이스크림 커피',
     transformationName: '아포가토 스타일',
     description: '바닐라 아이스크림에 커피를 부어 디저트를 만들어요.',

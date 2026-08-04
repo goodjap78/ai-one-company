@@ -32,6 +32,7 @@ import {
   removeConvenienceFavorite,
 } from '../services/convenience/convenienceFavoritesStorage';
 import type { ConvenienceCombo } from '../data/content/types/convenienceCombo';
+import { COMBO_IMAGE_PILOT_IDS } from '../data/content/combos/convenienceComboImagePilots';
 import { convenienceCombosCopy } from '../constants/convenienceCombosCopy';
 
 const memoryStore = new Map<string, string>();
@@ -263,13 +264,52 @@ async function main(): Promise<void> {
     path.join(__dirname, '../components/convenience/ConvenienceComboCard.tsx'),
     'utf8',
   );
-  assert(cardSource.includes('CARD_MIN_HEIGHT = 148'), 'compact card height');
+  assert(cardSource.includes('BODY_MIN_HEIGHT'), 'card body min height');
+  assert(cardSource.includes('resolveConvenienceCardHeroHeight'), 'responsive hero height');
   assert(cardSource.includes('hasDistinctTransformation'), 'card title 중복 표시 방지');
   assert(detailSource.includes('whyItWorks'), 'detail whyItWorks retained');
   assert(cardSource.includes('numberOfLines={DESC_LINES}'), 'description line limit');
 
   assert(detailSource.includes('assemblyGuide'), 'detail assemblyGuide retained');
   assert(detailSource.includes('hasDistinctTransformation'), 'detail title 중복 표시 방지');
+
+  const withImageKey = ALL.filter((c) => c.imageKey);
+  assert(withImageKey.length === 3, 'pilot imageKey 3개만');
+  assert(ALL.length - withImageKey.length === 47, '나머지 imageKey 없음');
+  for (const pilotId of COMBO_IMAGE_PILOT_IDS) {
+    const pilot = getConvenienceComboById(pilotId);
+    assert(Boolean(pilot?.imageKey), `pilot ${pilotId} imageKey`);
+  }
+  const combo20 = getConvenienceComboById('combo_0020')!;
+  assert(
+    combo20.imageKey === 'spicy_cheese_stir_noodles_combo',
+    'combo_0020 imageKey',
+  );
+  const noImageCombo = ALL.find((c) => !c.imageKey)!;
+  assert(Boolean(noImageCombo), 'imageKey 없는 조합 존재');
+  const registrySource = fs.readFileSync(
+    path.join(__dirname, '../services/images/convenienceComboImageAssets.ts'),
+    'utf8',
+  );
+  for (const pilotId of COMBO_IMAGE_PILOT_IDS) {
+    const pilot = getConvenienceComboById(pilotId)!;
+    const key = pilot.imageKey!;
+    assert(registrySource.includes(key), `registry require ${key}`);
+    const productionPath = path.join(
+      __dirname,
+      '../assets/convenience-combos',
+      `${key}.jpg`,
+    );
+    assert(fs.existsSync(productionPath), `production JPG ${key}`);
+  }
+  assert(
+    !registrySource.includes('invalid_key_combo'),
+    '잘못된 imageKey registry 없음',
+  );
+  assert(cardSource.includes('resolveConvenienceComboImage'), 'card shared resolver');
+  assert(detailSource.includes('resolveConvenienceComboImage'), 'detail shared resolver');
+  assert(cardSource.includes('heroImage'), 'card conditional hero');
+  assert(detailSource.includes('detailHeroImage'), 'detail conditional hero');
 
   console.log(`\nConvenience Combos QA — done (${failed} failed)`);
   if (failed > 0) process.exitCode = 1;

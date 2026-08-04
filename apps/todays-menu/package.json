@@ -61,7 +61,13 @@
     "step:queue": "npx tsx scripts/step-image-factory/commands/queue.ts",
     "step:generate": "npx tsx scripts/step-image-factory/commands/generate.ts",
     "step:approve": "npx tsx scripts/step-image-factory/commands/approve.ts",
-    "step:validate": "npx tsx scripts/step-image-factory/commands/validate.ts"
+    "step:validate": "npx tsx scripts/step-image-factory/commands/validate.ts",
+    "combo:queue": "npx tsx scripts/combo-factory/commands/queue.ts",
+    "combo:generate": "npx tsx scripts/combo-factory/commands/generate.ts",
+    "combo:approve": "npx tsx scripts/combo-factory/commands/approve.ts",
+    "combo:reset-pilots": "npx tsx scripts/combo-factory/commands/reset-pilots.ts",
+    "combo:review": "npx tsx scripts/combo-factory/commands/review.ts",
+    "combo:review:serve": "npx tsx scripts/combo-factory/commands/review-serve.ts"
   },
   "dependencies": {
     "@expo-google-fonts/jua": "^0.4.1",

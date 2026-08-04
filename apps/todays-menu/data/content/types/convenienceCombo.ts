@@ -28,6 +28,10 @@ export type ConvenienceCombo = ContentBase & {
   calories: number | null;
   availabilityNote: string;
   status: ContentStatus;
+  /** Production image key under assets/convenience-combos/ — optional until approved. */
+  imageKey?: string;
+  /** Reserved for enrichment hints; runtime uses imageKey + registry resolver. */
+  imagePath?: string;
 };
 
 /** Batch source rows — enriched at catalog load with comboKind and whyItWorks. */
