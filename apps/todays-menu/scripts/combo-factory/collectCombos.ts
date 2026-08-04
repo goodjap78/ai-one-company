@@ -4,6 +4,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {
+  COMBO_HACK_COMBO_IDS,
+  COMBO_HACK_IMAGE_KEY_MAP,
+} from '../../data/content/combos/convenienceComboHackImageKeys';
+import {
   COMBO_IMAGE_PILOT_IDS,
   COMBO_IMAGE_PILOT_MAP,
 } from '../../data/content/combos/convenienceComboImagePilots';
@@ -34,6 +38,31 @@ function classifyStatus(input: {
   return 'queued';
 }
 
+function buildManifestEntry(
+  combo: ReturnType<typeof listAllConvenienceCombos>[number],
+  imageKey: string,
+  registryKeys: Set<string>,
+): ComboManifestEntry {
+  const filename = `${imageKey}.jpg`;
+  const abs = path.join(PATHS.comboAssetsDir, filename);
+  const fileExists = fs.existsSync(abs) && fs.statSync(abs).isFile();
+  const registryHasKey = registryKeys.has(imageKey);
+  return {
+    comboId: combo.id,
+    imageKey,
+    title: combo.title,
+    comboKind: combo.comboKind,
+    items: combo.items.map((i) => i.name),
+    transformationName: combo.transformationName,
+    assemblyGuide: combo.assemblyGuide,
+    outputFilename: filename,
+    promptFile: `generated/combo-factory/prompts/${imageKey}.md`,
+    status: classifyStatus({ fileExists, registryHasKey }),
+    fileExists,
+    registryHasKey,
+  };
+}
+
 export function collectComboManifest(): ComboManifest {
   const all = listAllConvenienceCombos();
   const registryKeys = parseRequireKeys(PATHS.comboRegistry);
@@ -50,28 +79,46 @@ export function collectComboManifest(): ComboManifest {
         `imageKey mismatch for ${comboId}: catalog=${combo.imageKey} pilot=${imageKey}`,
       );
     }
-    const filename = `${imageKey}.jpg`;
-    const abs = path.join(PATHS.comboAssetsDir, filename);
-    const fileExists = fs.existsSync(abs) && fs.statSync(abs).isFile();
-    const registryHasKey = registryKeys.has(imageKey);
-    items.push({
-      comboId,
-      imageKey,
-      title: combo.title,
-      comboKind: combo.comboKind,
-      items: combo.items.map((i) => i.name),
-      outputFilename: filename,
-      promptFile: `generated/combo-factory/prompts/${imageKey}.md`,
-      status: classifyStatus({ fileExists, registryHasKey }),
-      fileExists,
-      registryHasKey,
-    });
+    items.push(buildManifestEntry(combo, imageKey, registryKeys));
   }
 
   return {
     generatedAt: new Date().toISOString(),
     sprint: '48-C',
     pilotOnly: true,
+    scope: 'pilot',
+    total: items.length,
+    items,
+  };
+}
+
+/** All 21 HACK_COMBO targets for Sprint 51-B factory scope. */
+export function collectHackComboManifest(): ComboManifest {
+  const all = listAllConvenienceCombos();
+  const registryKeys = parseRequireKeys(PATHS.comboRegistry);
+  const items: ComboManifestEntry[] = [];
+
+  for (const comboId of COMBO_HACK_COMBO_IDS) {
+    const combo = all.find((c) => c.id === comboId);
+    if (!combo) {
+      throw new Error(`HACK combo missing from catalog: ${comboId}`);
+    }
+    if (combo.comboKind !== 'hack_combo') {
+      throw new Error(`Expected hack_combo for ${comboId}, got ${combo.comboKind}`);
+    }
+    const imageKey = COMBO_HACK_IMAGE_KEY_MAP[comboId];
+    if (combo.imageKey && combo.imageKey !== imageKey) {
+      throw new Error(
+        `imageKey mismatch for ${comboId}: catalog=${combo.imageKey} hack=${imageKey}`,
+      );
+    }
+    items.push(buildManifestEntry(combo, imageKey, registryKeys));
+  }
+
+  return {
+    generatedAt: new Date().toISOString(),
+    sprint: '51-B',
+    scope: 'hack-all',
     total: items.length,
     items,
   };

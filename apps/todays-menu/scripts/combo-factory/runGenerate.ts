@@ -275,6 +275,37 @@ export async function runComboGenerate(
 
   queue = loadComboQueue() ?? queue;
   writeComboReviewHtml(queue!);
+  try {
+    const { writeHackBatchReviewHtml } = await import('./writeHackBatchReviewHtml');
+    const { HACK_BATCH_1_IDS, HACK_BATCH_2_IDS, HACK_BATCH_3_IDS } = await import('./hackBatchScope');
+    if (
+      comboIdSet &&
+      comboIdSet.size === 6 &&
+      [...comboIdSet].every((id) =>
+        (HACK_BATCH_1_IDS as readonly string[]).includes(id),
+      )
+    ) {
+      writeHackBatchReviewHtml(1);
+    } else if (
+      comboIdSet &&
+      comboIdSet.size === 6 &&
+      [...comboIdSet].every((id) =>
+        (HACK_BATCH_2_IDS as readonly string[]).includes(id),
+      )
+    ) {
+      writeHackBatchReviewHtml(2);
+    } else if (
+      comboIdSet &&
+      comboIdSet.size === 6 &&
+      [...comboIdSet].every((id) =>
+        (HACK_BATCH_3_IDS as readonly string[]).includes(id),
+      )
+    ) {
+      writeHackBatchReviewHtml(3);
+    }
+  } catch {
+    // optional review page
+  }
   return {
     written,
     skipped,

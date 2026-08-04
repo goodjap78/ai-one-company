@@ -16,13 +16,21 @@ export const HANKKI_COMBO_HERO_STYLE_VERSION = COMBO_HERO_V2_VERSION;
 export function buildComboPromptText(entry: ComboManifestEntry): string {
   const menuHint =
     COMBO_HERO_HINTS[entry.imageKey] ??
-    `Finished convenience-store combo "${entry.title}" as the sole hero subject.`;
+    `Finished convenience-store combo "${entry.transformationName ?? entry.title}" as the sole hero subject; show the completed hack result not a side-by-side product display.`;
   const itemsHint =
     entry.items.length > 0 ? `Combo uses: ${entry.items.join(', ')}.` : '';
+  const assemblyHint =
+    entry.assemblyGuide && entry.assemblyGuide.length > 0
+      ? `Assembly result: ${entry.assemblyGuide.join(' ')}`
+      : '';
   return [
     `HANKKI Convenience Combo Hero Style ${HANKKI_COMBO_HERO_STYLE_VERSION}.`,
     `Create a single hero food photo for the Korean convenience-store combo "${entry.title}" (comboId: ${entry.comboId}, imageKey: ${entry.imageKey}).`,
+    entry.transformationName
+      ? `Transformation: ${entry.transformationName}.`
+      : '',
     itemsHint,
+    assemblyHint,
     COMBO_HERO_BASE,
     `Dish identity: ${menuHint}`,
     `Output: ${COMBO_IMAGE_SPEC.width}x${COMBO_IMAGE_SPEC.height} JPG, 16:9 landscape.`,

@@ -72,6 +72,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0008: {
     comboKind: 'hack_combo',
+    imageKey: 'rice_ball_cup_noodle_bibim_combo',
     title: '주먹밥 컵누들 비빔',
     transformationName: '컵누들 비빔밥',
     description: '가벼운 컵누들과 주먹밥을 한 그릇에 비벼 먹어요.',
@@ -90,6 +91,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0010: {
     comboKind: 'hack_combo',
+    imageKey: 'soft_boiled_egg_ramen_combo',
     title: '반숙란 토핑 라면',
     transformationName: '반숙란 라면',
     description: '라면에 반숙란을 올려 부드러운 식감을 더해요.',
@@ -103,6 +105,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0011: {
     comboKind: 'hack_combo',
+    imageKey: 'cheese_spicy_cup_ramen_combo',
     title: '치즈 매운 컵라면',
     transformationName: '치즈 매운라면',
     description: '매운 컵라면에 치즈를 넣어 맵기를 부드럽게 완화해요.',
@@ -122,6 +125,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0013: {
     comboKind: 'hack_combo',
+    imageKey: 'rice_cake_cheese_ramen_combo',
     title: '떡 치즈 라면',
     transformationName: '떡치즈 라면',
     description: '라면에 떡과 치즈를 넣어 쫄깃하고 고소한 맛을 만들어요.',
@@ -141,6 +145,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0015: {
     comboKind: 'hack_combo',
+    imageKey: 'cheese_tteokbokki_hotbar_combo',
     title: '치즈 떡볶이 핫바',
     transformationName: '핫바 치즈떡볶이',
     description: '떡볶이에 치즈와 핫바를 넣어 간식 맛을 확장해요.',
@@ -154,6 +159,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0016: {
     comboKind: 'hack_combo',
+    imageKey: 'cheese_hotdog_combo',
     title: '치즈 녹인 핫도그',
     transformationName: '치즈 핫도그',
     description: '핫도그에 치즈를 녹여 간식을 한 끼로 바꿔요.',
@@ -201,6 +207,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0021: {
     comboKind: 'hack_combo',
+    imageKey: 'milky_cheese_tteokbokki_combo',
     title: '치즈 매운 떡볶이',
     transformationName: '밀키 떡볶이',
     description: '매운 떡볶이에 치즈를 넣어 밀키한 맛을 만들어요.',
@@ -220,6 +227,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0023: {
     comboKind: 'hack_combo',
+    imageKey: 'labokki_combo',
     title: '매운 라볶이',
     transformationName: '라볶이',
     description: '라면에 떡볶이 소스를 넣어 매콤달콤한 라볶이를 만들어요.',
@@ -239,6 +247,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0025: {
     comboKind: 'hack_combo',
+    imageKey: 'tuna_kim_ramen_combo',
     title: '참치 김 라면',
     transformationName: '참치 라면',
     description: '라면에 참치와 김을 넣어 국물 풍미를 더해요.',
@@ -257,6 +266,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0027: {
     comboKind: 'hack_combo',
+    imageKey: 'soft_boiled_egg_cup_rice_combo',
     title: '반숙란 컵밥 덮밥',
     transformationName: '반숙란 덮밥',
     description: '데운 컵밥에 반숙란을 올려 덮밥처럼 만들어요.',
@@ -270,6 +280,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0028: {
     comboKind: 'hack_combo',
+    imageKey: 'protein_cup_noodle_combo',
     title: '닭가슴살 컵누들',
     transformationName: '단백질 컵누들',
     description: '컵누들에 데운 닭가슴살과 반숙란을 넣어 단백질을 보태요.',
@@ -295,6 +306,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0031: {
     comboKind: 'hack_combo',
+    imageKey: 'butter_kim_cup_rice_combo',
     title: '버터 김가루 컵밥',
     transformationName: '고소한 버터 컵밥',
     description: '데운 컵밥에 버터와 김가루를 넣어 고소하게 비벼요.',
@@ -345,6 +357,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0038: {
     comboKind: 'hack_combo',
+    imageKey: 'yogurt_fruit_parfait_combo',
     title: '요거트 과일 파르페',
     transformationName: '요거트 파르페',
     description: '요거트에 견과와 과일을 섞어 달콤한 한 접시를 만들어요.',
@@ -358,6 +371,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0039: {
     comboKind: 'hack_combo',
+    imageKey: 'chicken_salad_bibim_combo',
     title: '닭가슴살 샐러드 비빔',
     transformationName: '닭가슴살 샐러드',
     description: '데운 닭가슴살과 샐러드를 소스에 비벼 한 그릇으로 만들어요.',
@@ -379,6 +393,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0041: {
     comboKind: 'hack_combo',
+    imageKey: 'tuna_bibimbap_combo',
     title: '참치 비빔밥',
     transformationName: '참치 덮밥',
     description: '밥에 참치를 넣고 비벼 간단한 덮밥을 만들어요.',
@@ -424,6 +439,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0046: {
     comboKind: 'hack_combo',
+    imageKey: 'cake_ice_cream_parfait_combo',
     title: '케이크 아이스크림 파르페',
     transformationName: '케이크 파르페',
     description: '케이크와 아이스크림을 겹쳐 파르페처럼 만들어요.',
@@ -437,6 +453,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0047: {
     comboKind: 'hack_combo',
+    imageKey: 'hotteok_ice_cream_combo',
     title: '호떡 아이스크림',
     transformationName: '따뜻한 호떡 디저트',
     description: '따뜻한 호떡에 아이스크림을 올려 온도 대비 디저트를 만들어요.',
@@ -462,6 +479,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0050: {
     comboKind: 'hack_combo',
+    imageKey: 'bean_sprout_egg_hangover_soup_combo',
     title: '콩나물국 반숙란 해장',
     transformationName: '계란 해장국밥',
     description: '따뜻한 콩나물국에 반숙란과 밥을 넣어 해장 한 그릇을 만들어요.',

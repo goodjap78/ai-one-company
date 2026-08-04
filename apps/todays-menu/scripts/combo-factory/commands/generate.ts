@@ -5,6 +5,7 @@
 import path from 'node:path';
 import {
   collectComboManifest,
+  collectHackComboManifest,
   loadComboManifest,
   writeComboManifest,
 } from '../collectCombos';
@@ -32,7 +33,7 @@ function parseArgs(argv: string[]) {
   const comboIds = comboArg
     ? comboArg.split(',').map((k) => k.trim()).filter(Boolean)
     : undefined;
-  return { missingOnly, resume, force, dryRun, keys, comboIds, refresh: argv.includes('--refresh') };
+  return { missingOnly, resume, force, dryRun, keys, comboIds, refresh: argv.includes('--refresh'), refreshHack: argv.includes('--refresh-hack') };
 }
 
 async function main(): Promise<void> {
@@ -41,7 +42,19 @@ async function main(): Promise<void> {
 
   const args = parseArgs(process.argv.slice(2));
 
-  if (args.refresh || !loadComboQueue()) {
+  if (args.refreshHack || (args.comboIds?.length && !loadComboQueue())) {
+    console.log('Refreshing HACK combo queue…');
+    const manifest = collectHackComboManifest();
+    writeComboManifest(manifest);
+    writeAllComboPrompts(manifest.items);
+    const queue = buildComboQueue(
+      manifest,
+      process.env.IMAGE_PROVIDER ?? 'disabled',
+      { missingOnly: args.missingOnly },
+    );
+    writeComboQueue(queue);
+    writeComboReviewHtml(queue);
+  } else if (args.refresh || !loadComboQueue()) {
     console.log('Refreshing pilot queue…');
     const manifest = collectComboManifest();
     writeComboManifest(manifest);

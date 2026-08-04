@@ -101,8 +101,9 @@ export function buildComboQueue(
 
   return {
     generatedAt: nowIso(),
-    sprint: '48-C',
-    pilotOnly: true,
+    sprint: manifest.sprint,
+    pilotOnly: manifest.pilotOnly,
+    scope: manifest.scope,
     providerHint,
     missingOnly: Boolean(options.missingOnly),
     totals: countTotals(items),

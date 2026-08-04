@@ -14,6 +14,8 @@ export type ComboManifestEntry = {
   title: string;
   comboKind: string;
   items: string[];
+  transformationName?: string;
+  assemblyGuide?: string[];
   outputFilename: string;
   promptFile: string;
   status: ComboAssetStatus;
@@ -24,7 +26,8 @@ export type ComboManifestEntry = {
 export type ComboManifest = {
   generatedAt: string;
   sprint: string;
-  pilotOnly: true;
+  pilotOnly?: boolean;
+  scope?: 'pilot' | 'hack-all';
   total: number;
   items: ComboManifestEntry[];
 };
@@ -46,7 +49,8 @@ export type ComboQueueItem = {
 export type ComboQueueFile = {
   generatedAt: string;
   sprint: string;
-  pilotOnly: true;
+  pilotOnly?: boolean;
+  scope?: 'pilot' | 'hack-all';
   providerHint: string;
   missingOnly: boolean;
   totals: {

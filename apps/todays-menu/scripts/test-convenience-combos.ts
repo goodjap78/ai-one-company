@@ -33,6 +33,7 @@ import {
 } from '../services/convenience/convenienceFavoritesStorage';
 import type { ConvenienceCombo } from '../data/content/types/convenienceCombo';
 import { COMBO_IMAGE_PILOT_IDS } from '../data/content/combos/convenienceComboImagePilots';
+import { COMBO_HACK_COMBO_IDS } from '../data/content/combos/convenienceComboHackImageKeys';
 import { convenienceCombosCopy } from '../constants/convenienceCombosCopy';
 
 const memoryStore = new Map<string, string>();
@@ -274,26 +275,35 @@ async function main(): Promise<void> {
   assert(detailSource.includes('hasDistinctTransformation'), 'detail title 중복 표시 방지');
 
   const withImageKey = ALL.filter((c) => c.imageKey);
-  assert(withImageKey.length === 3, 'pilot imageKey 3개만');
-  assert(ALL.length - withImageKey.length === 47, '나머지 imageKey 없음');
-  for (const pilotId of COMBO_IMAGE_PILOT_IDS) {
-    const pilot = getConvenienceComboById(pilotId);
-    assert(Boolean(pilot?.imageKey), `pilot ${pilotId} imageKey`);
+  const hackCombos = ALL.filter((c) => c.comboKind === 'hack_combo');
+  const easySets = ALL.filter((c) => c.comboKind === 'easy_set');
+  assert(withImageKey.length === 21, 'HACK_COMBO imageKey 21개');
+  assert(hackCombos.length === 21, 'HACK_COMBO 21개');
+  assert(
+    hackCombos.every((c) => Boolean(c.imageKey)),
+    '모든 HACK_COMBO imageKey 존재',
+  );
+  assert(
+    easySets.every((c) => !c.imageKey),
+    'EASY_SET imageKey 없음',
+  );
+  assert(ALL.length - withImageKey.length === 29, 'EASY_SET 29개 imageKey 없음');
+  for (const comboId of COMBO_HACK_COMBO_IDS) {
+    const combo = getConvenienceComboById(comboId);
+    assert(Boolean(combo?.imageKey), `hack ${comboId} imageKey`);
   }
   const combo20 = getConvenienceComboById('combo_0020')!;
   assert(
     combo20.imageKey === 'spicy_cheese_stir_noodles_combo',
     'combo_0020 imageKey',
   );
-  const noImageCombo = ALL.find((c) => !c.imageKey)!;
-  assert(Boolean(noImageCombo), 'imageKey 없는 조합 존재');
   const registrySource = fs.readFileSync(
     path.join(__dirname, '../services/images/convenienceComboImageAssets.ts'),
     'utf8',
   );
-  for (const pilotId of COMBO_IMAGE_PILOT_IDS) {
-    const pilot = getConvenienceComboById(pilotId)!;
-    const key = pilot.imageKey!;
+  for (const comboId of COMBO_HACK_COMBO_IDS) {
+    const combo = getConvenienceComboById(comboId)!;
+    const key = combo.imageKey!;
     assert(registrySource.includes(key), `registry require ${key}`);
     const productionPath = path.join(
       __dirname,

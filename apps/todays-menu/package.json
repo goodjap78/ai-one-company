@@ -63,11 +63,15 @@
     "step:approve": "npx tsx scripts/step-image-factory/commands/approve.ts",
     "step:validate": "npx tsx scripts/step-image-factory/commands/validate.ts",
     "combo:queue": "npx tsx scripts/combo-factory/commands/queue.ts",
+    "combo:queue-hack": "npx tsx scripts/combo-factory/commands/queue-hack.ts",
+    "combo:inventory-hack": "npx tsx scripts/combo-factory/commands/inventory-hack.ts",
     "combo:generate": "npx tsx scripts/combo-factory/commands/generate.ts",
     "combo:approve": "npx tsx scripts/combo-factory/commands/approve.ts",
     "combo:reset-pilots": "npx tsx scripts/combo-factory/commands/reset-pilots.ts",
     "combo:review": "npx tsx scripts/combo-factory/commands/review.ts",
-    "combo:review:serve": "npx tsx scripts/combo-factory/commands/review-serve.ts"
+    "combo:review:serve": "npx tsx scripts/combo-factory/commands/review-serve.ts",
+    "combo:audit-hack-batch": "npx tsx scripts/combo-factory/commands/audit-hack-batch.ts",
+    "combo:review-hack-batch": "npx tsx scripts/combo-factory/commands/review-hack-batch.ts"
   },
   "dependencies": {
     "@expo-google-fonts/jua": "^0.4.1",

@@ -51,6 +51,9 @@ const server = http.createServer((req, res) => {
 const port = getComboReviewPort();
 server.listen(port, '127.0.0.1', () => {
   console.log(`Combo review server → http://127.0.0.1:${port}/combo-pilots-v2.html`);
+  console.log(`HACK batch 1 → http://127.0.0.1:${port}/hack-batch-1.html`);
+  console.log(`HACK batch 2 → http://127.0.0.1:${port}/hack-batch-2.html`);
+  console.log(`HACK batch 3 → http://127.0.0.1:${port}/hack-batch-3.html`);
   console.log(`Serving review: ${REVIEW_ROOT}`);
   console.log(`Serving history: ${HISTORY_ROOT}`);
 });
