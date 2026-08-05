@@ -4,6 +4,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {
+  COMBO_EASY_SET_COMBO_IDS,
+  COMBO_EASY_SET_IMAGE_KEY_MAP,
+} from '../../data/content/combos/convenienceComboEasySetImageKeys';
+import {
   COMBO_HACK_COMBO_IDS,
   COMBO_HACK_IMAGE_KEY_MAP,
 } from '../../data/content/combos/convenienceComboHackImageKeys';
@@ -128,6 +132,38 @@ export function writeComboManifest(manifest: ComboManifest): string {
   fs.mkdirSync(PATHS.generatedRoot, { recursive: true });
   fs.writeFileSync(PATHS.manifest, JSON.stringify(manifest, null, 2), 'utf8');
   return PATHS.manifest;
+}
+
+/** All 29 EASY_SET targets for Sprint 53 factory scope. */
+export function collectEasySetComboManifest(): ComboManifest {
+  const all = listAllConvenienceCombos();
+  const registryKeys = parseRequireKeys(PATHS.comboRegistry);
+  const items: ComboManifestEntry[] = [];
+
+  for (const comboId of COMBO_EASY_SET_COMBO_IDS) {
+    const combo = all.find((c) => c.id === comboId);
+    if (!combo) {
+      throw new Error(`EASY_SET combo missing from catalog: ${comboId}`);
+    }
+    if (combo.comboKind !== 'easy_set') {
+      throw new Error(`Expected easy_set for ${comboId}, got ${combo.comboKind}`);
+    }
+    const imageKey = COMBO_EASY_SET_IMAGE_KEY_MAP[comboId];
+    if (combo.imageKey && combo.imageKey !== imageKey) {
+      throw new Error(
+        `imageKey mismatch for ${comboId}: catalog=${combo.imageKey} easy_set=${imageKey}`,
+      );
+    }
+    items.push(buildManifestEntry(combo, imageKey, registryKeys));
+  }
+
+  return {
+    generatedAt: new Date().toISOString(),
+    sprint: '53',
+    scope: 'easy-set-all',
+    total: items.length,
+    items,
+  };
 }
 
 export function loadComboManifest(): ComboManifest | null {

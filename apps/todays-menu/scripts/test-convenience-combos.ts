@@ -45,6 +45,13 @@ import {
 import type { ConvenienceCombo } from '../data/content/types/convenienceCombo';
 import { COMBO_IMAGE_PILOT_IDS } from '../data/content/combos/convenienceComboImagePilots';
 import { COMBO_HACK_COMBO_IDS } from '../data/content/combos/convenienceComboHackImageKeys';
+import {
+  EASY_SET_BATCH_1_IDS,
+  EASY_SET_BATCH_2_IDS,
+  EASY_SET_BATCH_3_IDS,
+  EASY_SET_BATCH_4_IDS,
+  EASY_SET_BATCH_5_IDS,
+} from './combo-factory/easySetBatchScope';
 import { convenienceCombosCopy } from '../constants/convenienceCombosCopy';
 
 const memoryStore = new Map<string, string>();
@@ -298,17 +305,38 @@ async function main(): Promise<void> {
   const withImageKey = ALL.filter((c) => c.imageKey);
   const hackCombos = ALL.filter((c) => c.comboKind === 'hack_combo');
   const easySets = ALL.filter((c) => c.comboKind === 'easy_set');
-  assert(withImageKey.length === 21, 'HACK_COMBO imageKey 21개');
+  const easySetsWithImage = easySets.filter((c) => c.imageKey);
+  assert(withImageKey.length === 50, 'HACK+EASY_SET imageKey 50개');
   assert(hackCombos.length === 21, 'HACK_COMBO 21개');
   assert(
     hackCombos.every((c) => Boolean(c.imageKey)),
     '모든 HACK_COMBO imageKey 존재',
   );
+  assert(easySetsWithImage.length === 29, 'EASY_SET production imageKey 29개');
   assert(
-    easySets.every((c) => !c.imageKey),
-    'EASY_SET imageKey 없음',
+    easySets.filter((c) => !c.imageKey).length === 0,
+    'EASY_SET imageKey 없음 0개',
   );
-  assert(ALL.length - withImageKey.length === 29, 'EASY_SET 29개 imageKey 없음');
+  for (const comboId of EASY_SET_BATCH_1_IDS) {
+    const combo = getConvenienceComboById(comboId);
+    assert(Boolean(combo?.imageKey), `easy_set batch1 ${comboId} imageKey`);
+  }
+  for (const comboId of EASY_SET_BATCH_2_IDS) {
+    const combo = getConvenienceComboById(comboId);
+    assert(Boolean(combo?.imageKey), `easy_set batch2 ${comboId} imageKey`);
+  }
+  for (const comboId of EASY_SET_BATCH_3_IDS) {
+    const combo = getConvenienceComboById(comboId);
+    assert(Boolean(combo?.imageKey), `easy_set batch3 ${comboId} imageKey`);
+  }
+  for (const comboId of EASY_SET_BATCH_4_IDS) {
+    const combo = getConvenienceComboById(comboId);
+    assert(Boolean(combo?.imageKey), `easy_set batch4 ${comboId} imageKey`);
+  }
+  for (const comboId of EASY_SET_BATCH_5_IDS) {
+    const combo = getConvenienceComboById(comboId);
+    assert(Boolean(combo?.imageKey), `easy_set batch5 ${comboId} imageKey`);
+  }
   for (const comboId of COMBO_HACK_COMBO_IDS) {
     const combo = getConvenienceComboById(comboId);
     assert(Boolean(combo?.imageKey), `hack ${comboId} imageKey`);
@@ -323,6 +351,61 @@ async function main(): Promise<void> {
     'utf8',
   );
   for (const comboId of COMBO_HACK_COMBO_IDS) {
+    const combo = getConvenienceComboById(comboId)!;
+    const key = combo.imageKey!;
+    assert(registrySource.includes(key), `registry require ${key}`);
+    const productionPath = path.join(
+      __dirname,
+      '../assets/convenience-combos',
+      `${key}.jpg`,
+    );
+    assert(fs.existsSync(productionPath), `production JPG ${key}`);
+  }
+  for (const comboId of EASY_SET_BATCH_1_IDS) {
+    const combo = getConvenienceComboById(comboId)!;
+    const key = combo.imageKey!;
+    assert(registrySource.includes(key), `registry require ${key}`);
+    const productionPath = path.join(
+      __dirname,
+      '../assets/convenience-combos',
+      `${key}.jpg`,
+    );
+    assert(fs.existsSync(productionPath), `production JPG ${key}`);
+  }
+  for (const comboId of EASY_SET_BATCH_2_IDS) {
+    const combo = getConvenienceComboById(comboId)!;
+    const key = combo.imageKey!;
+    assert(registrySource.includes(key), `registry require ${key}`);
+    const productionPath = path.join(
+      __dirname,
+      '../assets/convenience-combos',
+      `${key}.jpg`,
+    );
+    assert(fs.existsSync(productionPath), `production JPG ${key}`);
+  }
+  for (const comboId of EASY_SET_BATCH_3_IDS) {
+    const combo = getConvenienceComboById(comboId)!;
+    const key = combo.imageKey!;
+    assert(registrySource.includes(key), `registry require ${key}`);
+    const productionPath = path.join(
+      __dirname,
+      '../assets/convenience-combos',
+      `${key}.jpg`,
+    );
+    assert(fs.existsSync(productionPath), `production JPG ${key}`);
+  }
+  for (const comboId of EASY_SET_BATCH_4_IDS) {
+    const combo = getConvenienceComboById(comboId)!;
+    const key = combo.imageKey!;
+    assert(registrySource.includes(key), `registry require ${key}`);
+    const productionPath = path.join(
+      __dirname,
+      '../assets/convenience-combos',
+      `${key}.jpg`,
+    );
+    assert(fs.existsSync(productionPath), `production JPG ${key}`);
+  }
+  for (const comboId of EASY_SET_BATCH_5_IDS) {
     const combo = getConvenienceComboById(comboId)!;
     const key = combo.imageKey!;
     assert(registrySource.includes(key), `registry require ${key}`);

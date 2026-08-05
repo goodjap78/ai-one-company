@@ -314,6 +314,31 @@ export function loadComboAuditJson(batch: number): ComboAuditRow[] | null {
   return parsed.rows;
 }
 
+export function writeEasySetComboAuditJson(
+  batch: number,
+  rows: ComboAuditRow[],
+): string {
+  const out = path.join(PATHS.generatedRoot, `easy-set-batch-${batch}-audit.json`);
+  fs.mkdirSync(PATHS.generatedRoot, { recursive: true });
+  fs.writeFileSync(
+    out,
+    JSON.stringify(
+      { generatedAt: new Date().toISOString(), batch, scope: 'easy-set', rows },
+      null,
+      2,
+    ),
+    'utf8',
+  );
+  return path.relative(PATHS.appRoot, out);
+}
+
+export function loadEasySetComboAuditJson(batch: number): ComboAuditRow[] | null {
+  const abs = path.join(PATHS.generatedRoot, `easy-set-batch-${batch}-audit.json`);
+  if (!fs.existsSync(abs)) return null;
+  const parsed = JSON.parse(fs.readFileSync(abs, 'utf8')) as { rows: ComboAuditRow[] };
+  return parsed.rows;
+}
+
 export function metaMapFromQueue(
   items: ComboQueueItem[],
   comboIds: string[],

@@ -5,6 +5,7 @@
 import path from 'node:path';
 import {
   collectComboManifest,
+  collectEasySetComboManifest,
   collectHackComboManifest,
   loadComboManifest,
   writeComboManifest,
@@ -33,7 +34,7 @@ function parseArgs(argv: string[]) {
   const comboIds = comboArg
     ? comboArg.split(',').map((k) => k.trim()).filter(Boolean)
     : undefined;
-  return { missingOnly, resume, force, dryRun, keys, comboIds, refresh: argv.includes('--refresh'), refreshHack: argv.includes('--refresh-hack') };
+  return { missingOnly, resume, force, dryRun, keys, comboIds, refresh: argv.includes('--refresh'), refreshHack: argv.includes('--refresh-hack'), refreshEasySet: argv.includes('--refresh-easy-set') };
 }
 
 async function main(): Promise<void> {
@@ -45,6 +46,18 @@ async function main(): Promise<void> {
   if (args.refreshHack || (args.comboIds?.length && !loadComboQueue())) {
     console.log('Refreshing HACK combo queue…');
     const manifest = collectHackComboManifest();
+    writeComboManifest(manifest);
+    writeAllComboPrompts(manifest.items);
+    const queue = buildComboQueue(
+      manifest,
+      process.env.IMAGE_PROVIDER ?? 'disabled',
+      { missingOnly: args.missingOnly },
+    );
+    writeComboQueue(queue);
+    writeComboReviewHtml(queue);
+  } else if (args.refreshEasySet) {
+    console.log('Refreshing EASY_SET combo queue…');
+    const manifest = collectEasySetComboManifest();
     writeComboManifest(manifest);
     writeAllComboPrompts(manifest.items);
     const queue = buildComboQueue(

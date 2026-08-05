@@ -54,6 +54,7 @@ server.listen(port, '127.0.0.1', () => {
   console.log(`HACK batch 1 → http://127.0.0.1:${port}/hack-batch-1.html`);
   console.log(`HACK batch 2 → http://127.0.0.1:${port}/hack-batch-2.html`);
   console.log(`HACK batch 3 → http://127.0.0.1:${port}/hack-batch-3.html`);
+  console.log(`EASY_SET batch 1 → http://127.0.0.1:${port}/easy-set-batch-1.html`);
   console.log(`Serving review: ${REVIEW_ROOT}`);
   console.log(`Serving history: ${HISTORY_ROOT}`);
 });

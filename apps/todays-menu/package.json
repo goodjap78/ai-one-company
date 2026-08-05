@@ -25,6 +25,7 @@
     "test:ai-recommendation-metadata": "npx tsx scripts/test-ai-recommendation-metadata.ts",
     "test:fridge-raid": "npx tsx scripts/test-fridge-raid.ts",
     "test:convenience-combos": "npx tsx scripts/test-convenience-combos.ts",
+    "test:convenience-combo-recommendation": "npx tsx scripts/test-convenience-combo-recommendation.ts",
     "test:serving-scaler": "npx tsx scripts/test-serving-scaler.ts",
     "validate:recipe-factory": "npx tsx scripts/validate-recipe-factory.ts",
     "recipes:validate": "npx tsx scripts/recipe-factory/validateRecipes.ts",
@@ -64,14 +65,18 @@
     "step:validate": "npx tsx scripts/step-image-factory/commands/validate.ts",
     "combo:queue": "npx tsx scripts/combo-factory/commands/queue.ts",
     "combo:queue-hack": "npx tsx scripts/combo-factory/commands/queue-hack.ts",
+    "combo:queue-easy-set": "npx tsx scripts/combo-factory/commands/queue-easy-set.ts",
     "combo:inventory-hack": "npx tsx scripts/combo-factory/commands/inventory-hack.ts",
+    "combo:inventory-easy-set": "npx tsx scripts/combo-factory/commands/inventory-easy-set.ts",
     "combo:generate": "npx tsx scripts/combo-factory/commands/generate.ts",
     "combo:approve": "npx tsx scripts/combo-factory/commands/approve.ts",
     "combo:reset-pilots": "npx tsx scripts/combo-factory/commands/reset-pilots.ts",
     "combo:review": "npx tsx scripts/combo-factory/commands/review.ts",
     "combo:review:serve": "npx tsx scripts/combo-factory/commands/review-serve.ts",
     "combo:audit-hack-batch": "npx tsx scripts/combo-factory/commands/audit-hack-batch.ts",
-    "combo:review-hack-batch": "npx tsx scripts/combo-factory/commands/review-hack-batch.ts"
+    "combo:review-hack-batch": "npx tsx scripts/combo-factory/commands/review-hack-batch.ts",
+    "combo:audit-easy-set-batch": "npx tsx scripts/combo-factory/commands/audit-easy-set-batch.ts",
+    "combo:review-easy-set-batch": "npx tsx scripts/combo-factory/commands/review-easy-set-batch.ts"
   },
   "dependencies": {
     "@expo-google-fonts/jua": "^0.4.1",

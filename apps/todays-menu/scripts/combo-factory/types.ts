@@ -27,7 +27,7 @@ export type ComboManifest = {
   generatedAt: string;
   sprint: string;
   pilotOnly?: boolean;
-  scope?: 'pilot' | 'hack-all';
+  scope?: 'pilot' | 'hack-all' | 'easy-set-all';
   total: number;
   items: ComboManifestEntry[];
 };
@@ -50,7 +50,7 @@ export type ComboQueueFile = {
   generatedAt: string;
   sprint: string;
   pilotOnly?: boolean;
-  scope?: 'pilot' | 'hack-all';
+  scope?: 'pilot' | 'hack-all' | 'easy-set-all';
   providerHint: string;
   missingOnly: boolean;
   totals: {

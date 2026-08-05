@@ -36,36 +36,42 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0002: {
     comboKind: 'easy_set',
+    imageKey: 'lunchbox_cup_rice_set',
     title: '도시락 컵밥 세트',
     whyItWorks: '도시락과 컵밥을 골라 한 번에 든든하게 채울 수 있어요.',
     assemblyGuide: ['도시락과 컵밥을 데워요.', '음료와 함께 드세요.'],
   },
   combo_0003: {
     comboKind: 'easy_set',
+    imageKey: 'burger_fries_set',
     title: '햄버거 감자 세트',
     whyItWorks: '햄버거의 포만감과 감자튀김의 바삯함이 한 세트로 맞아요.',
     assemblyGuide: ['햄버거를 데워요.', '감자튀김과 음료를 곁들여 드세요.'],
   },
   combo_0004: {
     comboKind: 'easy_set',
+    imageKey: 'sandwich_yogurt_set',
     title: '샌드위치 요구르트',
     whyItWorks: '샌드위치의 든든함과 요구르트의 상큼함이 부담 없이 맞아요.',
     assemblyGuide: ['샌드위치를 꺼내요.', '요구르트와 과일을 곁들여 드세요.'],
   },
   combo_0005: {
     comboKind: 'easy_set',
+    imageKey: 'gimbap_udon_set',
     title: '김밥 우동 세트',
     whyItWorks: '따뜻한 우동과 김밥이 함께 속을 편하게 채워줘요.',
     assemblyGuide: ['컵우동을 끓여요.', '김밥과 함께 드세요.'],
   },
   combo_0006: {
     comboKind: 'easy_set',
+    imageKey: 'chicken_tender_rice_set',
     title: '치킨텐더 밥 세트',
     whyItWorks: '치킨의 바삯함과 밥이 함께 간단한 든든한 한 끼가 돼요.',
     assemblyGuide: ['치킨을 데워요.', '밥과 함께 드세요.'],
   },
   combo_0007: {
     comboKind: 'easy_set',
+    imageKey: 'tofu_bibim_rice_ball_set',
     title: '두부비빔면 주먹밥',
     whyItWorks: '가벼운 비빔면과 주먹밥이 함께 균형 잡힌 조합이 돼요.',
     assemblyGuide: ['비빔면을 준비해요.', '주먹밥과 함께 드세요.'],
@@ -85,6 +91,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0009: {
     comboKind: 'easy_set',
+    imageKey: 'salad_chicken_breast_set',
     title: '샐러드 닭가슴살',
     whyItWorks: '닭가슴살의 단백질과 샐러드의 신선함이 가볍게 맞아요.',
     assemblyGuide: ['닭가슴살을 데워요.', '샐러드와 빵과 함께 드세요.'],
@@ -119,6 +126,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0012: {
     comboKind: 'easy_set',
+    imageKey: 'triangle_kimbap_triple_set',
     title: '삼각김밥 3개',
     whyItWorks: '삼각김밥만으로도 간단하게 한 끼를 채울 수 있어요.',
     assemblyGuide: ['삼각김밥을 꺼내 드세요.'],
@@ -139,6 +147,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0014: {
     comboKind: 'easy_set',
+    imageKey: 'sundae_plate_set',
     title: '순대 한 접시',
     whyItWorks: '순대와 소스만으로 간단한 야식 한 접시가 돼요.',
     assemblyGuide: ['순대를 데워요.', '소스와 함께 드세요.'],
@@ -173,6 +182,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0017: {
     comboKind: 'easy_set',
+    imageKey: 'ramen_rice_ball_set',
     title: '라면 주먹밥 세트',
     description: '라면과 주먹밥을 번갈아 먹는 든든한 조합이에요.',
     whyItWorks: '따뜻한 국물과 주먹밥을 나눠 먹으면 포만감이 빠르게 채워져요.',
@@ -180,12 +190,14 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0018: {
     comboKind: 'easy_set',
+    imageKey: 'chicken_nugget_plate_set',
     title: '치킨너겟 한 접시',
     whyItWorks: '너겟과 소스로 간단한 야식 한 접시를 즐길 수 있어요.',
     assemblyGuide: ['너겟을 데워요.', '소스와 함께 드세요.'],
   },
   combo_0019: {
     comboKind: 'easy_set',
+    imageKey: 'spicy_pepper_ramen_set',
     title: '청양고추 매운 라면',
     description: '매운 컵라면에 청양고추를 더해 맵기를 올린 조합이에요.',
     whyItWorks: '청양고추가 매운맛의 끝을 맵고 산뜻하게 올려줘요.',
@@ -221,6 +233,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0022: {
     comboKind: 'easy_set',
+    imageKey: 'spicy_sundae_set',
     title: '매운 순대',
     whyItWorks: '매운 순대만으로도 간단한 야식 한 접시가 돼요.',
     assemblyGuide: ['순대를 데워 드세요.'],
@@ -241,6 +254,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0024: {
     comboKind: 'easy_set',
+    imageKey: 'spicy_chicken_feet_set',
     title: '매운 닭발',
     whyItWorks: '매운 닭발로 간단한 야식 한 접시를 즐길 수 있어요.',
     assemblyGuide: ['닭발을 데워 드세요.'],
@@ -260,6 +274,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0026: {
     comboKind: 'easy_set',
+    imageKey: 'triangle_kimbap_milk_set',
     title: '삼각김밥 우유 세트',
     whyItWorks: '삼각김밥과 우유로 가성비 좋은 간단 한 끼가 돼요.',
     assemblyGuide: ['삼각김밥을 꺼내요.', '우유와 바나나를 곁들여 드세요.'],
@@ -294,12 +309,14 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0029: {
     comboKind: 'easy_set',
+    imageKey: 'commute_lunchbox_set',
     title: '출근길 도시락',
     whyItWorks: '데운 도시락만으로 바쁜 출근길에 빠르게 한 끼를 해결할 수 있어요.',
     assemblyGuide: ['도시락을 데워 드세요.'],
   },
   combo_0030: {
     comboKind: 'easy_set',
+    imageKey: 'lunch_sandwich_set',
     title: '점심 샌드위치',
     whyItWorks: '샌드위치만으로 점심시간에 빠르게 한 끼를 채울 수 있어요.',
     assemblyGuide: ['샌드위치를 꺼내 드세요.'],
@@ -320,6 +337,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0032: {
     comboKind: 'easy_set',
+    imageKey: 'gimbap_ramen_set',
     title: '김밥 라면 세트',
     description: '라면과 김밥을 함께 먹는 든든한 조합이에요.',
     whyItWorks: '따뜻한 라면과 김밥을 번갈아 먹으면 포만감이 빠르게 채워져요.',
@@ -327,30 +345,35 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0033: {
     comboKind: 'easy_set',
+    imageKey: 'light_salad_set',
     title: '가벼운 샐러드',
     whyItWorks: '샐러드만으로 가볍게 한 끼를 채울 수 있어요.',
     assemblyGuide: ['샐러드를 드세요.'],
   },
   combo_0034: {
     comboKind: 'easy_set',
+    imageKey: 'fruit_plate_set',
     title: '과일 한 접시',
     whyItWorks: '과일로 가볍고 상큼한 한 접시를 즐길 수 있어요.',
     assemblyGuide: ['과일을 꺼내 드세요.'],
   },
   combo_0035: {
     comboKind: 'easy_set',
+    imageKey: 'tofu_salad_set',
     title: '두부 샐러드',
     whyItWorks: '두부 샐러드로 가볍게 단백질을 채울 수 있어요.',
     assemblyGuide: ['두부 샐러드를 드세요.'],
   },
   combo_0036: {
     comboKind: 'easy_set',
+    imageKey: 'vegetable_juice_set',
     title: '채소주스 한 잔',
     whyItWorks: '채소주스로 가볍게 속을 채울 수 있어요.',
     assemblyGuide: ['채소주스를 드세요.'],
   },
   combo_0037: {
     comboKind: 'easy_set',
+    imageKey: 'konjac_light_meal_set',
     title: '곤약 가벼운 한 끼',
     whyItWorks: '곤약으로 부담 없이 한 끼를 채울 수 있어요.',
     assemblyGuide: ['곤약을 드세요.'],
@@ -385,6 +408,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0040: {
     comboKind: 'easy_set',
+    imageKey: 'boiled_egg_kim_set',
     title: '삶은계란 김 세트',
     description: '삶은 계란과 김으로 간단한 단백질 한 끼예요.',
     items: [{ name: '삶은계란' }, { name: '김' }],
@@ -407,12 +431,14 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0042: {
     comboKind: 'easy_set',
+    imageKey: 'tofu_protein_set',
     title: '두부 단백질',
     whyItWorks: '두부로 가볍게 단백질을 채울 수 있어요.',
     assemblyGuide: ['두부를 드세요.'],
   },
   combo_0043: {
     comboKind: 'easy_set',
+    imageKey: 'chicken_protein_set',
     title: '치킨 단백질',
     whyItWorks: '치킨으로 간단하게 단백질 한 끼를 채울 수 있어요.',
     assemblyGuide: ['치킨을 데워 드세요.'],
@@ -433,6 +459,7 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0045: {
     comboKind: 'easy_set',
+    imageKey: 'dessert_bread_set',
     title: '디저트 빵',
     whyItWorks: '빵으로 간단한 디저트 한 접시를 즐길 수 있어요.',
     assemblyGuide: ['빵을 드세요.'],
@@ -467,12 +494,14 @@ const PATCHES: Record<string, ComboEnrichment> = {
   },
   combo_0048: {
     comboKind: 'easy_set',
+    imageKey: 'hangover_bean_sprout_soup_set',
     title: '해장 콩나물국',
     whyItWorks: '따뜻한 콩나물국으로 해장 한 그릇을 즐길 수 있어요.',
     assemblyGuide: ['콩나물국을 데워 드세요.'],
   },
   combo_0049: {
     comboKind: 'easy_set',
+    imageKey: 'hangover_dried_pollack_soup_set',
     title: '해장 북어국',
     whyItWorks: '따뜻한 북어국으로 속을 편하게 할 수 있어요.',
     assemblyGuide: ['북어국을 데워 드세요.'],
