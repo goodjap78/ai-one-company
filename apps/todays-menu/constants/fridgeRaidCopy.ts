@@ -1,46 +1,20 @@
-import { FRIDGE_NOODLE_MATCH_KEY } from '../services/fridge/fridgeIngredientMatch';
-
 export type FridgePopularChip = {
   label: string;
   iconKey: string;
 };
 
-/** Popular chips — only entries with a resolvable iconKey (or virtual noodle key). */
+/** Sprint 55.2 — quick-pick staples only; full catalog via search / custom input. */
 export const FRIDGE_POPULAR_CHIPS: FridgePopularChip[] = [
   { label: '양파', iconKey: 'onion' },
   { label: '계란', iconKey: 'egg' },
   { label: '대파', iconKey: 'green_onion' },
-  { label: '돼지고기', iconKey: 'pork' },
-  { label: '밥', iconKey: 'rice' },
   { label: '감자', iconKey: 'potato' },
   { label: '당근', iconKey: 'carrot' },
-  { label: '양배추', iconKey: 'cabbage' },
   { label: '두부', iconKey: 'tofu' },
-  { label: '소고기', iconKey: 'beef' },
-  { label: '닭고기', iconKey: 'chicken' },
-  { label: '김치', iconKey: 'kimchi' },
-  { label: '햄', iconKey: 'ham' },
-  { label: '시금치', iconKey: 'spinach' },
-  { label: '애호박', iconKey: 'zucchini' },
-  { label: '버섯', iconKey: 'mushroom' },
-  { label: '콩나물', iconKey: 'bean_sprout' },
-  { label: '치즈', iconKey: 'cheese' },
-  { label: '토마토', iconKey: 'tomato' },
   { label: '김', iconKey: 'seaweed' },
+  { label: '버섯', iconKey: 'mushroom' },
   { label: '무', iconKey: 'radish' },
-  { label: '청양고추', iconKey: 'green_chili' },
-  { label: '참치', iconKey: 'tuna' },
-  { label: '오징어', iconKey: 'squid' },
-  { label: '어묵', iconKey: 'fish_cake' },
-  { label: '면류', iconKey: FRIDGE_NOODLE_MATCH_KEY },
-  { label: '식빵', iconKey: 'bread_crumbs' },
-  { label: '우유', iconKey: 'milk' },
-  { label: '버터', iconKey: 'butter' },
-  { label: '깻잎', iconKey: 'perilla' },
-  { label: '소시지', iconKey: 'sausage' },
-  { label: '고구마', iconKey: 'sweet_potato' },
-  { label: '브로콜리', iconKey: 'broccoli' },
-  { label: '아보카도', iconKey: 'avocado' },
+  { label: '양배추', iconKey: 'cabbage' },
 ];
 
 /** Chips from the brief that could not be connected to a known iconKey. */

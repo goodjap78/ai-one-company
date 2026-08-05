@@ -41,6 +41,7 @@ import {
   resolveFridgeChipItemWidth,
 } from '../constants/fridgeRaidChipLayout';
 import { FRIDGE_SHOPPING_CONFIG } from '../constants/fridgeShoppingConfig';
+import { FRIDGE_POPULAR_CHIPS } from '../constants/fridgeRaidCopy';
 
 const ALL_RECIPES = HANKKI_RECIPES;
 
@@ -549,6 +550,63 @@ runScenario('시금치 선택 시 브로콜리-only 매칭 없음', () => {
   const broccoliOnly = scoreWithIconKeys(['broccoli'], [spinachRecipe!]);
   const broccoliHits = allMainCandidates(broccoliOnly).concat(broccoliOnly.sideDishes);
   assert(broccoliHits.length === 0, 'broccoli must not match spinach-only recipe');
+});
+
+runScenario('인기 재료 — 정확히 10개', () => {
+  assert(FRIDGE_POPULAR_CHIPS.length === 10, `expected 10 popular chips, got ${FRIDGE_POPULAR_CHIPS.length}`);
+});
+
+runScenario('인기 재료 — 순서 고정', () => {
+  const expectedLabels = [
+    '양파',
+    '계란',
+    '대파',
+    '감자',
+    '당근',
+    '두부',
+    '김',
+    '버섯',
+    '무',
+    '양배추',
+  ];
+  const labels = FRIDGE_POPULAR_CHIPS.map((chip) => chip.label);
+  assert(labels.join('|') === expectedLabels.join('|'), `order mismatch: ${labels.join(', ')}`);
+});
+
+runScenario('인기 재료 — canonical key 매핑', () => {
+  const expectedKeys = [
+    'onion',
+    'egg',
+    'green_onion',
+    'potato',
+    'carrot',
+    'tofu',
+    'seaweed',
+    'mushroom',
+    'radish',
+    'cabbage',
+  ];
+  const keys = FRIDGE_POPULAR_CHIPS.map((chip) => chip.iconKey);
+  assert(keys.join('|') === expectedKeys.join('|'), `key mismatch: ${keys.join(', ')}`);
+});
+
+runScenario('인기 재료 — canonical key 중복 0', () => {
+  const keys = FRIDGE_POPULAR_CHIPS.map((chip) => chip.iconKey);
+  assert(new Set(keys).size === keys.length, 'popular chip iconKeys must be unique');
+});
+
+runScenario('인기 재료 — 제외 항목 미노출', () => {
+  const labels = new Set(FRIDGE_POPULAR_CHIPS.map((chip) => chip.label));
+  const excluded = ['돼지고기', '김치', '햄', '면류', '브로콜리'];
+  for (const name of excluded) {
+    assert(!labels.has(name), `${name} should not appear in popular chips`);
+  }
+});
+
+runScenario('직접 입력 — 인기 재료 외 재료 추가 가능', () => {
+  assert(resolveFridgeIngredientInput('김치')?.iconKey === 'kimchi', 'kimchi via custom input');
+  assert(resolveFridgeIngredientInput('돼지고기')?.iconKey === 'pork', 'pork via custom input');
+  assert(resolveFridgeIngredientInput('면류')?.matchKey === FRIDGE_NOODLE_MATCH_KEY, 'noodle via custom input');
 });
 
 runScenario('인기 재료 칩 그리드 — 일반 폭 5열', () => {
