@@ -4,7 +4,7 @@ import { getHankkiRecipeMessages } from '../../constants/HankkiMessages';
 import { ds } from '../../constants/designSystem';
 import {
   isFuzzyAmount,
-  scaleIngredientAmount,
+  scaleIngredientAmountForDisplay,
 } from '../../services/recipes/servingScaler';
 import type { RecipeIngredient, RecipeIngredientGroup } from '../../types/recipe';
 import { resolveIngredientIcon } from '../../services/images/resolveIngredientIcon';
@@ -145,6 +145,7 @@ export function RecipeIngredientsList({
 
       {isAdjusted ? (
         <View style={styles.footnoteStack}>
+          <Text style={styles.footnote}>{labels.servingPracticalRoundHint}</Text>
           <Text style={styles.footnote}>{labels.servingAdjustHint}</Text>
           <Text style={styles.footnote}>{labels.servingStepsAdjustHint}</Text>
         </View>
@@ -167,7 +168,12 @@ function IngredientChip({
   targetServings: number;
 }) {
   const iconSource = resolveIngredientIcon(item.source);
-  const scaled = scaleIngredientAmount(item.amount, baseServings, targetServings);
+  const scaled = scaleIngredientAmountForDisplay(
+    item.amount,
+    baseServings,
+    targetServings,
+    { ingredientName: item.name, iconKey: item.iconKey },
+  );
   const displayAmount = scaled.scaledAmount;
   const isScaled = scaled.status === 'scaled';
   const showFuzzyHint =

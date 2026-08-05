@@ -89,6 +89,7 @@ type RecipeCopy = {
   servingAdjustIncreaseA11y: string;
   servingAdjustReset: string;
   servingAdjustHint: string;
+  servingPracticalRoundHint: string;
   servingScaledFromBase: (base: number) => string;
   servingFuzzyHint: string;
   servingStepsAdjustHint: string;
@@ -430,6 +431,7 @@ export const HANKKI_MESSAGES: Record<HankkiLocale, HankkiMessageBundle> = {
       servingAdjustReset: '기준 인분으로 되돌리기',
       servingAdjustHint:
         '재료 수량은 인분에 맞춰 자동 계산한 값이며, 조리 방식과 기호에 따라 조절해 주세요.',
+      servingPracticalRoundHint: '조리하기 편하도록 일부 수량은 실용 단위로 표시했어요.',
       servingScaledFromBase: (base) => `${base}인분 기준에서 계산`,
       servingFuzzyHint: '취향에 맞게 조절',
       servingStepsAdjustHint:
