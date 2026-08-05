@@ -501,7 +501,7 @@ export const BATCH_02_INPUTS: HankkiRecipeInput[] = [
     serving: 2,
     ingredients: [
       { name: '계란', amount: '4개', tags: ['단백질', '주재료'], iconKey: 'egg', group: 'main' },
-      { name: '당근', amount: '2큰술', tags: ['채소', '부재료'], iconKey: 'carrot', group: 'sub' },
+      { name: '당근', amount: '1/3개', tags: ['채소', '부재료'], iconKey: 'carrot', group: 'sub' },
       { name: '대파', amount: '1대', tags: ['채소', '부재료', '향신'], iconKey: 'green_onion', group: 'sub' },
       { name: '소금', amount: '약간', tags: ['양념'], iconKey: 'salt', group: 'seasoning' },
       { name: '설탕', amount: '1/2작은술', tags: ['양념', '단맛'], iconKey: 'sugar', group: 'seasoning' },

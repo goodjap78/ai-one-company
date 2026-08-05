@@ -1,12 +1,23 @@
 /**
  * Sprint 49-A — Scale ingredient amounts by serving ratio without mutating recipe data.
  */
+import {
+  cupsToMilliliters,
+  COOKING_CUP_ML,
+  COOKING_TABLESPOON_ML,
+  COOKING_TEASPOON_ML,
+  tablespoonsToMilliliters,
+  teaspoonsToMilliliters,
+} from '../../constants/cookingUnits';
+import { isBulkLiquidForMlDisplay } from './liquidIngredientPolicy';
 export type ServingScaleStatus = 'scaled' | 'unchanged' | 'needs_review';
 
 export type ServingScaleResult = {
   originalAmount: string;
+  /** Practical display amount for cooking (rounded for readability). */
   scaledAmount: string;
   status: ServingScaleStatus;
+  /** Exact scaled numeric value before practical rounding. */
   numericValue?: number;
   unit?: string;
 };
@@ -32,8 +43,12 @@ const FRACTIONS: Array<{ value: number; text: string }> = [
   { value: 0.75, text: '3/4' },
 ];
 
+/** 개수형 — nearest integer, minimum 1 when scaled value > 0. */
+const INTEGER_COUNT_UNITS =
+  /^(개|마리|장|봉|팩|조각|줄기|알)$/u;
+
 const COUNT_UNITS =
-  /^(개|모|장|대|봉|팩|캔|공기|컵|줌|마리|쪽|알|토막|덩이|봉지|포|통|병|박스|인분|줄기|송이|덩어리|조각)$/u;
+  /^(개|모|장|대|봉|팩|캔|공기|줌|마리|쪽|알|토막|덩이|봉지|포|통|병|박스|인분|줄기|송이|덩어리|조각)$/u;
 
 const MEASURE_UNITS =
   /^(g|kg|ml|l|리터|큰술|작은술|티스푼|스푼|컵|공기|줌)$/iu;
@@ -97,33 +112,85 @@ function formatDecimal(value: number): string {
   return rounded.toFixed(1).replace(/\.0$/, '');
 }
 
-function formatCountNumber(value: number): string {
-  if (value <= 0) return '0';
-  const whole = Math.floor(value);
-  const frac = value - whole;
-  if (frac < 0.08) return String(whole);
-
-  for (const f of FRACTIONS) {
-    if (Math.abs(frac - f.value) < 0.08) {
-      return whole > 0 ? `${whole}${f.text}` : f.text;
+function nearestStandardFraction(value: number): string {
+  if (value <= 0) return FRACTIONS[0].text;
+  let best = FRACTIONS[0];
+  let bestDistance = Infinity;
+  for (const fraction of FRACTIONS) {
+    const distance = Math.abs(value - fraction.value);
+    if (distance < bestDistance) {
+      bestDistance = distance;
+      best = fraction;
     }
   }
-
-  return formatDecimal(value);
+  return best.text;
 }
 
 const SPOON_UNITS = /^(큰술|작은술|티스푼|스푼)$/u;
 
-function usesFractionNumberFormat(unit: string): boolean {
-  const normalizedUnit = unit.trim();
-  return COUNT_UNITS.test(normalizedUnit) || SPOON_UNITS.test(normalizedUnit);
+function formatPracticalIntegerCount(value: number): string {
+  if (value <= 0) return '1';
+  const rounded = Math.round(value);
+  return String(Math.max(1, rounded));
 }
 
-function formatScaledNumber(value: number, unit: string): string {
+function formatPracticalSpoon(value: number): string {
+  if (value <= 0) return nearestStandardFraction(0.25);
+  if (value < 0.2) return nearestStandardFraction(value);
+  if (value < 1) return nearestStandardFraction(value);
+  if (value < 2) {
+    const halfStep = Math.round(value * 2) / 2;
+    if (halfStep <= 0) return nearestStandardFraction(0.25);
+    if (Math.abs(halfStep - 1) < 0.001) return '1';
+    return formatDecimal(halfStep);
+  }
+  return String(Math.round(value));
+}
+
+function formatPracticalCup(value: number): string {
+  if (value <= 0) return nearestStandardFraction(0.25);
+  if (value < 1) return nearestStandardFraction(value);
+  const halfStep = Math.round(value * 2) / 2;
+  if (halfStep <= 0) return nearestStandardFraction(0.25);
+  return formatDecimal(halfStep);
+}
+
+function formatPracticalGramMl(value: number): string {
+  if (value <= 0) return '1';
+  if (value < 10) return String(Math.max(1, Math.round(value)));
+  return String(Math.round(value / 10) * 10);
+}
+
+function formatPracticalOtherCount(value: number): string {
+  if (value <= 0) return '1';
+  const rounded = Math.round(value);
+  return String(Math.max(1, rounded));
+}
+
+/** Format scaled numeric value for practical cooking display. */
+export function formatPracticalAmountNumber(value: number, unit: string): string {
   const normalizedUnit = unit.trim();
-  const numText = usesFractionNumberFormat(normalizedUnit)
-    ? formatCountNumber(value)
-    : formatDecimal(value);
+  if (INTEGER_COUNT_UNITS.test(normalizedUnit)) {
+    return formatPracticalIntegerCount(value);
+  }
+  if (SPOON_UNITS.test(normalizedUnit)) {
+    return formatPracticalSpoon(value);
+  }
+  if (normalizedUnit === '컵') {
+    return formatPracticalCup(value);
+  }
+  if (/^(g|ml)$/iu.test(normalizedUnit)) {
+    return formatPracticalGramMl(value);
+  }
+  if (COUNT_UNITS.test(normalizedUnit)) {
+    return formatPracticalOtherCount(value);
+  }
+  return formatDecimal(value);
+}
+
+function formatPracticalScaledNumber(value: number, unit: string): string {
+  const normalizedUnit = unit.trim();
+  const numText = formatPracticalAmountNumber(value, normalizedUnit);
   return `${numText}${normalizedUnit}`;
 }
 
@@ -134,9 +201,8 @@ function formatRangeAmount(
   sep: string,
 ): string {
   const normalizedUnit = unit.trim();
-  const useFraction = usesFractionNumberFormat(normalizedUnit);
-  const leftText = useFraction ? formatCountNumber(left) : formatDecimal(left);
-  const rightText = useFraction ? formatCountNumber(right) : formatDecimal(right);
+  const leftText = formatPracticalAmountNumber(left, normalizedUnit);
+  const rightText = formatPracticalAmountNumber(right, normalizedUnit);
   return `${leftText}${sep}${rightText}${normalizedUnit}`;
 }
 
@@ -163,7 +229,7 @@ function scaleSimpleAmount(
   if (!parsed) return null;
   const scaledValue = parsed.value * ratio;
   if (!Number.isFinite(scaledValue)) return null;
-  const scaledAmount = formatScaledNumber(scaledValue, parsed.unit);
+  const scaledAmount = formatPracticalScaledNumber(scaledValue, parsed.unit);
   return scaledResult(amount, scaledAmount, scaledValue, parsed.unit);
 }
 
@@ -233,6 +299,107 @@ function scaleAmountString(amount: string, ratio: number): ServingScaleResult {
   return needsReview(trimmed);
 }
 
+export type ScaleIngredientDisplayOptions = {
+  ingredientName?: string;
+  iconKey?: string | null;
+};
+
+function resolveScaledNumericForUnit(
+  originalAmount: string,
+  baseServings: number,
+  targetServings: number,
+  result: ServingScaleResult,
+  expectedUnit: string,
+): number | null {
+  if (result.numericValue !== undefined && result.unit === expectedUnit) {
+    return result.numericValue;
+  }
+
+  const parsed = parseSimpleAmount(originalAmount.trim());
+  if (!parsed || parsed.unit !== expectedUnit) return null;
+
+  const base = normalizeServings(baseServings);
+  const target = normalizeServings(targetServings);
+  return parsed.value * (target / base);
+}
+
+function measureBulkLiquidToMl(value: number, unit: string): number | null {
+  const normalizedUnit = unit.trim();
+  if (normalizedUnit === '컵') return cupsToMilliliters(value);
+  if (normalizedUnit === '큰술' || normalizedUnit === '스푼') {
+    return tablespoonsToMilliliters(value);
+  }
+  if (normalizedUnit === '작은술' || normalizedUnit === '티스푼') {
+    return teaspoonsToMilliliters(value);
+  }
+  return null;
+}
+
+function formatBulkLiquidMlDisplay(value: number, unit: string): string | null {
+  const ml = measureBulkLiquidToMl(value, unit);
+  if (ml === null) return null;
+  return `${formatPracticalGramMl(ml)}ml`;
+}
+
+function applyBulkLiquidMlDisplay(
+  originalAmount: string,
+  baseServings: number,
+  targetServings: number,
+  result: ServingScaleResult,
+  options?: ScaleIngredientDisplayOptions,
+): ServingScaleResult {
+  const name = options?.ingredientName ?? '';
+  if (!isBulkLiquidForMlDisplay(name, options?.iconKey)) {
+    return result;
+  }
+
+  const parsed = parseSimpleAmount(originalAmount.trim());
+  const unit = result.unit ?? parsed?.unit;
+  if (!unit || unit === 'ml') return result;
+
+  const bulkUnits = ['컵', '큰술', '작은술', '티스푼', '스푼'];
+  if (!bulkUnits.includes(unit)) return result;
+
+  const numericValue = resolveScaledNumericForUnit(
+    originalAmount,
+    baseServings,
+    targetServings,
+    result,
+    unit,
+  );
+  if (numericValue === null) return result;
+
+  const mlDisplay = formatBulkLiquidMlDisplay(numericValue, unit);
+  if (!mlDisplay) return result;
+
+  return {
+    ...result,
+    scaledAmount: mlDisplay,
+    numericValue: numericValue,
+    unit,
+  };
+}
+
+/**
+ * Scale ingredient amount and format for UI (practical units + liquid 컵 → ml).
+ */
+export function scaleIngredientAmountForDisplay(
+  amount: string,
+  baseServings: number,
+  targetServings: number,
+  options?: ScaleIngredientDisplayOptions,
+): ServingScaleResult {
+  const result = scaleIngredientAmount(amount, baseServings, targetServings);
+  return applyBulkLiquidMlDisplay(amount, baseServings, targetServings, result, options);
+}
+
+/** Parse ingredient amount string into numeric value and unit (audit / display). */
+export function parseIngredientAmount(amount: string): { value: number; unit: string } | null {
+  const parsed = parseSimpleAmount(amount.trim());
+  if (!parsed) return null;
+  return { value: parsed.value, unit: parsed.unit };
+}
+
 /**
  * Scale a single ingredient amount from base servings to target servings.
  */
@@ -260,6 +427,12 @@ export function scaleIngredientAmount(
   const ratio = target / base;
   return scaleAmountString(trimmed, ratio);
 }
+
+export {
+  COOKING_CUP_ML,
+  COOKING_TABLESPOON_ML,
+  COOKING_TEASPOON_ML,
+} from '../../constants/cookingUnits';
 
 export type AmountAuditCategory =
   | 'A_simple'
