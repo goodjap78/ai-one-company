@@ -7,9 +7,13 @@ import { FRIDGE_RAID_COPY } from '../../constants/fridgeRaidCopy';
 import { NAV_BACK } from '../../constants/navigationCopy';
 import { ds } from '../../constants/designSystem';
 import { buildFridgeRaidDisplayResults } from '../../services/fridge/buildFridgeRaidCandidates';
+import {
+  buildFridgeUtilizationSections,
+  hasMultiIngredientUtilizationGap,
+} from '../../services/fridge/fridgeUtilizationDisplay';
 import { loadRecommendationContext } from '../../services/recommendation/recommendationContext';
 import { getPantry } from '../../services/pantry/pantryService';
-import type { FridgeRaidDisplayGroups } from '../../services/fridge/fridgeRaidTypes';
+import type { FridgeRaidCandidate } from '../../services/fridge/fridgeRaidTypes';
 import { FridgeRaidMealCard } from './FridgeRaidMealCard';
 import { FridgeShoppingBridge } from './FridgeShoppingBridge';
 import { ScreenBackButton } from '../ui/ScreenBackButton';
@@ -18,10 +22,12 @@ import { screenLayout } from '../ui/screenLayout';
 
 function ResultSection({
   title,
+  subtitle,
   items,
 }: {
   title: string;
-  items: FridgeRaidDisplayGroups['ready'];
+  subtitle?: string;
+  items: FridgeRaidCandidate[];
 }) {
   if (items.length === 0) return null;
 
@@ -30,6 +36,7 @@ function ResultSection({
       <Text style={styles.sectionTitle} accessibilityRole="header">
         {title}
       </Text>
+      {subtitle ? <Text style={styles.sectionSubtitle}>{subtitle}</Text> : null}
       {items.map((candidate) => (
         <FridgeRaidMealCard key={candidate.recipeId} candidate={candidate} />
       ))}
@@ -41,7 +48,8 @@ export function FridgeRaidResultsScreen() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [selectedNames, setSelectedNames] = useState<string[]>([]);
-  const [results, setResults] = useState<FridgeRaidDisplayGroups | null>(null);
+  const [results, setResults] = useState<Awaited<ReturnType<typeof buildFridgeRaidDisplayResults>> | null>(null);
+  const [showExtended, setShowExtended] = useState(false);
 
   const loadResults = useCallback(async () => {
     setLoading(true);
@@ -54,6 +62,7 @@ export function FridgeRaidResultsScreen() {
         context,
       }),
     );
+    setShowExtended(false);
     setLoading(false);
   }, []);
 
@@ -64,9 +73,10 @@ export function FridgeRaidResultsScreen() {
   const hasAnyResults = useMemo(() => {
     if (!results) return false;
     return (
-      results.ready.length +
-        results.oneMissing.length +
-        results.similar.length +
+      results.tier5.length +
+        results.tier4.length +
+        results.tier3.length +
+        results.extended.length +
         results.sideDishes.length >
       0
     );
@@ -75,6 +85,23 @@ export function FridgeRaidResultsScreen() {
   if (loading || !results) {
     return <ScreenLoading />;
   }
+
+  const extendedVisible = showExtended ? results.extended : [];
+  const selectedCount = selectedNames.length;
+  const primaryCandidates = [...results.tier5, ...results.tier4, ...results.tier3];
+  const utilizationSections =
+    selectedCount >= 3
+      ? buildFridgeUtilizationSections(primaryCandidates, selectedCount)
+      : [];
+  const extendedUtilizationSections =
+    selectedCount >= 3 && showExtended
+      ? buildFridgeUtilizationSections(extendedVisible, selectedCount)
+      : [];
+  const showUtilizationLayout = utilizationSections.length > 0;
+  const utilizationGap = hasMultiIngredientUtilizationGap(
+    primaryCandidates.length > 0 ? primaryCandidates : results.extended,
+    selectedCount,
+  );
 
   return (
     <SafeAreaView style={screenLayout.safeArea} edges={['top', 'bottom']}>
@@ -123,9 +150,49 @@ export function FridgeRaidResultsScreen() {
             </View>
           ) : (
             <>
-              <ResultSection title={FRIDGE_RAID_COPY.groupReady} items={results.ready} />
-              <ResultSection title={FRIDGE_RAID_COPY.groupOneMissing} items={results.oneMissing} />
-              <ResultSection title={FRIDGE_RAID_COPY.groupSimilar} items={results.similar} />
+              {showUtilizationLayout ? (
+                <>
+                  {utilizationSections.map((section) => (
+                    <ResultSection key={section.title} title={section.title} items={section.items} />
+                  ))}
+                  {utilizationGap ? (
+                    <Text style={styles.utilizationGap}>{FRIDGE_RAID_COPY.utilizationShortage}</Text>
+                  ) : null}
+                </>
+              ) : (
+                <>
+                  {primaryCandidates.length === 0 && results.extended.length > 0 && utilizationGap ? (
+                    <Text style={styles.utilizationGap}>{FRIDGE_RAID_COPY.utilizationShortage}</Text>
+                  ) : null}
+                  <ResultSection title={FRIDGE_RAID_COPY.groupReady} items={results.tier5} />
+                  <ResultSection title={FRIDGE_RAID_COPY.groupOneMissing} items={results.tier4} />
+                  <ResultSection title={FRIDGE_RAID_COPY.groupNeedTwo} items={results.tier3} />
+                </>
+              )}
+
+              {results.extended.length > 0 ? (
+                <View style={styles.section}>
+                  {!showExtended ? (
+                    <Pressable
+                      style={({ pressed }) => [styles.moreButton, pressed && screenLayout.pressed]}
+                      onPress={() => setShowExtended(true)}
+                      accessibilityRole="button"
+                      accessibilityLabel={FRIDGE_RAID_COPY.showMoreMenus}
+                    >
+                      <Text style={styles.moreButtonLabel}>{FRIDGE_RAID_COPY.showMoreMenus}</Text>
+                    </Pressable>
+                  ) : extendedUtilizationSections.length > 0 ? (
+                    <>
+                      {extendedUtilizationSections.map((section) => (
+                        <ResultSection key={`ext-${section.title}`} title={section.title} items={section.items} />
+                      ))}
+                    </>
+                  ) : (
+                    <ResultSection title={FRIDGE_RAID_COPY.groupExtended} items={extendedVisible} />
+                  )}
+                </View>
+              ) : null}
+
               <ResultSection title={FRIDGE_RAID_COPY.groupSideDishes} items={results.sideDishes} />
             </>
           )}
@@ -166,6 +233,28 @@ const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 24,
     color: ds.colors.textPrimary,
+  },
+  sectionSubtitle: {
+    ...ds.typography.caption,
+    color: ds.colors.textSecondary,
+    fontWeight: '600',
+  },
+  utilizationGap: {
+    ...ds.typography.caption,
+    color: ds.colors.textSecondary,
+    fontWeight: '600',
+  },
+  moreButton: {
+    alignSelf: 'flex-start',
+    paddingVertical: ds.spacing.sm,
+    paddingHorizontal: ds.spacing.md,
+    borderRadius: ds.radius.pill,
+    backgroundColor: ds.colors.borderLight,
+  },
+  moreButtonLabel: {
+    ...ds.typography.caption,
+    color: ds.colors.primary,
+    fontWeight: '700',
   },
   emptyBox: {
     ...screenLayout.centered,

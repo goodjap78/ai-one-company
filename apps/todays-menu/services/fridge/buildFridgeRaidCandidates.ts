@@ -3,19 +3,26 @@ import { isSideDishRecipe } from '../../data/recipes/sideDishPolicy';
 import type { PantrySnapshot } from '../../types/pantry';
 import type { RecommendationContext } from '../../types/preference';
 import { menuPassesAiRecommendationExclusions } from '../recommendation/mealIntelligence/aiRecommendationExclusions';
-import { scoreMetadataPreferences } from '../recommendation/mealIntelligence/aiRecommendationMetadataScoring';
-import { explicitCookTimeLimitMinutes } from '../recommendation/cookTimePreference';
+import { alignFridgeIngredients } from './fridgeIngredientAlignment';
 import { buildFridgeRecipeIndex } from './fridgeRecipeIndex';
-import { buildPantryMatchKeySet, pantryOwnsMatchKey } from './fridgeIngredientMatch';
+import { buildPantryMatchKeySet } from './fridgeIngredientMatch';
 import { recipeToFridgeMenuItem } from './recipeToFridgeMenuItem';
+import {
+  buildFridgeRecommendationReason,
+  buildFridgeTierHint,
+  applyMinimumUtilizationOrder,
+  difficultyRank,
+  isPrimaryFridgeRecommendation,
+  starRatingFromMissingCount,
+} from './fridgeRecommendationIntelligence';
 import type {
   FridgeRaidCandidate,
   FridgeRaidDisplayGroups,
   FridgeRaidDisplayInput,
   FridgeRaidGroupId,
-  FridgeRaidScoreInput,
   FridgeRaidScoredCandidate,
   FridgeRaidScoredGroups,
+  FridgeRaidScoreInput,
 } from './fridgeRaidTypes';
 
 export type {
@@ -36,119 +43,37 @@ function resolveHeroImageForRecipe(recipe: Recipe) {
   return resolveFridgeRecipeHeroImage(recipe);
 }
 
-const SCORE_WEIGHTS = {
-  main: 70,
-  sub: 20,
-  cookTime: 5,
-  aiSettings: 5,
-} as const;
-
-function roundScore(value: number): number {
-  return Math.round(value * 10) / 10;
+function legacyGroupFromStar(
+  starRating: number,
+  sideDish: boolean,
+): FridgeRaidGroupId {
+  if (sideDish) return 'side_dish';
+  if (starRating === 5) return 'ready';
+  if (starRating === 4) return 'one_missing';
+  return 'similar';
 }
 
-function ratioScore(ratio: number, maxPoints: number): number {
-  if (!Number.isFinite(ratio) || ratio <= 0) return 0;
-  return Math.min(maxPoints, ratio * maxPoints);
+function bucketForCandidate(
+  candidate: FridgeRaidScoredCandidate,
+  sideDish: boolean,
+): keyof FridgeRaidScoredGroups {
+  if (sideDish) return 'sideDishes';
+  if (!isPrimaryFridgeRecommendation(candidate.missingCount)) return 'extended';
+  if (candidate.starRating === 5) return 'tier5';
+  if (candidate.starRating === 4) return 'tier4';
+  return 'tier3';
 }
-
-function cookTimeBonus(cookTime: number, context?: RecommendationContext): number {
-  const limit = explicitCookTimeLimitMinutes(context);
-  if (limit === null) return 0;
-  if (cookTime <= limit) return SCORE_WEIGHTS.cookTime;
-  return 0;
-}
-
-function aiSettingsBonus(menuItem: ReturnType<typeof recipeToFridgeMenuItem>, context?: RecommendationContext): number {
-  const mealType = 'dinner';
-  const result = scoreMetadataPreferences(menuItem, mealType, context);
-  if (result.total <= 0) return 0;
-  const normalized = Math.min(1, result.total / 40);
-  return roundScore(normalized * SCORE_WEIGHTS.aiSettings);
-}
-
-function buildReason(group: FridgeRaidGroupId, missingMainNames: string[]): string {
-  if (group === 'side_dish') {
-    if (missingMainNames.length === 0) return '곁들이기 좋은 반찬이에요';
-    if (missingMainNames.length === 1 && missingMainNames[0]) {
-      return `${missingMainNames[0]}만 더 있으면 만들 수 있어요`;
-    }
-    return '비슷한 재료로 반찬을 만들 수 있어요';
-  }
-  if (group === 'ready') return '필수 재료를 모두 갖고 있어요';
-  if (group === 'one_missing' && missingMainNames[0]) {
-    return `${missingMainNames[0]}만 더 있으면 만들 수 있어요`;
-  }
-  if (missingMainNames.length > 0) {
-    return '비슷한 재료로 만들 수 있어요';
-  }
-  return '재료가 많이 맞아요';
-}
-
-function classifyGroup(ownedMainCount: number, totalMainCount: number): FridgeRaidGroupId | null {
-  if (totalMainCount === 0) return null;
-  if (ownedMainCount === 0) return null;
-
-  const missingMain = totalMainCount - ownedMainCount;
-  const mainRatio = ownedMainCount / totalMainCount;
-
-  if (missingMain === 0) return 'ready';
-  if (missingMain === 1) return 'one_missing';
-  if (missingMain >= 2 && mainRatio >= 0.5) return 'similar';
-  return null;
-}
-
-function countOwnedKeys(keys: string[], ownedKeys: Set<string>): number {
-  let count = 0;
-  for (const key of keys) {
-    if (pantryOwnsMatchKey(ownedKeys, key)) count += 1;
-  }
-  return count;
-}
-
-function collectOwnedMainNames(
-  mainKeys: string[],
-  mainNames: string[],
-  ownedKeys: Set<string>,
-): string[] {
-  const owned: string[] = [];
-  for (let index = 0; index < mainKeys.length; index += 1) {
-    if (pantryOwnsMatchKey(ownedKeys, mainKeys[index])) {
-      owned.push(mainNames[index] ?? mainKeys[index]);
-    }
-  }
-  return owned;
-}
-
-function collectMissingMainNames(
-  mainKeys: string[],
-  mainNames: string[],
-  ownedKeys: Set<string>,
-): string[] {
-  const missing: string[] = [];
-  for (let index = 0; index < mainKeys.length; index += 1) {
-    if (!pantryOwnsMatchKey(ownedKeys, mainKeys[index])) {
-      missing.push(mainNames[index] ?? mainKeys[index]);
-    }
-  }
-  return missing;
-}
-
-const SORT_DESC = (a: FridgeRaidScoredCandidate, b: FridgeRaidScoredCandidate) => {
-  if (b.score !== a.score) return b.score - a.score;
-  if (b.mainMatchRatio !== a.mainMatchRatio) return b.mainMatchRatio - a.mainMatchRatio;
-  return a.cookTime - b.cookTime;
-};
 
 /**
- * Score every recipe in the catalog — no per-group cap.
- * Uses memoized main/sub match keys and Set-based pantry lookups.
+ * Score every recipe — Refrigerator Intelligence Engine v1.0.
+ * Tiers by missing required ingredients; missing ≥ 3 → extended bucket only.
  */
 export function scoreFridgeRaidCandidates(input: FridgeRaidScoreInput): FridgeRaidScoredGroups {
   const empty: FridgeRaidScoredGroups = {
-    ready: [],
-    oneMissing: [],
-    similar: [],
+    tier5: [],
+    tier4: [],
+    tier3: [],
+    extended: [],
     sideDishes: [],
   };
   if (input.pantry.items.length === 0 || input.recipes.length === 0) {
@@ -158,11 +83,12 @@ export function scoreFridgeRaidCandidates(input: FridgeRaidScoreInput): FridgeRa
   const ownedKeys = buildPantryMatchKeySet(input.pantry);
   const recipeIndex = buildFridgeRecipeIndex(input.recipes);
 
-  const buckets: Record<FridgeRaidGroupId, FridgeRaidScoredCandidate[]> = {
-    ready: [],
-    one_missing: [],
-    similar: [],
-    side_dish: [],
+  const buckets: FridgeRaidScoredGroups = {
+    tier5: [],
+    tier4: [],
+    tier3: [],
+    extended: [],
+    sideDishes: [],
   };
 
   for (const recipe of input.recipes) {
@@ -172,64 +98,67 @@ export function scoreFridgeRaidCandidates(input: FridgeRaidScoreInput): FridgeRa
     const menuItem = recipeToFridgeMenuItem(recipe);
     if (!menuPassesAiRecommendationExclusions(menuItem, input.context)) continue;
 
-    const totalMainCount = indexed.mainMatchKeys.length;
-    const ownedMainCount = countOwnedKeys(indexed.mainMatchKeys, ownedKeys);
-    if (ownedMainCount === 0 || totalMainCount === 0) continue;
+    const alignment = alignFridgeIngredients(
+      indexed.requiredIngredients,
+      ownedKeys,
+      input.pantry.items,
+    );
+
+    if (alignment.matchedCount === 0) continue;
 
     const sideDish = isSideDishRecipe(recipe);
-    const group = sideDish ? 'side_dish' : classifyGroup(ownedMainCount, totalMainCount);
-    if (!group) continue;
-
-    const ownedSubCount = countOwnedKeys(indexed.subMatchKeys, ownedKeys);
-    const mainMatchRatio = totalMainCount > 0 ? ownedMainCount / totalMainCount : 0;
-    const subMatchRatio =
-      indexed.subMatchKeys.length > 0 ? ownedSubCount / indexed.subMatchKeys.length : 1;
-
-    const score =
-      ratioScore(mainMatchRatio, SCORE_WEIGHTS.main) +
-      ratioScore(subMatchRatio, SCORE_WEIGHTS.sub) +
-      cookTimeBonus(indexed.cookTime, input.context) +
-      aiSettingsBonus(menuItem, input.context);
-
-    const ownedMainNames = collectOwnedMainNames(
-      indexed.mainMatchKeys,
-      indexed.mainNames,
-      ownedKeys,
-    );
-    const missingMainNames = collectMissingMainNames(
-      indexed.mainMatchKeys,
-      indexed.mainNames,
-      ownedKeys,
-    );
+    const starRating = starRatingFromMissingCount(alignment.missingCount);
+    const group = legacyGroupFromStar(starRating, sideDish);
+    const difficulty = difficultyRank(indexed.difficulty);
 
     const candidate: FridgeRaidScoredCandidate = {
       recipeId: indexed.recipeId,
       title: indexed.title,
       cookTime: indexed.cookTime,
       group,
-      score: roundScore(score),
-      mainMatchRatio,
-      subMatchRatio,
-      matchPercent: Math.round(mainMatchRatio * 100),
-      ownedMainNames,
-      missingMainNames,
-      reason: buildReason(group, missingMainNames),
+      starRating,
+      tierHint: buildFridgeTierHint(starRating, alignment.missingIngredients),
+      matchedIngredients: alignment.matchedIngredients,
+      missingIngredients: alignment.missingIngredients,
+      extraSelectedIngredients: alignment.extraSelectedIngredients,
+      matchedCount: alignment.matchedCount,
+      missingCount: alignment.missingCount,
+      matchRatio: alignment.matchRatio,
+      selectedIngredientCount: alignment.selectedIngredientCount,
+      matchedSelectedIngredients: alignment.matchedSelectedIngredients,
+      matchedSelectedCount: alignment.matchedSelectedCount,
+      selectedCoverageRatio: alignment.selectedCoverageRatio,
+      unusedSelectedIngredients: alignment.unusedSelectedIngredients,
+      matchPercent: Math.round(alignment.matchRatio * 100),
+      ownedMainNames: alignment.matchedIngredients,
+      missingMainNames: alignment.missingIngredients,
+      reason: buildFridgeRecommendationReason(
+        alignment.matchedIngredients,
+        alignment.missingIngredients,
+        starRating,
+      ),
+      score: alignment.matchRatio * 100,
+      mainMatchRatio: alignment.matchRatio,
+      subMatchRatio: alignment.matchRatio,
+      difficultyRank: difficulty,
+      recommendationPriority: indexed.recommendationPriority,
     };
 
-    buckets[group].push(candidate);
+    const bucket = bucketForCandidate(candidate, sideDish);
+    buckets[bucket].push(candidate);
   }
 
-  return {
-    ready: buckets.ready.sort(SORT_DESC),
-    oneMissing: buckets.one_missing.sort(SORT_DESC),
-    similar: buckets.similar.sort(SORT_DESC),
-    sideDishes: buckets.side_dish.sort(SORT_DESC),
-  };
+  const selectedIngredientCount = input.pantry.items.length;
+
+  for (const key of Object.keys(buckets) as (keyof FridgeRaidScoredGroups)[]) {
+    buckets[key] = applyMinimumUtilizationOrder(buckets[key], selectedIngredientCount);
+  }
+
+  return buckets;
 }
 
 /**
- * After full scoring, keep only the top N per group and attach hero images.
- * Hero resolution runs only for display rows (not the full catalog).
+ * After full scoring, keep only the top N per primary group and attach hero images.
  */
 export function selectFridgeRaidDisplayResults(
   scored: FridgeRaidScoredGroups,
@@ -250,14 +179,24 @@ export function selectFridgeRaidDisplayResults(
     });
 
   return {
-    ready: enrich(scored.ready),
-    oneMissing: enrich(scored.oneMissing),
-    similar: enrich(scored.similar),
+    tier5: enrich(scored.tier5),
+    tier4: enrich(scored.tier4),
+    tier3: enrich(scored.tier3),
+    extended: scored.extended.map((item) => {
+      const recipe = recipesById.get(item.recipeId);
+      return {
+        ...item,
+        heroImage:
+          attachHeroImages && recipe
+            ? resolveHeroImageForRecipe(recipe)
+            : { emoji: '🍽️', url: null, accessibilityLabel: item.title },
+      };
+    }),
     sideDishes: enrich(scored.sideDishes),
   };
 }
 
-/** Score full catalog, then return top display rows for the results screen. */
+/** Score full catalog, then return display rows for the results screen. */
 export function buildFridgeRaidDisplayResults(input: FridgeRaidDisplayInput): FridgeRaidDisplayGroups {
   const scored = scoreFridgeRaidCandidates(input);
   const recipesById = new Map(input.recipes.map((recipe) => [recipe.id, recipe]));
@@ -297,4 +236,33 @@ export function buildFridgeRaidCandidatesFromIconKeys(
   };
 
   return buildFridgeRaidDisplayResults({ recipes, pantry, context, attachHeroImages });
+}
+
+/** @deprecated Sprint 54 — map tier buckets to legacy ready/oneMissing/similar */
+export function toLegacyScoredGroups(scored: FridgeRaidScoredGroups): {
+  ready: FridgeRaidScoredCandidate[];
+  oneMissing: FridgeRaidScoredCandidate[];
+  similar: FridgeRaidScoredCandidate[];
+  sideDishes: FridgeRaidScoredCandidate[];
+} {
+  return {
+    ready: scored.tier5,
+    oneMissing: scored.tier4,
+    similar: [...scored.tier3, ...scored.extended],
+    sideDishes: scored.sideDishes,
+  };
+}
+
+export function countFridgeScoredCandidates(scored: FridgeRaidScoredGroups): number {
+  return (
+    scored.tier5.length +
+    scored.tier4.length +
+    scored.tier3.length +
+    scored.extended.length +
+    scored.sideDishes.length
+  );
+}
+
+export function countPrimaryFridgeCandidates(scored: FridgeRaidScoredGroups): number {
+  return scored.tier5.length + scored.tier4.length + scored.tier3.length;
 }

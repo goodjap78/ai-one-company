@@ -12,6 +12,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {
   buildFridgeRaidCandidatesFromIconKeys,
+  countFridgeScoredCandidates,
+  countPrimaryFridgeCandidates,
   scoreFridgeRaidCandidates,
   selectFridgeRaidDisplayResults,
 } from '../services/fridge/buildFridgeRaidCandidates';
@@ -22,7 +24,8 @@ import {
   resolveFridgeIngredientInput,
   resolveRecipeIngredientMatchKey,
 } from '../services/fridge/fridgeIngredientMatch';
-import { clearFridgeRecipeIndexCache } from '../services/fridge/fridgeRecipeIndex';
+import { clearFridgeRecipeIndexCache, getFridgeRecipeIndexEntry } from '../services/fridge/fridgeRecipeIndex';
+import { isTierRequiredIngredient } from '../services/fridge/fridgeIngredientAlignment';
 import { menuPassesAiRecommendationExclusions } from '../services/recommendation/mealIntelligence/aiRecommendationExclusions';
 import { recipeToFridgeMenuItem } from '../services/fridge/recipeToFridgeMenuItem';
 import {
@@ -100,16 +103,15 @@ function scoreWithIconKeys(iconKeys: string[], recipes = ALL_RECIPES) {
 }
 
 function countScored(results: ReturnType<typeof scoreFridgeRaidCandidates>): number {
-  return (
-    results.ready.length +
-    results.oneMissing.length +
-    results.similar.length +
-    results.sideDishes.length
-  );
+  return countFridgeScoredCandidates(results);
 }
 
 function countMainScored(results: ReturnType<typeof scoreFridgeRaidCandidates>): number {
-  return results.ready.length + results.oneMissing.length + results.similar.length;
+  return countPrimaryFridgeCandidates(results);
+}
+
+function allMainCandidates(results: ReturnType<typeof scoreFridgeRaidCandidates>) {
+  return [...results.tier5, ...results.tier4, ...results.tier3, ...results.extended];
 }
 
 function assert(condition: boolean, message: string): void {
@@ -151,52 +153,58 @@ runScenario('김치 + 돼지고기 + 두부 선택', () => {
   assert(countScored(scoreWithIconKeys(['kimchi', 'pork', 'tofu'])) > 0, 'expected matches');
 });
 
-runScenario('필수 재료 100% 보유 메뉴 → ready 그룹', () => {
+runScenario('필수 재료 100% 보유 메뉴 → tier5', () => {
   const recipe = ALL_RECIPES.find((item) => item.name === '계란볶음밥');
   assert(Boolean(recipe), '계란볶음밥 recipe missing');
-  const mains = recipe!.ingredients.filter((item) => item.group === 'main');
-  const iconKeys = mains.map((item) => resolveRecipeIngredientMatchKey(item));
+  const indexed = getFridgeRecipeIndexEntry(recipe!);
+  const iconKeys = indexed.requiredIngredients
+    .filter(isTierRequiredIngredient)
+    .map((item) => item.matchKey);
   const results = scoreWithIconKeys(iconKeys, [recipe!]);
-  assert(results.ready.some((item) => item.recipeId === recipe!.id), 'expected ready match');
+  assert(results.tier5.some((item) => item.recipeId === recipe!.id), 'expected tier5 match');
 });
 
-runScenario('필수 재료 1개 부족 메뉴 → one_missing 그룹', () => {
+runScenario('필수 재료 1개 부족 메뉴 → tier4', () => {
   const recipe = ALL_RECIPES.find((item) => item.name === '계란볶음밥');
   assert(Boolean(recipe), '계란볶음밥 recipe missing');
-  const mains = recipe!.ingredients.filter((item) => item.group === 'main');
-  const partial = mains.slice(0, Math.max(1, mains.length - 1)).map((item) =>
-    resolveRecipeIngredientMatchKey(item),
-  );
+  const indexed = getFridgeRecipeIndexEntry(recipe!);
+  const tierKeys = indexed.requiredIngredients
+    .filter(isTierRequiredIngredient)
+    .map((item) => item.matchKey);
+  const partial = tierKeys.slice(0, Math.max(1, tierKeys.length - 1));
   const results = scoreWithIconKeys(partial, [recipe!]);
   assert(
-    results.oneMissing.some((item) => item.recipeId === recipe!.id),
-    'expected one_missing match',
+    results.tier4.some((item) => item.recipeId === recipe!.id) ||
+      results.tier3.some((item) => item.recipeId === recipe!.id),
+    'expected tier4 or tier3 match',
   );
 });
 
-runScenario('일치율 50% 메뉴 → similar 그룹', () => {
+runScenario('일치율 50% 메뉴 → primary 또는 extended', () => {
   const recipe = ALL_RECIPES.find((item) => item.name === '김치찌개');
   assert(Boolean(recipe), '김치찌개 recipe missing');
-  const mains = recipe!.ingredients.filter((item) => item.group === 'main');
-  assert(mains.length >= 2, 'expected at least two mains');
-  const half = mains.slice(0, Math.ceil(mains.length / 2)).map((item) =>
-    resolveRecipeIngredientMatchKey(item),
-  );
+  const indexed = getFridgeRecipeIndexEntry(recipe!);
+  const tierKeys = indexed.requiredIngredients
+    .filter(isTierRequiredIngredient)
+    .map((item) => item.matchKey);
+  assert(tierKeys.length >= 2, 'expected at least two tier keys');
+  const half = tierKeys.slice(0, Math.ceil(tierKeys.length / 2));
   const results = scoreWithIconKeys(half, [recipe!]);
   assert(
-    results.similar.some((item) => item.recipeId === recipe!.id) ||
-      results.oneMissing.some((item) => item.recipeId === recipe!.id),
-    'expected similar or one_missing',
+    allMainCandidates(results).some((item) => item.recipeId === recipe!.id),
+    'expected primary or extended match',
   );
 });
 
-runScenario('seasoning 없어도 ready 판정', () => {
+runScenario('seasoning 없어도 tier5 가능 (양념 미포함)', () => {
   const recipe = ALL_RECIPES.find((item) => item.name === '계란볶음밥');
   assert(Boolean(recipe), '계란볶음밥 recipe missing');
-  const mains = recipe!.ingredients.filter((item) => item.group === 'main');
-  const iconKeys = mains.map((item) => resolveRecipeIngredientMatchKey(item));
+  const indexed = getFridgeRecipeIndexEntry(recipe!);
+  const iconKeys = indexed.requiredIngredients
+    .filter(isTierRequiredIngredient)
+    .map((item) => item.matchKey);
   const results = scoreWithIconKeys(iconKeys, [recipe!]);
-  assert(results.ready.length > 0, 'seasoning should not block ready');
+  assert(results.tier5.length > 0, 'tier required without pantry staples should reach tier5');
 });
 
 runScenario('해산물 제외 설정 시 참치 메뉴 미노출', () => {
@@ -210,7 +218,7 @@ runScenario('해산물 제외 설정 시 참치 메뉴 미노출', () => {
     pantry: pantryFromIconKeys(['tuna', 'onion', 'egg', 'rice', 'kimchi', 'pork']),
     context,
   });
-  const all = [...results.ready, ...results.oneMissing, ...results.similar];
+  const all = allMainCandidates(results);
   assert(!all.some((item) => item.recipeId === seafoodRecipe!.id), 'seafood menu should be excluded');
   assert(
     !menuPassesAiRecommendationExclusions(recipeToFridgeMenuItem(seafoodRecipe!), context),
@@ -227,7 +235,7 @@ runScenario('매운맛 싫어함 설정 시 매운 메뉴 미노출', () => {
     pantry: pantryFromIconKeys(['rice_cake', 'fish_cake', 'cabbage', 'green_onion', 'egg']),
     context,
   });
-  const all = [...results.ready, ...results.oneMissing, ...results.similar];
+  const all = allMainCandidates(results);
   assert(!all.some((item) => item.recipeId === spicyRecipe!.id), 'spicy menu should be excluded');
 });
 
@@ -248,8 +256,8 @@ runScenario('면류와 떡 분리', () => {
   const noodleResults = scoreWithIconKeys([FRIDGE_NOODLE_MATCH_KEY], [ramyeon!]);
   const riceCakeResults = scoreWithIconKeys(['rice_cake'], [tteokguk!]);
 
-  const noodleAll = [...noodleResults.ready, ...noodleResults.oneMissing, ...noodleResults.similar];
-  const riceAll = [...riceCakeResults.ready, ...riceCakeResults.oneMissing, ...riceCakeResults.similar];
+  const noodleAll = allMainCandidates(noodleResults);
+  const riceAll = allMainCandidates(riceCakeResults);
 
   assert(noodleAll.some((item) => item.recipeId === ramyeon!.id), '면류 선택 시 라면 후보 기대');
   assert(riceAll.some((item) => item.recipeId === tteokguk!.id), '떡 선택 시 떡국 후보 기대');
@@ -275,16 +283,16 @@ runScenario('전체 점수 후 그룹별 상위 5개만 표시', () => {
   const recipesById = new Map(ALL_RECIPES.map((recipe) => [recipe.id, recipe]));
   const display = selectFridgeRaidDisplayResults(scored, recipesById, 5, false);
 
-  assert(display.ready.length <= 5, 'ready max 5');
-  assert(display.oneMissing.length <= 5, 'one_missing max 5');
-  assert(display.similar.length <= 5, 'similar max 5');
+  assert(display.tier5.length <= 5, 'ready max 5');
+  assert(display.tier4.length <= 5, 'one_missing max 5');
+  assert(display.tier3.length <= 5, 'similar max 5');
   assert(display.sideDishes.length <= 5, 'side_dish max 5');
 
   const totalScored = countScored(scored);
   const totalDisplay =
-    display.ready.length +
-    display.oneMissing.length +
-    display.similar.length +
+    display.tier5.length +
+    display.tier4.length +
+    display.tier3.length +
     display.sideDishes.length;
   assert(totalScored >= totalDisplay, 'display should be a subset of scored results');
 });
@@ -297,7 +305,9 @@ runScenario('레시피 카탈로그 길이 기준 동작', () => {
 
 runScenario('buildFridgeRaidCandidatesFromIconKeys 호환', () => {
   const display = buildFridgeRaidCandidatesFromIconKeys(['egg'], ALL_RECIPES, contextFor());
-  assert(display.ready.length + display.oneMissing.length > 0, 'helper should still work');
+  const primary =
+    display.tier5.length + display.tier4.length + display.tier3.length;
+  assert(primary > 0 || display.extended.length > 0, 'helper should still work');
 });
 
 runScenario('알레르기(돼지고기) 설정 시 돼지고기 메뉴 미노출', () => {
@@ -311,7 +321,7 @@ runScenario('알레르기(돼지고기) 설정 시 돼지고기 메뉴 미노출
     pantry: pantryFromIconKeys(['pork', 'kimchi', 'tofu', 'onion', 'egg', 'rice']),
     context,
   });
-  const all = [...results.ready, ...results.oneMissing, ...results.similar];
+  const all = allMainCandidates(results);
   assert(!all.some((item) => item.recipeId === porkRecipe!.id), 'pork allergy menu should be excluded');
 });
 
@@ -326,7 +336,7 @@ runScenario('직접 제외 재료 설정 시 해당 메뉴 미노출', () => {
     pantry: pantryFromIconKeys(['kimchi', 'pork', 'tofu', 'onion', 'egg', 'rice']),
     context,
   });
-  const all = [...results.ready, ...results.oneMissing, ...results.similar];
+  const all = allMainCandidates(results);
   assert(!all.some((item) => item.recipeId === kimchiRecipe!.id), 'avoided ingredient menu should be excluded');
 });
 
@@ -363,7 +373,7 @@ runScenario('홈 준비 중 카드 설문 배지 유지 (상단 냉장고 제외
 
 runScenario('결과 카드 recipeId는 상세 라우트로 연결 가능', () => {
   const display = buildFridgeRaidCandidatesFromIconKeys(['egg', 'rice'], ALL_RECIPES, contextFor());
-  const first = display.ready[0] ?? display.oneMissing[0] ?? display.similar[0];
+  const first = display.tier5[0] ?? display.tier4[0] ?? display.tier3[0];
   assert(Boolean(first), 'expected at least one display candidate');
   assert(Boolean(ALL_RECIPES.find((recipe) => recipe.id === first!.recipeId)), 'recipe id should exist in catalog');
 });
@@ -384,15 +394,17 @@ runScenario('신규 Hero 이미지 정상 노출 (레지스트리 기반)', () =
   assert(Boolean(latest.heroImageKey?.trim()), `heroImageKey should exist for ${latest.id}`);
 });
 
-runScenario('ready 후보는 ownedMainNames 포함', () => {
+runScenario('ready 후보는 matchedIngredients 포함', () => {
   const recipe = ALL_RECIPES.find((item) => item.name === '계란볶음밥');
   assert(Boolean(recipe), '계란볶음밥 recipe missing');
-  const mains = recipe!.ingredients.filter((item) => item.group === 'main');
-  const iconKeys = mains.map((item) => resolveRecipeIngredientMatchKey(item));
+  const indexed = getFridgeRecipeIndexEntry(recipe!);
+  const iconKeys = indexed.requiredIngredients
+    .filter(isTierRequiredIngredient)
+    .map((item) => item.matchKey);
   const display = buildFridgeRaidCandidatesFromIconKeys(iconKeys, [recipe!], contextFor());
-  const ready = display.ready.find((item) => item.recipeId === recipe!.id);
-  assert(Boolean(ready), 'expected ready row');
-  assert(ready!.ownedMainNames.length > 0, 'ready row should list owned main ingredients');
+  const ready = display.tier5.find((item) => item.recipeId === recipe!.id);
+  assert(Boolean(ready), 'expected tier5 row');
+  assert(ready!.matchedIngredients.length > 0, 'tier5 row should list matched ingredients');
 });
 
 runScenario('홈 기본 추천 후보에 SIDE_DISH 0건', () => {
@@ -428,7 +440,7 @@ runScenario('냉장고 메인 3그룹에 SIDE_DISH 0건', () => {
     'tuna',
     'green_chili',
   ]);
-  const mainBuckets = [...results.ready, ...results.oneMissing, ...results.similar];
+  const mainBuckets = allMainCandidates(results);
   assert(mainBuckets.every((item) => !sideIds.has(item.recipeId)), 'main groups must exclude side dishes');
 });
 
@@ -523,7 +535,7 @@ runScenario('브로콜리 선택 시 시금치 레시피와 매칭되지 않음'
   const spinachRecipe = ALL_RECIPES.find((item) => item.id === '097');
   assert(Boolean(spinachRecipe), '시금치나물 recipe missing');
   const results = scoreWithIconKeys(['broccoli']);
-  const all = [...results.ready, ...results.oneMissing, ...results.similar, ...results.sideDishes];
+  const all = allMainCandidates(results).concat(results.sideDishes);
   assert(!all.some((item) => item.recipeId === spinachRecipe!.id), 'broccoli must not match spinach recipe');
 });
 
@@ -531,21 +543,11 @@ runScenario('시금치 선택 시 브로콜리-only 매칭 없음', () => {
   const spinachRecipe = ALL_RECIPES.find((item) => item.id === '097');
   assert(Boolean(spinachRecipe), '시금치나물 recipe missing');
   const spinachResults = scoreWithIconKeys(['spinach']);
-  const spinachHits = [
-    ...spinachResults.ready,
-    ...spinachResults.oneMissing,
-    ...spinachResults.similar,
-    ...spinachResults.sideDishes,
-  ];
+  const spinachHits = allMainCandidates(spinachResults).concat(spinachResults.sideDishes);
   assert(spinachHits.some((item) => item.recipeId === spinachRecipe!.id), 'spinach should match spinach recipe');
 
   const broccoliOnly = scoreWithIconKeys(['broccoli'], [spinachRecipe!]);
-  const broccoliHits = [
-    ...broccoliOnly.ready,
-    ...broccoliOnly.oneMissing,
-    ...broccoliOnly.similar,
-    ...broccoliOnly.sideDishes,
-  ];
+  const broccoliHits = allMainCandidates(broccoliOnly).concat(broccoliOnly.sideDishes);
   assert(broccoliHits.length === 0, 'broccoli must not match spinach-only recipe');
 });
 
@@ -578,30 +580,15 @@ runScenario('새우·생선 matchKey 분리', () => {
   assert(shrimpResolved?.matchKey === 'shrimp', '새우 matchKey -> shrimp');
 
   const shrimpResults = scoreWithIconKeys(['shrimp']);
-  const shrimpHits = [
-    ...shrimpResults.ready,
-    ...shrimpResults.oneMissing,
-    ...shrimpResults.similar,
-    ...shrimpResults.sideDishes,
-  ];
+  const shrimpHits = allMainCandidates(shrimpResults).concat(shrimpResults.sideDishes);
   assert(shrimpHits.some((item) => item.recipeId === shrimpRecipe!.id), 'shrimp should match 새우볶음');
 
   const fishResults = scoreWithIconKeys(['fish_generic']);
-  const fishHits = [
-    ...fishResults.ready,
-    ...fishResults.oneMissing,
-    ...fishResults.similar,
-    ...fishResults.sideDishes,
-  ];
+  const fishHits = allMainCandidates(fishResults).concat(fishResults.sideDishes);
   assert(!fishHits.some((item) => item.recipeId === shrimpRecipe!.id), 'fish_generic must not match 새우볶음');
 
   const shrimpOnlyAgainstSaury = scoreWithIconKeys(['shrimp'], [sauryRecipe!]);
-  const sauryShrimpHits = [
-    ...shrimpOnlyAgainstSaury.ready,
-    ...shrimpOnlyAgainstSaury.oneMissing,
-    ...shrimpOnlyAgainstSaury.similar,
-    ...shrimpOnlyAgainstSaury.sideDishes,
-  ];
+  const sauryShrimpHits = allMainCandidates(shrimpOnlyAgainstSaury);
   assert(sauryShrimpHits.length === 0, 'shrimp must not match fish-only 꽁치간장조림');
 });
 

@@ -1,35 +1,42 @@
 import type { Recipe } from '../../data/recipes/types';
 import { resolveRecipeIngredientMatchKey } from './fridgeIngredientMatch';
-import type { FridgeRecipeIndexEntry } from './fridgeRaidTypes';
+import type { FridgeRecipeIndexEntry, FridgeRequiredIngredient } from './fridgeRaidTypes';
 
 const recipeIndexCache = new Map<string, FridgeRecipeIndexEntry>();
 
 function buildIndexEntry(recipe: Recipe): FridgeRecipeIndexEntry {
-  const mainMatchKeys: string[] = [];
-  const mainNames: string[] = [];
-  const subMatchKeys: string[] = [];
+  const requiredIngredients: FridgeRequiredIngredient[] = [];
 
   for (const ingredient of recipe.ingredients) {
     const matchKey = resolveRecipeIngredientMatchKey(ingredient);
     if (!matchKey) continue;
 
-    if (ingredient.group === 'main') {
-      mainMatchKeys.push(matchKey);
-      mainNames.push(ingredient.name);
-      continue;
-    }
-
-    if (ingredient.group === 'sub') {
-      subMatchKeys.push(matchKey);
-    }
+    requiredIngredients.push({
+      matchKey,
+      name: ingredient.name,
+      group: ingredient.group,
+    });
   }
+
+  const mainMatchKeys = requiredIngredients
+    .filter((item) => item.group === 'main')
+    .map((item) => item.matchKey);
+  const mainNames = requiredIngredients
+    .filter((item) => item.group === 'main')
+    .map((item) => item.name);
+  const subMatchKeys = requiredIngredients
+    .filter((item) => item.group === 'sub')
+    .map((item) => item.matchKey);
 
   return {
     recipeId: recipe.id,
     title: recipe.name,
     cookTime: recipe.time,
+    difficulty: recipe.difficulty,
+    recommendationPriority: recipe.recommendationPriority,
     imagePath: recipe.image,
     heroImageKey: recipe.heroImageKey,
+    requiredIngredients,
     mainMatchKeys,
     mainNames,
     subMatchKeys,
