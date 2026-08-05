@@ -2,6 +2,7 @@
  * Convenience combos QA — Sprint 48-B.
  * Run: npm run test:convenience-combos
  */
+import './ingredient-factory/nodePngRequireStub';
 import fs from 'node:fs';
 import path from 'node:path';
 import {
@@ -9,6 +10,16 @@ import {
   resolveConvenienceContentMaxWidth,
   resolveConvenienceGridColumns,
 } from '../components/convenience/convenienceGridLayout';
+import {
+  lookupConvenienceComponentAlias,
+} from '../data/content/combos/convenienceComponentCatalog';
+import {
+  resolveComboItemCardWidth,
+  resolveComboItemLayoutMode,
+  resolveConvenienceComboItem,
+  resolveConvenienceComboItems,
+} from '../services/convenience/resolveConvenienceComboItems';
+import { MOBILE_MAX_WIDTH, MOBILE_SCREEN_PADDING } from '../constants/mobileLayout';
 import {
   COMBO_SITUATION_TAG,
   countCombosByKind,
@@ -246,6 +257,16 @@ async function main(): Promise<void> {
   );
   assert(homeSource.includes('/convenience-combos'), '홈 편의점 진입');
 
+  const indexRoute = path.join(__dirname, '../app/convenience-combos/index.tsx');
+  const indexSource = fs.readFileSync(indexRoute, 'utf8');
+  assert(
+    indexSource.includes('ConvenienceComboRecommendationScreen'),
+    'index 추천형 화면',
+  );
+  assert(fs.existsSync(path.join(__dirname, '../app/convenience-combos/all.tsx')), 'all route');
+
+  assert(detailSource.includes('summaryThumb'), 'detail summary thumbnail');
+  assert(!detailSource.includes('detailHeroImage'), 'detail large hero removed');
   assert(parseEstimatedPriceMin({ min: '3500', max: 5000 }) === 3500, '가격 파싱 string');
   assert(parseEstimatedPriceMin({ min: 'bad' }) == null, '가격 파싱 실패');
 
@@ -319,7 +340,158 @@ async function main(): Promise<void> {
   assert(cardSource.includes('resolveConvenienceComboImage'), 'card shared resolver');
   assert(detailSource.includes('resolveConvenienceComboImage'), 'detail shared resolver');
   assert(cardSource.includes('heroImage'), 'card conditional hero');
-  assert(detailSource.includes('detailHeroImage'), 'detail conditional hero');
+  assert(!detailSource.includes('detailHeroImage'), 'detail no large hero image');
+
+  assert(detailSource.includes('ConvenienceComboItemCards'), '구성품 텍스트 카드');
+
+  const itemCardsSource = fs.readFileSync(
+    path.join(__dirname, '../components/convenience/ConvenienceComboItemCards.tsx'),
+    'utf8',
+  );
+  assert(!itemCardsSource.includes('resolveConvenienceComboItemImage'), '구성품 이미지 resolver 제거');
+  assert(!itemCardsSource.includes('convenienceComponentImage'), '구성품 이미지 registry 제거');
+  assert(!itemCardsSource.includes('<Image'), '구성품 Image 렌더 0');
+  assert(!itemCardsSource.includes('imageSlot'), '구성품 imageSlot 제거');
+  assert(itemCardsSource.includes('chipLabel'), '구성품 텍스트 chipLabel');
+  assert(itemCardsSource.includes('optionalBadge'), '구성품 optional 배지');
+  assert(itemCardsSource.includes('flexWrap'), '4개+ wrap layout');
+
+  assert(
+    !fs.existsSync(path.join(process.cwd(), 'services/images/convenienceComponentImageAssets.ts')),
+    'component image registry 파일 삭제',
+  );
+  assert(
+    !fs.existsSync(path.join(process.cwd(), 'services/convenience/resolveConvenienceComboItemImage.ts')),
+    'combo item image resolver 삭제',
+  );
+
+  for (const combo of ALL) {
+    for (const item of combo.items) {
+      assert(
+        Boolean(lookupConvenienceComponentAlias(item.name)),
+        `catalog alias: ${combo.id} ${item.name}`,
+      );
+    }
+  }
+
+  const combo1 = getConvenienceComboById('combo_0001')!;
+  const combo1Items = resolveConvenienceComboItems(combo1.items);
+  assert(combo1Items.length === 2, 'combo_0001 구성품 2개');
+  assert(combo1Items[0].label === '컵라면', 'combo_0001 컵라면 label');
+  assert(combo1Items[0].iconKey !== 'rice_cake', '컵라면 rice_cake 오매핑 방지');
+  assert(combo1Items[0].fallbackCategory === 'grain', '컵라면 grain fallback');
+  assert(combo1Items[1].label === '삼각김밥', 'combo_0001 삼각김밥 label');
+  assert(combo1Items[1].iconKey === 'rice', '삼각김밥 rice icon');
+
+  const cupRamen = resolveConvenienceComboItem({ name: '컵라면' });
+  assert(cupRamen.fallbackCategory === 'grain', '컵라면 → grain');
+  assert(cupRamen.iconKey !== 'rice_cake', '컵라면 alias rice_cake 차단');
+
+  const kimbap = resolveConvenienceComboItem({ name: '삼각김밥' });
+  assert(kimbap.iconKey === 'rice', '삼각김밥 → rice');
+
+  const egg = resolveConvenienceComboItem({ name: '반숙란' });
+  assert(egg.iconKey === 'egg', '반숙란 → egg');
+
+  const cheese = resolveConvenienceComboItem({ name: '치즈' });
+  assert(cheese.iconKey === 'cheese', '치즈 → cheese');
+
+  const chicken = resolveConvenienceComboItem({ name: '닭가슴살' });
+  assert(chicken.iconKey === 'chicken', '닭가슴살 → chicken');
+
+  const hotbar = resolveConvenienceComboItem({ name: '핫바' });
+  assert(hotbar.iconKey === 'sausage', '핫바 → sausage');
+
+  const unknown = resolveConvenienceComboItem({ name: '알수없는상품' });
+  assert(
+    unknown.fallbackCategory === 'generic' || unknown.fallbackCategory !== undefined,
+    'unknown fallback category',
+  );
+
+  const optionalEgg = resolveConvenienceComboItem({
+    name: '반숙란',
+    optional: true,
+  });
+  assert(optionalEgg.optional === true, 'optional item flag');
+  const parsedOptional = resolveConvenienceComboItem({ name: '김(선택)' });
+  assert(parsedOptional.optional === true, 'optional (선택) parse');
+  assert(parsedOptional.label === '김', 'optional label strip');
+
+  assert(resolveComboItemLayoutMode(2) === 'two-col', '2개 2열');
+  assert(resolveComboItemLayoutMode(3) === 'three-col', '3개 3열');
+  assert(resolveComboItemLayoutMode(4) === 'wrap', '4개+ wrap');
+
+  const contentWidth390 = Math.min(390, MOBILE_MAX_WIDTH) - MOBILE_SCREEN_PADDING * 2;
+  const width2 = resolveComboItemCardWidth(2, contentWidth390, 'two-col');
+  assert(width2 >= 120 && width2 <= 140, `2열 카드 폭 ${width2}`);
+  const width3 = resolveComboItemCardWidth(3, contentWidth390, 'three-col');
+  assert(width3 >= 90 && width3 <= 105, `3열 카드 폭 ${width3}`);
+  const widthWrap = resolveComboItemCardWidth(4, contentWidth390, 'wrap');
+  assert(widthWrap >= 90 && widthWrap <= 105, `wrap 카드 폭 ${widthWrap}`);
+
+  const coffee = resolveConvenienceComboItem({ name: '커피' });
+  assert(coffee.iconKey !== 'milk', '커피 milk 오매핑 방지');
+  assert(coffee.fallbackCategory === 'generic', '커피 generic fallback');
+
+  const recommendationSource = fs.readFileSync(
+    path.join(__dirname, '../components/convenience/ConvenienceComboRecommendationScreen.tsx'),
+    'utf8',
+  );
+  const combosSource = fs.readFileSync(
+    path.join(__dirname, '../components/convenience/ConvenienceCombosScreen.tsx'),
+    'utf8',
+  );
+  const navSource = fs.readFileSync(
+    path.join(__dirname, '../services/convenience/convenienceComboNavigation.ts'),
+    'utf8',
+  );
+  const replaceNavSource = fs.readFileSync(
+    path.join(__dirname, '../components/ui/ScreenReplaceNavButton.tsx'),
+    'utf8',
+  );
+
+  assert(!detailSource.includes('router.back'), 'detail router.back 없음');
+  assert(!detailSource.includes('ScreenBackButton'), 'detail ScreenBackButton 제거');
+  assert(!detailSource.includes('navigateBack'), 'detail navigateBack 없음');
+  assert(detailSource.includes('ScreenReplaceNavButton'), 'detail replace nav');
+  assert(detailSource.includes('APP_HOME_HREF'), 'detail 홈 route 상수');
+  assert(detailSource.includes('accessibilityLabel="홈으로"'), 'detail 홈 accessibility');
+  assert(
+    detailSource.includes('navigateToConvenienceDetailFromDetail'),
+    '상세→상세 replace helper',
+  );
+  assert(!detailSource.includes('router.push'), 'detail direct push 없음');
+
+  assert(!recommendationSource.includes('router.back'), '추천 router.back 없음');
+  assert(!recommendationSource.includes('ScreenBackButton'), '추천 ScreenBackButton 제거');
+  assert(recommendationSource.includes('APP_HOME_HREF'), '추천 홈 route');
+  assert(recommendationSource.includes('navigateToConvenienceDetail'), '추천 detail push helper');
+
+  assert(!combosSource.includes('router.back'), '목록 router.back 없음');
+  assert(!combosSource.includes('ScreenBackButton'), '목록 ScreenBackButton 제거');
+  assert(combosSource.includes('ScreenReplaceNavButton'), '목록 replace nav');
+  assert(combosSource.includes('편의점 추천으로'), '목록 accessibility');
+
+  assert(replaceNavSource.includes('router.replace(href)'), 'replace nav explicit replace');
+  assert(!replaceNavSource.includes('router.back('), 'replace nav no back call');
+  assert(!replaceNavSource.includes('navigateBack'), 'replace nav no navigateBack');
+
+  assert(navSource.includes('router.replace(APP_HOME_HREF)'), 'nav helper home replace');
+  assert(navSource.includes('router.replace(href)'), 'nav helper detail replace option');
+
+  const mockCalls: { method: string; href: unknown }[] = [];
+  const mockRouter = {
+    push: (href: unknown) => mockCalls.push({ method: 'push', href }),
+    replace: (href: unknown) => mockCalls.push({ method: 'replace', href }),
+  };
+  const { navigateToConvenienceDetail, navigateToConvenienceDetailFromDetail } = await import(
+    '../services/convenience/convenienceComboNavigation',
+  );
+  navigateToConvenienceDetail(mockRouter, 'combo_0001');
+  assert(mockCalls[0]?.method === 'push', 'helper push for first detail');
+  mockCalls.length = 0;
+  navigateToConvenienceDetailFromDetail(mockRouter, 'combo_0002');
+  assert(mockCalls[0]?.method === 'replace', 'helper replace for detail chain');
 
   console.log(`\nConvenience Combos QA — done (${failed} failed)`);
   if (failed > 0) process.exitCode = 1;
