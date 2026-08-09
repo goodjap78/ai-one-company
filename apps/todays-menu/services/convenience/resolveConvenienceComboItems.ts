@@ -1,15 +1,20 @@
 import type { ComboItem } from '../../data/content/types/convenienceCombo';
+import { lookupConvenienceComponentAlias } from '../../data/content/combos/convenienceComponentCatalog';
 import {
   compactIngredientName,
   inferIngredientIconCategory,
   lookupIngredientAlias,
   type IngredientIconCategory,
 } from '../../data/ingredients/ingredientAliases';
+import type { ConvenienceIllustrationIconKey } from '../../types/convenienceIllustrationIcon';
 
 export type ConvenienceComboItemUi = {
   label: string;
   quantity?: string;
+  /** Ingredient icon registry key (egg, kim, etc.). */
   iconKey?: string;
+  /** Phase 1 convenience illustration production icon. */
+  illustrationIconKey?: ConvenienceIllustrationIconKey;
   optional?: boolean;
   fallbackCategory?: IngredientIconCategory;
 };
@@ -25,14 +30,14 @@ type ItemMatch = {
   categoryOnly?: IngredientIconCategory;
 };
 
-/** Convenience-specific rules — checked before generic alias (e.g. 라면 ≠ rice_cake). */
+/** Convenience-specific rules — checked when catalog has no illustration/reuse. */
 const COMBO_ITEM_RULES: Array<{ test: (compact: string) => boolean; match: ItemMatch }> = [
   {
-    test: (n) => /컵라면|라면|컵누들|누들|우동|국수|칼국수|비빔면/.test(n),
+    test: (n) => /컵누들|누들|국수|칼국수|비빔면/.test(n),
     match: { categoryOnly: 'grain' },
   },
   {
-    test: (n) => /삼각김밥|주먹밥|컵밥|도시락|김밥/.test(n) || n === '밥',
+    test: (n) => /주먹밥|김밥/.test(n) || n === '밥',
     match: { iconKey: 'rice' },
   },
   {
@@ -48,7 +53,7 @@ const COMBO_ITEM_RULES: Array<{ test: (compact: string) => boolean; match: ItemM
     match: { iconKey: 'chicken' },
   },
   {
-    test: (n) => /핫바|소시지|핫도그/.test(n),
+    test: (n) => /소시지|핫도그/.test(n),
     match: { iconKey: 'sausage' },
   },
   {
@@ -76,11 +81,7 @@ const COMBO_ITEM_RULES: Array<{ test: (compact: string) => boolean; match: ItemM
     match: { iconKey: 'banana' },
   },
   {
-    test: (n) => /샐러드|채소|나물/.test(n),
-    match: { categoryOnly: 'vegetable' },
-  },
-  {
-    test: (n) => /두부/.test(n),
+    test: (n) => /두부샐러드|두부/.test(n),
     match: { iconKey: 'tofu' },
   },
   {
@@ -106,10 +107,6 @@ const COMBO_ITEM_RULES: Array<{ test: (compact: string) => boolean; match: ItemM
   {
     test: (n) => /감자/.test(n),
     match: { iconKey: 'potato' },
-  },
-  {
-    test: (n) => /샌드위치|햄버거|햄/.test(n),
-    match: { categoryOnly: 'processed' },
   },
   {
     test: (n) => /김치/.test(n),
@@ -179,6 +176,26 @@ function resolveIconKey(
 
 export function resolveConvenienceComboItem(item: ComboItem): ConvenienceComboItemUi {
   const parsed = parseComboItemInput(item);
+  const catalog = lookupConvenienceComponentAlias(parsed.label);
+
+  if (catalog?.illustrationIconKey) {
+    return {
+      label: parsed.label,
+      quantity: parsed.quantity,
+      optional: parsed.optional,
+      illustrationIconKey: catalog.illustrationIconKey,
+    };
+  }
+
+  if (catalog?.reuseIngredientKey) {
+    return {
+      label: parsed.label,
+      quantity: parsed.quantity,
+      optional: parsed.optional,
+      iconKey: catalog.reuseIngredientKey,
+    };
+  }
+
   const compact = compactIngredientName(parsed.label);
   const ruleMatch = matchComboItemRules(compact);
   const fallbackCategory = resolveCategory(parsed.label, ruleMatch);

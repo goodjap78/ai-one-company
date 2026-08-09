@@ -431,9 +431,10 @@ async function main(): Promise<void> {
     path.join(__dirname, '../components/convenience/ConvenienceComboItemCards.tsx'),
     'utf8',
   );
-  assert(!itemCardsSource.includes('resolveConvenienceComboItemImage'), '구성품 이미지 resolver 제거');
-  assert(!itemCardsSource.includes('convenienceComponentImage'), '구성품 이미지 registry 제거');
-  assert(!itemCardsSource.includes('<Image'), '구성품 Image 렌더 0');
+  assert(!itemCardsSource.includes('resolveConvenienceComboItemImage'), '구성품 legacy item image resolver 없음');
+  assert(!itemCardsSource.includes('convenienceComponentImage'), '구성품 legacy component image registry 없음');
+  assert(itemCardsSource.includes('resolveConvenienceIllustrationIcon'), '구성품 illustration resolver');
+  assert(itemCardsSource.includes('<Image'), '구성품 Image 렌더');
   assert(!itemCardsSource.includes('imageSlot'), '구성품 imageSlot 제거');
   assert(itemCardsSource.includes('chipLabel'), '구성품 텍스트 chipLabel');
   assert(itemCardsSource.includes('optionalBadge'), '구성품 optional 배지');
@@ -461,17 +462,16 @@ async function main(): Promise<void> {
   const combo1Items = resolveConvenienceComboItems(combo1.items);
   assert(combo1Items.length === 2, 'combo_0001 구성품 2개');
   assert(combo1Items[0].label === '컵라면', 'combo_0001 컵라면 label');
-  assert(combo1Items[0].iconKey !== 'rice_cake', '컵라면 rice_cake 오매핑 방지');
-  assert(combo1Items[0].fallbackCategory === 'grain', '컵라면 grain fallback');
+  assert(combo1Items[0].illustrationIconKey === 'cup_ramen', 'combo_0001 컵라면 illustration');
   assert(combo1Items[1].label === '삼각김밥', 'combo_0001 삼각김밥 label');
-  assert(combo1Items[1].iconKey === 'rice', '삼각김밥 rice icon');
+  assert(combo1Items[1].illustrationIconKey === 'triangle_kimbap', 'combo_0001 삼각김밥 illustration');
 
   const cupRamen = resolveConvenienceComboItem({ name: '컵라면' });
-  assert(cupRamen.fallbackCategory === 'grain', '컵라면 → grain');
+  assert(cupRamen.illustrationIconKey === 'cup_ramen', '컵라면 → cup_ramen illustration');
   assert(cupRamen.iconKey !== 'rice_cake', '컵라면 alias rice_cake 차단');
 
   const kimbap = resolveConvenienceComboItem({ name: '삼각김밥' });
-  assert(kimbap.iconKey === 'rice', '삼각김밥 → rice');
+  assert(kimbap.illustrationIconKey === 'triangle_kimbap', '삼각김밥 → triangle_kimbap');
 
   const egg = resolveConvenienceComboItem({ name: '반숙란' });
   assert(egg.iconKey === 'egg', '반숙란 → egg');
@@ -483,7 +483,7 @@ async function main(): Promise<void> {
   assert(chicken.iconKey === 'chicken', '닭가슴살 → chicken');
 
   const hotbar = resolveConvenienceComboItem({ name: '핫바' });
-  assert(hotbar.iconKey === 'sausage', '핫바 → sausage');
+  assert(hotbar.illustrationIconKey === 'hot_bar', '핫바 → hot_bar illustration');
 
   const unknown = resolveConvenienceComboItem({ name: '알수없는상품' });
   assert(
@@ -559,7 +559,7 @@ async function main(): Promise<void> {
   assert(!replaceNavSource.includes('router.back('), 'replace nav no back call');
   assert(!replaceNavSource.includes('navigateBack'), 'replace nav no navigateBack');
 
-  assert(navSource.includes('router.replace(APP_HOME_HREF)'), 'nav helper home replace');
+  assert(navSource.includes('navigateToHome'), 'nav helper delegates to navigateToHome');
   assert(navSource.includes('router.replace(href)'), 'nav helper detail replace option');
 
   const mockCalls: { method: string; href: unknown }[] = [];

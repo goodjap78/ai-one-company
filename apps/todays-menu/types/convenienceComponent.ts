@@ -1,6 +1,8 @@
 /**
  * Convenience store combo component catalog types.
  */
+import type { ConvenienceIllustrationIconKey } from './convenienceIllustrationIcon';
+
 export const CONVENIENCE_COMPONENT_CATEGORIES = [
   'beverage',
   'snack',
@@ -28,7 +30,9 @@ export type ConvenienceComponentEntry = {
   aliases: string[];
   category: ConvenienceComponentCategory;
   /**
-   * Ingredient icon key when semantically exact (legacy metadata; text UI does not render images).
+   * Ingredient icon key when semantically exact (legacy metadata).
    */
   reuseIngredientKey?: string;
+  /** Production convenience illustration icon (Phase 1 — 10 masters). */
+  illustrationIconKey?: ConvenienceIllustrationIconKey;
 };
