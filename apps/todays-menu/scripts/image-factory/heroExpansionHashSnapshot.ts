@@ -17,6 +17,9 @@ import { flatReviewImagePath } from './reviewStore';
 import { productionAssetPath, sha256File, verifyPromoteCopy } from './promoteVerify';
 import { getHankkiRecipeById } from '../../data/recipes/hankkiRecipes';
 import { loadImageQueue } from './buildImageQueue';
+import { parseRegisteredMealKeys } from './updateMealImageRegistry';
+import { countActiveHeroExpansionWaiver } from './heroExpansionWaiver';
+import { isCatalogExpansionHeroWaiver } from '../../data/recipes/catalogExpansionHeroWaiver';
 
 export type ProtectedHeroHashRow = {
   recipeId: string;
@@ -238,4 +241,121 @@ export function writeMealHeroExpansionBatchProductionHashes(
   );
 
   return { path: outPath, rows, allMatch };
+}
+
+export type Final300HeroAudit = {
+  generatedAt: string;
+  sprint: string;
+  summary: {
+    recipeCount: number;
+    productionJpg: number;
+    registryCoverage: number;
+    activeWaiver: number;
+    fallbackRecipes: number;
+    duplicateImageKeys: number;
+    duplicateAssetPaths: number;
+    brokenRegistryRequires: number;
+    protected160HashOk: boolean;
+    expansionBatchHashesOk: boolean;
+    allOk: boolean;
+  };
+  protected160: { ok: boolean; mismatches: string[] };
+  expansionBatches: Array<{ batchId: string; ok: boolean; mismatches: string[] }>;
+  issues: string[];
+};
+
+export function buildFinal300HeroAudit(): Final300HeroAudit {
+  const registered = new Set(parseRegisteredMealKeys());
+  const issues: string[] = [];
+
+  const keyCounts = new Map<string, number>();
+  const pathCounts = new Map<string, number>();
+  let productionJpg = 0;
+  let registryCoverage = 0;
+  let brokenRegistryRequires = 0;
+
+  for (const recipe of HANKKI_RECIPES) {
+    const key = recipe.heroImageKey;
+    const prodAbs = path.join(PATHS.mealAssetsDir, `${key}.jpg`);
+    const prodRel = `assets/meals/${key}.jpg`;
+
+    keyCounts.set(key, (keyCounts.get(key) ?? 0) + 1);
+    pathCounts.set(prodRel, (pathCounts.get(prodRel) ?? 0) + 1);
+
+    if (fs.existsSync(prodAbs)) {
+      productionJpg += 1;
+    } else {
+      issues.push(`${recipe.id}: production JPG missing (${prodRel})`);
+    }
+
+    if (registered.has(key)) {
+      registryCoverage += 1;
+    } else {
+      brokenRegistryRequires += 1;
+      issues.push(`${recipe.id}: heroImageKey not in mealImageAssets (${key})`);
+    }
+
+    if (isCatalogExpansionHeroWaiver(recipe.id)) {
+      issues.push(`${recipe.id}: still on active hero waiver`);
+    }
+  }
+
+  const duplicateImageKeys = [...keyCounts.entries()].filter(([, c]) => c > 1).map(([k]) => k);
+  const duplicateAssetPaths = [...pathCounts.entries()].filter(([, c]) => c > 1).map(([p]) => p);
+
+  if (duplicateImageKeys.length > 0) {
+    issues.push(`duplicate imageKeys: ${duplicateImageKeys.join(', ')}`);
+  }
+  if (duplicateAssetPaths.length > 0) {
+    issues.push(`duplicate asset paths: ${duplicateAssetPaths.join(', ')}`);
+  }
+
+  const protected160 = verifyProtectedHeroHashesMatch();
+  const expansionVerify = verifyApprovedExpansionProductionHashes();
+  const activeWaiver = countActiveHeroExpansionWaiver();
+  const fallbackRecipes = HANKKI_RECIPES.length - productionJpg;
+
+  if (activeWaiver > 0) {
+    issues.push(`active waiver count ${activeWaiver} (expected 0)`);
+  }
+  if (fallbackRecipes > 0) {
+    issues.push(`fallback recipes ${fallbackRecipes} (expected 0)`);
+  }
+
+  const allOk =
+    issues.length === 0 &&
+    productionJpg === 300 &&
+    registryCoverage === 300 &&
+    activeWaiver === 0 &&
+    protected160.ok &&
+    expansionVerify.ok;
+
+  return {
+    generatedAt: new Date().toISOString(),
+    sprint: 'Sprint 60.14',
+    summary: {
+      recipeCount: HANKKI_RECIPES.length,
+      productionJpg,
+      registryCoverage,
+      activeWaiver,
+      fallbackRecipes,
+      duplicateImageKeys: duplicateImageKeys.length,
+      duplicateAssetPaths: duplicateAssetPaths.length,
+      brokenRegistryRequires,
+      protected160HashOk: protected160.ok,
+      expansionBatchHashesOk: expansionVerify.ok,
+      allOk,
+    },
+    protected160,
+    expansionBatches: expansionVerify.batches,
+    issues,
+  };
+}
+
+export function writeFinal300HeroAudit(): string {
+  const audit = buildFinal300HeroAudit();
+  fs.mkdirSync(MEAL_HERO_EXPANSION_PATHS.root, { recursive: true });
+  const outPath = MEAL_HERO_EXPANSION_PATHS.final300HeroAudit;
+  fs.writeFileSync(outPath, JSON.stringify(audit, null, 2), 'utf8');
+  return outPath;
 }

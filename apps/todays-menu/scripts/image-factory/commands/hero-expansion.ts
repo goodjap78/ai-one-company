@@ -14,14 +14,14 @@ import {
   auditMealHeroExpansionBatch,
   writeMealHeroExpansionAudit,
 } from '../auditMealHeroExpansion';
-import { writeProtectedHeroHashSnapshot, writeMealHeroExpansionBatchProductionHashes, verifyApprovedExpansionProductionHashes } from '../heroExpansionHashSnapshot';
+import { writeProtectedHeroHashSnapshot, writeMealHeroExpansionBatchProductionHashes, writeFinal300HeroAudit, verifyApprovedExpansionProductionHashes } from '../heroExpansionHashSnapshot';
+import { runHeroApprove } from '../runApprove';
 import {
   HERO_EXPANSION_REVIEW_PORT,
   MEAL_HERO_EXPANSION_BATCHES,
   parseMealHeroExpansionBatchArg,
   MEAL_HERO_EXPANSION_PATHS,
 } from '../mealHeroExpansionConfig';
-import { runHeroApprove } from '../runApprove';
 import { runHeroGenerate } from '../runGenerate';
 import {
   writeMealHeroExpansionBatchIndex,
@@ -65,7 +65,7 @@ async function cmdPrepare(): Promise<void> {
 
 function assertGenerateBatchAllowed(batch: ReturnType<typeof parseMealHeroExpansionBatchArg>): void {
   throw new Error(
-    `Sprint 60.12: image regeneration forbidden — generation blocked for ${batch.id}`,
+    `Sprint 60.14: image regeneration forbidden — generation blocked for ${batch.id}`,
   );
 }
 
@@ -236,16 +236,16 @@ export function serveMealHeroExpansionReview(port = HERO_EXPANSION_REVIEW_PORT):
     console.log(`  URL: http://127.0.0.1:${port}/`);
     console.log(`  Document root: ${root}`);
     console.log(`  Pages: ${pages.join(', ')}`);
-    for (const id of ['batch-1', 'batch-2', 'batch-3', 'batch-4', 'batch-5', 'batch-6']) {
+    for (const id of ['batch-1', 'batch-2', 'batch-3', 'batch-4', 'batch-5', 'batch-6', 'batch-7']) {
       console.log(`  → http://127.0.0.1:${port}/${id}.html`);
     }
   });
 }
 
 async function cmdApprove(batch: ReturnType<typeof parseMealHeroExpansionBatchArg>): Promise<void> {
-  if (batch.id !== 'batch-6') {
+  if (batch.id !== 'batch-7') {
     console.error(
-      `Sprint 60.12: approval only allowed for batch-6 (recipe_0261–0280), got ${batch.id}`,
+      `Sprint 60.14: approval only allowed for batch-7 (recipe_0281–0300), got ${batch.id}`,
     );
     process.exitCode = 1;
     return;
@@ -295,6 +295,21 @@ async function cmdApprove(batch: ReturnType<typeof parseMealHeroExpansionBatchAr
   }
 
   writeProtectedHeroHashSnapshot('after');
+
+  const finalAuditPath = writeFinal300HeroAudit();
+  const finalAudit = JSON.parse(fs.readFileSync(finalAuditPath, 'utf8')) as {
+    summary: { allOk: boolean };
+    issues: string[];
+  };
+  console.log(`Final 300 hero audit → ${path.relative(PATHS.appRoot, finalAuditPath)}`);
+  console.log(`  allOk=${finalAudit.summary.allOk} issues=${finalAudit.issues.length}`);
+  if (!finalAudit.summary.allOk) {
+    console.error('Final 300 hero audit failed');
+    for (const issue of finalAudit.issues.slice(0, 20)) {
+      console.error(`  - ${issue}`);
+    }
+    process.exitCode = 1;
+  }
 }
 
 async function main(): Promise<void> {
