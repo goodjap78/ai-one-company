@@ -64,11 +64,9 @@ async function cmdPrepare(): Promise<void> {
 }
 
 function assertGenerateBatchAllowed(batch: ReturnType<typeof parseMealHeroExpansionBatchArg>): void {
-  if (batch.fromNum > 200) {
-    throw new Error(
-      `Generation forbidden for ${batch.id} in Sprint 60.3 — only batch-2 (0181–0200) allowed`,
-    );
-  }
+  throw new Error(
+    `Sprint 60.6: image regeneration forbidden — generation blocked for ${batch.id}`,
+  );
 }
 
 async function cmdGenerate(batch: ReturnType<typeof parseMealHeroExpansionBatchArg>): Promise<void> {
@@ -194,8 +192,10 @@ export function serveMealHeroExpansionReview(port = HERO_EXPANSION_REVIEW_PORT):
 }
 
 async function cmdApprove(batch: ReturnType<typeof parseMealHeroExpansionBatchArg>): Promise<void> {
-  if (batch.fromNum > 200) {
-    console.error(`Sprint 60.4: approval forbidden for ${batch.id} — only batch-1/batch-2 supported`);
+  if (batch.id !== 'batch-3') {
+    console.error(
+      `Sprint 60.6: approval only allowed for batch-3 (recipe_0201–0220), got ${batch.id}`,
+    );
     process.exitCode = 1;
     return;
   }
@@ -286,7 +286,7 @@ hero:expansion commands:
   snapshot      protected 160 SHA-256 before snapshot
   prepare       image-factory prepare + queue
   generate      --batch=1  (Batch 1 only in Sprint 60 first pass)
-  approve       --batch=1|2  Review → production
+  approve       --batch=3  Review → production (Sprint 60.6)
   audit         --batch=1
   review        --batch=1 HTML + audit
   queue-ready   batches 2-7 JSON stubs
