@@ -15,13 +15,13 @@ import {
   writeMealHeroExpansionAudit,
 } from '../auditMealHeroExpansion';
 import { writeProtectedHeroHashSnapshot, writeMealHeroExpansionBatchProductionHashes, verifyApprovedExpansionProductionHashes } from '../heroExpansionHashSnapshot';
-import { runHeroApprove } from '../runApprove';
 import {
   HERO_EXPANSION_REVIEW_PORT,
   MEAL_HERO_EXPANSION_BATCHES,
   parseMealHeroExpansionBatchArg,
   MEAL_HERO_EXPANSION_PATHS,
 } from '../mealHeroExpansionConfig';
+import { runHeroApprove } from '../runApprove';
 import { runHeroGenerate } from '../runGenerate';
 import {
   writeMealHeroExpansionBatchIndex,
@@ -65,7 +65,7 @@ async function cmdPrepare(): Promise<void> {
 
 function assertGenerateBatchAllowed(batch: ReturnType<typeof parseMealHeroExpansionBatchArg>): void {
   throw new Error(
-    `Sprint 60.10: image regeneration forbidden — generation blocked for ${batch.id}`,
+    `Sprint 60.12: image regeneration forbidden — generation blocked for ${batch.id}`,
   );
 }
 
@@ -236,16 +236,16 @@ export function serveMealHeroExpansionReview(port = HERO_EXPANSION_REVIEW_PORT):
     console.log(`  URL: http://127.0.0.1:${port}/`);
     console.log(`  Document root: ${root}`);
     console.log(`  Pages: ${pages.join(', ')}`);
-    for (const id of ['batch-1', 'batch-2', 'batch-3', 'batch-4', 'batch-5']) {
+    for (const id of ['batch-1', 'batch-2', 'batch-3', 'batch-4', 'batch-5', 'batch-6']) {
       console.log(`  → http://127.0.0.1:${port}/${id}.html`);
     }
   });
 }
 
 async function cmdApprove(batch: ReturnType<typeof parseMealHeroExpansionBatchArg>): Promise<void> {
-  if (batch.id !== 'batch-5') {
+  if (batch.id !== 'batch-6') {
     console.error(
-      `Sprint 60.10: approval only allowed for batch-5 (recipe_0241–0260), got ${batch.id}`,
+      `Sprint 60.12: approval only allowed for batch-6 (recipe_0261–0280), got ${batch.id}`,
     );
     process.exitCode = 1;
     return;
