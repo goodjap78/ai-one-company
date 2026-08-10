@@ -107,6 +107,56 @@ export function verifyProtectedHeroHashesMatch(
   return { ok: mismatches.length === 0, mismatches };
 }
 
+/** Verify production JPGs still match a saved batch production hash snapshot. */
+export function verifyBatchProductionHashesFromSnapshot(
+  snapshotPath: string,
+): { ok: boolean; mismatches: string[] } {
+  if (!fs.existsSync(snapshotPath)) {
+    return { ok: false, mismatches: ['missing production hash snapshot'] };
+  }
+  const snapshot = JSON.parse(fs.readFileSync(snapshotPath, 'utf8')) as {
+    rows: Array<{ recipeId: string; imageKey: string; productionSha256: string }>;
+  };
+  const mismatches: string[] = [];
+  for (const row of snapshot.rows) {
+    const productionAbs = productionAssetPath(row.imageKey);
+    if (!fs.existsSync(productionAbs)) {
+      mismatches.push(`${row.recipeId}: production missing`);
+      continue;
+    }
+    const current = sha256File(productionAbs);
+    if (current !== row.productionSha256) {
+      mismatches.push(`${row.recipeId}: production hash changed`);
+    }
+  }
+  return { ok: mismatches.length === 0, mismatches };
+}
+
+export function verifyApprovedExpansionProductionHashes(): {
+  ok: boolean;
+  protected160: { ok: boolean; mismatches: string[] };
+  batches: Array<{ batchId: string; ok: boolean; mismatches: string[] }>;
+} {
+  const protected160 = verifyProtectedHeroHashesMatch();
+  const batches: Array<{ batchId: string; ok: boolean; mismatches: string[] }> = [];
+
+  for (const batchId of ['batch-1', 'batch-2', 'batch-3', 'batch-4', 'batch-5', 'batch-6', 'batch-7']) {
+    const snapshotPath = path.join(
+      MEAL_HERO_EXPANSION_PATHS.root,
+      `${batchId}-production-hashes.json`,
+    );
+    if (!fs.existsSync(snapshotPath)) continue;
+    const result = verifyBatchProductionHashesFromSnapshot(snapshotPath);
+    batches.push({ batchId, ...result });
+  }
+
+  return {
+    ok: protected160.ok && batches.every((b) => b.ok),
+    protected160,
+    batches,
+  };
+}
+
 export type BatchProductionHashRow = {
   recipeId: string;
   recipeName: string;

@@ -1,5 +1,5 @@
 /**
- * Sprint 60 — Meal hero expansion QA.
+ * Sprint 60.4 — Meal hero expansion QA.
  * Run: npm run test:meal-hero-expansion
  */
 import fs from 'node:fs';
@@ -16,6 +16,7 @@ import {
 import { buildHeroExpansionInventory } from '../scripts/image-factory/buildHeroExpansionInventory';
 import {
   buildProtectedHeroHashSnapshot,
+  verifyApprovedExpansionProductionHashes,
   verifyProtectedHeroHashesMatch,
 } from '../scripts/image-factory/heroExpansionHashSnapshot';
 import { countActiveHeroExpansionWaiver } from '../scripts/image-factory/heroExpansionWaiver';
@@ -32,7 +33,48 @@ function assert(cond: boolean, msg: string): void {
   }
 }
 
-console.log('Sprint 60.2 meal-hero-expansion QA — start\n');
+function assertBatchProduction(
+  batchLabel: string,
+  recipeIds: string[],
+  registered: Set<string>,
+): void {
+  let registryMissing = 0;
+  let productionMissing = 0;
+  for (const recipeId of recipeIds) {
+    const recipe = getHankkiRecipeById(recipeId);
+    const key = recipe?.heroImageKey ?? '';
+    if (!key || !registered.has(key)) registryMissing += 1;
+    const prod = path.join(PATHS.mealAssetsDir, `${key}.jpg`);
+    if (!fs.existsSync(prod)) productionMissing += 1;
+  }
+  assert(
+    registryMissing === 0,
+    `${batchLabel} registry ${recipeIds.length}/${recipeIds.length} (missing ${registryMissing})`,
+  );
+  assert(
+    productionMissing === 0,
+    `${batchLabel} production files ${recipeIds.length}/${recipeIds.length}`,
+  );
+}
+
+function assertBatchHashFile(batchId: string): void {
+  const hashPath = path.join(MEAL_HERO_EXPANSION_PATHS.root, `${batchId}-production-hashes.json`);
+  if (!fs.existsSync(hashPath)) {
+    assert(false, `${batchId} production hash file missing`);
+    return;
+  }
+  const hashFile = JSON.parse(fs.readFileSync(hashPath, 'utf8')) as {
+    allMatch: boolean;
+    matchCount: number;
+    total: number;
+  };
+  assert(
+    hashFile.allMatch && hashFile.matchCount === 20,
+    `${batchId} production hashes 20/20 MATCH`,
+  );
+}
+
+console.log('Sprint 60.4 meal-hero-expansion QA — start\n');
 
 assert(HANKKI_RECIPES.length === 300, `recipes 300 (got ${HANKKI_RECIPES.length})`);
 assert(MEAL_HERO_EXPANSION_ALL_RECIPE_IDS.length === 140, `expansion target 140`);
@@ -48,12 +90,12 @@ assert(inventory.duplicateImageKeys.length === 0, 'duplicate imageKey 0');
 
 const expansionProduction = inventory.summary.productionExists;
 assert(
-  expansionProduction === 20,
-  `batch1 expansion production 20/140 (got ${expansionProduction})`,
+  expansionProduction === 40,
+  `expansion production 40/140 (got ${expansionProduction})`,
 );
 
 const heroCoverage = 160 + expansionProduction;
-assert(heroCoverage === 180, `hero coverage 180/300 (got ${heroCoverage})`);
+assert(heroCoverage === 200, `hero coverage 200/300 (got ${heroCoverage})`);
 
 const protectedSnapshot = buildProtectedHeroHashSnapshot();
 assert(protectedSnapshot.count === 160, `protected hero snapshot 160 (got ${protectedSnapshot.count})`);
@@ -62,6 +104,17 @@ if (fs.existsSync(MEAL_HERO_EXPANSION_PATHS.hashSnapshotBefore)) {
   const verify = verifyProtectedHeroHashesMatch();
   assert(verify.ok, `protected 160 hashes unchanged (${verify.mismatches.join(', ')})`);
 }
+
+const expansionHashVerify = verifyApprovedExpansionProductionHashes();
+assert(expansionHashVerify.ok, 'approved expansion production hash snapshots match disk');
+assert(
+  expansionHashVerify.batches.some((b) => b.batchId === 'batch-1' && b.ok),
+  'batch-1 production snapshot ok',
+);
+assert(
+  expansionHashVerify.batches.some((b) => b.batchId === 'batch-2' && b.ok),
+  'batch-2 production snapshot ok',
+);
 
 const registered = new Set(parseRegisteredMealKeys());
 let brokenRegistry = 0;
@@ -73,65 +126,32 @@ for (const recipe of HANKKI_RECIPES) {
 assert(brokenRegistry === 0, `broken registry for existing 160: ${brokenRegistry}`);
 
 const activeWaiver = countActiveHeroExpansionWaiver();
-assert(activeWaiver === 120, `active hero waiver 120 (got ${activeWaiver})`);
+assert(activeWaiver === 100, `active hero waiver 100 (got ${activeWaiver})`);
 const approvedCount = inventory.summary.approvedFromWaiver;
 assert(
   activeWaiver + approvedCount === 140,
   `waiver + approved = 140 (${activeWaiver}+${approvedCount})`,
 );
 
-if (fs.existsSync(MEAL_HERO_EXPANSION_PATHS.inventory)) {
-  const saved = JSON.parse(
-    fs.readFileSync(MEAL_HERO_EXPANSION_PATHS.inventory, 'utf8'),
-  ) as { targetCount: number };
-  assert(saved.targetCount === 140, 'inventory file on disk');
-}
+assert(!isCatalogExpansionHeroWaiver('recipe_0181'), 'recipe_0181 waiver removed');
+assert(isCatalogExpansionHeroWaiver('recipe_0201'), 'recipe_0201 still waived');
 
 const batch1 = MEAL_HERO_EXPANSION_BATCHES[0];
-assert(batch1.recipeIds[0] === 'recipe_0161', 'batch1 starts 0161');
-assert(batch1.recipeIds[19] === 'recipe_0180', 'batch1 ends 0180');
-
-let batch1RegistryMissing = 0;
-let batch1ProductionMissing = 0;
-for (const recipeId of batch1.recipeIds) {
-  const recipe = getHankkiRecipeById(recipeId);
-  const key = recipe?.heroImageKey ?? '';
-  if (!key || !registered.has(key)) batch1RegistryMissing += 1;
-  const prod = path.join(PATHS.mealAssetsDir, `${key}.jpg`);
-  if (!fs.existsSync(prod)) batch1ProductionMissing += 1;
-}
-assert(batch1RegistryMissing === 0, `batch1 registry/resolver 20/20 (missing ${batch1RegistryMissing})`);
-assert(batch1ProductionMissing === 0, `batch1 production files 20/20`);
-
-const hashPath = path.join(MEAL_HERO_EXPANSION_PATHS.root, 'batch-1-production-hashes.json');
-if (fs.existsSync(hashPath)) {
-  const hashFile = JSON.parse(fs.readFileSync(hashPath, 'utf8')) as {
-    allMatch: boolean;
-    matchCount: number;
-    total: number;
-  };
-  assert(hashFile.allMatch && hashFile.matchCount === 20, 'batch1 production hashes 20/20 MATCH');
-}
-
-const batch1AuditPath = path.join(MEAL_HERO_EXPANSION_PATHS.auditDir, 'batch-1-audit.json');
-if (fs.existsSync(batch1AuditPath)) {
-  const audit = JSON.parse(fs.readFileSync(batch1AuditPath, 'utf8')) as {
-    rows: Array<{ reviewPath: string | null }>;
-  };
-  const withReview = audit.rows.filter((r) => r.reviewPath).length;
-  console.log(`   Batch 1 review candidates: ${withReview}/20`);
-}
+const batch2 = MEAL_HERO_EXPANSION_BATCHES[1];
+assertBatchProduction('batch1', batch1.recipeIds, registered);
+assertBatchProduction('batch2', batch2.recipeIds, registered);
+assertBatchHashFile('batch-1');
+assertBatchHashFile('batch-2');
 
 const productionJpgCount = fs
   .readdirSync(PATHS.mealAssetsDir)
   .filter((f) => f.endsWith('.jpg') && !f.startsWith('category_')).length;
-const expansionApprovedProduction = inventory.rows.filter((r) => r.productionAssetExists).length;
 console.log(
-  `   Hero JPG on disk: ${productionJpgCount} (baseline 160 + ${expansionApprovedProduction} expansion)`,
+  `   Hero JPG on disk: ${productionJpgCount} (baseline 160 + ${expansionProduction} expansion)`,
 );
 console.log(`   Active waiver: ${activeWaiver}`);
 
-console.log('\nSprint 60.2 meal-hero-expansion QA — done');
+console.log('\nSprint 60.4 meal-hero-expansion QA — done');
 if (failed > 0) {
   process.exitCode = 1;
   console.error(`${failed} check(s) failed`);

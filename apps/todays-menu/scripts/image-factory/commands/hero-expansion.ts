@@ -14,7 +14,7 @@ import {
   auditMealHeroExpansionBatch,
   writeMealHeroExpansionAudit,
 } from '../auditMealHeroExpansion';
-import { writeProtectedHeroHashSnapshot, writeMealHeroExpansionBatchProductionHashes, verifyProtectedHeroHashesMatch } from '../heroExpansionHashSnapshot';
+import { writeProtectedHeroHashSnapshot, writeMealHeroExpansionBatchProductionHashes, verifyApprovedExpansionProductionHashes, verifyProtectedHeroHashesMatch } from '../heroExpansionHashSnapshot';
 import { runHeroApprove } from '../runApprove';
 import {
   HERO_EXPANSION_REVIEW_PORT,
@@ -63,7 +63,23 @@ async function cmdPrepare(): Promise<void> {
   console.log('Prepare complete.');
 }
 
+function assertGenerateBatchAllowed(batch: ReturnType<typeof parseMealHeroExpansionBatchArg>): void {
+  if (batch.fromNum > 200) {
+    throw new Error(
+      `Generation forbidden for ${batch.id} in Sprint 60.3 — only batch-2 (0181–0200) allowed`,
+    );
+  }
+}
+
 async function cmdGenerate(batch: ReturnType<typeof parseMealHeroExpansionBatchArg>): Promise<void> {
+  try {
+    assertGenerateBatchAllowed(batch);
+  } catch (error) {
+    console.error(error instanceof Error ? error.message : error);
+    process.exitCode = 1;
+    return;
+  }
+
   const guard = assertGeminiProviderReadyForExpansion();
   if (!guard.ok) {
     console.error(`ABORT hero expansion generate: ${guard.reason}`);
@@ -89,6 +105,20 @@ async function cmdGenerate(batch: ReturnType<typeof parseMealHeroExpansionBatchA
   });
   console.log(`written: ${result.written} skipped: ${result.skipped} failed: ${result.failed}`);
   console.log(`provider_status: ${result.providerStatus}`);
+
+  if (result.failed > 0) {
+    process.exitCode = 1;
+    return;
+  }
+
+  const productionGuard = verifyApprovedExpansionProductionHashes();
+  console.log(
+    `Production guard: protected160=${productionGuard.protected160.ok} batches=${productionGuard.batches.map((b) => `${b.batchId}:${b.ok}`).join(',')}`,
+  );
+  if (!productionGuard.ok) {
+    console.error('Existing production heroes changed after generation — abort');
+    process.exitCode = 1;
+  }
 }
 
 async function cmdAudit(batch: ReturnType<typeof parseMealHeroExpansionBatchArg>): Promise<void> {
@@ -159,13 +189,13 @@ export function serveMealHeroExpansionReview(port = HERO_EXPANSION_REVIEW_PORT):
   });
 
   server.listen(port, '127.0.0.1', () => {
-    console.log(`Hero expansion review → http://127.0.0.1:${port}/batch-1.html`);
+    console.log(`Hero expansion review → http://127.0.0.1:${port}/`);
   });
 }
 
 async function cmdApprove(batch: ReturnType<typeof parseMealHeroExpansionBatchArg>): Promise<void> {
-  if (batch.id !== 'batch-1') {
-    console.error('Sprint 60.2: only batch-1 approval in this pass');
+  if (batch.fromNum > 200) {
+    console.error(`Sprint 60.4: approval forbidden for ${batch.id} — only batch-1/batch-2 supported`);
     process.exitCode = 1;
     return;
   }
@@ -200,8 +230,18 @@ async function cmdApprove(batch: ReturnType<typeof parseMealHeroExpansionBatchAr
     return;
   }
 
-  const protectedVerify = verifyProtectedHeroHashesMatch();
-  console.log(`Protected 160 hashes: ${protectedVerify.ok ? 'ok' : protectedVerify.mismatches.join(', ')}`);
+  const expansionVerify = verifyApprovedExpansionProductionHashes();
+  for (const b of expansionVerify.batches) {
+    console.log(`  ${b.batchId} production hashes: ${b.ok ? 'ok' : b.mismatches.join(', ')}`);
+  }
+  console.log(
+    `Protected 160 hashes: ${expansionVerify.protected160.ok ? 'ok' : expansionVerify.protected160.mismatches.join(', ')}`,
+  );
+  if (!expansionVerify.ok) {
+    console.error('Expansion production hash guard failed');
+    process.exitCode = 1;
+    return;
+  }
 
   writeProtectedHeroHashSnapshot('after');
 }
@@ -246,7 +286,7 @@ hero:expansion commands:
   snapshot      protected 160 SHA-256 before snapshot
   prepare       image-factory prepare + queue
   generate      --batch=1  (Batch 1 only in Sprint 60 first pass)
-  approve       --batch=1  Review → production (Sprint 60.2)
+  approve       --batch=1|2  Review → production
   audit         --batch=1
   review        --batch=1 HTML + audit
   queue-ready   batches 2-7 JSON stubs
