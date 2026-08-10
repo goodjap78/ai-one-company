@@ -65,7 +65,7 @@ async function cmdPrepare(): Promise<void> {
 
 function assertGenerateBatchAllowed(batch: ReturnType<typeof parseMealHeroExpansionBatchArg>): void {
   throw new Error(
-    `Sprint 60.8: image regeneration forbidden — generation blocked for ${batch.id}`,
+    `Sprint 60.10: image regeneration forbidden — generation blocked for ${batch.id}`,
   );
 }
 
@@ -236,16 +236,16 @@ export function serveMealHeroExpansionReview(port = HERO_EXPANSION_REVIEW_PORT):
     console.log(`  URL: http://127.0.0.1:${port}/`);
     console.log(`  Document root: ${root}`);
     console.log(`  Pages: ${pages.join(', ')}`);
-    for (const id of ['batch-1', 'batch-2', 'batch-3', 'batch-4']) {
+    for (const id of ['batch-1', 'batch-2', 'batch-3', 'batch-4', 'batch-5']) {
       console.log(`  → http://127.0.0.1:${port}/${id}.html`);
     }
   });
 }
 
 async function cmdApprove(batch: ReturnType<typeof parseMealHeroExpansionBatchArg>): Promise<void> {
-  if (batch.id !== 'batch-4') {
+  if (batch.id !== 'batch-5') {
     console.error(
-      `Sprint 60.8: approval only allowed for batch-4 (recipe_0221–0240), got ${batch.id}`,
+      `Sprint 60.10: approval only allowed for batch-5 (recipe_0241–0260), got ${batch.id}`,
     );
     process.exitCode = 1;
     return;
@@ -337,7 +337,7 @@ hero:expansion commands:
   snapshot      protected 160 SHA-256 before snapshot
   prepare       image-factory prepare + queue
   generate      --batch=1  (Batch 1 only in Sprint 60 first pass)
-  approve       --batch=4  Review → production (Sprint 60.8)
+  approve       --batch=5  Review → production (Sprint 60.10)
   audit         --batch=1
   review        --batch=1 HTML + audit
   queue-ready   batches 2-7 JSON stubs
