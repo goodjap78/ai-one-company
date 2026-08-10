@@ -29,6 +29,7 @@ import {
 import { updateMealImageRegistry } from './updateMealImageRegistry';
 import { updateRecipeImageMapEntries } from './updateRecipeImageMap';
 import { writeReviewIndexHtml } from './writeReviewHtml';
+import { markHeroExpansionApproved } from './heroExpansionWaiver';
 
 export type ApprovalDecision = 'approve' | 'reject' | 'regenerate';
 
@@ -306,6 +307,15 @@ export function runHeroApprove(options: ApproveOptions): {
     );
   } else {
     console.log('  recipeImageMap: preserved (mapping already correct)');
+  }
+
+  const waiverRemoved = markHeroExpansionApproved(
+    promotions.map((p) => p.recipeId),
+  );
+  if (waiverRemoved.length > 0) {
+    console.log(
+      `  Hero expansion waiver removed: ${waiverRemoved.join(', ')}`,
+    );
   }
 
   const latest = loadImageQueue() ?? queue;
