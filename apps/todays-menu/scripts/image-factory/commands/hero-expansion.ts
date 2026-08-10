@@ -14,7 +14,7 @@ import {
   auditMealHeroExpansionBatch,
   writeMealHeroExpansionAudit,
 } from '../auditMealHeroExpansion';
-import { writeProtectedHeroHashSnapshot, writeMealHeroExpansionBatchProductionHashes, verifyApprovedExpansionProductionHashes, verifyProtectedHeroHashesMatch } from '../heroExpansionHashSnapshot';
+import { writeProtectedHeroHashSnapshot, writeMealHeroExpansionBatchProductionHashes, verifyApprovedExpansionProductionHashes } from '../heroExpansionHashSnapshot';
 import { runHeroApprove } from '../runApprove';
 import {
   HERO_EXPANSION_REVIEW_PORT,
@@ -65,11 +65,24 @@ async function cmdPrepare(): Promise<void> {
 
 function assertGenerateBatchAllowed(batch: ReturnType<typeof parseMealHeroExpansionBatchArg>): void {
   throw new Error(
-    `Sprint 60.6: image regeneration forbidden — generation blocked for ${batch.id}`,
+    `Sprint 60.8: image regeneration forbidden — generation blocked for ${batch.id}`,
   );
 }
 
-async function cmdGenerate(batch: ReturnType<typeof parseMealHeroExpansionBatchArg>): Promise<void> {
+function parseRecipeFilterArg(argv: string[]): string[] | undefined {
+  const arg = argv.find((a) => a.startsWith('--recipe='));
+  if (!arg) return undefined;
+  return arg
+    .slice('--recipe='.length)
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
+async function cmdGenerate(
+  batch: ReturnType<typeof parseMealHeroExpansionBatchArg>,
+  argv: string[],
+): Promise<void> {
   try {
     assertGenerateBatchAllowed(batch);
   } catch (error) {
@@ -89,15 +102,27 @@ async function cmdGenerate(batch: ReturnType<typeof parseMealHeroExpansionBatchA
     archiveBatchMockReview(batch, 'batch-1-mock');
   }
 
+  const recipeFilter = parseRecipeFilterArg(argv);
+  let targetRecipeIds = batch.recipeIds;
+  if (recipeFilter?.length) {
+    const invalid = recipeFilter.filter((id) => !batch.recipeIds.includes(id));
+    if (invalid.length > 0) {
+      console.error(`Recipe(s) not in ${batch.id}: ${invalid.join(', ')}`);
+      process.exitCode = 1;
+      return;
+    }
+    targetRecipeIds = recipeFilter;
+  }
+
   await cmdPrepare();
-  const fromId = batch.recipeIds[0];
-  const toId = batch.recipeIds[batch.recipeIds.length - 1];
+  const fromId = targetRecipeIds[0];
+  const toId = targetRecipeIds[targetRecipeIds.length - 1];
   console.log(`Generating ${batch.id} (${fromId}–${toId}) via ${guard.provider}…`);
   const result = await runHeroGenerate({
     fromId,
     toId,
     force: true,
-    recipeIds: batch.recipeIds,
+    recipeIds: targetRecipeIds,
     batchSize: 5,
     concurrency: 2,
   });
@@ -163,14 +188,19 @@ function cmdQueueReady(): void {
 }
 
 export function serveMealHeroExpansionReview(port = HERO_EXPANSION_REVIEW_PORT): void {
-  const root = MEAL_HERO_EXPANSION_PATHS.reviewDir;
+  const root = path.resolve(MEAL_HERO_EXPANSION_PATHS.reviewDir);
   fs.mkdirSync(root, { recursive: true });
 
   const server = http.createServer((req, res) => {
-    const urlPath = req.url?.split('?')[0] ?? '/';
-    const rel = urlPath === '/' ? 'index.html' : urlPath.replace(/^\//, '');
-    const abs = path.join(root, rel);
-    if (!abs.startsWith(root) || !fs.existsSync(abs)) {
+    const urlPath = decodeURIComponent(req.url?.split('?')[0] ?? '/');
+    const rel = urlPath === '/' ? 'index.html' : urlPath.replace(/^\/+/, '');
+    const abs = path.resolve(root, rel);
+    if (abs !== root && !abs.startsWith(root + path.sep)) {
+      res.statusCode = 403;
+      res.end('Forbidden');
+      return;
+    }
+    if (!fs.existsSync(abs) || fs.statSync(abs).isDirectory()) {
       res.statusCode = 404;
       res.end('Not found');
       return;
@@ -186,15 +216,36 @@ export function serveMealHeroExpansionReview(port = HERO_EXPANSION_REVIEW_PORT):
     fs.createReadStream(abs).pipe(res);
   });
 
+  server.on('error', (err: NodeJS.ErrnoException) => {
+    if (err.code === 'EADDRINUSE') {
+      console.error(
+        `Port ${port} already in use. Stop the existing hero:expansion:serve process or use another port.`,
+      );
+    } else {
+      console.error(err);
+    }
+    process.exitCode = 1;
+  });
+
   server.listen(port, '127.0.0.1', () => {
-    console.log(`Hero expansion review → http://127.0.0.1:${port}/`);
+    const pages = fs
+      .readdirSync(root)
+      .filter((f) => f.endsWith('.html'))
+      .sort();
+    console.log('Hero expansion review server');
+    console.log(`  URL: http://127.0.0.1:${port}/`);
+    console.log(`  Document root: ${root}`);
+    console.log(`  Pages: ${pages.join(', ')}`);
+    for (const id of ['batch-1', 'batch-2', 'batch-3', 'batch-4']) {
+      console.log(`  → http://127.0.0.1:${port}/${id}.html`);
+    }
   });
 }
 
 async function cmdApprove(batch: ReturnType<typeof parseMealHeroExpansionBatchArg>): Promise<void> {
-  if (batch.id !== 'batch-3') {
+  if (batch.id !== 'batch-4') {
     console.error(
-      `Sprint 60.6: approval only allowed for batch-3 (recipe_0201–0220), got ${batch.id}`,
+      `Sprint 60.8: approval only allowed for batch-4 (recipe_0221–0240), got ${batch.id}`,
     );
     process.exitCode = 1;
     return;
@@ -262,7 +313,7 @@ async function main(): Promise<void> {
       await cmdPrepare();
       break;
     case 'generate':
-      await cmdGenerate(batch);
+      await cmdGenerate(batch, argv);
       break;
     case 'audit':
       await cmdAudit(batch);
@@ -286,7 +337,7 @@ hero:expansion commands:
   snapshot      protected 160 SHA-256 before snapshot
   prepare       image-factory prepare + queue
   generate      --batch=1  (Batch 1 only in Sprint 60 first pass)
-  approve       --batch=3  Review → production (Sprint 60.6)
+  approve       --batch=4  Review → production (Sprint 60.8)
   audit         --batch=1
   review        --batch=1 HTML + audit
   queue-ready   batches 2-7 JSON stubs
