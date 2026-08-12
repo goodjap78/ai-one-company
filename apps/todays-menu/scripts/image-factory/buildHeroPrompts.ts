@@ -15,6 +15,12 @@ import {
   SIDE_DISH_SHOT_REQUIREMENTS,
 } from './sideDishHeroHints';
 
+/** Sprint 60.11.1 — selective regen visual overrides (recipe-scoped). */
+const HERO_PROMPT_APPEND_BY_RECIPE_ID: Record<string, string> = {
+  recipe_0266:
+    'grilled seasoned tofu pieces; tofu pieces MUST be served on a visible ceramic plate; entire plate or most of plate clearly visible; plate rests naturally on table surface; food must NOT float directly on background; warm simple Korean home-meal plating; tofu arranged neatly on plate; sauce brushed lightly over tofu; minimal garnish; realistic food photography consistent with HANKKI Hero Style; 16:9 composition; food and plate centered naturally; white or calm cream ceramic plate; not ornate tableware; tofu remains the hero subject; NO floating food; NO food directly on bare background; NO isolated tofu without plate; NO invisible plate; NO hands; NO people; NO text; NO logo; NO brand packaging',
+};
+
 function buildPromptParagraphs(recipe: CollectedRecipe): string[] {
   const mains =
     recipe.mainIngredients.length > 0
@@ -48,6 +54,7 @@ function buildPromptParagraphs(recipe: CollectedRecipe): string[] {
     sideAppend,
     `HANKKI Official Hero Style ${HANKKI_HERO_STYLE_VERSION}. Shot requirements: ${HERO_SHOT_REQUIREMENTS.join('; ')}.`,
     'Food must look real, fresh, and edible — not glossy 3D or synthetic AI art.',
+    HERO_PROMPT_APPEND_BY_RECIPE_ID[recipe.id],
   ].filter(Boolean);
 
   return paragraphs;

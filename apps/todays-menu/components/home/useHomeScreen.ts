@@ -1,46 +1,60 @@
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { AppState } from 'react-native';
 import {
   getHankkiHomeDecisionMessages,
   getHankkiRecommendationMessage,
 } from '../../constants/HankkiMessages';
 import {
   acceptHomeRecommendation,
-  getHomeRecommendation,
-  refreshHomeRecommendation,
+  getMealTimeSlotHomeRecommendation,
+  refreshMealTimeSlotHomeRecommendation,
+  persistMealTimeSlotHomeRecommendation,
+  promoteMealTimeSlotAlternative,
   saveHomeRecommendation,
   simulateErrorRecommendation,
 } from '../../services/homeService';
 import { getAiSettingsRevision } from '../../services/aiRecommendationSettings';
-import { clearRecommendationSession } from '../../services/recommendationSession';
+import {
+  addSessionHeroId,
+  clearRecommendationSession,
+  setRecommendationSession,
+} from '../../services/recommendationSession';
 import { getFavoriteRecipeIds, toggleFavorite } from '../../services/FavoriteService';
+import { getViewedRecipeDisplayCount } from '../../services/viewedRecipe';
 import {
   getContextMemorySelection,
   toggleContextField,
 } from '../../services/memory/contextMemory';
 import { TASTE_TOAST_MESSAGE } from '../../services/mockHomeData';
-import { promoteAlternative } from '../../services/recommendation/recommendationEngine';
 import { withSeedRecommendationMessage } from '../../services/recommendation/seedRecommendationMessage';
 import {
-  getRecommendationSession,
-  setRecommendationSession,
-} from '../../services/recommendationSession';
+  buildRecipeIdsFromRecommendation,
+} from '../../services/recommendation/mealTime/mealTimeSlotCacheStorage';
+import {
+  mealTimeSlotToMealType,
+  resolveClockPrimarySlot,
+} from '../../services/recommendation/mealTime/mealTimeSlotMapping';
 import { getTodayBrief } from '../../services/today';
 import type { HomeRecommendationDTO, MealMode } from '../../types/home';
+import type { MealTimeSlotKey } from '../../types/mealTimeRecommendation';
 import type { ContextMemorySelection } from '../../types/contextMemory';
 import type { TodayBrief } from '../../types/today';
-import { getCurrentMealType } from '../../utils/mealType';
+import { getLocalDateKey, getNow } from '../../utils/dateProvider';
 import type { FavoriteFeedbackKind } from './HomeFavoritePopup';
 
 export type HomeScreenState = 'loading' | 'ready' | 'refreshing' | 'error';
 
 const DEFAULT_MEAL_MODE: MealMode = 'homemade';
-/** Minimum gap between refresh taps — prevents duplicate in-flight requests only. */
 const REFRESH_DEBOUNCE_MS = 300;
 
 export function useHomeScreen(nickname: string) {
   const router = useRouter();
-  const mealType = getCurrentMealType();
+  const [selectedSlot, setSelectedSlot] = useState<MealTimeSlotKey>(() =>
+    resolveClockPrimarySlot(getNow()),
+  );
+  const mealType = mealTimeSlotToMealType(selectedSlot);
+  const clockPrimarySlot = resolveClockPrimarySlot(getNow());
 
   const [todayBrief, setTodayBrief] = useState<TodayBrief | null>(null);
   const [screenState, setScreenState] = useState<HomeScreenState>('loading');
@@ -52,6 +66,7 @@ export function useHomeScreen(nickname: string) {
   const [toastShowSaveMascot, setToastShowSaveMascot] = useState(false);
   const [favoriteFeedback, setFavoriteFeedback] = useState<FavoriteFeedbackKind | null>(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [viewedRecipeCount, setViewedRecipeCount] = useState(0);
   const [contextSelection, setContextSelection] = useState<ContextMemorySelection>({
     diningSituation: null,
     mealGoal: null,
@@ -60,31 +75,122 @@ export function useHomeScreen(nickname: string) {
 
   const lastRefreshRef = useRef(0);
   const refreshInFlightRef = useRef(false);
-  const initialLoadDoneRef = useRef(false);
+  const loadedDateKeyRef = useRef<string | null>(null);
+  const loadedSlotRef = useRef<MealTimeSlotKey | null>(null);
+  const clockSlotRef = useRef<MealTimeSlotKey>(resolveClockPrimarySlot(getNow()));
   const aiSettingsRevisionRef = useRef(getAiSettingsRevision());
 
-  const loadRecommendation = useCallback(
-    async (mode: MealMode) => {
-      setScreenState('loading');
+  const applySession = useCallback(
+    (slot: MealTimeSlotKey, mode: MealMode, data: HomeRecommendationDTO) => {
+      const dateKey = getLocalDateKey(getNow());
+      const slotMealType = mealTimeSlotToMealType(slot);
       setMealMode(mode);
+      setRecommendation(data);
+      setScreenState('ready');
+      loadedDateKeyRef.current = dateKey;
+      loadedSlotRef.current = slot;
+      clockSlotRef.current = resolveClockPrimarySlot(getNow());
+      setRecommendationSession({
+        dateKey,
+        mealType: slotMealType,
+        mealMode: mode,
+        recommendation: data,
+      });
+      const heroId = data.recipe?.id?.trim();
+      if (heroId && !data.noCandidatesAvailable) {
+        addSessionHeroId(heroId);
+      }
+    },
+    [],
+  );
+
+  const syncSlotRecommendation = useCallback(
+    async (options: {
+      silent?: boolean;
+      forceGenerate?: boolean;
+      slot?: MealTimeSlotKey;
+      mode?: MealMode;
+    } = {}) => {
+      const slot = options.slot ?? selectedSlot;
+      const mode = options.mode ?? mealMode;
+      const dateKey = getLocalDateKey(getNow());
+      const useClockWeights = slot === resolveClockPrimarySlot(getNow());
+
+      if (
+        !options.forceGenerate &&
+        loadedDateKeyRef.current === dateKey &&
+        loadedSlotRef.current === slot &&
+        recommendation
+      ) {
+        return;
+      }
+
+      const showLoading = !options.silent && screenState !== 'ready';
+      if (showLoading) {
+        setScreenState('loading');
+      }
 
       try {
-        const data = await getHomeRecommendation(mealType, mode);
-        setRecommendation(data);
-        setScreenState('ready');
-        setRecommendationSession({ mealType, mealMode: mode, recommendation: data });
+        const data = await getMealTimeSlotHomeRecommendation(slot, mode, {
+          useClockWeights,
+          forceGenerate: options.forceGenerate,
+        });
+        applySession(slot, mode, data);
       } catch {
         try {
-          const fallback = await simulateErrorRecommendation(mealType, mode);
-          setRecommendation(fallback);
-          setScreenState('ready');
-          setRecommendationSession({ mealType, mealMode: mode, recommendation: fallback });
+          const fallback = await simulateErrorRecommendation(
+            mealTimeSlotToMealType(slot),
+            mode,
+          );
+          applySession(slot, mode, fallback);
         } catch {
           setScreenState('error');
         }
       }
     },
-    [mealType],
+    [selectedSlot, mealMode, screenState, recommendation, applySession],
+  );
+
+  const checkDateAndSlotRefresh = useCallback(() => {
+    const dateKey = getLocalDateKey(getNow());
+    const clockSlot = resolveClockPrimarySlot(getNow());
+    const dateChanged =
+      loadedDateKeyRef.current !== null && loadedDateKeyRef.current !== dateKey;
+    const clockChanged = clockSlotRef.current !== clockSlot;
+
+    if (dateChanged) {
+      setSelectedSlot(clockSlot);
+      void syncSlotRecommendation({ silent: true, slot: clockSlot });
+      return;
+    }
+
+    if (clockChanged) {
+      clockSlotRef.current = clockSlot;
+      setSelectedSlot(clockSlot);
+      void syncSlotRecommendation({ silent: true, slot: clockSlot });
+    }
+  }, [syncSlotRecommendation]);
+
+  const loadRecommendation = useCallback(
+    async (mode: MealMode) => {
+      setScreenState('loading');
+      setMealMode(mode);
+      try {
+        const data = await getMealTimeSlotHomeRecommendation(selectedSlot, mode, {
+          useClockWeights: selectedSlot === resolveClockPrimarySlot(getNow()),
+          forceGenerate: true,
+        });
+        applySession(selectedSlot, mode, data);
+      } catch {
+        try {
+          const fallback = await simulateErrorRecommendation(mealType, mode);
+          applySession(selectedSlot, mode, fallback);
+        } catch {
+          setScreenState('error');
+        }
+      }
+    },
+    [selectedSlot, mealType, applySession],
   );
 
   const loadHeartedIds = useCallback(async () => {
@@ -92,53 +198,50 @@ export function useHomeScreen(nickname: string) {
     setHeartedIds(new Set(ids));
   }, []);
 
+  const loadViewedRecipeCount = useCallback(async () => {
+    const count = await getViewedRecipeDisplayCount();
+    setViewedRecipeCount(count);
+  }, []);
+
   useEffect(() => {
     loadHeartedIds();
+    loadViewedRecipeCount();
     getTodayBrief(nickname).then(setTodayBrief);
     getContextMemorySelection().then(setContextSelection);
+    void syncSlotRecommendation();
+  }, [nickname, syncSlotRecommendation, loadHeartedIds, loadViewedRecipeCount]);
 
-    if (initialLoadDoneRef.current) return;
-    initialLoadDoneRef.current = true;
-
-    const session = getRecommendationSession();
-    if (
-      session?.recommendation &&
-      session.mealType === mealType &&
-      session.mealMode !== 'delivery'
-    ) {
-      setMealMode(session.mealMode);
-      setScreenState('ready');
-      if (session.recommendation.seedMessage) {
-        setRecommendation(session.recommendation);
-      } else {
-        void withSeedRecommendationMessage(session.recommendation, mealType).then((next) => {
-          setRecommendation(next);
-          setRecommendationSession({
-            mealType,
-            mealMode: session.mealMode,
-            recommendation: next,
-          });
-        });
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', (nextState) => {
+      if (nextState === 'active') {
+        checkDateAndSlotRefresh();
       }
-      return;
-    }
-
-    loadRecommendation(DEFAULT_MEAL_MODE);
-  }, [nickname, mealType, loadRecommendation, loadHeartedIds]);
+    });
+    return () => subscription.remove();
+  }, [checkDateAndSlotRefresh]);
 
   useFocusEffect(
     useCallback(() => {
       loadHeartedIds();
+      loadViewedRecipeCount();
+      checkDateAndSlotRefresh();
 
       const revision = getAiSettingsRevision();
       if (revision !== aiSettingsRevisionRef.current) {
         aiSettingsRevisionRef.current = revision;
         clearRecommendationSession();
-        if (screenState === 'ready') {
-          void loadRecommendation(mealMode);
-        }
+        void syncSlotRecommendation({
+          silent: screenState === 'ready',
+          forceGenerate: true,
+        });
       }
-    }, [loadHeartedIds, loadRecommendation, mealMode, screenState]),
+    }, [
+      loadHeartedIds,
+      loadViewedRecipeCount,
+      checkDateAndSlotRefresh,
+      syncSlotRecommendation,
+      screenState,
+    ]),
   );
 
   const handleMealModeChange = useCallback(
@@ -156,15 +259,16 @@ export function useHomeScreen(nickname: string) {
   const refreshRecommendation = useCallback(
     async (mode: MealMode) => {
       try {
-        const next = await getHomeRecommendation(mealType, mode);
-        setRecommendation(next);
-        setScreenState('ready');
-        setRecommendationSession({ mealType, mealMode: mode, recommendation: next });
+        const next = await getMealTimeSlotHomeRecommendation(selectedSlot, mode, {
+          useClockWeights: selectedSlot === resolveClockPrimarySlot(getNow()),
+          forceGenerate: true,
+        });
+        applySession(selectedSlot, mode, next);
       } catch {
         setScreenState('ready');
       }
     },
-    [mealType],
+    [selectedSlot, applySession],
   );
 
   const handleContextToggle = useCallback(
@@ -185,6 +289,15 @@ export function useHomeScreen(nickname: string) {
     [screenState, isRefreshing, mealMode, refreshRecommendation],
   );
 
+  const handleSlotChange = useCallback(
+    (slot: MealTimeSlotKey) => {
+      if (slot === selectedSlot && recommendation) return;
+      setSelectedSlot(slot);
+      void syncSlotRecommendation({ slot, silent: screenState === 'ready' });
+    },
+    [selectedSlot, recommendation, syncSlotRecommendation, screenState],
+  );
+
   const handleRefresh = useCallback(async () => {
     if (!recommendation || refreshInFlightRef.current) return;
 
@@ -192,26 +305,24 @@ export function useHomeScreen(nickname: string) {
     if (now - lastRefreshRef.current < REFRESH_DEBOUNCE_MS) return;
     lastRefreshRef.current = now;
 
-    const previousRecipeId = recommendation.recipe.id;
+    const previousIds = buildRecipeIdsFromRecommendation(recommendation);
     refreshInFlightRef.current = true;
     setIsRefreshing(true);
 
     try {
-      const next = await refreshHomeRecommendation(
-        mealType,
+      const next = await refreshMealTimeSlotHomeRecommendation(
+        selectedSlot,
         mealMode,
-        previousRecipeId,
+        previousIds,
       );
-      setRecommendation(next);
-      setScreenState('ready');
-      setRecommendationSession({ mealType, mealMode, recommendation: next });
+      applySession(selectedSlot, mealMode, next);
     } catch {
       setScreenState('ready');
     } finally {
       refreshInFlightRef.current = false;
       setIsRefreshing(false);
     }
-  }, [recommendation, mealType, mealMode]);
+  }, [recommendation, selectedSlot, mealMode, applySession]);
 
   const handleAccept = useCallback(async () => {
     if (!recommendation) return;
@@ -289,7 +400,7 @@ export function useHomeScreen(nickname: string) {
     async (alternativeId: string) => {
       if (!recommendation || isRefreshing) return;
 
-      const swapped = promoteAlternative(recommendation, alternativeId);
+      const swapped = promoteMealTimeSlotAlternative(recommendation, alternativeId);
       if (!swapped) return;
 
       const withChef: HomeRecommendationDTO = {
@@ -299,9 +410,17 @@ export function useHomeScreen(nickname: string) {
       const next = await withSeedRecommendationMessage(withChef, mealType);
 
       setRecommendation(next);
-      setRecommendationSession({ mealType, mealMode, recommendation: next });
+      loadedDateKeyRef.current = getLocalDateKey(getNow());
+      loadedSlotRef.current = selectedSlot;
+      setRecommendationSession({
+        dateKey: getLocalDateKey(getNow()),
+        mealType,
+        mealMode,
+        recommendation: next,
+      });
+      await persistMealTimeSlotHomeRecommendation(selectedSlot, next);
     },
-    [recommendation, isRefreshing, mealType, mealMode],
+    [recommendation, isRefreshing, mealType, mealMode, selectedSlot],
   );
 
   const setToastVisibleStable = useCallback((visible: boolean) => {
@@ -318,6 +437,7 @@ export function useHomeScreen(nickname: string) {
     greeting,
     recentMealSummary,
     favoriteCount: heartedIds.size,
+    viewedRecipeCount,
     screenState,
     mealMode,
     recommendation,
@@ -328,6 +448,8 @@ export function useHomeScreen(nickname: string) {
     favoriteFeedback,
     isRefreshing,
     contextSelection,
+    selectedSlot,
+    clockPrimarySlot,
     setToastVisible: setToastVisibleStable,
     dismissFavoriteFeedback,
     handleMealModeChange,
@@ -338,5 +460,6 @@ export function useHomeScreen(nickname: string) {
     handleSelectAlternative,
     handleHeartPress,
     handleRetry,
+    handleSlotChange,
   };
 }

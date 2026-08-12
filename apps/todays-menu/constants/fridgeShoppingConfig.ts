@@ -23,13 +23,15 @@ export type FridgeShoppingConfig = {
   rewardPointPolicy?: FridgeShoppingRewardPointPolicy | null;
 };
 
+import { COUPANG_PARTNERS_OFFICIAL_DISCLOSURE } from './shoppingConfig';
+
 export const FRIDGE_SHOPPING_CONFIG: FridgeShoppingConfig = {
-  enabled: false,
-  provider: null,
+  enabled: true,
+  provider: 'coupang',
   targetUrl: null,
   bannerImageUrl: null,
-  isAffiliate: false,
-  disclosureText: null,
+  isAffiliate: true,
+  disclosureText: COUPANG_PARTNERS_OFFICIAL_DISCLOSURE,
   analyticsEventName: null,
   rewardPointPolicy: null,
 };

@@ -9,6 +9,9 @@ import type { MealHistoryEntry } from './mealHistory';
 import type { HealthMemorySnapshot } from '../services/healthMemory/healthMemoryTypes';
 import type { Difficulty, MealType } from './home';
 import type { MealSituationBase } from './mealIntelligenceEngine';
+import type { MealTimeSlotKey } from './mealTimeRecommendation';
+import type { ViewedRecipeEntry } from './viewedRecipeHistory';
+import type { LightPersonalizationProfile } from './lightPersonalization';
 
 /** Category from master DB, or `catalog` for menu-catalog items. */
 export type PreferenceCategory =
@@ -89,6 +92,19 @@ export type RecommendationContext = {
   situation?: MealSituationBase;
   /** Optional taste settings from My Page — never required for recommendations. */
   aiRecommendationSettings?: AiRecommendationSettings;
+  /** Sprint 62-B — recently viewed recipe ids (detail screen visits). */
+  viewedRecipeHistory?: ViewedRecipeEntry[];
+  /** Sprint 62-C — derived taste profile for light personalization bonus. */
+  lightPersonalizationProfile?: LightPersonalizationProfile;
+  /** Sprint 59 — meal-time slot ranking layer (metadata fit × slot weights). */
+  mealTimeRanking?: {
+    targetSlot: MealTimeSlotKey;
+    useClockWeights?: boolean;
+    repeatPenaltyIds?: string[];
+    /** Sprint 61-B — heroes shown in other slots this app session. */
+    sessionShownIds?: string[];
+    refreshGeneration?: number;
+  };
 };
 
 /**

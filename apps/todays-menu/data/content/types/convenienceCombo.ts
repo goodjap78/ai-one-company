@@ -8,6 +8,8 @@ export type ComboKind = (typeof COMBO_KINDS)[number];
 
 export type ComboItem = {
   name: string;
+  quantity?: string;
+  optional?: boolean;
 };
 
 export type ConvenienceCombo = ContentBase & {

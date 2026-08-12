@@ -24,17 +24,29 @@ import {
   METADATA_SCORE_POINTS,
 } from './aiRecommendationMetadataScoring';
 import { resolveMenuAiRecipeContext } from './resolveMenuStandardMetadata';
+import { getRecipeMealTimeMetadata } from '../../../data/recommendation/recipeMealTimeMetadata';
+import { blendFitWithClockWeights, resolveMealTimeWeights } from '../mealTime/mealTimeTransitionPolicy';
+import { buildSlotEmphasisWeights } from '../mealTime/mealTimeSlotMapping';
+import {
+  applyMealTimeDiversityScore,
+  mealTimeRepeatPenalty,
+} from '../mealTime/mealTimeDiversityPolicy';
+import { scoreLightPersonalization } from './scoreLightPersonalization';
+import { getNow } from '../../../utils/dateProvider';
 
 /** Sprint 21.5 — HANKKI AI Recommendation Engine v1 point table. */
 export const SMART_SCORE_POINTS = {
   mealTime: 20,
   weather: 20,
   season: 15,
+  /** Legacy direct favorite boost — replaced by Sprint 62-C similarity bonus. */
   favorite: 15,
   notEatenRecently: 20,
   cookTimeFit: 10,
   difficulty: 5,
   balancedNutrition: 10,
+  /** Sprint 59 — metadata meal-time fit layer (0–35). */
+  mealTimeMetadataMax: 35,
   sameRecipePenalty: -40,
   sameCuisinePenalty: -20,
   sameIngredientPenalty: -15,
@@ -209,15 +221,7 @@ export function scoreSmartRecommendation(
 
   const favoriteIds = context?.favoriteRecipeIds ?? [];
   if (favoriteIds.includes(menu.id)) {
-    total += SMART_SCORE_POINTS.favorite;
-    factors.preferenceDna = SMART_SCORE_POINTS.favorite;
-    hits.push({
-      key: 'favorite',
-      points: SMART_SCORE_POINTS.favorite,
-      category: 'recentMeals',
-      label: '마음에 두신 메뉴예요',
-    });
-    notes.push('smart_favorite');
+    notes.push('smart_favorite_known');
   }
 
   const ateRecently = recent.some((entry) => entry.recipeId === menu.id);
@@ -295,6 +299,35 @@ export function scoreSmartRecommendation(
     notes.push('smart_balanced_nutrition');
   }
 
+  if (context?.mealTimeRanking) {
+    const meta = getRecipeMealTimeMetadata(menu.id);
+    if (meta) {
+      const weights = context.mealTimeRanking.useClockWeights
+        ? resolveMealTimeWeights(getNow())
+        : buildSlotEmphasisWeights(context.mealTimeRanking.targetSlot);
+      const blended = blendFitWithClockWeights(meta.fit, weights);
+      const repeatPenalty = mealTimeRepeatPenalty(menu.id, {
+        currentSlotShownIds: context.mealTimeRanking.repeatPenaltyIds ?? [],
+        sameDayShownIds: context.mealTimeRanking.sessionShownIds ?? [],
+        previousDayPrimaryIds: [],
+        recentHistoryIds: recent.map((entry) => entry.recipeId),
+      });
+      const adjusted = applyMealTimeDiversityScore(blended, repeatPenalty);
+      const points = Math.round(adjusted * SMART_SCORE_POINTS.mealTimeMetadataMax);
+      if (points > 0) {
+        total += points;
+        factors.mealTimeMetadata = points;
+        hits.push({
+          key: 'meal_time_fit',
+          points,
+          category: 'time',
+          label: '이 시간대에 잘 맞는 메뉴예요',
+        });
+        notes.push('smart_meal_time_metadata');
+      }
+    }
+  }
+
   const metadataScore = scoreMetadataPreferences(menu, situation.mealType, context);
   if (metadataScore.total !== 0) {
     total += metadataScore.total;
@@ -310,6 +343,21 @@ export function scoreSmartRecommendation(
       category: 'personalization',
       label: hit.label,
     });
+  }
+
+  const lightPersonalization = scoreLightPersonalization(menu, context?.lightPersonalizationProfile);
+  if (lightPersonalization.points > 0) {
+    total += lightPersonalization.points;
+    factors.preferenceDna = (factors.preferenceDna ?? 0) + lightPersonalization.points;
+    notes.push('smart_light_personalization');
+    if (lightPersonalization.label) {
+      hits.push({
+        key: lightPersonalization.key ?? 'light_personalization',
+        points: lightPersonalization.points,
+        category: 'personalization',
+        label: lightPersonalization.label,
+      });
+    }
   }
 
   const preferredCuisines = context?.aiRecommendationSettings?.preferredCuisines ?? [];

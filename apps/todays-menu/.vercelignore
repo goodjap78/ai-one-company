@@ -1,0 +1,35 @@
+# Vercel deploy ignore for hankki-shopping-proxy
+# Keep app runtime assets (assets/) - do not exclude wholesale.
+# Local proxy / Coupang / Upstash source under api/ and server/ must remain.
+
+# Large local Metro / build scratch (primary upload failure cause)
+.tmp-metro-check/
+
+# Generated / build / Expo local caches
+generated/
+dist/
+web-build/
+.expo/
+.expo-web-test/
+coverage/
+build/
+
+# Docs & QA artifacts (not required for proxy runtime)
+docs/
+*.md
+!README.md
+
+# Local tooling / logs
+eas-build-output.log
+tsc-result.txt
+build.json
+build-status.json
+*.log
+
+# Dependencies & env (Vercel installs deps; secrets via Dashboard)
+node_modules/
+.pnpm-store/
+.vercel/
+.env
+.env.*
+!.env.example

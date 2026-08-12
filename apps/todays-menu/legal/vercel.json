@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/hankki/privacy", "destination": "/privacy.html" },
+    { "source": "/hankki/terms", "destination": "/terms.html" }
+  ]
+}

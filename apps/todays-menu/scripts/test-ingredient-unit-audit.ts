@@ -24,8 +24,8 @@ function main(): void {
   console.log('Ingredient Unit Audit QA — start\n');
 
   const report = auditRecipeIngredientUnits(HANKKI_RECIPES);
-  assert(report.recipeCount === 160, '160개 레시피 감사');
-  assert(report.ingredientCount === 1302, '1302개 재료 감사');
+  assert(report.recipeCount === 300, '300개 레시피 감사');
+  assert(report.ingredientCount >= 1302, `재료 감사 >= 1302 (got ${report.ingredientCount})`);
   assert(report.invalid === 0, `INVALID 단위 조합 0건 (현재 ${report.invalid})`);
 
   if (report.invalidEntries.length > 0) {

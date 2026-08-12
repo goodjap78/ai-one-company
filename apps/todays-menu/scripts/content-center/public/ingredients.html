@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ingredient Library · HANKKI Content Center</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+      .ing-page {
+        padding: 1.25rem 1.5rem 2.5rem;
+      }
+      .ing-toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+      }
+      .ing-toolbar .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+      .ing-toolbar .filters button {
+        background: #1a2117;
+        color: var(--text);
+        border: 1px solid var(--line);
+      }
+      .ing-toolbar .filters button.active {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .ing-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .ing-stats strong {
+        color: var(--text);
+      }
+      .ing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1rem;
+      }
+      .ing-card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .ing-card .shot {
+        aspect-ratio: 1 / 1;
+        background: #f3e7db;
+        display: grid;
+        place-items: center;
+      }
+      .ing-card .shot img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .ing-card .body {
+        padding: 0.85rem 1rem 1rem;
+        display: grid;
+        gap: 0.35rem;
+        flex: 1;
+      }
+      .ing-card h2 {
+        margin: 0;
+        font-size: 1.05rem;
+      }
+      .ing-card .ids {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.78rem;
+        word-break: break-all;
+      }
+      .ing-card .card-actions {
+        margin-top: 0.35rem;
+      }
+      .note {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin: 0 0 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="top">
+      <div>
+        <p class="eyebrow">Internal · Ingredient Library</p>
+        <h1>Ingredient Library</h1>
+        <p class="sub">
+          Review ingredient icons · Approve All for reviewed icons only —
+          Hero Images stay individual-approve
+        </p>
+      </div>
+      <div class="top-actions">
+        <a
+          class="ghost"
+          href="/"
+          style="text-decoration: none; display: inline-block"
+        >
+          ← Content Center
+        </a>
+        <button type="button" id="btn-refresh" class="ghost">Refresh</button>
+      </div>
+    </header>
+
+    <div class="ing-page">
+      <div class="ing-toolbar">
+        <div class="filters" id="filters">
+          <button type="button" data-filter="all" class="active">All</button>
+          <button type="button" data-filter="review">Review</button>
+          <button type="button" data-filter="exists">Approved</button>
+          <button type="button" data-filter="missing">Missing</button>
+        </div>
+        <button type="button" class="approve" id="btn-approve-all">
+          Approve All
+        </button>
+      </div>
+      <div class="ing-stats" id="stats"></div>
+      <p class="note" id="meta">Loading ingredient library…</p>
+      <div id="grid" class="ing-grid"></div>
+    </div>
+
+    <div id="toast" class="toast" hidden></div>
+    <script src="/ingredients.js"></script>
+  </body>
+</html>

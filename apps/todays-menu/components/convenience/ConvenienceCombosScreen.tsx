@@ -1,3 +1,4 @@
+import type { Href } from 'expo-router';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'expo-router';
 import {
@@ -12,7 +13,6 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { convenienceCombosCopy } from '../../constants/convenienceCombosCopy';
 import { ds } from '../../constants/designSystem';
-import { NAV_BACK } from '../../constants/navigationCopy';
 import {
   COMBO_KIND_FILTER_ORDER,
   countCombosByStoreScope,
@@ -30,7 +30,9 @@ import {
   getConvenienceFavoriteIds,
   toggleConvenienceFavorite,
 } from '../../services/convenience/convenienceFavoritesStorage';
-import { ScreenBackButton } from '../ui/ScreenBackButton';
+import { CONVENIENCE_RECOMMENDATION_HREF } from '../../constants/appRoutes';
+import { navigateToConvenienceDetail } from '../../services/convenience/convenienceComboNavigation';
+import { ScreenReplaceNavButton } from '../ui/ScreenReplaceNavButton';
 import { screenLayout } from '../ui/screenLayout';
 import { ConvenienceComboCard } from './ConvenienceComboCard';
 import { ConvenienceFilterChips } from './ConvenienceFilterChips';
@@ -89,7 +91,19 @@ function situationFilterLabel(id: ComboSituationFilterId): string {
   return convenienceCombosCopy.situation[id];
 }
 
-export function ConvenienceCombosScreen() {
+export function ConvenienceCombosScreen({
+  backHref = CONVENIENCE_RECOMMENDATION_HREF,
+  backLabel = convenienceCombosCopy.title,
+  backAccessibilityLabel = '편의점 추천으로',
+  backIcon = 'chevron-left',
+  description = convenienceCombosCopy.description,
+}: {
+  backHref?: Href;
+  backLabel?: string;
+  backAccessibilityLabel?: string;
+  backIcon?: 'home-outline' | 'chevron-left';
+  description?: string;
+} = {}) {
   const router = useRouter();
   const { width: windowWidth } = useWindowDimensions();
   const allCombos = listAllConvenienceCombos();
@@ -202,13 +216,18 @@ export function ConvenienceCombosScreen() {
               { maxWidth: contentMaxWidth },
             ]}
           >
-            <ScreenBackButton label={NAV_BACK.home} fallbackHref="/(tabs)" />
+            <ScreenReplaceNavButton
+              href={backHref}
+              label={backLabel}
+              accessibilityLabel={backAccessibilityLabel}
+              icon={backIcon}
+            />
 
             <View style={styles.header}>
               <Text style={styles.title} accessibilityRole="header">
                 {convenienceCombosCopy.title}
               </Text>
-              <Text style={styles.description}>{convenienceCombosCopy.description}</Text>
+              <Text style={styles.description}>{description}</Text>
               <Text style={styles.count}>
                 {convenienceCombosCopy.countLabel(allCombos.length)}
               </Text>
@@ -333,12 +352,7 @@ export function ConvenienceCombosScreen() {
                       isFavorite={favoriteIds.has(combo.id)}
                       accentColor={ACCENT_COLORS[index % ACCENT_COLORS.length]}
                       onToggleFavorite={() => handleToggleFavorite(combo.id)}
-                      onView={() =>
-                        router.push({
-                          pathname: '/convenience-combos/[id]',
-                          params: { id: combo.id },
-                        })
-                      }
+                      onView={() => navigateToConvenienceDetail(router, combo.id)}
                     />
                   </View>
                 ))}

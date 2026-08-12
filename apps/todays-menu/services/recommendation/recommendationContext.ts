@@ -7,13 +7,15 @@ import { getConversationMemory, getFoodMemory } from '../memory';
 import { getMealPlanning } from '../memory/mealPlanning';
 import { getPantry } from '../pantry';
 import { getHistory } from '../MealHistoryService';
+import { getViewedRecipeHistory } from '../viewedRecipe';
 import { buildMealSituationBase } from './mealIntelligence';
+import { buildLightPersonalizationProfile } from './mealIntelligence/lightPersonalizationProfile';
 import type { RecommendationContext } from '../../types/preference';
 
 export type { RecommendationContext };
 
 export async function loadRecommendationContext(): Promise<RecommendationContext> {
-  const [favorites, mealHistory, conversationMemory, foodMemory, contextMemory, mealPlanning, pantry, aiRecommendationSettings] =
+  const [favorites, mealHistory, conversationMemory, foodMemory, contextMemory, mealPlanning, pantry, aiRecommendationSettings, viewedRecipeHistory] =
     await Promise.all([
       getFavorites(),
       getHistory(),
@@ -23,9 +25,11 @@ export async function loadRecommendationContext(): Promise<RecommendationContext
       getMealPlanning(),
       getPantry(),
       getAiRecommendationSettings(),
+      getViewedRecipeHistory(),
     ]);
 
   const preferenceDNA = buildPreferenceSummary(favorites);
+  const lightPersonalizationProfile = buildLightPersonalizationProfile(favorites, viewedRecipeHistory);
 
   const situation = await buildMealSituationBase();
   const healthMemory = buildHealthMemorySnapshot(foodMemory);
@@ -43,6 +47,8 @@ export async function loadRecommendationContext(): Promise<RecommendationContext
     pantry,
     situation,
     aiRecommendationSettings,
+    viewedRecipeHistory,
+    lightPersonalizationProfile,
   };
 }
 

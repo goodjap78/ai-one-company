@@ -1,130 +1,164 @@
-import { useRouter } from 'expo-router';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useRouter, useFocusEffect } from 'expo-router';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { HANKKI_RECIPES } from '../../data/recipes/hankkiRecipes';
 import { FRIDGE_RAID_COPY } from '../../constants/fridgeRaidCopy';
+import { FRIDGE_COMPACT_WINDOW_SIZE } from '../../constants/fridgeCompactLayout';
+import { APP_HOME_HREF } from '../../constants/appRoutes';
 import { NAV_BACK } from '../../constants/navigationCopy';
 import { ds } from '../../constants/designSystem';
-import { buildFridgeRaidDisplayResults } from '../../services/fridge/buildFridgeRaidCandidates';
+import { buildFridgeRaidResultsBundle } from '../../services/fridge/buildFridgeRaidCandidates';
 import {
-  buildFridgeUtilizationSections,
-  hasMultiIngredientUtilizationGap,
-} from '../../services/fridge/fridgeUtilizationDisplay';
+  canRotateFridgeRecommendationWindow,
+  pickNextFridgeRecommendationWindow,
+  sliceFridgeRecommendationWindow,
+} from '../../services/fridge/fridgeCompactRecommendation';
 import { loadRecommendationContext } from '../../services/recommendation/recommendationContext';
 import { getPantry } from '../../services/pantry/pantryService';
-import type { FridgeRaidCandidate } from '../../services/fridge/fridgeRaidTypes';
-import { FridgeRaidMealCard } from './FridgeRaidMealCard';
+import type { PantrySnapshot } from '../../types/pantry';
+import { buildMissingShoppingListFromNames } from '../../services/shopping';
+import { traceFridgePantrySelection } from '../../services/fridge/traceFridgePantrySelection';
+import { FridgeRaidCompactFeed } from './FridgeRaidCompactFeed';
+import { FridgeRecommendationBannerSlot } from './FridgeRecommendationBannerSlot';
+import { FridgeSelectedIngredientChips } from './FridgeSelectedIngredientChips';
 import { FridgeShoppingBridge } from './FridgeShoppingBridge';
-import { ScreenBackButton } from '../ui/ScreenBackButton';
+import { ScreenReplaceNavButton } from '../ui/ScreenReplaceNavButton';
 import { ScreenLoading } from '../ui/ScreenLoading';
 import { screenLayout } from '../ui/screenLayout';
 
-function ResultSection({
-  title,
-  subtitle,
-  items,
-}: {
-  title: string;
-  subtitle?: string;
-  items: FridgeRaidCandidate[];
-}) {
-  if (items.length === 0) return null;
-
-  return (
-    <View style={styles.section}>
-      <Text style={styles.sectionTitle} accessibilityRole="header">
-        {title}
-      </Text>
-      {subtitle ? <Text style={styles.sectionSubtitle}>{subtitle}</Text> : null}
-      {items.map((candidate) => (
-        <FridgeRaidMealCard key={candidate.recipeId} candidate={candidate} />
-      ))}
-    </View>
-  );
+function buildPantrySelectionSignature(pantry: PantrySnapshot): string {
+  return pantry.items
+    .map((item) => `${item.id}:${item.iconKey ?? item.normalizedName}`)
+    .sort()
+    .join('|');
 }
 
 export function FridgeRaidResultsScreen() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [selectedNames, setSelectedNames] = useState<string[]>([]);
-  const [results, setResults] = useState<Awaited<ReturnType<typeof buildFridgeRaidDisplayResults>> | null>(null);
+  const [results, setResults] = useState<Awaited<ReturnType<typeof buildFridgeRaidResultsBundle>> | null>(
+    null,
+  );
   const [showExtended, setShowExtended] = useState(false);
+  const [recommendationOffset, setRecommendationOffset] = useState(0);
+  const [recentRecommendationIds, setRecentRecommendationIds] = useState<string[]>([]);
+  const [pantryTrace, setPantryTrace] = useState<ReturnType<typeof traceFridgePantrySelection> | null>(
+    null,
+  );
+  const pantrySignatureRef = useRef<string | null>(null);
 
   const loadResults = useCallback(async () => {
-    setLoading(true);
     const [pantry, context] = await Promise.all([getPantry(), loadRecommendationContext()]);
+    const pantrySignature = buildPantrySelectionSignature(pantry);
+    const preserveRecommendationWindow = pantrySignatureRef.current === pantrySignature;
+    pantrySignatureRef.current = pantrySignature;
+
+    if (!preserveRecommendationWindow) {
+      setLoading(true);
+    }
+
     setSelectedNames(pantry.items.map((item) => item.name));
+    setPantryTrace(traceFridgePantrySelection(pantry));
     setResults(
-      buildFridgeRaidDisplayResults({
+      buildFridgeRaidResultsBundle({
         recipes: HANKKI_RECIPES,
         pantry,
         context,
       }),
     );
-    setShowExtended(false);
+    if (!preserveRecommendationWindow) {
+      setShowExtended(false);
+      setRecommendationOffset(0);
+      setRecentRecommendationIds([]);
+    }
     setLoading(false);
   }, []);
 
-  useEffect(() => {
-    void loadResults();
-  }, [loadResults]);
+  useFocusEffect(
+    useCallback(() => {
+      void loadResults();
+    }, [loadResults]),
+  );
+
+  const primaryFeed = results?.primaryFeed ?? [];
+  const extendedFeed = results?.extended ?? [];
+  const sideDishFeed = results?.sideDishes ?? [];
+
+  const visiblePrimaryCandidates = useMemo(
+    () => sliceFridgeRecommendationWindow(primaryFeed, recommendationOffset, FRIDGE_COMPACT_WINDOW_SIZE),
+    [primaryFeed, recommendationOffset],
+  );
 
   const hasAnyResults = useMemo(() => {
     if (!results) return false;
-    return (
-      results.tier5.length +
-        results.tier4.length +
-        results.tier3.length +
-        results.extended.length +
-        results.sideDishes.length >
-      0
+    return primaryFeed.length + extendedFeed.length + sideDishFeed.length > 0;
+  }, [results, primaryFeed, extendedFeed, sideDishFeed]);
+
+  const canRotatePrimary = canRotateFridgeRecommendationWindow(primaryFeed, FRIDGE_COMPACT_WINDOW_SIZE);
+  const showPrimaryShortage =
+    primaryFeed.length > 0 && primaryFeed.length < FRIDGE_COMPACT_WINDOW_SIZE;
+
+  const handleRotatePrimary = useCallback(() => {
+    const next = pickNextFridgeRecommendationWindow(
+      primaryFeed,
+      recommendationOffset,
+      recentRecommendationIds,
+      FRIDGE_COMPACT_WINDOW_SIZE,
     );
-  }, [results]);
+    setRecommendationOffset(next.offset);
+    setRecentRecommendationIds(next.recentIds);
+  }, [primaryFeed, recommendationOffset, recentRecommendationIds]);
+
+  const handleOpenRecipe = useCallback(
+    (recipeId: string) => {
+      router.push(`/recipe/${recipeId}`);
+    },
+    [router],
+  );
+
+  const bridgeMissingShopping = useMemo(() => {
+    const top = primaryFeed[0];
+    if (!top) return { recipeId: null, items: [] };
+    const list = buildMissingShoppingListFromNames(top.recipeId, top.missingIngredients);
+    return { recipeId: top.recipeId, items: list.items };
+  }, [primaryFeed]);
 
   if (loading || !results) {
     return <ScreenLoading />;
   }
 
-  const extendedVisible = showExtended ? results.extended : [];
-  const selectedCount = selectedNames.length;
-  const primaryCandidates = [...results.tier5, ...results.tier4, ...results.tier3];
-  const utilizationSections =
-    selectedCount >= 3
-      ? buildFridgeUtilizationSections(primaryCandidates, selectedCount)
-      : [];
-  const extendedUtilizationSections =
-    selectedCount >= 3 && showExtended
-      ? buildFridgeUtilizationSections(extendedVisible, selectedCount)
-      : [];
-  const showUtilizationLayout = utilizationSections.length > 0;
-  const utilizationGap = hasMultiIngredientUtilizationGap(
-    primaryCandidates.length > 0 ? primaryCandidates : results.extended,
-    selectedCount,
-  );
-
   return (
     <SafeAreaView style={screenLayout.safeArea} edges={['top', 'bottom']}>
       <ScrollView contentContainerStyle={[screenLayout.scrollContent, styles.scrollContent]}>
         <View style={screenLayout.frame}>
-          <ScreenBackButton label={NAV_BACK.home} fallbackHref="/fridge-raid" />
+          <ScreenReplaceNavButton
+            href={APP_HOME_HREF}
+            label={NAV_BACK.home}
+            accessibilityLabel="홈으로"
+          />
 
           <View style={styles.header}>
             <Text style={screenLayout.title} accessibilityRole="header">
               {FRIDGE_RAID_COPY.resultsTitle}
             </Text>
+            <Text style={screenLayout.subtitle}>{FRIDGE_RAID_COPY.resultsGuide}</Text>
+            <FridgeSelectedIngredientChips names={selectedNames} />
             {selectedNames.length > 0 ? (
-              <>
-                <Text style={screenLayout.subtitle} numberOfLines={3}>
-                  {selectedNames.join(' · ')}
-                </Text>
-                <Text style={styles.selectedCount}>
-                  {FRIDGE_RAID_COPY.selectedCount(selectedNames.length)}
-                </Text>
-              </>
+              <Text style={styles.selectedCount}>
+                {FRIDGE_RAID_COPY.selectedCount(selectedNames.length)}
+              </Text>
             ) : (
               <Text style={screenLayout.subtitle}>선택한 재료가 없어요</Text>
             )}
+            {__DEV__ && pantryTrace ? (
+              <Text style={styles.devTrace} selectable>
+                선택 원문: {pantryTrace.rawNames.join(', ')}
+                {'\n'}
+                정규화: {pantryTrace.matchKeys.join(', ')}
+              </Text>
+            ) : null}
             <Pressable
               style={({ pressed }) => [styles.reselectButton, pressed && screenLayout.pressed]}
               onPress={() => router.push('/fridge-raid')}
@@ -150,27 +184,39 @@ export function FridgeRaidResultsScreen() {
             </View>
           ) : (
             <>
-              {showUtilizationLayout ? (
-                <>
-                  {utilizationSections.map((section) => (
-                    <ResultSection key={section.title} title={section.title} items={section.items} />
-                  ))}
-                  {utilizationGap ? (
-                    <Text style={styles.utilizationGap}>{FRIDGE_RAID_COPY.utilizationShortage}</Text>
+              {primaryFeed.length > 0 ? (
+                <View style={styles.section}>
+                  <FridgeRaidCompactFeed
+                    candidates={visiblePrimaryCandidates}
+                    onPressRecipe={handleOpenRecipe}
+                  />
+                  {showPrimaryShortage ? (
+                    <Text style={styles.shortageHint}>{FRIDGE_RAID_COPY.primaryShortage}</Text>
                   ) : null}
-                </>
-              ) : (
-                <>
-                  {primaryCandidates.length === 0 && results.extended.length > 0 && utilizationGap ? (
-                    <Text style={styles.utilizationGap}>{FRIDGE_RAID_COPY.utilizationShortage}</Text>
+                  {canRotatePrimary ? (
+                    <Pressable
+                      style={({ pressed }) => [styles.rotateButton, pressed && screenLayout.pressed]}
+                      onPress={handleRotatePrimary}
+                      accessibilityRole="button"
+                      accessibilityLabel={FRIDGE_RAID_COPY.anotherMenuRecommendation}
+                    >
+                      <Text style={styles.rotateButtonLabel}>
+                        {FRIDGE_RAID_COPY.anotherMenuRecommendation} →
+                      </Text>
+                    </Pressable>
                   ) : null}
-                  <ResultSection title={FRIDGE_RAID_COPY.groupReady} items={results.tier5} />
-                  <ResultSection title={FRIDGE_RAID_COPY.groupOneMissing} items={results.tier4} />
-                  <ResultSection title={FRIDGE_RAID_COPY.groupNeedTwo} items={results.tier3} />
-                </>
-              )}
+                  <FridgeShoppingBridge
+                    missingItems={bridgeMissingShopping.items}
+                    recipeId={bridgeMissingShopping.recipeId}
+                  />
+                </View>
+              ) : extendedFeed.length > 0 ? (
+                <Text style={styles.shortageHint}>{FRIDGE_RAID_COPY.utilizationShortage}</Text>
+              ) : null}
 
-              {results.extended.length > 0 ? (
+              <FridgeRecommendationBannerSlot previewMode={__DEV__ ? false : undefined} />
+
+              {extendedFeed.length > 0 ? (
                 <View style={styles.section}>
                   {!showExtended ? (
                     <Pressable
@@ -179,25 +225,37 @@ export function FridgeRaidResultsScreen() {
                       accessibilityRole="button"
                       accessibilityLabel={FRIDGE_RAID_COPY.showMoreMenus}
                     >
-                      <Text style={styles.moreButtonLabel}>{FRIDGE_RAID_COPY.showMoreMenus}</Text>
+                      <Text style={styles.moreButtonLabel}>
+                        {FRIDGE_RAID_COPY.showMoreMenus} →
+                      </Text>
                     </Pressable>
-                  ) : extendedUtilizationSections.length > 0 ? (
-                    <>
-                      {extendedUtilizationSections.map((section) => (
-                        <ResultSection key={`ext-${section.title}`} title={section.title} items={section.items} />
-                      ))}
-                    </>
                   ) : (
-                    <ResultSection title={FRIDGE_RAID_COPY.groupExtended} items={extendedVisible} />
+                    <>
+                      <Text style={styles.sectionTitle} accessibilityRole="header">
+                        {FRIDGE_RAID_COPY.groupExtended}
+                      </Text>
+                      <FridgeRaidCompactFeed
+                        candidates={extendedFeed}
+                        onPressRecipe={handleOpenRecipe}
+                      />
+                    </>
                   )}
                 </View>
               ) : null}
 
-              <ResultSection title={FRIDGE_RAID_COPY.groupSideDishes} items={results.sideDishes} />
+              {sideDishFeed.length > 0 ? (
+                <View style={styles.section}>
+                  <Text style={styles.sectionTitle} accessibilityRole="header">
+                    {FRIDGE_RAID_COPY.groupSideDishes}
+                  </Text>
+                  <FridgeRaidCompactFeed
+                    candidates={sideDishFeed}
+                    onPressRecipe={handleOpenRecipe}
+                  />
+                </View>
+              ) : null}
             </>
           )}
-
-          <FridgeShoppingBridge />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -234,26 +292,46 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     color: ds.colors.textPrimary,
   },
-  sectionSubtitle: {
+  shortageHint: {
     ...ds.typography.caption,
     color: ds.colors.textSecondary,
     fontWeight: '600',
   },
-  utilizationGap: {
+  rotateButton: {
+    alignSelf: 'flex-start',
+    paddingVertical: 10,
+    paddingHorizontal: 14,
+    borderRadius: 14,
+    backgroundColor: ds.colors.secondaryButton,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: ds.colors.secondaryBorder,
+  },
+  rotateButtonLabel: {
     ...ds.typography.caption,
-    color: ds.colors.textSecondary,
+    fontSize: 13,
+    lineHeight: 18,
+    color: ds.colors.primaryDark,
+    fontWeight: '700',
+  },
+  devTrace: {
+    ...ds.typography.caption,
+    color: ds.colors.textMuted,
     fontWeight: '600',
   },
   moreButton: {
-    alignSelf: 'flex-start',
-    paddingVertical: ds.spacing.sm,
-    paddingHorizontal: ds.spacing.md,
-    borderRadius: ds.radius.pill,
-    backgroundColor: ds.colors.borderLight,
+    alignSelf: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    borderRadius: 14,
+    backgroundColor: ds.colors.secondaryButton,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: ds.colors.secondaryBorder,
   },
   moreButtonLabel: {
     ...ds.typography.caption,
-    color: ds.colors.primary,
+    fontSize: 13,
+    lineHeight: 18,
+    color: ds.colors.primaryDark,
     fontWeight: '700',
   },
   emptyBox: {

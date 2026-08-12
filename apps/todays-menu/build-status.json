@@ -1,0 +1,45 @@
+﻿{
+  "id": "507cc393-4d97-4799-9d63-c0f2a9e0d1ff",
+  "status": "FINISHED",
+  "platform": "ANDROID",
+  "artifacts": {
+    "buildUrl": "https://expo.dev/artifacts/eas/rmmeWxMh5kCsnuzGLinEmgc5ZucFJiIpI9hXrNgEz4Y.apk",
+    "applicationArchiveUrl": "https://expo.dev/artifacts/eas/rmmeWxMh5kCsnuzGLinEmgc5ZucFJiIpI9hXrNgEz4Y.apk"
+  },
+  "fingerprint": {
+    "id": "019fb1d4-0796-79ae-ad23-e1e621e6d236",
+    "hash": "c3ecf0349280cb5e10c9be2ed9500e9672fde0e8"
+  },
+  "initiatingActor": {
+    "id": "da3412ad-c23c-4fc0-9b02-eee0fb0fecf1",
+    "displayName": "mymy1004"
+  },
+  "logFiles": [
+    "https://storage.googleapis.com/eas-workflows-production/logs/6273721d-6284-4025-8b52-457191e0f9a3/507cc393-4d97-4799-9d63-c0f2a9e0d1ff/2026-07-30T07%3A01%3A31Z-ca5c9e3e-0733-4d08-9583-ff6ce569df0e.txt?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=www-production%40exponentjs.iam.gserviceaccount.com%2F20260730%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260730T071354Z&X-Goog-Expires=900&X-Goog-SignedHeaders=host&X-Goog-Signature=5ee7742a8ce0a4ee466c2dc6d44e202b89826cb3e2edded988745b41f462b04f38eba7b79c4ab066a723371a0fd2a6ce9102c9a03a622a7d38b6cdd0a040275c2a4815afbad304079c973e3e730ee0ff4e8959c518263a64490cc5a20ed99b85dcd690ab24359461f4c03e2ec63a23a03c57a97bd4e4a85d23adc3d482e0f4d8471a52b19647c9d5657bac46aeeb29e24417b292471d096711c4068dea5af6527bee08de65be2ea2af158a7e8b9030a782f9436585049d4f28696f878e90213ae4e09ed74af35d0ef3efc581d0b5dbf3c1e5c4e05a3508e51a37b6eeb95257100e2cd9a5cbe54e718c56e75708214021c269f067ba7624b1f963a7942be79ac9"
+  ],
+  "project": {
+    "id": "6273721d-6284-4025-8b52-457191e0f9a3",
+    "name": "todays-menu",
+    "slug": "todays-menu",
+    "ownerAccount": {
+      "id": "93045fe9-5c74-452f-b3a3-ff82e46e95d3",
+      "name": "mymy1004"
+    }
+  },
+  "distribution": "INTERNAL",
+  "buildProfile": "preview",
+  "sdkVersion": "54.0.0",
+  "appVersion": "1.0.0",
+  "appBuildVersion": "2",
+  "priority": "NORMAL",
+  "createdAt": "2026-07-30T07:01:30.579Z",
+  "updatedAt": "2026-07-30T07:11:03.502Z",
+  "completedAt": "2026-07-30T07:11:03.350Z",
+  "expirationDate": "2026-08-13T07:01:30.634Z",
+  "isForIosSimulator": false,
+  "metrics": {
+    "buildWaitTime": 594,
+    "buildQueueTime": 87131,
+    "buildDuration": 485046
+  }
+}

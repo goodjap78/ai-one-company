@@ -16,9 +16,26 @@ import {
   recordRecommendedMeal,
   saveMeal,
 } from './memory';
+import {
+  resolveMealTimeSlotRecommendation,
+  refreshMealTimeSlotRecommendation,
+  promoteMealTimeAlternative,
+  saveMealTimeSlotRecommendationState,
+} from './recommendation/mealTime/mealTimeSlotRecommendationService';
+import {
+  mealTimeSlotToMealType,
+  resolveClockPrimarySlot,
+} from './recommendation/mealTime/mealTimeSlotMapping';
+import type { MealTimeSlotKey } from '../types/mealTimeRecommendation';
+import { getSessionHeroIds } from './recommendationSession';
 import { recommendMenuWithContext, refreshMenu } from './recommendation';
 import { getFlagshipMenuById } from './recommendation/goldMealCatalog';
 import { withSeedRecommendationMessage } from './recommendation/seedRecommendationMessage';
+import {
+  saveDailyRecommendationState,
+  type DailyRecommendationState,
+} from './recommendation/dailyRecommendationStorage';
+import { getLocalDateKey, getNow } from '../utils/dateProvider';
 
 async function trackRecommendedMeal(
   recommendation: HomeRecommendationDTO,
@@ -97,13 +114,32 @@ function applyDevForceHomeRecipeOverride(
   };
 }
 
+async function persistDailyRecommendation(
+  mealType: MealType,
+  mealMode: MealMode,
+  recommendation: HomeRecommendationDTO,
+): Promise<void> {
+  const state: DailyRecommendationState = {
+    dateKey: getLocalDateKey(getNow()),
+    mealType,
+    mealMode,
+    recipeId: recommendation.recipe.id,
+    recommendation,
+  };
+  await saveDailyRecommendationState(state);
+}
+
 export async function getHomeRecommendation(
   mealType: MealType,
   mealMode: MealMode,
+  options: { dailyExcludeRecipeId?: string } = {},
 ): Promise<HomeRecommendationDTO> {
   const recommendation = await withSeedRecommendationMessage(
     applyDevForceHomeRecipeOverride(
-      await recommendMenuWithContext({ mealType, mealMode }),
+      await recommendMenuWithContext(
+        { mealType, mealMode },
+        { dailyExcludeRecipeId: options.dailyExcludeRecipeId },
+      ),
       mealType,
       mealMode,
     ),
@@ -111,6 +147,7 @@ export async function getHomeRecommendation(
   );
   await recordRecommendation(recommendation.recipe.id);
   await trackRecommendedMeal(recommendation, mealType);
+  await persistDailyRecommendation(mealType, mealMode, recommendation);
   return recommendation;
 }
 
@@ -130,6 +167,7 @@ export async function refreshHomeRecommendation(
   );
   await recordRecommendation(recommendation.recipe.id);
   await trackRecommendedMeal(recommendation, mealType);
+  await persistDailyRecommendation(mealType, mealMode, recommendation);
   return recommendation;
 }
 
@@ -218,4 +256,68 @@ export async function simulateErrorRecommendation(
   );
   await trackRecommendedMeal(recommendation, mealType);
   return recommendation;
+}
+
+/** Sprint 59 — meal-time slot recommendation for home (date+slot cache). */
+export async function getMealTimeSlotHomeRecommendation(
+  slot: MealTimeSlotKey,
+  mealMode: MealMode,
+  options: { useClockWeights?: boolean; forceGenerate?: boolean } = {},
+): Promise<HomeRecommendationDTO> {
+  const mealType = mealTimeSlotToMealType(slot);
+  const recommendation = await withSeedRecommendationMessage(
+    applyDevForceHomeRecipeOverride(
+      await resolveMealTimeSlotRecommendation(slot, mealMode, {
+        useClockWeights: options.useClockWeights ?? slot === resolveClockPrimarySlot(getNow()),
+        forceGenerate: options.forceGenerate,
+        sessionShownIds: getSessionHeroIds(),
+      }),
+      mealType,
+      mealMode,
+    ),
+    mealType,
+  );
+  await recordRecommendation(recommendation.recipe.id);
+  await trackRecommendedMeal(recommendation, mealType);
+  return recommendation;
+}
+
+export async function refreshMealTimeSlotHomeRecommendation(
+  slot: MealTimeSlotKey,
+  mealMode: MealMode,
+  previousRecipeIds: string[],
+): Promise<HomeRecommendationDTO> {
+  const mealType = mealTimeSlotToMealType(slot);
+  if (previousRecipeIds[0]) {
+    await recordFoodMemoryEvent({ mealId: previousRecipeIds[0], outcome: 'skipped' });
+  }
+  const recommendation = await withSeedRecommendationMessage(
+    applyDevForceHomeRecipeOverride(
+      await refreshMealTimeSlotRecommendation(slot, mealMode, {
+        useClockWeights: slot === resolveClockPrimarySlot(getNow()),
+        previousRecipeIds,
+        sessionShownIds: getSessionHeroIds(),
+      }),
+      mealType,
+      mealMode,
+    ),
+    mealType,
+  );
+  await recordRecommendation(recommendation.recipe.id);
+  await trackRecommendedMeal(recommendation, mealType);
+  return recommendation;
+}
+
+export function promoteMealTimeSlotAlternative(
+  current: HomeRecommendationDTO,
+  alternativeId: string,
+): HomeRecommendationDTO | null {
+  return promoteMealTimeAlternative(current, alternativeId);
+}
+
+export async function persistMealTimeSlotHomeRecommendation(
+  slot: MealTimeSlotKey,
+  recommendation: HomeRecommendationDTO,
+): Promise<void> {
+  await saveMealTimeSlotRecommendationState(slot, recommendation);
 }

@@ -137,6 +137,15 @@ type FavoritesCopy = {
   metaTime: string;
 };
 
+type ViewedRecipesCopy = {
+  screenTitle: string;
+  screenSubtitle: string;
+  loadingMessage: string;
+  emptyTitle: string;
+  emptyMessage: string;
+  emptyGoHomeButton: string;
+};
+
 type CookingCopy = {
   backLabel: string;
   prevButton: string;
@@ -307,6 +316,7 @@ export type HankkiMessageBundle = {
   delivery: DeliveryCopy;
   mealConfirmed: MealConfirmedCopy;
   favorites: FavoritesCopy;
+  viewedRecipes: ViewedRecipesCopy;
   cooking: CookingCopy;
   greetingBrain: GreetingBrainCopy;
   todayBriefing: TodayBriefingCopy;
@@ -557,9 +567,9 @@ export const HANKKI_MESSAGES: Record<HankkiLocale, HankkiMessageBundle> = {
       appSubtitle: '한끼가 오늘도 맛있는 선택을 도와드릴게요.',
       todayMealTitle: '오늘의 한 끼',
       recommendationBadgeLabel: '오늘의 추천',
-      acceptButtonHomemade: '레시피 보기 →',
+      acceptButtonHomemade: '이 메뉴로 할게요 →',
       acceptButtonDelivery: '어디서 먹을지 보기 →',
-      refreshButton: '다른 메뉴 추천',
+      refreshButton: '다른 메뉴 볼래요',
       reasonLabel: '오늘은 이렇게',
       reasonWhyToday: '오늘은',
       reasonWhyThisMeal: '이 메뉴는',
@@ -671,6 +681,14 @@ export const HANKKI_MESSAGES: Record<HankkiLocale, HankkiMessageBundle> = {
       openListLabel: '내 메뉴',
       metaTime: '준비 시간',
     },
+    viewedRecipes: {
+      screenTitle: '최근 본 메뉴',
+      screenSubtitle: '최근에 둘러본 메뉴를 모아봤어요.',
+      loadingMessage: '불러오는 중…',
+      emptyTitle: '아직 본 메뉴가 없어요.',
+      emptyMessage: '마음에 드는 메뉴를 둘러보세요.',
+      emptyGoHomeButton: '홈으로 가기',
+    },
     saved: '취향에 저장했어요',
     retry: {
       title: '잠깐만요',
@@ -771,6 +789,10 @@ export function getHankkiDeliveryMessages(locale: HankkiLocale = 'ko') {
 
 export function getHankkiFavoritesMessages(locale: HankkiLocale = 'ko') {
   return getBundle(locale).favorites;
+}
+
+export function getHankkiViewedRecipesMessages(locale: HankkiLocale = 'ko') {
+  return getBundle(locale).viewedRecipes;
 }
 
 export function getHankkiFavoriteSavedToast(locale: HankkiLocale = 'ko'): string {

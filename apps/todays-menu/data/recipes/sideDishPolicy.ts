@@ -93,7 +93,11 @@ function hasSideDishCategorySignals(recipe: SideDishClassifyInput): boolean {
   }
 
   const name = recipe.name;
-  if (/나물$|무침$/.test(name)) return true;
+  const hasKoreanSideContext =
+    recipe.category.includes('한식') ||
+    recipe.category.some((category) => SIDE_DISH_CATEGORY_MARKERS.has(category)) ||
+    recipe.category.includes('나물');
+  if (/나물$|무침$/.test(name) && hasKoreanSideContext) return true;
 
   return false;
 }

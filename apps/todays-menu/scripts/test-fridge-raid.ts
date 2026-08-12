@@ -694,12 +694,10 @@ runScenario('해산물 제외 시 새우볶음 미노출', () => {
   );
 });
 
-runScenario('쇼핑 브릿지 비활성 — 외부 연결 없음', () => {
-  assert(FRIDGE_SHOPPING_CONFIG.enabled === false);
-  assert(!FRIDGE_SHOPPING_CONFIG.targetUrl);
-  assert(!FRIDGE_SHOPPING_CONFIG.bannerImageUrl);
-  assert(!FRIDGE_SHOPPING_CONFIG.provider);
-  assert(FRIDGE_SHOPPING_CONFIG.isAffiliate === false);
+runScenario('쇼핑 브릿지 — production config', () => {
+  assert(FRIDGE_SHOPPING_CONFIG.enabled === true, 'fridge shopping enabled');
+  assert(FRIDGE_SHOPPING_CONFIG.provider === 'coupang', 'coupang provider');
+  assert(FRIDGE_SHOPPING_CONFIG.isAffiliate === true, 'affiliate flag');
 });
 
 console.log('\nFridge Raid QA — done');

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HANKKI Image Review Dashboard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div>
+        <p class="eyebrow">Internal · REVIEW-1</p>
+        <h1>HANKKI Image Review</h1>
+        <p class="sub">
+          Review folder only · Approve promotes to production · History never
+          auto-deleted
+        </p>
+      </div>
+      <div class="top-actions">
+        <label class="toggle">
+          <input type="checkbox" id="show-rejected" />
+          Show rejected
+        </label>
+        <button type="button" id="btn-refresh" class="ghost">Refresh</button>
+        <button type="button" id="btn-compare" class="ghost">
+          Comparison mode
+        </button>
+      </div>
+    </header>
+
+    <section id="stats" class="stats"></section>
+    <section id="queue" class="grid" aria-live="polite"></section>
+
+    <dialog id="compare-dialog">
+      <form method="dialog" class="compare-shell">
+        <header>
+          <h2>Comparison mode</h2>
+          <button type="submit" class="ghost" value="cancel">Close</button>
+        </header>
+        <div class="compare-picks">
+          <label>
+            Recipe
+            <select id="compare-recipe"></select>
+          </label>
+          <label>
+            Version A
+            <select id="compare-a"></select>
+          </label>
+          <label>
+            Version B
+            <select id="compare-b"></select>
+          </label>
+        </div>
+        <div class="compare-views">
+          <figure>
+            <figcaption>Version A</figcaption>
+            <img id="compare-img-a" alt="Version A" />
+            <button type="button" id="approve-a" class="approve">
+              Approve A
+            </button>
+          </figure>
+          <figure>
+            <figcaption>Version B</figcaption>
+            <img id="compare-img-b" alt="Version B" />
+            <button type="button" id="approve-b" class="approve">
+              Approve B
+            </button>
+          </figure>
+        </div>
+      </form>
+    </dialog>
+
+    <div id="toast" class="toast" hidden></div>
+    <script src="/app.js"></script>
+  </body>
+</html>

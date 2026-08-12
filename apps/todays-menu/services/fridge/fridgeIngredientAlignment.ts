@@ -1,5 +1,6 @@
 import type { PantryItem } from '../../types/pantry';
 import {
+  expandPantryOwnedMatchKeys,
   pantryOwnsMatchKey,
   resolvePantryItemMatchKey,
 } from './fridgeIngredientMatch';
@@ -24,8 +25,11 @@ export type FridgeIngredientAlignment = {
   unusedSelectedIngredients: string[];
 };
 
-/** Seasoning lines that affect tier / card messaging (pantry staples excluded). */
-const TIER_SEASONING_KEYS = new Set([
+/**
+ * Seasonings previously counted toward tier/missing (pre–seasoning-exclusion policy).
+ * Catalog audit reference — do not auto-reclassify to main/sub.
+ */
+export const FRIDGE_LEGACY_TIER_SEASONING_KEYS = new Set([
   'soy_sauce',
   'gochujang',
   'sesame_oil',
@@ -34,13 +38,29 @@ const TIER_SEASONING_KEYS = new Set([
   'doenjang',
 ]);
 
+/** Fridge recommendation / missing policy — main + sub only. */
+export function isFridgeCoreIngredientGroup(
+  group: FridgeRequiredIngredient['group'],
+): boolean {
+  return group === 'main' || group === 'sub';
+}
+
 export function isTierRequiredIngredient(ingredient: FridgeRequiredIngredient): boolean {
-  if (ingredient.group === 'main' || ingredient.group === 'sub') return true;
-  return ingredient.group === 'seasoning' && TIER_SEASONING_KEYS.has(ingredient.matchKey);
+  return isFridgeCoreIngredientGroup(ingredient.group);
 }
 
 export function isDisplayMissingIngredient(ingredient: FridgeRequiredIngredient): boolean {
-  return isTierRequiredIngredient(ingredient);
+  return isFridgeCoreIngredientGroup(ingredient.group);
+}
+
+export function pantryItemUsesRecipeIngredient(
+  item: PantryItem,
+  required: FridgeRequiredIngredient[],
+): boolean {
+  const itemKey = resolvePantryItemMatchKey(item.iconKey, item.name);
+  if (!itemKey) return false;
+  const ownedItemKeys = expandPantryOwnedMatchKeys(new Set([itemKey]));
+  return required.some((ingredient) => pantryOwnsMatchKey(ownedItemKeys, ingredient.matchKey));
 }
 
 export function alignFridgeIngredients(
@@ -49,7 +69,6 @@ export function alignFridgeIngredients(
   pantryItems: PantryItem[],
 ): FridgeIngredientAlignment {
   const tierRequired = required.filter(isTierRequiredIngredient);
-  const requiredKeys = new Set(required.map((item) => item.matchKey));
 
   const matchedIngredients: string[] = [];
   const missingIngredients: string[] = [];
@@ -76,8 +95,7 @@ export function alignFridgeIngredients(
   const matchedSelectedIngredients: string[] = [];
   const unusedSelectedIngredients: string[] = [];
   for (const item of pantryItems) {
-    const matchKey = resolvePantryItemMatchKey(item.iconKey, item.name);
-    if (requiredKeys.has(matchKey)) {
+    if (pantryItemUsesRecipeIngredient(item, required)) {
       matchedSelectedIngredients.push(item.name);
     } else {
       unusedSelectedIngredients.push(item.name);

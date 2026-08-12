@@ -1,0 +1,83 @@
+{
+  "id": "kr_tuna_mayo_rice_bowl",
+  "slug": "tuna-mayo-rice-bowl",
+  "category": "korean",
+  "type": "MAIN",
+  "mealTime": ["LUNCH", "DINNER", "LATE_NIGHT"],
+  "title": { "ko": "참치마요덮밥", "en": "Tuna Mayo Rice Bowl" },
+  "subtitle": {
+    "ko": "10분 완성 덮밥",
+    "en": "10-minute rice bowl"
+  },
+  "description": {
+    "ko": "통조림 참치와 마요네즈로 빠르게 만드는 든든한 한 그릇이에요.",
+    "en": "A quick, filling bowl made with canned tuna and mayo."
+  },
+  "difficulty": "easy",
+  "cookTime": 10,
+  "servings": 1,
+  "tags": ["quick", "budget", "solo", "rice_based", "high_protein"],
+  "emotions": ["happy", "cozy", "relaxed"],
+  "ingredients": [
+    { "name": { "ko": "밥", "en": "Cooked rice" }, "amount": "1공기" },
+    { "name": { "ko": "참치캔", "en": "Canned tuna" }, "amount": "1캔" },
+    { "name": { "ko": "마요네즈", "en": "Mayonnaise" }, "amount": "2큰술" },
+    { "name": { "ko": "간장", "en": "Soy sauce" }, "amount": "1작은술" },
+    { "name": { "ko": "김가루", "en": "Seaweed flakes" }, "amount": "1큰술" },
+    { "name": { "ko": "참기름", "en": "Sesame oil" }, "amount": "1작은술", "optional": true }
+  ],
+  "steps": [
+    {
+      "order": 1,
+      "instruction": {
+        "ko": "참치는 기름을 빼고 마요네즈, 간장과 섞어요.",
+        "en": "Drain tuna and mix with mayonnaise and soy sauce."
+      },
+      "hankkiMessage": {
+        "id": "msg_kr_tuna_mayo_step_1",
+        "locale": "ko",
+        "context": "step_guide",
+        "text": "먼저 참치 양념부터 같이 만들어볼까요?"
+      }
+    },
+    {
+      "order": 2,
+      "instruction": {
+        "ko": "따뜻한 밥 위에 참치마요를 올려요.",
+        "en": "Place the tuna mayo mixture over warm rice."
+      },
+      "hankkiMessage": {
+        "id": "msg_kr_tuna_mayo_step_2",
+        "locale": "ko",
+        "context": "step_guide",
+        "text": "밥이 따뜻하면 훨씬 맛있어요!"
+      }
+    },
+    {
+      "order": 3,
+      "instruction": {
+        "ko": "김가루와 참기름을 뿌려 마무리해요.",
+        "en": "Finish with seaweed flakes and a drizzle of sesame oil."
+      },
+      "hankkiMessage": {
+        "id": "msg_kr_tuna_mayo_step_3",
+        "locale": "ko",
+        "context": "completion",
+        "text": "금방 완성! 오늘도 잘했어요 😊"
+      }
+    }
+  ],
+  "hankkiTip": {
+    "id": "msg_kr_tuna_mayo_tip",
+    "locale": "ko",
+    "context": "tip",
+    "text": "계란 프라이를 올리면 더 든든해져요."
+  },
+  "image": { "emoji": "🍚", "url": null },
+  "meta": {
+    "version": "1.0.0",
+    "status": "published",
+    "createdAt": "2026-07-06",
+    "updatedAt": "2026-07-06"
+  }
+}

@@ -1,0 +1,5618 @@
+{
+  "generatedAt": "2026-08-12T14:56:56.152Z",
+  "stats": {
+    "totalRecipes": 300,
+    "high": 24,
+    "medium": 19,
+    "low": 124,
+    "none": 133,
+    "apiRequestCount": 628,
+    "rateLimitEvents": 184
+  },
+  "rows": [
+    {
+      "recipeId": "001",
+      "recipeName": "제육볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "HIGH",
+      "searchKeyword": "제육볶음 밀키트",
+      "products": [
+        {
+          "productTitle": "제육볶음 500g, 깔끔한 단짠매운맛 간편한 밥도둑 반찬 밀키트 금상첨육 매운 앞다리살, 1개, 500g",
+          "price": 16800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "여향갈비 한돈 수제 돼지 불고기, 2개, 600g"
+      ]
+    },
+    {
+      "recipeId": "002",
+      "recipeName": "계란볶음밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "계란볶음밥 밀키트",
+      "products": [
+        {
+          "productTitle": "굽네 두부 가득 계란볶음밥, 15개, 200g",
+          "price": 36740,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "프로즌 문어 솥밥 키트 (냉동)",
+          "price": 16700,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "[로켓프레시] 볶음밥용 채소"
+      ]
+    },
+    {
+      "recipeId": "003",
+      "recipeName": "김치찌개",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "HIGH",
+      "searchKeyword": "김치찌개 밀키트",
+      "products": [
+        {
+          "productTitle": "소온 돼지김치찌개 밀키트 5분요리, 4개, 650g",
+          "price": 43800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "MYCHEF 묵은지 김치찌개 밀키트 2인분",
+          "price": 14900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "004",
+      "recipeName": "된장찌개",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "HIGH",
+      "searchKeyword": "된장찌개 밀키트",
+      "products": [
+        {
+          "productTitle": "고기가좋다 고기집 한우 된장찌개 밀키트 집밥 술밥 술안주 된장밥(냉장)",
+          "price": 13900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "005",
+      "recipeName": "비빔밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "MEDIUM",
+      "searchKeyword": "비빔밥 간편식",
+      "products": [
+        {
+          "productTitle": "우리집 야채비빔밥 335g 간편식 [원산지:상세설명에 표시]",
+          "price": 4050,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_2",
+        "인기 컵밥 16종 혼합 세트 김치알밥 미역국밥 제육 뚝불 참치마요 김치참치 돌솥비빔 차돌강된장 진짬뽕 카레밥 참기름김치 치킨마요 돼지김치찌개 후추돼지국밥 특양지설렁탕 황태해장국, 16개입, 325g",
+        "오뚜기 컵밥 20% UP 계란국포함 24입 (김치참치+톡톡+참치마요+불닭마요+전주돌솥+매콤낙지+제육+오삼+쇠고기미역국+참기름김치볶음밥+차돌+치킨마요) x2, 1세트, 6.48kg"
+      ]
+    },
+    {
+      "recipeId": "006",
+      "recipeName": "불고기",
+      "foodCategory": "볶음",
+      "matchQuality": "HIGH",
+      "searchKeyword": "불고기 밀키트",
+      "products": [
+        {
+          "productTitle": "프레시지 서울식 불고기 전골 밀키트 2인분",
+          "price": 11900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "우본 한우 양념 소불고기 불고기 전골 밀키트 500g, 500g, 5개",
+          "price": 100780,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "007",
+      "recipeName": "김치볶음밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "HIGH",
+      "searchKeyword": "김치볶음밥 밀키트",
+      "products": [
+        {
+          "productTitle": "[인생건어물] 김치볶음밥 300g 30봉 밀키트 대용량 업소용",
+          "price": 55830,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "008",
+      "recipeName": "카레라이스",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "카레라이스 간편식",
+      "products": [
+        {
+          "productTitle": "오뚜기 3분소스 (쇠고기짜장+카레약간매운맛+김치참치덮밥+춘천닭갈비+낙지덮밥+제육덮밥+하이라이스+바베큐치킨+미트볼+백세카레 약간매운맛), 1.7kg, 1박스",
+          "price": 28800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "햇반컵반 치킨 마요 덮밥",
+          "price": 49500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "오즈키친 브라운 비프 카레",
+          "price": 6570,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "오뚜기 3분소스 (쇠고기짜장+카레약간매운맛+김치참치덮밥+춘천닭갈비+낙지덮밥+제육덮밥+하이라이스+바베큐치킨+미트볼+백세카레 약간매운맛), 1.7kg, 1박스",
+        "햇반컵반 치킨 마요 덮밥",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "009",
+      "recipeName": "돈까스",
+      "foodCategory": "기타",
+      "matchQuality": "MEDIUM",
+      "searchKeyword": "돈까스 밀키트",
+      "products": [
+        {
+          "productTitle": "[로켓프레시] 랜선식당 제주 흑돼지 미니 돈까스 (냉동), 320g, 5개",
+          "price": 25650,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "010",
+      "recipeName": "닭갈비",
+      "foodCategory": "기타",
+      "matchQuality": "MEDIUM",
+      "searchKeyword": "닭갈비 밀키트",
+      "products": [
+        {
+          "productTitle": "[로켓프레시] 홍익상회 팔팔닭갈비 (냉동), 500g, 3개",
+          "price": 20610,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "011",
+      "recipeName": "순두부찌개",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "LOW",
+      "searchKeyword": "순두부찌개 간편식",
+      "products": [
+        {
+          "productTitle": "비비고 국탕찌개 10종(한우사골곰탕+스팸부대찌개+차돌된장찌개+돼지김치찌개+갈비탕+시래기감자탕+남도식추어탕+듬뿍미역국+듬뿍설렁탕+듬뿍육개장), 1세트, 460g",
+          "price": 46600,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[반찬가게 찬장] 순한바지락순두부탕 수제반찬 집밥 반찬 배달 맛집, 800g, 1개",
+          "price": 8000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "CJ햇반 컵반 24종 1세트(프리미엄6종+18종)",
+          "price": 67900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "비비고 국탕찌개 10종(한우사골곰탕+스팸부대찌개+차돌된장찌개+돼지김치찌개+갈비탕+시래기감자탕+남도식추어탕+듬뿍미역국+듬뿍설렁탕+듬뿍육개장), 1세트, 460g",
+        "[반찬가게 찬장] 순한바지락순두부탕 수제반찬 집밥 반찬 배달 맛집, 800g, 1개",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "012",
+      "recipeName": "닭볶음탕",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "HIGH",
+      "searchKeyword": "닭볶음탕 밀키트",
+      "products": [
+        {
+          "productTitle": "조순금닭도리탕 닭볶음탕 밀키트(3-4인분) [원산지:국산(경기도 안산시 상록구)], 3kg, 1박스",
+          "price": 34800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 하림 무항생제 인증 마늘 듬뿍 닭볶음탕 밀키트",
+          "price": 14310,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "국내산닭 냉장 춘천 닭갈비 당일제조발송 달수 한입 양념닭갈비, 1kg, 1개"
+      ]
+    },
+    {
+      "recipeId": "013",
+      "recipeName": "오징어볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "HIGH",
+      "searchKeyword": "오징어볶음 밀키트",
+      "products": [
+        {
+          "productTitle": "어부백서 매콤달콤 오징어볶음 400g 2인분 x3팩 밀키트, 3개, 400g",
+          "price": 28900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "쿡솜씨 매콤오징어볶음 밀키트 캠핑 음식 요리",
+          "price": 31590,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "014",
+      "recipeName": "갈비탕",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "HIGH",
+      "searchKeyword": "갈비탕 밀키트",
+      "products": [
+        {
+          "productTitle": "양재창 수제 갈비탕 밀키트, 6개, 1.5kg",
+          "price": 96900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "양재창 수제 갈비탕 밀키트",
+          "price": 65900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "양재창 수제 갈비탕 밀키트",
+          "price": 35900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "015",
+      "recipeName": "육개장",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "HIGH",
+      "searchKeyword": "육개장 밀키트",
+      "products": [
+        {
+          "productTitle": "프레시지 소고기 대파 육개장 밀키트 3~4인분",
+          "price": 13900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "016",
+      "recipeName": "미역국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "017",
+      "recipeName": "떡국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "018",
+      "recipeName": "감자조림",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "019",
+      "recipeName": "계란말이",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "020",
+      "recipeName": "소불고기덮밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "021",
+      "recipeName": "고등어구이",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "022",
+      "recipeName": "삼겹살구이",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "삼겹살구이 밀키트",
+      "products": [
+        {
+          "productTitle": "밀푀유나베 2인분 1.2kg 집들이 캠핑밀키트 쿠킹박스, 1.2kg, 1개",
+          "price": 18860,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "제육볶음 500g, 깔끔한 단짠매운맛 간편한 밥도둑 반찬 밀키트 금상첨육 매운 앞다리살, 1개, 500g",
+          "price": 16800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "제이크앤푸드 저당 전자레인지 간편식 오븐 구이 삼겹살 밀키트",
+          "price": 15600,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "023",
+      "recipeName": "돼지불백",
+      "foodCategory": "볶음",
+      "matchQuality": "MEDIUM",
+      "searchKeyword": "돼지불백 간편식",
+      "products": [
+        {
+          "productTitle": "[인포벨]TV홈쇼핑정품 애드크로스 우돈타 한돈 돼지 불백 양념육 국내산 돼지고기 불고기 전골 간편식 반찬",
+          "price": 39900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "024",
+      "recipeName": "부대찌개",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "HIGH",
+      "searchKeyword": "부대찌개 밀키트",
+      "products": [
+        {
+          "productTitle": "의정부식 얼큰한 부대찌개 밀키트 1kg 2팩 햄듬뿍 4~6인분 사나이쉐프",
+          "price": 17230,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "025",
+      "recipeName": "청국장찌개",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "HIGH",
+      "searchKeyword": "청국장찌개 밀키트",
+      "products": [
+        {
+          "productTitle": "냄새안나는 국산 청국장찌개 밀키트 ( 청국장 +육수팩 세트)",
+          "price": 22900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "앙트레 쿠킹박스 간편한식 청국장찌개 밀키트 2인분",
+          "price": 11900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "프레시지 더큰 우삼겹 청국장찌개 밀키트 3~4인분",
+          "price": 13200,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "026",
+      "recipeName": "소고기무국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "HIGH",
+      "searchKeyword": "소고기무국 밀키트",
+      "products": [
+        {
+          "productTitle": "MYCHEF 한우 소고기무국 밀키트 2인분",
+          "price": 43040,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "MYCHEF 한우 소고기무국 밀키트 2인분",
+          "price": 11670,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "027",
+      "recipeName": "북엇국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "MEDIUM",
+      "searchKeyword": "북엇국 간편식",
+      "products": [
+        {
+          "productTitle": "오뚜기 즉석 간편 블럭국 부스터 기획 세트 ( 간편 미역국 + 북엇국 + 닭 곰탕 + 라면부스터 ) 간편식 즉석국 세트, 1세트, 47.5g",
+          "price": 16300,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "오뚜기 즉석 간편 블럭국 부스터 기획 세트 ( 간편 미역국 + 북엇국 + 닭 곰탕 + 라면부스터 ) 간편식 즉석국 세트",
+          "price": 14200,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "신송 된장국 지함 우거지5+배추5+시금치5+홍게5+소고기 아욱 총(25개)"
+      ]
+    },
+    {
+      "recipeId": "028",
+      "recipeName": "콩나물국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "HIGH",
+      "searchKeyword": "콩나물국 밀키트",
+      "products": [
+        {
+          "productTitle": "[로켓프레시] 김구원선생 시원한 콩나물국 밀키트",
+          "price": 2190,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "38년 건봉 1987 돼지국밥 2인분 같은 1인분 950g, 4개, 950g"
+      ]
+    },
+    {
+      "recipeId": "029",
+      "recipeName": "두부조림",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "두부조림 밀키트",
+      "products": [
+        {
+          "productTitle": "[로켓프레시] 순봉이네 부뚜막 두부조림",
+          "price": 5500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_2",
+        "[로켓프레시] 프레시밀 깔끔하고 개운하게 매운 두부두루치기",
+        "마이셰프 알찬 고기마파두부 2인분"
+      ]
+    },
+    {
+      "recipeId": "030",
+      "recipeName": "멸치볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "LOW",
+      "searchKeyword": "멸치볶음 밀키트",
+      "products": [
+        {
+          "productTitle": "[로켓프레시] 청해명가 모두의 건어물 반찬키트 새우멸치볶음",
+          "price": 3420,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 청해명가 모두의 건어물 반찬키트 잔멸치볶음",
+          "price": 3910,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "당일 볶아 나가는 바삭 달달한 지리 멸치 아몬드 볶음, 140g, 3개"
+      ]
+    },
+    {
+      "recipeId": "031",
+      "recipeName": "오므라이스",
+      "foodCategory": "덮밥",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "032",
+      "recipeName": "떡갈비",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "033",
+      "recipeName": "갈치조림",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "034",
+      "recipeName": "닭개장",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "035",
+      "recipeName": "감자탕",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "036",
+      "recipeName": "잔치국수",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "037",
+      "recipeName": "비빔국수",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "038",
+      "recipeName": "냉면",
+      "foodCategory": "면",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "039",
+      "recipeName": "잡채",
+      "foodCategory": "면",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "040",
+      "recipeName": "김밥",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "041",
+      "recipeName": "라면",
+      "foodCategory": "면",
+      "matchQuality": "MEDIUM",
+      "searchKeyword": "라면 간편식",
+      "products": [
+        {
+          "productTitle": "오뚜기 즉석 간편 블럭국 부스터 기획 세트 ( 간편 미역국 + 북엇국 + 닭 곰탕 + 라면부스터 ) 간편식 즉석국 세트, 1세트, 47.5g",
+          "price": 16300,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "농심 컵라면 큰컵 세트 김치 너구리 새우탕 신라면 오징어짬뽕 육개장 짜파게티 튀김우동 탕비실 간편식, 1박스",
+          "price": 29900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "CL 농심 올리브 짜파게티 140g x 40봉 간편식/봉지라면/점메추/자취요리/오늘뭐먹지/간편조리/저메추",
+          "price": 45790,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "042",
+      "recipeName": "김치라면",
+      "foodCategory": "면",
+      "matchQuality": "LOW",
+      "searchKeyword": "김치라면 간편식",
+      "products": [
+        {
+          "productTitle": "핫플러스발열도시락 전투식량 비빔밥 라면밥 6종세트 (409호)",
+          "price": 27620,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[블루존] 인기 소컵라면 20종 40개입 (너굴2+신2+새우2+오짬2+육발2+짜범2+튀김2+스낵2+유부2+열2+진매2+진순2+안성2+참깨2+삼양2+김도2+도2+맛2+김치2+곰탕2), 1박스",
+          "price": 49800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 종가 볶음김치",
+          "price": 11710,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "핫플러스발열도시락 전투식량 비빔밥 라면밥 6종세트 (409호)",
+        "[블루존] 인기 소컵라면 20종 40개입 (너굴2+신2+새우2+오짬2+육발2+짜범2+튀김2+스낵2+유부2+열2+진매2+진순2+안성2+참깨2+삼양2+김도2+도2+맛2+김치2+곰탕2), 1박스",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "043",
+      "recipeName": "치즈라면",
+      "foodCategory": "면",
+      "matchQuality": "LOW",
+      "searchKeyword": "치즈라면 간편식",
+      "products": [
+        {
+          "productTitle": "불닭큰컵4종 불닭+까르보+치즈+로제, 12개",
+          "price": 20470,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "용기 볶음면 큰컵라면 모음 불닭볶음면2 까르보불닭2 네가지치즈불닭2 치즈불닭2 콕콕콕치즈볶이2 콕콕콕스파게티2 콕콕콕라면볶이2 신라면툼바2 팔도비빔면2 짜파게티2 라면스틱2, 20개",
+          "price": 42000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "하인즈 토마토 케찹",
+          "price": 18000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "불닭큰컵4종 불닭+까르보+치즈+로제, 12개",
+        "용기 볶음면 큰컵라면 모음 불닭볶음면2 까르보불닭2 네가지치즈불닭2 치즈불닭2 콕콕콕치즈볶이2 콕콕콕스파게티2 콕콕콕라면볶이2 신라면툼바2 팔도비빔면2 짜파게티2 라면스틱2, 20개",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "044",
+      "recipeName": "떡볶이",
+      "foodCategory": "야식",
+      "matchQuality": "MEDIUM",
+      "searchKeyword": "떡볶이 밀키트",
+      "products": [
+        {
+          "productTitle": "[로켓프레시] 고래사어묵 어묵떡볶이 2인분 (냉동)",
+          "price": 10080,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "떡볶이의신 신당동 즉석쫄볶이",
+          "price": 9750,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 고래사어묵 어묵떡볶이 2인분 (냉동)",
+          "price": 5200,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "045",
+      "recipeName": "라볶이",
+      "foodCategory": "면",
+      "matchQuality": "MEDIUM",
+      "searchKeyword": "라볶이 밀키트",
+      "products": [
+        {
+          "productTitle": "동원 떡볶이의 신 즉석 라볶이",
+          "price": 5350,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "오늘바로떡볶이 롱누들떡볶이 보통맛 당일생산 2인분, 640g, 1개"
+      ]
+    },
+    {
+      "recipeId": "046",
+      "recipeName": "순대볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "LOW",
+      "searchKeyword": "순대볶음 밀키트",
+      "products": [
+        {
+          "productTitle": "프레시지 매콤 깻잎 순대볶음 2인분",
+          "price": 10900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "프레시지 매콤 깻잎 순대볶음 2인분",
+          "price": 21800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "신림동 순대타운 맛집 양념순대볶음 (3인분) 캠핑음식, 1.2kg, 1개",
+          "price": 20900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "047",
+      "recipeName": "순대국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "HIGH",
+      "searchKeyword": "순대국 간편식",
+      "products": [
+        {
+          "productTitle": "무봉리 토종 순대국 785g 4팩 묶음할인 다대기 들깨가루 포함 순댓국 볼살 사골 냉동 간편식 밀키트, 785g, 4개",
+          "price": 34300,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "048",
+      "recipeName": "칼국수",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "HIGH",
+      "searchKeyword": "칼국수 밀키트",
+      "products": [
+        {
+          "productTitle": "누들정 생칼국수 밀키트 2인분 (멸치육수), 400g, 1개",
+          "price": 8700,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "누들정 생칼국수 밀키트 2인분 (양지육수), 1개, 400g",
+          "price": 8900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "049",
+      "recipeName": "수제비",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "HIGH",
+      "searchKeyword": "수제비 밀키트",
+      "products": [
+        {
+          "productTitle": "프레시밀 감자수제비 밀키트 2~3인분",
+          "price": 9900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "[7인분 지퍼팩] 강원도 감자 99.89% 옹심이 / 강판에 갈아만든 쫄깃함 / 대용량, 1.05kg, 2개"
+      ]
+    },
+    {
+      "recipeId": "050",
+      "recipeName": "해물파전",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "해물파전 밀키트",
+      "products": [
+        {
+          "productTitle": "사옹원 프리미엄 해물파전",
+          "price": 11400,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "사옹원 프리미엄 해물파전 300g (150g  x 2개)",
+          "price": 6900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "[로켓프레시] 마이셰프 바삭한 해물 부추 부침개 2인분"
+      ]
+    },
+    {
+      "recipeId": "051",
+      "recipeName": "크림파스타",
+      "foodCategory": "면",
+      "matchQuality": "LOW",
+      "searchKeyword": "크림파스타 밀키트",
+      "products": [
+        {
+          "productTitle": "프레시밀 베이컨크림파스타 2인분",
+          "price": 13900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_2",
+        "쉐프엠 베이컨까르보나라 파스타 4인분",
+        "[우양] 콰트로치즈 까르보나라 스파게티 300g_크림,체다,고다,블루의 4가지 치즈의 진한 풍미가 가득한 정통 크림 스파게티, 5개, 300g"
+      ]
+    },
+    {
+      "recipeId": "052",
+      "recipeName": "토마토파스타",
+      "foodCategory": "면",
+      "matchQuality": "LOW",
+      "searchKeyword": "토마토파스타 밀키트",
+      "products": [
+        {
+          "productTitle": "청정원 갈릭 앤 어니언 토마토 파스타",
+          "price": 7800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_2",
+        "SCK 라구소스 미트소스 1kg / 2kg 소고기 듬뿍!! 100% 전각살 사용! 이탈리아 홀토마토!, 2개, 2kg",
+        "프레시밀 미트파스타 2인분"
+      ]
+    },
+    {
+      "recipeId": "053",
+      "recipeName": "햄버거",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "햄버거 밀키트",
+      "products": [
+        {
+          "productTitle": "대신에프에스 치즈브레드버거(냉동) 120g, 120g, 10개",
+          "price": 19400,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_2",
+        "불고기버거 만들기세트 10인분+치즈(불고기버거소스)",
+        "불고기버거 만들기세트 10인분(데리야끼소스)"
+      ]
+    },
+    {
+      "recipeId": "054",
+      "recipeName": "치킨스테이크",
+      "foodCategory": "야식",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "055",
+      "recipeName": "미트볼",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "056",
+      "recipeName": "감자그라탕",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "057",
+      "recipeName": "클럽샌드위치",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "058",
+      "recipeName": "시저샐러드",
+      "foodCategory": "샐러드",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "059",
+      "recipeName": "오믈렛",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "060",
+      "recipeName": "프렌치토스트",
+      "foodCategory": "간식",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "061",
+      "recipeName": "로제떡볶이",
+      "foodCategory": "야식",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "062",
+      "recipeName": "매콤순대볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "HIGH",
+      "searchKeyword": "매콤순대볶음 밀키트",
+      "products": [
+        {
+          "productTitle": "쿡솜씨 신림동식 깻잎매콤순대볶음 밀키트 캠핑 음식 요리",
+          "price": 9600,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "063",
+      "recipeName": "참치김밥",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "참치김밥 간편식",
+      "products": [
+        {
+          "productTitle": "작심닭 작심통밥 귀리주먹밥 14종 혼합, 100g, 14개",
+          "price": 28900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "작심닭 작심통밥 귀리주먹밥 맛보기 세트 5종 (김치콘치즈, 치즈닭갈비, 참치마요, 와규스테이크, 잡채볶음), 20개, 100g",
+          "price": 38900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "햇반컵반 치킨 마요 덮밥",
+          "price": 49500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "작심닭 작심통밥 귀리주먹밥 14종 혼합, 100g, 14개",
+        "작심닭 작심통밥 귀리주먹밥 맛보기 세트 5종 (김치콘치즈, 치즈닭갈비, 참치마요, 와규스테이크, 잡채볶음), 20개, 100g",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "064",
+      "recipeName": "핫도그",
+      "foodCategory": "야식",
+      "matchQuality": "MEDIUM",
+      "searchKeyword": "핫도그 밀키트",
+      "products": [
+        {
+          "productTitle": "렐리쉬 피클 핫도그 (냉동)",
+          "price": 15200,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "065",
+      "recipeName": "치즈볼",
+      "foodCategory": "야식",
+      "matchQuality": "HIGH",
+      "searchKeyword": "치즈볼 밀키트",
+      "products": [
+        {
+          "productTitle": "[인생건어물] 우유 모짜렐라 치즈볼 1.2kg 10봉 밀키트 대용량 업소용",
+          "price": 155230,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[인생건어물] 우유 모짜렐라 치즈볼 1.2kg 5봉 밀키트 대용량 업소용",
+          "price": 80580,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "[우양] 콰트로치즈 까르보나라 스파게티 300g_크림,체다,고다,블루의 4가지 치즈의 진한 풍미가 가득한 정통 크림 스파게티, 5개, 300g"
+      ]
+    },
+    {
+      "recipeId": "066",
+      "recipeName": "감자튀김",
+      "foodCategory": "야식",
+      "matchQuality": "HIGH",
+      "searchKeyword": "감자튀김 밀키트",
+      "products": [
+        {
+          "productTitle": "[인생건어물] 쉐프원 케이준 프라이 2kg 감자 튀김 밀키트 대용량 업소용",
+          "price": 50000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "완도산회 특급포차 특허받은 물회육수, 400g, 4세트"
+      ]
+    },
+    {
+      "recipeId": "067",
+      "recipeName": "마늘빵토스트",
+      "foodCategory": "간식",
+      "matchQuality": "LOW",
+      "searchKeyword": "마늘빵토스트 밀키트",
+      "products": [
+        {
+          "productTitle": "바삭한 오븐에 구운 마늘 바게트 빵 과자, 6개, 50g",
+          "price": 12500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "오븐레터 바게트 310g, 4개, 310g",
+          "price": 15030,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_2",
+        "바삭한 오븐에 구운 마늘 바게트 빵 과자, 6개, 50g",
+        "오븐레터 바게트 310g, 4개, 310g",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "068",
+      "recipeName": "라면볶이",
+      "foodCategory": "면",
+      "matchQuality": "LOW",
+      "searchKeyword": "라면볶이 밀키트",
+      "products": [
+        {
+          "productTitle": "국대떡볶이 100% 국내산 고춧가루 밀키트 떡볶이 캠핑요리, 345g, 25세트",
+          "price": 112500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "국대떡볶이 100% 국내산 고춧가루 밀키트 떡볶이 캠핑요리, 345g, 15세트",
+          "price": 70120,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "069",
+      "recipeName": "고구마맛탕",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "LOW",
+      "searchKeyword": "고구마맛탕 밀키트",
+      "products": [
+        {
+          "productTitle": "고구마공장 아이스 군고구마 (냉동), 120g, 8개",
+          "price": 17200,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[캠핑밀키트 집들이음식] 천하일품 곱창전골 곱도리탕 밀키트 술안주 야식, 1개",
+          "price": 15000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "070",
+      "recipeName": "호떡",
+      "foodCategory": "간식",
+      "matchQuality": "LOW",
+      "searchKeyword": "호떡 밀키트",
+      "products": [
+        {
+          "productTitle": "백설 찹쌀 호떡믹스",
+          "price": 2560,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[인생건어물] 추억의 맛조은 찹쌀호떡 80g 10개 밀키드 대용량 업소용",
+          "price": 14400,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "백설 HBAF 씨앗호떡믹스 허니버터맛",
+          "price": 10700,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "071",
+      "recipeName": "닭가슴살샐러드",
+      "foodCategory": "샐러드",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "072",
+      "recipeName": "연어포케",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "073",
+      "recipeName": "두부스테이크",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "074",
+      "recipeName": "채소수프",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "075",
+      "recipeName": "퀴노아볼",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "076",
+      "recipeName": "현미비빔밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "077",
+      "recipeName": "곤약볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "078",
+      "recipeName": "닭살수프",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "079",
+      "recipeName": "아보카도토스트",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "080",
+      "recipeName": "그릭요거트볼",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "그릭요거트볼 간편식",
+      "products": [
+        {
+          "productTitle": "요거잇 유청분리기 그릭요거트 메이커 제조기, 1개, 베이지",
+          "price": 21990,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 술골 임실치즈마을 짜먹는 그릭 요거트 무가당 플레인",
+          "price": 17460,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 그릭데이 허니 그릭요거트 with 망고",
+          "price": 11680,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "요거잇 유청분리기 그릭요거트 메이커 제조기, 1개, 베이지",
+        "[로켓프레시] 술골 임실치즈마을 짜먹는 그릭 요거트 무가당 플레인",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "081",
+      "recipeName": "참치마요덮밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "참치마요덮밥 밀키트",
+      "products": [
+        {
+          "productTitle": "오뚜기 컵밥 김치참치+햄버그+제육+매콤 낙지+오삼+김치 알밥+참기름 김치 볶음밥+참치마요, 310g, 1세트",
+          "price": 26800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "CJ 햇반 컵반6종(고추잡채+철판제육+김치날치+직화불고기+스팸김치+스팸마요), 2세트",
+          "price": 49900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "국산 생 아스파라거스 1kg",
+          "price": 19000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "오뚜기 컵밥 김치참치+햄버그+제육+매콤 낙지+오삼+김치 알밥+참기름 김치 볶음밥+참치마요, 310g, 1세트",
+        "CJ 햇반 컵반6종(고추잡채+철판제육+김치날치+직화불고기+스팸김치+스팸마요), 2세트",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "082",
+      "recipeName": "계란국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "MEDIUM",
+      "searchKeyword": "계란국 간편식",
+      "products": [
+        {
+          "productTitle": "간편집밥 부드러운 계란국, 10g, 5개",
+          "price": 9900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "신송 된장국 지함 우거지5+배추5+시금치5+홍게5+소고기 아욱 총(25개)"
+      ]
+    },
+    {
+      "recipeId": "083",
+      "recipeName": "베이컨볶음밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "베이컨볶음밥 밀키트",
+      "products": [
+        {
+          "productTitle": "[본사직영] 천일식품 김치볶음밥 250g x 4개 + 새우볶음밥 250g x 4개 + 햄야채볶음밥 250g x 4개, 250g, 12개",
+          "price": 25900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "땡스소윤 점보, 1호 전용 채반(대)",
+          "price": 3850,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "애슐리 볶음밥 12인분 (케이준4+베이컨깍두기4+잡채4)",
+          "price": 31810,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "[본사직영] 천일식품 김치볶음밥 250g x 4개 + 새우볶음밥 250g x 4개 + 햄야채볶음밥 250g x 4개, 250g, 12개",
+        "땡스소윤 점보, 1호 전용 채반(대)",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "084",
+      "recipeName": "소시지야채볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "LOW",
+      "searchKeyword": "소시지야채볶음 간편식",
+      "products": [
+        {
+          "productTitle": "[반찬가게 찬장] 비엔나야채볶음 수제반찬 집밥 반찬 배달 맛집, 110g, 1개",
+          "price": 4500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "풀무원 모짜렐라핫도그 4개입 X 4봉 총16개입",
+          "price": 27900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "풀무원 모짜렐라 핫도그",
+          "price": 32400,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "[반찬가게 찬장] 비엔나야채볶음 수제반찬 집밥 반찬 배달 맛집, 110g, 1개",
+        "풀무원 모짜렐라핫도그 4개입 X 4봉 총16개입",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "085",
+      "recipeName": "치즈계란밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "치즈계란밥 간편식",
+      "products": [
+        {
+          "productTitle": "[본사직영] 천일식품 체다치즈오믈렛, 700g, 2개",
+          "price": 31230,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "워비츠 딸기잼",
+          "price": 990,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "오뚜기 3분 미트볼 150g 3개 + 햄버그 스테이크 140g 3개",
+          "price": 13170,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "[본사직영] 천일식품 체다치즈오믈렛, 700g, 2개",
+        "워비츠 딸기잼",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "086",
+      "recipeName": "참치김치찌개",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "MEDIUM",
+      "searchKeyword": "참치김치찌개 밀키트",
+      "products": [
+        {
+          "productTitle": "곰곰 참치김치찌개 (냉동)",
+          "price": 22070,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "[마포맛집] 1994 오모가리 김치찌개 (1팩당 2인분량) / 매장판매 동일 묵은지 / 정말 멈출 수 없습니다., 7개, 500g"
+      ]
+    },
+    {
+      "recipeId": "087",
+      "recipeName": "즉석카레",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "즉석카레 간편식",
+      "products": [
+        {
+          "productTitle": "순수람 채담카레, 160g, 5개",
+          "price": 6730,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "오뚜기3분 백세카레 약간매운맛",
+          "price": 5070,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "일동후디스 아이얌 바로먹는소스  4개 혼합",
+          "price": 12480,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "순수람 채담카레, 160g, 5개",
+        "오뚜기3분 백세카레 약간매운맛",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "088",
+      "recipeName": "비빔냉면",
+      "foodCategory": "면",
+      "matchQuality": "HIGH",
+      "searchKeyword": "비빔냉면 밀키트",
+      "products": [
+        {
+          "productTitle": "(당일배송) 조선호랑이냉면 비빔냉면 냉면 밀키트 (5인분), 1개, 1.73kg",
+          "price": 17500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "비빔듬뿍비냉세트)함흥냉면 2kg (10인분) + 비빔장1kg"
+      ]
+    },
+    {
+      "recipeId": "089",
+      "recipeName": "유부초밥",
+      "foodCategory": "기타",
+      "matchQuality": "MEDIUM",
+      "searchKeyword": "유부초밥 간편식",
+      "products": [
+        {
+          "productTitle": "CJ 주부초밥왕 새콤달콤 유부초밥 도시락기획 유부요리 간편식 간편식 280g 1세트",
+          "price": 7500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "굿스푼 저당 유부초밥 210g 3종 6팩 (크래미 와사비마요/치즈불닭/불고기) 식사대용 간편식",
+          "price": 42400,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "090",
+      "recipeName": "냄비우동",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "LOW",
+      "searchKeyword": "냄비우동 밀키트",
+      "products": [
+        {
+          "productTitle": "마라샹궈 중국요리 밀키트 캠핑 혼밥 중식 중국음식 오도구 1~2인분 420g, 600g, 1세트",
+          "price": 14800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_2",
+        "계동 소곱창전골 (용인,성남,하남,경기광주 지역 당일직접전달)",
+        "계동 소곱창전골 (용인,성남,하남,경기광주 지역 당일직접전달)"
+      ]
+    },
+    {
+      "recipeId": "091",
+      "recipeName": "보쌈",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "092",
+      "recipeName": "찜닭",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "093",
+      "recipeName": "낙지볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "094",
+      "recipeName": "고등어조림",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "095",
+      "recipeName": "은갈치조림",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "096",
+      "recipeName": "된장국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "097",
+      "recipeName": "시금치나물",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "098",
+      "recipeName": "견과멸치볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "099",
+      "recipeName": "계란국밥",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "100",
+      "recipeName": "김치볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "LOW",
+      "searchKeyword": "김치볶음 밀키트",
+      "products": [
+        {
+          "productTitle": "호밍스 초간편 볶음요리 불맛오징어볶음 + 김치두루치기",
+          "price": 39900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_2",
+        "[어사김치] 저온숙성 전라도 묵은지 묵은김치, 1개, 2kg",
+        "정미경키친 볶음김치"
+      ]
+    },
+    {
+      "recipeId": "recipe_0101",
+      "recipeName": "소고기버섯덮밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "소고기버섯덮밥 밀키트",
+      "products": [
+        {
+          "productTitle": "해돈채 오리불고기 국내산 고추장 밀키트 캠핑 오리주물럭",
+          "price": 45990,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[고기듬뿍] 해돈채 소불고기 간장 불백 전골 밀키트 간편 캠핑요리 반찬",
+          "price": 13650,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "잡채랑 7가지고명 소고기버섯 궁중 잡채 2인분 반찬, 4개, 350g"
+      ]
+    },
+    {
+      "recipeId": "recipe_0102",
+      "recipeName": "닭가슴살덮밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "닭가슴살덮밥 밀키트",
+      "products": [
+        {
+          "productTitle": "[파파스튜] 500g 단품 비프 스튜_캠핑 냉동밀키트 건강식 간편식 웰빙 밀키트",
+          "price": 15000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_2",
+        "뺀닭 소스 듬뿍 한끼 닭가슴살 스테이크 5종 혼합 세트, 40개, 100g",
+        "[로켓프레시] 킨더가든 우리아이 함박 스테이크"
+      ]
+    },
+    {
+      "recipeId": "recipe_0103",
+      "recipeName": "새우볶음밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "HIGH",
+      "searchKeyword": "새우볶음밥 밀키트",
+      "products": [
+        {
+          "productTitle": "[인생건어물] 새우볶음밥 300g 30봉 밀키트 대용량 업소용",
+          "price": 57940,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[인생건어물] 새우볶음밥 300g 10봉 밀키트 대용량 업소용",
+          "price": 20900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0104",
+      "recipeName": "날치알김치볶음밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "날치알김치볶음밥 밀키트",
+      "products": [
+        {
+          "productTitle": "[로켓프레시] BEIHAI JIUJIAJIU FOOD CO., LTD 날치알 복주머니 (냉동), 1개, 500g",
+          "price": 15700,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 완도사랑 전복 김치 볶음밥 (냉동), 250g, 4개",
+          "price": 14800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "국내산 된장찌개용 손질채소 3개입",
+          "price": 5290,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0105",
+      "recipeName": "스팸김치볶음밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "MEDIUM",
+      "searchKeyword": "스팸김치볶음밥 간편식",
+      "products": [
+        {
+          "productTitle": "(냉동)[햇반/쿡반]스팸김치볶음밥",
+          "price": 10960,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_2",
+        "햇반컵반 치킨 마요 덮밥",
+        "햇반컵반 스팸마요덮밥 3개 + 치킨마요덮밥 3개"
+      ]
+    },
+    {
+      "recipeId": "recipe_0106",
+      "recipeName": "우삼겹간장비빔면",
+      "foodCategory": "면",
+      "matchQuality": "LOW",
+      "searchKeyword": "우삼겹간장비빔면 밀키트",
+      "products": [
+        {
+          "productTitle": "매운 돼지 갈비 갈비찜 갈비용 밀키트 790g, 790g, 1개",
+          "price": 14900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "호랑이굴 소 곱대창전골 밀키트 (2인분,우동면 포함), 560g, 1개",
+          "price": 14900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "쿡솜씨 티엔미미 우삼겹차우면(냉동)",
+          "price": 7900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0107",
+      "recipeName": "콩나물국수",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "LOW",
+      "searchKeyword": "콩나물국수 간편식",
+      "products": [
+        {
+          "productTitle": "아이엠소스 콩나물국 분말, 500g, 1개",
+          "price": 16500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "아이엠소스 콩나물국 분말, 500g, 2개",
+          "price": 31250,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "백제 쌀국수 멸치맛15개+김치맛15개 한박스",
+          "price": 32720,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "아이엠소스 콩나물국 분말, 500g, 1개",
+        "아이엠소스 콩나물국 분말, 500g, 2개",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0108",
+      "recipeName": "소면장국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "LOW",
+      "searchKeyword": "소면장국 밀키트",
+      "products": [
+        {
+          "productTitle": "[로켓프레시] 쿡솜씨 들기름 막국수 밀키트 (냉동)",
+          "price": 6500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_2",
+        "[한국제면] 한면원 장칼국수 2인분, 1개, 370g",
+        "부산가야 밀면세트 10인분 (밀면사리+육수+식초+양념장), 200g, 10세트"
+      ]
+    },
+    {
+      "recipeId": "recipe_0109",
+      "recipeName": "팟타이볶음면",
+      "foodCategory": "면",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0110",
+      "recipeName": "전자레인지계란찜",
+      "foodCategory": "야식",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0111",
+      "recipeName": "전자레인지감자조림",
+      "foodCategory": "야식",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0112",
+      "recipeName": "전자레인지두부찜",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0113",
+      "recipeName": "레몬버터생선구이",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0114",
+      "recipeName": "얼큰콩나물국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0115",
+      "recipeName": "청양참치찌개",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0116",
+      "recipeName": "두부김치찌개",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0117",
+      "recipeName": "마늘토스트",
+      "foodCategory": "야식",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0118",
+      "recipeName": "피넛버터토스트",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "피넛버터토스트 간편식",
+      "products": [
+        {
+          "productTitle": "파이토메이드 쏘울너츠 땅콩버터 크런치, 1개, 500g",
+          "price": 6800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "아이엠소스 토스트소스, 500g, 1개",
+          "price": 10000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "18겹 밀푀유 식빵 (80g x 8)",
+          "price": 57120,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "파이토메이드 쏘울너츠 땅콩버터 크런치, 1개, 500g",
+        "아이엠소스 토스트소스, 500g, 1개",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0119",
+      "recipeName": "닭가슴살야채볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "LOW",
+      "searchKeyword": "닭가슴살야채볶음 밀키트",
+      "products": [
+        {
+          "productTitle": "편한한끼 고단백식 2주 닭가슴살 식단 도시락 6종, 220g, 1개",
+          "price": 76500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "편한한끼 고단백식 2주 닭가슴살 식단 도시락 6종, 220g, 1개",
+          "price": 53900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 친환경 당근채",
+          "price": 2990,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "편한한끼 고단백식 2주 닭가슴살 식단 도시락 6종, 220g, 1개",
+        "편한한끼 고단백식 2주 닭가슴살 식단 도시락 6종, 220g, 1개",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0120",
+      "recipeName": "치즈순대라면",
+      "foodCategory": "면",
+      "matchQuality": "LOW",
+      "searchKeyword": "치즈순대라면 간편식",
+      "products": [
+        {
+          "productTitle": "신의주찹쌀순대 순대국 얼큰한맛 국밥 쟁여템, 600g, 4개",
+          "price": 25900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "(리뉴얼) 대찬 김치순대 400g+순대내장180g, 400g, 5개",
+          "price": 27500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "맛통령 국내산 양파 아삭아삭 햇양파",
+          "price": 9970,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "신의주찹쌀순대 순대국 얼큰한맛 국밥 쟁여템, 600g, 4개",
+        "(리뉴얼) 대찬 김치순대 400g+순대내장180g, 400g, 5개",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0121",
+      "recipeName": "떡만둣국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "MEDIUM",
+      "searchKeyword": "떡만둣국 밀키트",
+      "products": [
+        {
+          "productTitle": "마이셰프 한우 사골 떡만둣국 2인분 (냉동)",
+          "price": 26800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "진심만두 고기떡 만두국 5팩, 194g, 5개"
+      ]
+    },
+    {
+      "recipeId": "recipe_0122",
+      "recipeName": "오뎅탕",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "LOW",
+      "searchKeyword": "오뎅탕 밀키트",
+      "products": [
+        {
+          "productTitle": "[로켓프레시] 고래사어묵 바로 끓여먹는 꼬치어묵전골 & 유부주머니 2~3인분 (냉동)",
+          "price": 15590,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 복선당 이자카야 모듬 가마보꼬 전골 밀키트 (냉동), 600g, 2개",
+          "price": 26000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 복선당 이자카야 모듬 가마보꼬 전골 밀키트 (냉동), 600g, 1개",
+          "price": 15000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0123",
+      "recipeName": "시래기된장국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "MEDIUM",
+      "searchKeyword": "시래기된장국 밀키트",
+      "products": [
+        {
+          "productTitle": "피아골미선씨 프리미엄 고로쇠 시래기된장국 (냉동)",
+          "price": 19680,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "온식구 무청시래기국, 1개, 500g"
+      ]
+    },
+    {
+      "recipeId": "recipe_0124",
+      "recipeName": "북어콩나물국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "LOW",
+      "searchKeyword": "북어콩나물국 밀키트",
+      "products": [
+        {
+          "productTitle": "쿡솜씨 대구뽈탕 밀키트 대구탕 찐 북어육수 대구뽈 명태 곤이 매운탕 캠핑 데이트 홈파티",
+          "price": 10350,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[30년 전통 영주 제주복집] 까치복  매운탕 / 복어 밀키트 전국 택배 지역 유명 맛집",
+          "price": 14900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "아이엠소스 콩나물국 분말, 500g, 1개"
+      ]
+    },
+    {
+      "recipeId": "recipe_0125",
+      "recipeName": "황태해장국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "HIGH",
+      "searchKeyword": "황태해장국 밀키트",
+      "products": [
+        {
+          "productTitle": "[백발명가] 황태해장국 밀키트 800g 2인분, 5개, 800g",
+          "price": 39900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "해와바다 정말 진한 용대리 황태 보양진국 450g, 3개, 450g"
+      ]
+    },
+    {
+      "recipeId": "recipe_0126",
+      "recipeName": "제육김치볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "LOW",
+      "searchKeyword": "제육김치볶음 밀키트",
+      "products": [
+        {
+          "productTitle": "제육볶음 500g, 깔끔한 단짠매운맛 간편한 밥도둑 반찬 밀키트 금상첨육 매운 앞다리살, 6개, 500g",
+          "price": 68800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "돼지불고기 금상첨육 수제 과일양념 간장불고기 500g 밥반찬 캠핑 밀키트, 6개, 500g",
+          "price": 64800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "한돈 제육볶음 400g 국내산 간편조리 캠핑 안주 고기 숯불구이 밀키트 믿음 Q",
+          "price": 12800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0127",
+      "recipeName": "오삼불고기",
+      "foodCategory": "볶음",
+      "matchQuality": "MEDIUM",
+      "searchKeyword": "오삼불고기 밀키트",
+      "products": [
+        {
+          "productTitle": "[로켓프레시] 셰프초이스 오삼불고기 (냉동)",
+          "price": 11160,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0128",
+      "recipeName": "꽈리고추참치볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0129",
+      "recipeName": "돼지갈비찜",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0130",
+      "recipeName": "가지덮밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0131",
+      "recipeName": "낙지비빔밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "낙지비빔밥 간편식",
+      "products": [
+        {
+          "productTitle": "핫플러스 발열도시락 비빔밥+라면밥 10개세트 (402호), 1.042kg, 1세트",
+          "price": 42200,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "애슐리 볶음밥 12인분(통새우볶음밥4+갈릭스테이크볶음밥4+대파제육볶음밥4)",
+          "price": 29390,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "애슐리 볶음밥 12인분 (갈릭스테이크4+오징어불고기4+미나리대패삼겹4)",
+          "price": 29390,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "핫플러스 발열도시락 비빔밥+라면밥 10개세트 (402호), 1.042kg, 1세트",
+        "애슐리 볶음밥 12인분(통새우볶음밥4+갈릭스테이크볶음밥4+대파제육볶음밥4)",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0132",
+      "recipeName": "오징어덮밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0133",
+      "recipeName": "잔치만두국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "LOW",
+      "searchKeyword": "잔치만두국 간편식",
+      "products": [
+        {
+          "productTitle": "만두보국 프리미엄 수제만두 1.4kg, 1개, 1.4kg",
+          "price": 39100,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "만두보국 프리미엄 수제만두 1.4kg, 2개, 1.4kg",
+          "price": 75000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "농심 컵라면 사발면 김치사발면 3P + 육개장사발면 3P",
+          "price": 9360,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "만두보국 프리미엄 수제만두 1.4kg, 1개, 1.4kg",
+        "만두보국 프리미엄 수제만두 1.4kg, 2개, 1.4kg",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0134",
+      "recipeName": "소고기떡국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "LOW",
+      "searchKeyword": "소고기떡국 간편식",
+      "products": [
+        {
+          "productTitle": "이가네식품 이재수명장, 명인의 프리미엄 한우사골떡국, 6개, 650g",
+          "price": 46900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "오뚜기 3분 미트볼 150g 3개 + 햄버그 스테이크 140g 3개",
+          "price": 13170,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "백제 쌀국수 멸치맛15개+김치맛15개 한박스",
+          "price": 32720,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "이가네식품 이재수명장, 명인의 프리미엄 한우사골떡국, 6개, 650g",
+        "오뚜기 3분 미트볼 150g 3개 + 햄버그 스테이크 140g 3개",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0135",
+      "recipeName": "칼만둣국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0136",
+      "recipeName": "시금치된장무침",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0137",
+      "recipeName": "오이무침",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0138",
+      "recipeName": "콩나물잡채",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0139",
+      "recipeName": "팥토스트",
+      "foodCategory": "간식",
+      "matchQuality": "LOW",
+      "searchKeyword": "팥토스트 밀키트",
+      "products": [
+        {
+          "productTitle": "소스야 토스트소스, 2kg, 1개",
+          "price": 22000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "천교체(통없음) 풍선간판 붕어빵 어묵 에어간판 맞춤제작/공장직영/무료배송",
+          "price": 70000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_2",
+        "소스야 토스트소스, 2kg, 1개",
+        "천교체(통없음) 풍선간판 붕어빵 어묵 에어간판 맞춤제작/공장직영/무료배송",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0140",
+      "recipeName": "꿀떡구이",
+      "foodCategory": "야식",
+      "matchQuality": "LOW",
+      "searchKeyword": "꿀떡구이 밀키트",
+      "products": [
+        {
+          "productTitle": "호랑이굴 소 곱대창전골 밀키트 (2인분,우동면 포함), 560g, 1개",
+          "price": 14900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "그릴드삼삼구이 숯불향 직화구이 밀키트 300g 2인분 캠핑 바베큐 간편식 추천",
+          "price": 12000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[당일제조발송] 춘천 닭갈비 밀키트 캠핑음식 국내산닭",
+          "price": 5900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0141",
+      "recipeName": "콩나물무침",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "콩나물무침 밀키트",
+      "products": [
+        {
+          "productTitle": "콩나물국 밀키트 콩나물해장국 콩나물국밥 3인분1.5kg 캠핑음식 아침식사 국, 1개, 1.8kg",
+          "price": 16000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "남도애꽃 매콤 콩나물무침",
+          "price": 4580,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "압구정주꾸미 주꾸미볶음 1+1세트메뉴"
+      ]
+    },
+    {
+      "recipeId": "recipe_0142",
+      "recipeName": "숙주나물",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "숙주나물 간편식",
+      "products": [
+        {
+          "productTitle": "[반찬가게 찬장] 숙주나물무침 수제반찬 집밥 반찬 배달 맛집, 1개, 120g",
+          "price": 3000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "육개장(태종 600g)X5 업소용 즉석탕 간편식 냉동 육계장",
+          "price": 7850,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "대한푸드상회 소고기 폭탄 얼큰 샤브샤브, 1.3kg, 1개"
+      ]
+    },
+    {
+      "recipeId": "recipe_0143",
+      "recipeName": "가지무침",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "가지무침 밀키트",
+      "products": [
+        {
+          "productTitle": "[반찬가게 찬장] 가지볶음 수제반찬 집밥 반찬 배달 맛집, 120g, 1개",
+          "price": 4900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 남도애꽃 오이지무침, 160g, 2개",
+          "price": 10280,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "다시마전복수산 해초무침 비빔2종(간장+고추장)",
+          "price": 17100,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "[반찬가게 찬장] 가지볶음 수제반찬 집밥 반찬 배달 맛집, 120g, 1개",
+        "[로켓프레시] 남도애꽃 오이지무침, 160g, 2개",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0144",
+      "recipeName": "무생채",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "무생채 밀키트",
+      "products": [
+        {
+          "productTitle": "정성곳간 강순의명인 무생채(케이팜), 1개, 2kg",
+          "price": 24900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "100% 제주 국산무 보쌈무김치 프리미엄 무생채 족발보쌈 보쌈용 김치 10kg",
+          "price": 107900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "한우물 전주 비빔밥 250g x5개 1인분 밀키트 냉동 볶음밥 즉석밥 자취 혼밥 요리 코스트코볶음밥",
+          "price": 12800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0145",
+      "recipeName": "미역초무침",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0146",
+      "recipeName": "어묵볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0147",
+      "recipeName": "진미채볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0148",
+      "recipeName": "감자채볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0149",
+      "recipeName": "새우볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0150",
+      "recipeName": "메추리알장조림",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0151",
+      "recipeName": "연근조림",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0152",
+      "recipeName": "우엉조림",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0153",
+      "recipeName": "꽈리고추감자조림",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0154",
+      "recipeName": "계란장조림",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "계란장조림 간편식",
+      "products": [
+        {
+          "productTitle": "반찬가게 찬장 신선한 재료 당일제조 배송 가정식 집밥 반찬 골라담기 밑반찬 계란부추짜박이(반숙계란장), 230g, 1개",
+          "price": 4500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[반찬가게 찬장] 메추리알장조림 수제반찬 집밥 반찬 배달 맛집, 150g, 1개",
+          "price": 8500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "햇반컵반 스팸마요덮밥 3개 + 치킨마요덮밥 3개",
+          "price": 17840,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "반찬가게 찬장 신선한 재료 당일제조 배송 가정식 집밥 반찬 골라담기 밑반찬 계란부추짜박이(반숙계란장), 230g, 1개",
+        "[반찬가게 찬장] 메추리알장조림 수제반찬 집밥 반찬 배달 맛집, 150g, 1개",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0155",
+      "recipeName": "두부부침",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "두부부침 밀키트",
+      "products": [
+        {
+          "productTitle": "양재창 수제 갈비탕 밀키트, 6개, 1.5kg",
+          "price": 96900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[밀키트제조공장 굿팜푸드] 5분 완성 차돌된장찌개 언제 어디서나 간편 찌개 끓이기 2인",
+          "price": 10990,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "곰곰 진한 우삼겹 된장찌개"
+      ]
+    },
+    {
+      "recipeId": "recipe_0156",
+      "recipeName": "두부강정",
+      "foodCategory": "볶음",
+      "matchQuality": "LOW",
+      "searchKeyword": "두부강정 밀키트",
+      "products": [
+        {
+          "productTitle": "복선당 동파육 (냉동), 300g, 2팩",
+          "price": 19400,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_2",
+        "[로켓프레시] 한식담 강릉 해물짬뽕 순두부, 880g, 1개",
+        "문성실의 20년 대 박 반 찬 / 사은품증정"
+      ]
+    },
+    {
+      "recipeId": "recipe_0157",
+      "recipeName": "소고기장조림",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "소고기장조림 밀키트",
+      "products": [
+        {
+          "productTitle": "[반찬가게 찬장] 소고기장조림 수제반찬 집밥 반찬 배달 맛집, 1개, 200g",
+          "price": 10500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "비비고 소고기 장조림x1개+무말랭이무침x1개+매콤오징어볶음x1개",
+          "price": 15000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[황씨네옹고집] 셰프송훈 고기많은 왕갈비 전통 소 갈비찜 밀키트 600g",
+          "price": 89000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0158",
+      "recipeName": "꽁치간장조림",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "꽁치간장조림 밀키트",
+      "products": [
+        {
+          "productTitle": "펭귄 꽁치 보일드 통조림, 400g, 6개",
+          "price": 19380,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "풀무원 바지락순두부찌개 2인분",
+          "price": 8730,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "풀무원 정통 순두부찌개 킷 2인분",
+          "price": 8550,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "펭귄 꽁치 보일드 통조림, 400g, 6개",
+        "풀무원 바지락순두부찌개 2인분",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0159",
+      "recipeName": "애호박전",
+      "foodCategory": "기타",
+      "matchQuality": "HIGH",
+      "searchKeyword": "애호박전 밀키트",
+      "products": [
+        {
+          "productTitle": "재료 듬뿍 오징어애호박전 반죽 밀키트 초간편 부침개",
+          "price": 19890,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0160",
+      "recipeName": "두부전",
+      "foodCategory": "기타",
+      "matchQuality": "MEDIUM",
+      "searchKeyword": "두부전 간편식",
+      "products": [
+        {
+          "productTitle": "올바른 닭가슴살 두부전 (냉동), 500g, 1팩",
+          "price": 13600,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "chefood 우유 미니 핫도그"
+      ]
+    },
+    {
+      "recipeId": "recipe_0161",
+      "recipeName": "닭가슴살죽",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "닭가슴살죽 밀키트",
+      "products": [
+        {
+          "productTitle": "친절한이서방 전복내장 전복죽 밀키트, 3개, 160g",
+          "price": 34900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[바로쿡] 5+5 영양 가득 국내산 뿌리채소 영양밥 밀키트 1-2인분 초간단 간편 건강식",
+          "price": 9900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "복자가 닭다리 능이 백숙(녹두 찹쌀 죽포함)밀키트 삼계탕 반계탕 택배",
+          "price": 17500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0162",
+      "recipeName": "참치야채죽",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "참치야채죽 간편식",
+      "products": [
+        {
+          "productTitle": "동원 양반죽 간편식 7종 14개 전복죽+단호박죽+쇠고기죽+야채죽+밤단팥죽+누룽지닭죽+참치죽, 4.004kg, 1세트",
+          "price": 36800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "동원 양반죽 간편식 파우치 6종 420g 전복죽+쇠고기죽+참치죽+버섯야채죽+들깨닭죽+백합죽, 420g, 1개",
+          "price": 24800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "동원 양반 용기죽 285g(쇠고기죽2개 + 전복죽2개+ 야채죽2개 + 참치죽 2개)"
+      ]
+    },
+    {
+      "recipeId": "recipe_0163",
+      "recipeName": "단호박죽",
+      "foodCategory": "기타",
+      "matchQuality": "MEDIUM",
+      "searchKeyword": "단호박죽 밀키트",
+      "products": [
+        {
+          "productTitle": "동원 양반죽 간편식 7종 14개 전복죽+단호박죽+쇠고기죽+야채죽+밤단팥죽+누룽지닭죽+참치죽, 4.004kg, 1세트",
+          "price": 36800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "베키아에누보 문경사과 단호박스프"
+      ]
+    },
+    {
+      "recipeId": "recipe_0164",
+      "recipeName": "버섯죽",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "버섯죽 밀키트",
+      "products": [
+        {
+          "productTitle": "전복죽 밀키트 제주 전복내장죽 보말죽 한끼 영양 배달",
+          "price": 39900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "제주 부향순 성게미역국 200g X 4팩 밀키트 제주맛집 직송",
+          "price": 47900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "[송호능이닭백숙] 뼈 없는 닭백숙 5팩"
+      ]
+    },
+    {
+      "recipeId": "recipe_0165",
+      "recipeName": "감자계란죽",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "감자계란죽 밀키트",
+      "products": [
+        {
+          "productTitle": "남선생홈푸드 국 찌개 밀키트 5인세트 부대찌개 소고기국밥 우거지국 황태해장국 청국장",
+          "price": 29800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 김구원선생 두부 황태국 밀키트",
+          "price": 8900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "다림죽 새우계란죽, 5개, 500g"
+      ]
+    },
+    {
+      "recipeId": "recipe_0166",
+      "recipeName": "두부야채죽",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0167",
+      "recipeName": "에그스크램블",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0168",
+      "recipeName": "햄에그샌드위치",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0169",
+      "recipeName": "채소오믈렛",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0170",
+      "recipeName": "토마토계란볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0171",
+      "recipeName": "치즈계란프라이",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0172",
+      "recipeName": "페퍼에그",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "페퍼에그 밀키트",
+      "products": [
+        {
+          "productTitle": "밀푀유나베 2인분 1.2kg 집들이 캠핑밀키트 쿠킹박스, 1.2kg, 1개",
+          "price": 18860,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0173",
+      "recipeName": "햄치즈토스트",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "햄치즈토스트 간편식",
+      "products": [
+        {
+          "productTitle": "아이엠소스 토스트소스, 500g, 1개",
+          "price": 10000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "아이엠소스 토스트소스, 2kg, 1개",
+          "price": 21550,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "워비츠 딸기잼",
+          "price": 990,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "아이엠소스 토스트소스, 500g, 1개",
+        "아이엠소스 토스트소스, 2kg, 1개",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0174",
+      "recipeName": "참치샌드위치",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "참치샌드위치 밀키트",
+      "products": [
+        {
+          "productTitle": "어리틀빗 웜그레인 샐러드&포케 냉동샐러드 냉동도시락 단백질도시락 직장인점심 6종 (냉동), 2세트, 1개",
+          "price": 73900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[두레] LM 밀키트 소형 100개 / 코스트코 이마트 트레이더스 투썸 뚜레쥬르 종이 크라프트 밀키트 포장 용기 트레이 일회용 직사각 배달 간편 조리 도시락 샌드위치 샐러드 박스",
+          "price": 75800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[두레] LM 밀키트 대형 100개 / 코스트코 이마트 트레이더스 투썸 뚜레쥬르 종이 크라프트 밀키트 포장 용기 트레이 일회용 접시 그릇 파스타 샐러드 햄버거 간편 조리 간편식",
+          "price": 75800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0175",
+      "recipeName": "사과치즈토스트",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "사과치즈토스트 밀키트",
+      "products": [
+        {
+          "productTitle": "소스야 토스트소스, 2kg, 1개",
+          "price": 22000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "아이엠소스 토스트소스, 2kg, 2개",
+          "price": 41350,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 눈꽃 양배추 적채 믹스",
+          "price": 6180,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "소스야 토스트소스, 2kg, 1개",
+        "아이엠소스 토스트소스, 2kg, 2개",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0176",
+      "recipeName": "감자샐러드샌드",
+      "foodCategory": "샐러드",
+      "matchQuality": "LOW",
+      "searchKeyword": "감자샐러드샌드 밀키트",
+      "products": [
+        {
+          "productTitle": "닥터풀리 그랜마 샐러드 24g, 4개, 60정",
+          "price": 79200,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "닥터풀리 그랜마 샐러드 24g, 1개, 60정",
+          "price": 19800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 친환경 당근채",
+          "price": 2990,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "닥터풀리 그랜마 샐러드 24g, 4개, 60정",
+        "닥터풀리 그랜마 샐러드 24g, 1개, 60정",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0177",
+      "recipeName": "바질토마토샌드",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "바질토마토샌드 밀키트",
+      "products": [
+        {
+          "productTitle": "수제 토마토 바질청 샐러드 드레싱 수제청 500g, 500g, 1개, 1개입",
+          "price": 14000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "수제 바질페스토 소스 120g 230g 압구정메이드 ( 생바질 페스토 국산잣 ), 120g, 1개",
+          "price": 20900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_2",
+        "수제 토마토 바질청 샐러드 드레싱 수제청 500g, 500g, 1개, 1개입",
+        "수제 바질페스토 소스 120g 230g 압구정메이드 ( 생바질 페스토 국산잣 ), 120g, 1개",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0178",
+      "recipeName": "요거트과일볼",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0179",
+      "recipeName": "바나나오트요거트",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0180",
+      "recipeName": "사과요거트",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0181",
+      "recipeName": "베리요거트파르페",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0182",
+      "recipeName": "과일그래놀라볼",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0183",
+      "recipeName": "계란아보카도샐러드",
+      "foodCategory": "샐러드",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0184",
+      "recipeName": "두부콩나물샐러드",
+      "foodCategory": "샐러드",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0185",
+      "recipeName": "닭가슴살아침샐러드",
+      "foodCategory": "샐러드",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0186",
+      "recipeName": "감자오이샐러드",
+      "foodCategory": "샐러드",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0187",
+      "recipeName": "파계란국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0188",
+      "recipeName": "두부맑은국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "LOW",
+      "searchKeyword": "두부맑은국 밀키트",
+      "products": [
+        {
+          "productTitle": "[두품육] 프리미엄 육개장 밀키트 맑은 육개장",
+          "price": 9900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[두품육] 프리미엄 육개장 밀키트 맑은 육개장",
+          "price": 19800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "할머니 손맛 그대로 두부청국장찌개, 12개, 500g"
+      ]
+    },
+    {
+      "recipeId": "recipe_0189",
+      "recipeName": "감자맑은국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "LOW",
+      "searchKeyword": "감자맑은국 간편식",
+      "products": [
+        {
+          "productTitle": "[온작]이영자 뼈없는 감자탕",
+          "price": 17010,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "백제 쌀국수 멸치맛 10개 + 파곰탕 10개",
+          "price": 22150,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "오프라이스 한촌 정통설렁탕",
+          "price": 35780,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "[온작]이영자 뼈없는 감자탕",
+        "백제 쌀국수 멸치맛 10개 + 파곰탕 10개",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0190",
+      "recipeName": "양파계란국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "LOW",
+      "searchKeyword": "양파계란국 밀키트",
+      "products": [
+        {
+          "productTitle": "아이엠소스 유씨 아저씨의 계란찜 파우더, 500g, 1개",
+          "price": 15300,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 루솔 베이비 순한카레 513",
+          "price": 3460,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_2",
+        "아이엠소스 유씨 아저씨의 계란찜 파우더, 500g, 1개",
+        "[로켓프레시] 루솔 베이비 순한카레 513",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0191",
+      "recipeName": "계란치즈라면",
+      "foodCategory": "면",
+      "matchQuality": "LOW",
+      "searchKeyword": "계란치즈라면 간편식",
+      "products": [
+        {
+          "productTitle": "[본사직영] 천일식품 체다치즈오믈렛, 700g, 2개",
+          "price": 31230,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "오뚜기 진라면 매운맛 5입+리얼치즈라면 4입+참깨라면 4입+진비빔면 4입+크림진짬뽕 4입+로열라면 4입, 6팩",
+          "price": 27500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "하인즈 토마토 케찹",
+          "price": 18000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "[본사직영] 천일식품 체다치즈오믈렛, 700g, 2개",
+        "오뚜기 진라면 매운맛 5입+리얼치즈라면 4입+참깨라면 4입+진비빔면 4입+크림진짬뽕 4입+로열라면 4입, 6팩",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0192",
+      "recipeName": "순두부라면",
+      "foodCategory": "면",
+      "matchQuality": "LOW",
+      "searchKeyword": "순두부라면 간편식",
+      "products": [
+        {
+          "productTitle": "[로켓프레시] 한식담 강릉 해물짬뽕 순두부, 880g, 1개",
+          "price": 9900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "오뚜기 컵누들 매콤찜닭맛 45.5g",
+          "price": 12380,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "CJ 햇반컵반 인기5종 10개 강된장2+미역국2+볶은김치덮밥2+스팸마요덮밥2+철판제육덮밥2",
+          "price": 28000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "[로켓프레시] 한식담 강릉 해물짬뽕 순두부, 880g, 1개",
+        "오뚜기 컵누들 매콤찜닭맛 45.5g",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0193",
+      "recipeName": "콩나물라면",
+      "foodCategory": "면",
+      "matchQuality": "LOW",
+      "searchKeyword": "콩나물라면 간편식",
+      "products": [
+        {
+          "productTitle": "더미식 황태콩나물국",
+          "price": 19960,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "백제 쌀국수 멸치맛15개+김치맛15개 한박스",
+          "price": 32720,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "백제 쌀국수 멸치맛10개+얼큰한맛10개",
+          "price": 21350,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "더미식 황태콩나물국",
+        "백제 쌀국수 멸치맛15개+김치맛15개 한박스",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0194",
+      "recipeName": "김치비빔면",
+      "foodCategory": "면",
+      "matchQuality": "LOW",
+      "searchKeyword": "김치비빔면 간편식",
+      "products": [
+        {
+          "productTitle": "오뚜기 컵밥 20% UP 계란국포함 인기 10종 1세트 (톡톡김치알밥+참치마요+강된장보리밥+제육+김치참치+돌솥비빔밥+오삼불고기+쇠고기미역국+참기름김치볶음밥+치킨마요), 1세트, 2.6kg",
+          "price": 29800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "농심 컵라면 사발면 김치사발면 3P + 육개장사발면 3P",
+          "price": 9360,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "팔도 비빔장 시그니처",
+          "price": 17260,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "오뚜기 컵밥 20% UP 계란국포함 인기 10종 1세트 (톡톡김치알밥+참치마요+강된장보리밥+제육+김치참치+돌솥비빔밥+오삼불고기+쇠고기미역국+참기름김치볶음밥+치킨마요), 1세트, 2.6kg",
+        "농심 컵라면 사발면 김치사발면 3P + 육개장사발면 3P",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0195",
+      "recipeName": "참치비빔면",
+      "foodCategory": "면",
+      "matchQuality": "LOW",
+      "searchKeyword": "참치비빔면 밀키트",
+      "products": [
+        {
+          "productTitle": "[블루존] 배홍동 시리즈&팔도비빔면 16개입 세트 (팔도 비빔면+칼비빔면+쫄쫄면+배흥동 비빔면) x4, 4개",
+          "price": 25200,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "농심 배홍동 칼빔면+쫄쫄면+비빔면 (4개입)멀티팩 3종세트, 1세트",
+          "price": 14900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 친환경 당근채",
+          "price": 2990,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "[블루존] 배홍동 시리즈&팔도비빔면 16개입 세트 (팔도 비빔면+칼비빔면+쫄쫄면+배흥동 비빔면) x4, 4개",
+        "농심 배홍동 칼빔면+쫄쫄면+비빔면 (4개입)멀티팩 3종세트, 1세트",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0196",
+      "recipeName": "볶음우동",
+      "foodCategory": "면",
+      "matchQuality": "MEDIUM",
+      "searchKeyword": "볶음우동 간편식",
+      "products": [
+        {
+          "productTitle": "오타후쿠 간편식 볶음우동 소바 일본 캠핑 요리 간편식 즉석요리 소스 야끼소바 2인분 오리지널맛 370g 1개",
+          "price": 5310,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_2",
+        "농심 생생 우동 납작떡볶이면, 8개",
+        "농심 컵라면 사발면 김치사발면 3P + 육개장사발면 3P"
+      ]
+    },
+    {
+      "recipeId": "recipe_0197",
+      "recipeName": "매콤어묵우동",
+      "foodCategory": "면",
+      "matchQuality": "LOW",
+      "searchKeyword": "매콤어묵우동 간편식",
+      "products": [
+        {
+          "productTitle": "[아츠아츠] 진한 가쓰오 어묵 쫄우동 2인분 생면 우동, 1세트, 630g",
+          "price": 8890,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "팔도 비빔장 시그니처",
+          "price": 17260,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "오뚜기 컵누들 매콤찜닭맛 45.5g",
+          "price": 12380,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "[아츠아츠] 진한 가쓰오 어묵 쫄우동 2인분 생면 우동, 1세트, 630g",
+        "팔도 비빔장 시그니처",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0198",
+      "recipeName": "들기름비빔국수",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "LOW",
+      "searchKeyword": "들기름비빔국수 간편식",
+      "products": [
+        {
+          "productTitle": "[한국제면] 한면원 들기름막국수 들기름국수 2인분, 314g, 1개",
+          "price": 12970,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[동해막국수] 47년 강릉맛집 비빔막국수+물막국수 2인분 (비막1+물막1), 5세트, 650g",
+          "price": 27900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "팔도 비빔장 시그니처",
+          "price": 17260,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "[한국제면] 한면원 들기름막국수 들기름국수 2인분, 314g, 1개",
+        "[동해막국수] 47년 강릉맛집 비빔막국수+물막국수 2인분 (비막1+물막1), 5세트, 650g",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0199",
+      "recipeName": "치즈떡볶이",
+      "foodCategory": "야식",
+      "matchQuality": "LOW",
+      "searchKeyword": "치즈떡볶이 밀키트",
+      "products": [
+        {
+          "productTitle": "석관동떡볶이 치즈쭈욱 (냉동), 420g, 2개",
+          "price": 14000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 낭만부부 치즈몽땅 떡볶이 (냉동)",
+          "price": 20750,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "석관동떡볶이 치즈쭈욱 (냉동)",
+          "price": 7000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0200",
+      "recipeName": "간장떡볶이",
+      "foodCategory": "야식",
+      "matchQuality": "LOW",
+      "searchKeyword": "간장떡볶이 간편식",
+      "products": [
+        {
+          "productTitle": "오늘바로떡볶이 롱누들떡볶이 보통맛 당일생산 2인분, 640g, 1개",
+          "price": 7500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "파평분식 짜장 떡볶이 소스, 45g, 5개",
+          "price": 9300,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "chefood 우유 미니 핫도그",
+          "price": 14270,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "오늘바로떡볶이 롱누들떡볶이 보통맛 당일생산 2인분, 640g, 1개",
+        "파평분식 짜장 떡볶이 소스, 45g, 5개",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0201",
+      "recipeName": "어묵떡볶이",
+      "foodCategory": "야식",
+      "matchQuality": "LOW",
+      "searchKeyword": "어묵떡볶이 밀키트",
+      "products": [
+        {
+          "productTitle": "대구 신대장떡볶이 국물떡볶이 매운맛 (어묵포함) 떡볶이밀키트, 4개, 280g",
+          "price": 19890,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "고래사 어묵 가득 한입 떡볶이 2인분 밀키트",
+          "price": 16980,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "오마뎅 진짜 부산떡볶이, 5개, 352g"
+      ]
+    },
+    {
+      "recipeId": "recipe_0202",
+      "recipeName": "김치전",
+      "foodCategory": "야식",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0203",
+      "recipeName": "감자전",
+      "foodCategory": "야식",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0204",
+      "recipeName": "매콤참치덮밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0205",
+      "recipeName": "매운어묵볶음밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0206",
+      "recipeName": "고추장계란밥",
+      "foodCategory": "야식",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0207",
+      "recipeName": "매콤두부덮밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0208",
+      "recipeName": "김치치즈밥",
+      "foodCategory": "야식",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0209",
+      "recipeName": "계란두부국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0210",
+      "recipeName": "오이참치무침",
+      "foodCategory": "야식",
+      "matchQuality": "LOW",
+      "searchKeyword": "오이참치무침 밀키트",
+      "products": [
+        {
+          "productTitle": "[로켓프레시] 남도애꽃 오이지무침, 160g, 1개",
+          "price": 5300,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 남도애꽃 오이지무침, 160g, 2개",
+          "price": 10280,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 친환경 당근채",
+          "price": 2990,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "[로켓프레시] 남도애꽃 오이지무침, 160g, 1개",
+        "[로켓프레시] 남도애꽃 오이지무침, 160g, 2개",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0211",
+      "recipeName": "두부김치라이트",
+      "foodCategory": "야식",
+      "matchQuality": "LOW",
+      "searchKeyword": "두부김치라이트 밀키트",
+      "products": [
+        {
+          "productTitle": "친절한이서방 전복 미역국 밀키트 (2인분), 10개, 160g",
+          "price": 79900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "제이크앤푸드 저당 전자레인지 간편식 오븐 구이 삼겹살 밀키트",
+          "price": 27600,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0212",
+      "recipeName": "계란김밥볼",
+      "foodCategory": "덮밥",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0213",
+      "recipeName": "야채계란죽",
+      "foodCategory": "야식",
+      "matchQuality": "LOW",
+      "searchKeyword": "야채계란죽 밀키트",
+      "products": [
+        {
+          "productTitle": "한끼전복죽 전복내장 영양 간편 전복죽 밀키트 200g(냉장), 200g, 3개",
+          "price": 36900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "진도 바다 전복죽 국내산 전복죽 밀키트",
+          "price": 14500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "저염 명란 오일 파스타 캠핑음식 홈파티 요리 밀키트 (1인분)",
+          "price": 12500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0214",
+      "recipeName": "매콤어묵볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "LOW",
+      "searchKeyword": "매콤어묵볶음 밀키트",
+      "products": [
+        {
+          "productTitle": "[반찬가게 찬장] 매콤어묵볶음 수제반찬 집밥 반찬 배달 맛집, 100g, 1개",
+          "price": 3500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "고고초이스 통통하고 맛이 일품인 양념쭈꾸미볶음(순한맛) 밀키트/캠핑요리추천",
+          "price": 41500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "[반찬가게 찬장]신선한재료 당일제조 배송 가정식 집밥 반찬 골라담기 어묵볶음, 1개, 120g"
+      ]
+    },
+    {
+      "recipeId": "recipe_0215",
+      "recipeName": "버터오징어볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "LOW",
+      "searchKeyword": "버터오징어볶음 밀키트",
+      "products": [
+        {
+          "productTitle": "안동사과 불오징어 집들이음식 캠핑 홈파티 매콤 오징어볶음 간편조리 밀키트 한식 덮밥, 2개, 475g",
+          "price": 33800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "친절한이서방 전복 미역국 밀키트 (2인분), 10개, 160g",
+          "price": 79900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "착한낙지세트 6팩 (손질낙지 6팩+양념 6팩)",
+          "price": 30800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0216",
+      "recipeName": "두부김치볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0217",
+      "recipeName": "콘치즈",
+      "foodCategory": "야식",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0218",
+      "recipeName": "치즈감자",
+      "foodCategory": "야식",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0219",
+      "recipeName": "마요감자",
+      "foodCategory": "야식",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0220",
+      "recipeName": "부추전",
+      "foodCategory": "야식",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0221",
+      "recipeName": "닭가슴살간장덮밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0222",
+      "recipeName": "버섯불고기덮밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0223",
+      "recipeName": "두부마파덮밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0224",
+      "recipeName": "참치김치덮밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0225",
+      "recipeName": "계란카레덮밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "계란카레덮밥 간편식",
+      "products": [
+        {
+          "productTitle": "아이엠소스 간장버터덮밥소스, 1개, 500g",
+          "price": 14000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "햇반컵반 치킨 마요 덮밥",
+          "price": 49500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "오뚜기 3분 미트볼 150g 3개 + 햄버그 스테이크 140g 3개",
+          "price": 13170,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "아이엠소스 간장버터덮밥소스, 1개, 500g",
+        "햇반컵반 치킨 마요 덮밥",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0226",
+      "recipeName": "가지소보로덮밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "가지소보로덮밥 간편식",
+      "products": [
+        {
+          "productTitle": "[샐러드보울] 넉넉소반 혼밥 필수 1인 실속팩 세트, 2세트, 1.409kg",
+          "price": 45400,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "맘마밀 안심이유식 15개월 혼합 3종 3개씩 (총9개) 소불고기 가지진밥/ 닭백숙 찹쌀진밥/ 전복 모듬채소진밥",
+          "price": 20000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "코스트코 풀무원 소고기버섯 비빔밥(262gx6개)",
+          "price": 12060,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "[샐러드보울] 넉넉소반 혼밥 필수 1인 실속팩 세트, 2세트, 1.409kg",
+        "맘마밀 안심이유식 15개월 혼합 3종 3개씩 (총9개) 소불고기 가지진밥/ 닭백숙 찹쌀진밥/ 전복 모듬채소진밥",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0227",
+      "recipeName": "소고기양파덮밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "소고기양파덮밥 밀키트",
+      "products": [
+        {
+          "productTitle": "밀푀유나베 2인분 1.2kg 집들이 캠핑밀키트 쿠킹박스, 1.2kg, 1개",
+          "price": 18860,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "복선당 동파육 (냉동), 300g, 1팩",
+          "price": 10000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "해돈채 오리불고기 국내산 고추장 밀키트 캠핑 오리주물럭",
+          "price": 45990,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0228",
+      "recipeName": "닭고기데리야키덮밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "닭고기데리야키덮밥 간편식",
+      "products": [
+        {
+          "productTitle": "아이엠소스 간장버터덮밥소스, 1개, 500g",
+          "price": 14000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "한끼통살 주먹밥 10종 맛보기 세트 (혼합)",
+          "price": 25800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 풀무원 꼬마 볼어묵 볶이",
+          "price": 7580,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "아이엠소스 간장버터덮밥소스, 1개, 500g",
+        "한끼통살 주먹밥 10종 맛보기 세트 (혼합)",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0229",
+      "recipeName": "새우계란볶음밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "새우계란볶음밥 간편식",
+      "products": [
+        {
+          "productTitle": "굽네 두부 가득 계란볶음밥, 10개, 200g",
+          "price": 22810,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "락앤락 렌지락 2종+가쯔 전자렌지용기세트 전자레인지쿠커 계란찜기/봉지라면/고구마/덮밥/죽/볶음밥 냄비그릇",
+          "price": 14900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "chefood 우유 미니 핫도그",
+          "price": 14270,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "굽네 두부 가득 계란볶음밥, 10개, 200g",
+        "락앤락 렌지락 2종+가쯔 전자렌지용기세트 전자레인지쿠커 계란찜기/봉지라면/고구마/덮밥/죽/볶음밥 냄비그릇",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0230",
+      "recipeName": "버섯간장볶음밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "버섯간장볶음밥 간편식",
+      "products": [
+        {
+          "productTitle": "아이엠소스 계란엔밥간장소스, 500g, 1개",
+          "price": 13000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "굽네 두부 가득 계란볶음밥, 10개, 200g",
+          "price": 22810,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "아이배냇 한끼뚝딱 비빔소스 4색나물",
+          "price": 9860,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "아이엠소스 계란엔밥간장소스, 500g, 1개",
+        "굽네 두부 가득 계란볶음밥, 10개, 200g",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0231",
+      "recipeName": "닭가슴살채소볶음밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "닭가슴살채소볶음밥 밀키트",
+      "products": [
+        {
+          "productTitle": "흑닭 더 빅 닭가슴살 볶음밥 350g 3종 혼합 (직화짬뽕맛,잡채,마늘계란버터), 15개, 350g",
+          "price": 66760,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "피코크 수비드 닭가슴살 오리지널 520g(130g, 4개입), 1개",
+          "price": 12300,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "오뚜기 가뿐한끼 촉촉스팀 닭가슴살 블랙페퍼 100g 5개+매콤닭가슴살곤약볶음밥 400g 2개",
+          "price": 25500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "흑닭 더 빅 닭가슴살 볶음밥 350g 3종 혼합 (직화짬뽕맛,잡채,마늘계란버터), 15개, 350g",
+        "피코크 수비드 닭가슴살 오리지널 520g(130g, 4개입), 1개",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0232",
+      "recipeName": "두부김치볶음밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "두부김치볶음밥 간편식",
+      "products": [
+        {
+          "productTitle": "굽네 닭가슴살 소시지 김치볶음밥 210g, 10개, 210g",
+          "price": 30000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "팔도 비빔장 시그니처",
+          "price": 17260,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "담백하고 달콤한 치즈듬뿍 미스렐라 콘치즈",
+          "price": 29230,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "굽네 닭가슴살 소시지 김치볶음밥 210g, 10개, 210g",
+        "팔도 비빔장 시그니처",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0233",
+      "recipeName": "참치마늘볶음밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "참치마늘볶음밥 밀키트",
+      "products": [
+        {
+          "productTitle": "[로켓프레시] 마이셰프 놀부 오리지널 부대찌개 1~2인분 (냉동)",
+          "price": 10900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_2",
+        "[본사직영] 천일식품 볶음밥 250g 7종 혼합 14팩 패키지, 250g, 1개",
+        "[로켓프레시] 친환경 당근채"
+      ]
+    },
+    {
+      "recipeId": "recipe_0234",
+      "recipeName": "카레볶음밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "카레볶음밥 간편식",
+      "products": [
+        {
+          "productTitle": "오뚜기 3분소스 (쇠고기짜장+카레약간매운맛+김치참치덮밥+춘천닭갈비+낙지덮밥+제육덮밥+하이라이스+바베큐치킨+미트볼+백세카레 약간매운맛), 1.7kg, 1박스",
+          "price": 28800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "햇반컵반 치킨 마요 덮밥",
+          "price": 49500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "햇반컵반 스팸마요덮밥 3개 + 치킨마요덮밥 3개",
+          "price": 17840,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "오뚜기 3분소스 (쇠고기짜장+카레약간매운맛+김치참치덮밥+춘천닭갈비+낙지덮밥+제육덮밥+하이라이스+바베큐치킨+미트볼+백세카레 약간매운맛), 1.7kg, 1박스",
+        "햇반컵반 치킨 마요 덮밥",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0235",
+      "recipeName": "닭칼국수",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "LOW",
+      "searchKeyword": "닭칼국수 밀키트",
+      "products": [
+        {
+          "productTitle": "누들정 생칼국수 밀키트 2인분 (양지육수), 1개, 400g",
+          "price": 8900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "하림 닭한마리 칼국수 밀키트",
+          "price": 13230,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "[한국제면] 한면원 장칼국수 2인분, 1개, 370g"
+      ]
+    },
+    {
+      "recipeId": "recipe_0236",
+      "recipeName": "비빔쫄면",
+      "foodCategory": "면",
+      "matchQuality": "LOW",
+      "searchKeyword": "비빔쫄면 간편식",
+      "products": [
+        {
+          "productTitle": "참도깨비 쫄면 비빔장 500g, 2통, 500g",
+          "price": 10900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "쫄면 납작만두 10인분 세트 / (쫄면2kg+납작만두300g+양념장800g)",
+          "price": 21500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "농심 컵라면 사발면 김치사발면 3P + 육개장사발면 3P",
+          "price": 9360,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "참도깨비 쫄면 비빔장 500g, 2통, 500g",
+        "쫄면 납작만두 10인분 세트 / (쫄면2kg+납작만두300g+양념장800g)",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0237",
+      "recipeName": "들깨국수",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0238",
+      "recipeName": "참치냉우동",
+      "foodCategory": "면",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0239",
+      "recipeName": "간장비빔면",
+      "foodCategory": "면",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0240",
+      "recipeName": "버섯크림우동",
+      "foodCategory": "면",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0241",
+      "recipeName": "참치야채김밥",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0242",
+      "recipeName": "계란김밥",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0243",
+      "recipeName": "불고기주먹밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0244",
+      "recipeName": "김치치즈주먹밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0245",
+      "recipeName": "닭가슴살샌드위치",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "닭가슴살샌드위치 밀키트",
+      "products": [
+        {
+          "productTitle": "어리틀빗 웜그레인 샐러드&포케 냉동샐러드 냉동도시락 단백질도시락 직장인점심 6종 (냉동), 2세트, 1개",
+          "price": 73900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[샐그램] 단백식사 스테이크 냉동 도시락 270g 4팩,8팩,12팩, 12개, 270g",
+          "price": 79000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "피코크 수비드 닭가슴살 오리지널 520g(130g, 4개입), 1개"
+      ]
+    },
+    {
+      "recipeId": "recipe_0246",
+      "recipeName": "불고기샌드",
+      "foodCategory": "볶음",
+      "matchQuality": "LOW",
+      "searchKeyword": "불고기샌드 밀키트",
+      "products": [
+        {
+          "productTitle": "[밀프랩no1.프레시홈푸드팩] 국산 바질, 1개, 40g",
+          "price": 4350,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "리브애즈미 샌드위치 햄버거 포장 용기 정사각 화이트, 1박스, 100개입",
+          "price": 28470,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 친환경 당근채",
+          "price": 2990,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "[밀프랩no1.프레시홈푸드팩] 국산 바질, 1개, 40g",
+        "리브애즈미 샌드위치 햄버거 포장 용기 정사각 화이트, 1박스, 100개입",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0247",
+      "recipeName": "에그아보카도샌드",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "에그아보카도샌드 간편식",
+      "products": [
+        {
+          "productTitle": "쉐프의정원 프리미엄 아보카도, 10개, 후숙 대과 개당 210g 내외",
+          "price": 23900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "베키아에누보 바질모짜 치아바타 샌드위치 3입 + 3입",
+          "price": 27630,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "푸드올마켓_동원홈푸드 비셰프 단호박샐러드 1kg /냉장 /유통기한 07.03",
+          "price": 7660,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "쉐프의정원 프리미엄 아보카도, 10개, 후숙 대과 개당 210g 내외",
+        "베키아에누보 바질모짜 치아바타 샌드위치 3입 + 3입",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0248",
+      "recipeName": "두부김치밥",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "두부김치밥 간편식",
+      "products": [
+        {
+          "productTitle": "굽네 두부 가득 계란볶음밥, 10개, 200g",
+          "price": 22810,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "오뚜기 LIGHT & JOY 지방을 줄인 청양마요 참치 파우치",
+          "price": 7400,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "오뚜기 3분 미트볼 150g 3개 + 햄버그 스테이크 140g 3개",
+          "price": 13170,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "굽네 두부 가득 계란볶음밥, 10개, 200g",
+        "오뚜기 LIGHT & JOY 지방을 줄인 청양마요 참치 파우치",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0249",
+      "recipeName": "콩나물비빔밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "콩나물비빔밥 밀키트",
+      "products": [
+        {
+          "productTitle": "콩나물국 밀키트 콩나물해장국 콩나물국밥 3인분1.5kg 캠핑음식 아침식사 국, 1개, 1.8kg",
+          "price": 16000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "수제 직화 중화 볶음밥 덮밥 캠핑 밀키트 중화비빔밥 소스 3인분",
+          "price": 21900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "속초오마니 쭈꾸미볶음 300g"
+      ]
+    },
+    {
+      "recipeId": "recipe_0250",
+      "recipeName": "참치채소비빔밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "참치채소비빔밥 밀키트",
+      "products": [
+        {
+          "productTitle": "밥솥에 부어만주세요. 건강솥밥 비빔밥용 나물 6종 (곤드레 , 유채나물, 취나물,표고버섯무,영양오곡,고사리나물), 2세트, 162g",
+          "price": 66900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 친환경 당근채",
+          "price": 2990,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 정미경키친 전주 비빔밥 세트",
+          "price": 9900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "밥솥에 부어만주세요. 건강솥밥 비빔밥용 나물 6종 (곤드레 , 유채나물, 취나물,표고버섯무,영양오곡,고사리나물), 2세트, 162g",
+        "[로켓프레시] 친환경 당근채",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0251",
+      "recipeName": "버섯들깨탕",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0252",
+      "recipeName": "애호박된장찌개",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0253",
+      "recipeName": "두부버섯전골",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0254",
+      "recipeName": "닭곰탕",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0255",
+      "recipeName": "돼지고기김치찌개",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0256",
+      "recipeName": "팽이버섯맑은국",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0257",
+      "recipeName": "청양어묵탕",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0258",
+      "recipeName": "간장닭구이",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0259",
+      "recipeName": "고추장돼지불고기",
+      "foodCategory": "볶음",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0260",
+      "recipeName": "소고기숙주볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0261",
+      "recipeName": "닭다리살채소볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "LOW",
+      "searchKeyword": "닭다리살채소볶음 간편식",
+      "products": [
+        {
+          "productTitle": "흑닭 더 시즌 닭가슴살 저당 볶음밥 200g 5종 혼합 (카레,찜닭,샤브샤브,비빔밥,불닭), 10개, 200g",
+          "price": 29400,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "굽네 닭가슴살 소시지 김치볶음밥 210g, 15개, 210g",
+          "price": 42000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "목우촌 오메가3 오리훈제 슬라이스",
+          "price": 18100,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "흑닭 더 시즌 닭가슴살 저당 볶음밥 200g 5종 혼합 (카레,찜닭,샤브샤브,비빔밥,불닭), 10개, 200g",
+        "굽네 닭가슴살 소시지 김치볶음밥 210g, 15개, 210g",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0262",
+      "recipeName": "돼지고기두부조림",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "돼지고기두부조림 간편식",
+      "products": [
+        {
+          "productTitle": "[반찬가게 찬장] 매콤두부조림 수제반찬 집밥 반찬 배달 맛집, 150g, 1개",
+          "price": 8500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "오뚜기 3분 미트볼 150g 3개 + 햄버그 스테이크 140g 3개",
+          "price": 13170,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "동원 초밥의달인 롤유부초밥(고소한맛) 254g X 1개 +(새콤한맛) 254g X 1개+(저당 고소한맛) 254g X 1개",
+          "price": 14500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "[반찬가게 찬장] 매콤두부조림 수제반찬 집밥 반찬 배달 맛집, 150g, 1개",
+        "오뚜기 3분 미트볼 150g 3개 + 햄버그 스테이크 140g 3개",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0263",
+      "recipeName": "소고기가지볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "LOW",
+      "searchKeyword": "소고기가지볶음 밀키트",
+      "products": [
+        {
+          "productTitle": "[로켓프레시] 복선당 나 혼자 쫄깃한 항정 수육 밀키트 (냉동), 215g, 3개",
+          "price": 34020,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "복원 아롱사태 수육 오향장육 냉채 즉석요리 캠핑 밀키트",
+          "price": 27000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "복원 오향장우육 아롱사태 소고기수육 알사태 즉석요리 캠핑 밀키트",
+          "price": 27000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0264",
+      "recipeName": "닭고기버섯볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "LOW",
+      "searchKeyword": "닭고기버섯볶음 간편식",
+      "products": [
+        {
+          "productTitle": "[반찬가게 찬장] 느타리버섯볶음 수제반찬 집밥 반찬 배달 맛집, 110g, 1개",
+          "price": 3900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "굽네 두부 가득 계란볶음밥, 10개, 200g",
+          "price": 22810,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "담백하고 달콤한 치즈듬뿍 미스렐라 콘치즈",
+          "price": 29230,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "[반찬가게 찬장] 느타리버섯볶음 수제반찬 집밥 반찬 배달 맛집, 110g, 1개",
+        "굽네 두부 가득 계란볶음밥, 10개, 200g",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0265",
+      "recipeName": "고등어간장구이",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "고등어간장구이 밀키트",
+      "products": [
+        {
+          "productTitle": "삼선구운고등어 (냉동), 120g, 10팩",
+          "price": 61500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_2",
+        "가시제거연구소 전자레인지 순살 고등어 양념 구이 미소된장맛",
+        "고등어청년 99.9% 가시제거 순살 국내산 고등어"
+      ]
+    },
+    {
+      "recipeId": "recipe_0266",
+      "recipeName": "두부양념구이",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "두부양념구이 밀키트",
+      "products": [
+        {
+          "productTitle": "냄새안나는 국산 청국장찌개 밀키트 ( 청국장 +육수팩 세트)",
+          "price": 22900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "명인갈비 밀키트 부드러운 수제 돼지양념구이, 1kg, 1개",
+          "price": 17900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "안동한우 양반곱창 한우 소대창 양념구이 국내산 캠핑음식 밀키트",
+          "price": 12900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0267",
+      "recipeName": "닭가슴살마늘구이",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "닭가슴살마늘구이 간편식",
+      "products": [
+        {
+          "productTitle": "[로켓프레시] 맛있닭 닭가슴살 스테이크 갈릭, 100g, 10개, 1개입",
+          "price": 19900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[푸드원스토어] 롯데 의성마늘 후랑크 오리지날 5 + 치즈 5 + 매콤땡초맛 5",
+          "price": 16600,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "롯데햄  의성마늘 프랑크 소시지",
+          "price": 44400,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "[로켓프레시] 맛있닭 닭가슴살 스테이크 갈릭, 100g, 10개, 1개입",
+        "[푸드원스토어] 롯데 의성마늘 후랑크 오리지날 5 + 치즈 5 + 매콤땡초맛 5",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0268",
+      "recipeName": "버섯치즈구이",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "버섯치즈구이 간편식",
+      "products": [
+        {
+          "productTitle": "수제 뒥셀 230g (버섯소스 버섯페스토 버섯잼 비프웰링턴 스테이크소스), 1개, 230g",
+          "price": 38900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[우양] 콰트로치즈 까르보나라 스파게티 300g_크림,체다,고다,블루의 4가지 치즈의 진한 풍미가 가득한 정통 크림 스파게티, 5개, 300g",
+          "price": 27480,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "담백하고 달콤한 치즈듬뿍 미스렐라 콘치즈",
+          "price": 29230,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "수제 뒥셀 230g (버섯소스 버섯페스토 버섯잼 비프웰링턴 스테이크소스), 1개, 230g",
+        "[우양] 콰트로치즈 까르보나라 스파게티 300g_크림,체다,고다,블루의 4가지 치즈의 진한 풍미가 가득한 정통 크림 스파게티, 5개, 300g",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0269",
+      "recipeName": "가지된장구이",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "가지된장구이 밀키트",
+      "products": [
+        {
+          "productTitle": "담뿍 차돌 된장찌개 (냉동), 400g, 3개",
+          "price": 20000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "우복당 하피 얼큰 한우국밥 1인분 600g 밀키트 캠핑음식 자취생 반찬",
+          "price": 6100,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "[반찬가게 찬장] 우렁강된장 수제반찬 집밥 반찬 배달 맛집, 200g, 1개"
+      ]
+    },
+    {
+      "recipeId": "recipe_0270",
+      "recipeName": "오징어간장볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "LOW",
+      "searchKeyword": "오징어간장볶음 밀키트",
+      "products": [
+        {
+          "productTitle": "먹꾸먹꾸 일번지포차 잔치쌀국수 밀키트 (잔치쌀국수 해물맛+멸치맛+양반김 2g+오뚜기 고소한참기름 4.5ml) 3개씩",
+          "price": 13900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[명품반찬가게 집반찬] 한우 된장찌개 밀키트 간편 조리 재료, 1개, 600ml",
+          "price": 21900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "직화 곱창 볶음 밀키트",
+          "price": 16960,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0271",
+      "recipeName": "새우마늘볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "LOW",
+      "searchKeyword": "새우마늘볶음 간편식",
+      "products": [
+        {
+          "productTitle": "[미전] 고추장 제육볶음, 200g, 1개",
+          "price": 2200,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "원하프무교동낙지볶음350gX3개/대림",
+          "price": 20700,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[홈쇼핑] 정호영 셰프 기운센 민물 장어구이",
+          "price": 56160,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "[미전] 고추장 제육볶음, 200g, 1개",
+        "원하프무교동낙지볶음350gX3개/대림",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0272",
+      "recipeName": "고등어무조림",
+      "foodCategory": "기타",
+      "matchQuality": "HIGH",
+      "searchKeyword": "고등어무조림 밀키트",
+      "products": [
+        {
+          "productTitle": "칼칼한 전라도식 고등어무조림 밀키트",
+          "price": 24900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0273",
+      "recipeName": "연어채소구이",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "연어채소구이 밀키트",
+      "products": [
+        {
+          "productTitle": "최인선 셰프의 함초품은 간장연어장 (냉동), 350g, 1통",
+          "price": 19800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "손질 고니 해물탕 알탕 재료 생선알 곤이",
+          "price": 11250,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "[로켓프레시] 프레시지 스테이크 가니쉬 2인분"
+      ]
+    },
+    {
+      "recipeId": "recipe_0274",
+      "recipeName": "버섯크림파스타",
+      "foodCategory": "면",
+      "matchQuality": "LOW",
+      "searchKeyword": "버섯크림파스타 밀키트",
+      "products": [
+        {
+          "productTitle": "베이컨 버섯 크림파스타",
+          "price": 14900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_2",
+        "SCK 양송이 크림 스프 무방부제 무첨가제 속이 편한 스프 생양송이만 사용, 2kg, 2개",
+        "SCK 양송이 크림 스프 무방부제 무첨가제 속이 편한 스프 생양송이만 사용, 2kg, 3개"
+      ]
+    },
+    {
+      "recipeId": "recipe_0275",
+      "recipeName": "토마토치킨파스타",
+      "foodCategory": "면",
+      "matchQuality": "LOW",
+      "searchKeyword": "토마토치킨파스타 밀키트",
+      "products": [
+        {
+          "productTitle": "푸디오 피자집 치즈오븐파스타 전자레인지 간편조리",
+          "price": 14800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_2",
+        "쉐프가 직접 만든 프리미엄 수제 토마토소스 450g - 압구정메이드 마리나라, 450ml, 1개",
+        "[우양] 콰트로치즈 까르보나라 스파게티 300g_크림,체다,고다,블루의 4가지 치즈의 진한 풍미가 가득한 정통 크림 스파게티, 5개, 300g"
+      ]
+    },
+    {
+      "recipeId": "recipe_0276",
+      "recipeName": "새우오일파스타",
+      "foodCategory": "면",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0277",
+      "recipeName": "가지토마토파스타",
+      "foodCategory": "면",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0278",
+      "recipeName": "감자소고기조림",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0279",
+      "recipeName": "두부버섯조림",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0280",
+      "recipeName": "닭감자간장조림",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0281",
+      "recipeName": "시금치크림파스타",
+      "foodCategory": "면",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0282",
+      "recipeName": "닭고기오일파스타",
+      "foodCategory": "면",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0283",
+      "recipeName": "두부에그샌드",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "두부에그샌드 간편식",
+      "products": [
+        {
+          "productTitle": "블루펫 응고형 두부 고양이모래, 8L, 6개, 무향",
+          "price": 18900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "미우타임즈 더 크랙 두부 오리지널 고양이모래, 7L, 6개, 무향",
+          "price": 54800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "베키아에누보 바질모짜+바질토마토+페퍼로니 3종세트",
+          "price": 36400,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "블루펫 응고형 두부 고양이모래, 8L, 6개, 무향",
+        "미우타임즈 더 크랙 두부 오리지널 고양이모래, 7L, 6개, 무향",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0284",
+      "recipeName": "불고기치즈샌드",
+      "foodCategory": "볶음",
+      "matchQuality": "LOW",
+      "searchKeyword": "불고기치즈샌드 밀키트",
+      "products": [
+        {
+          "productTitle": "대신에프에스 치즈브레드버거(냉동) 120g, 120g, 10개",
+          "price": 19400,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "애슐리 베스트 간식세트 소시지탱글 핫도그 모짜탱글핫도그 통새우볶음밥 갈릭스테이크볶음밥 케이준주먹밥 참치마요주먹밥 브리또 2종"
+      ]
+    },
+    {
+      "recipeId": "recipe_0285",
+      "recipeName": "참치사과샌드",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "참치사과샌드 밀키트",
+      "products": [
+        {
+          "productTitle": "하이뮨 프로틴 밸런스 L",
+          "price": 36000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "스프라이트 캔",
+          "price": 16320,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[행복미트] 돼지 미박사태 돈사태살 껍데기있음 수육용 보쌈용 2kg [당일발송]",
+          "price": 21130,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "하이뮨 프로틴 밸런스 L",
+        "스프라이트 캔",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0286",
+      "recipeName": "닭가슴살주먹밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "닭가슴살주먹밥 밀키트",
+      "products": [
+        {
+          "productTitle": "[바로쿡] 5+5 영양 가득 국내산 뿌리채소 영양밥 밀키트 1-2인분 초간단 간편 건강식",
+          "price": 9900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_2",
+        "[로켓프레시] 킨더가든 우리아이 함박 스테이크",
+        "크리스피두부스틱"
+      ]
+    },
+    {
+      "recipeId": "recipe_0287",
+      "recipeName": "소고기김주먹밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0288",
+      "recipeName": "채소치즈김밥",
+      "foodCategory": "기타",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0289",
+      "recipeName": "새우간장덮밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0290",
+      "recipeName": "버섯계란덮밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0291",
+      "recipeName": "소고기숙주덮밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0292",
+      "recipeName": "시금치계란스프",
+      "foodCategory": "찌개/전골/국",
+      "matchQuality": "NONE",
+      "searchKeyword": null,
+      "products": [],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0293",
+      "recipeName": "토마토에그토스트",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "토마토에그토스트 밀키트",
+      "products": [
+        {
+          "productTitle": "소스야 토스트소스, 2kg, 1개",
+          "price": 22000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 눈꽃 양배추 적채 믹스",
+          "price": 6180,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 눈꽃 양배추 적채 믹스",
+          "price": 3190,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "소스야 토스트소스, 2kg, 1개",
+        "[로켓프레시] 눈꽃 양배추 적채 믹스",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0294",
+      "recipeName": "오트밀호두볼",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "오트밀호두볼 밀키트",
+      "products": [
+        {
+          "productTitle": "반반수제비 밀키트 2인 (들깨수제비+멸치수제비), 1개, 600g",
+          "price": 17900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_1",
+        "앙트레 멕시칸 타코 파티팩 2인분"
+      ]
+    },
+    {
+      "recipeId": "recipe_0295",
+      "recipeName": "버터계란토스트",
+      "foodCategory": "기타",
+      "matchQuality": "LOW",
+      "searchKeyword": "버터계란토스트 간편식",
+      "products": [
+        {
+          "productTitle": "Jinsim Ansim 에그 펀칭기 계란 쉽게까기, 1개",
+          "price": 6600,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "워비츠 딸기잼",
+          "price": 990,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "농심 컵라면 사발면 김치사발면 3P + 육개장사발면 3P",
+          "price": 9360,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "Jinsim Ansim 에그 펀칭기 계란 쉽게까기, 1개",
+        "워비츠 딸기잼",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0296",
+      "recipeName": "양파계란부침",
+      "foodCategory": "야식",
+      "matchQuality": "LOW",
+      "searchKeyword": "양파계란부침 밀키트",
+      "products": [
+        {
+          "productTitle": "밀푀유나베 2인분 1.2kg 집들이 캠핑밀키트 쿠킹박스, 1.2kg, 1개",
+          "price": 18860,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 복선당 이자카야 모듬 가마보꼬 전골 밀키트 (냉동), 600g, 4개",
+          "price": 44000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[로켓프레시] 국내산 카레용 손질채소",
+          "price": 10000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0297",
+      "recipeName": "버섯계란라이트",
+      "foodCategory": "야식",
+      "matchQuality": "LOW",
+      "searchKeyword": "버섯계란라이트 밀키트",
+      "products": [
+        {
+          "productTitle": "동파육 밀키트 청경채가 들어있는 삼겹살 고급 중화요리, 600g, 1개",
+          "price": 22900,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "밀푀유나베 2인분 1.2kg 집들이 캠핑밀키트 쿠킹박스, 1.2kg, 2개",
+          "price": 37680,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "제이크앤푸드 저당 전자레인지 간편식 오븐 구이 삼겹살 밀키트",
+          "price": 27600,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "recipeId": "recipe_0298",
+      "recipeName": "참치야채라이트",
+      "foodCategory": "야식",
+      "matchQuality": "LOW",
+      "searchKeyword": "참치야채라이트 간편식",
+      "products": [
+        {
+          "productTitle": "동원참치 라이트 스탠다드, 135g, 12개",
+          "price": 25800,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "동원참치 90g 6종 세트 (스탠다드+고추+야채+짜장+마요+카레)x2, 90g, 12개",
+          "price": 33300,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "오뚜기 LIGHT & JOY 지방을 줄인 청양마요 참치 파우치",
+          "price": 7400,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "동원참치 라이트 스탠다드, 135g, 12개",
+        "동원참치 90g 6종 세트 (스탠다드+고추+야채+짜장+마요+카레)x2, 90g, 12개",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0299",
+      "recipeName": "야채김치볶음",
+      "foodCategory": "볶음",
+      "matchQuality": "LOW",
+      "searchKeyword": "야채김치볶음 간편식",
+      "products": [
+        {
+          "productTitle": "[국산 김치] 정말 맛있는 동결건조 볶음김치블럭, 스푼키 김치브이_파리국제식품박람회 혁신상, 2세트, 35g",
+          "price": 17500,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "오뚜기 LIGHT & JOY 지방을 줄인 청양마요 참치 파우치",
+          "price": 7400,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "더미식 황태콩나물국",
+          "price": 19960,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "[국산 김치] 정말 맛있는 동결건조 볶음김치블럭, 스푼키 김치브이_파리국제식품박람회 혁신상, 2세트, 35g",
+        "오뚜기 LIGHT & JOY 지방을 줄인 청양마요 참치 파우치",
+        "weak_or_unrelated"
+      ]
+    },
+    {
+      "recipeId": "recipe_0300",
+      "recipeName": "연어간장덮밥",
+      "foodCategory": "덮밥",
+      "matchQuality": "LOW",
+      "searchKeyword": "연어간장덮밥 간편식",
+      "products": [
+        {
+          "productTitle": "아이엠소스 간장버터덮밥소스, 1개, 500g",
+          "price": 14000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "정통돈부리소스(일본의맛 그대로)규동 스끼야끼 가츠동 타레 일본식덮밥소스 만능간장1.8kg, 1.8kg, 1개",
+          "price": 25000,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        },
+        {
+          "productTitle": "[홈쇼핑] 정호영 셰프 기운센 민물 장어구이",
+          "price": 56160,
+          "hasProductUrl": true,
+          "hasAffiliateUrl": true
+        }
+      ],
+      "notes": [
+        "filtered_3",
+        "아이엠소스 간장버터덮밥소스, 1개, 500g",
+        "정통돈부리소스(일본의맛 그대로)규동 스끼야끼 가츠동 타레 일본식덮밥소스 만능간장1.8kg, 1.8kg, 1개",
+        "weak_or_unrelated"
+      ]
+    }
+  ]
+}

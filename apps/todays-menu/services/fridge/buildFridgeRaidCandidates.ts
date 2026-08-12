@@ -37,6 +37,29 @@ export type {
 
 const DEFAULT_LIMIT_PER_GROUP = 5;
 
+export type FridgeRaidResultsBundle = {
+  primaryFeed: FridgeRaidCandidate[];
+  extended: FridgeRaidCandidate[];
+  sideDishes: FridgeRaidCandidate[];
+};
+
+function enrichFridgeRaidCandidates(
+  items: FridgeRaidScoredCandidate[],
+  recipesById: Map<string, Recipe>,
+  attachHeroImages = true,
+): FridgeRaidCandidate[] {
+  return items.map((item) => {
+    const recipe = recipesById.get(item.recipeId);
+    return {
+      ...item,
+      heroImage:
+        attachHeroImages && recipe
+          ? resolveHeroImageForRecipe(recipe)
+          : { emoji: '🍽️', url: null, accessibilityLabel: item.title },
+    };
+  });
+}
+
 function resolveHeroImageForRecipe(recipe: Recipe) {
   const { resolveFridgeRecipeHeroImage } =
     require('./resolveFridgeRecipeHeroImage') as typeof import('./resolveFridgeRecipeHeroImage');
@@ -167,32 +190,43 @@ export function selectFridgeRaidDisplayResults(
   attachHeroImages = true,
 ): FridgeRaidDisplayGroups {
   const enrich = (items: FridgeRaidScoredCandidate[]): FridgeRaidCandidate[] =>
-    items.slice(0, limitPerGroup).map((item) => {
-      const recipe = recipesById.get(item.recipeId);
-      return {
-        ...item,
-        heroImage:
-          attachHeroImages && recipe
-            ? resolveHeroImageForRecipe(recipe)
-            : { emoji: '🍽️', url: null, accessibilityLabel: item.title },
-      };
-    });
+    enrichFridgeRaidCandidates(items.slice(0, limitPerGroup), recipesById, attachHeroImages);
 
   return {
     tier5: enrich(scored.tier5),
     tier4: enrich(scored.tier4),
     tier3: enrich(scored.tier3),
-    extended: scored.extended.map((item) => {
-      const recipe = recipesById.get(item.recipeId);
-      return {
-        ...item,
-        heroImage:
-          attachHeroImages && recipe
-            ? resolveHeroImageForRecipe(recipe)
-            : { emoji: '🍽️', url: null, accessibilityLabel: item.title },
-      };
-    }),
+    extended: enrichFridgeRaidCandidates(scored.extended, recipesById, attachHeroImages),
     sideDishes: enrich(scored.sideDishes),
+  };
+}
+
+/** Full primary feed (tier5 → tier4 → tier3) without per-group display limits. */
+export function buildFridgeRaidPrimaryFeed(input: FridgeRaidDisplayInput): FridgeRaidCandidate[] {
+  const scored = scoreFridgeRaidCandidates(input);
+  const recipesById = new Map(input.recipes.map((recipe) => [recipe.id, recipe]));
+  const attachHeroImages = input.attachHeroImages ?? true;
+  return enrichFridgeRaidCandidates(
+    [...scored.tier5, ...scored.tier4, ...scored.tier3],
+    recipesById,
+    attachHeroImages,
+  );
+}
+
+/** Score full catalog and return compact results bundle (algorithm unchanged). */
+export function buildFridgeRaidResultsBundle(input: FridgeRaidDisplayInput): FridgeRaidResultsBundle {
+  const scored = scoreFridgeRaidCandidates(input);
+  const recipesById = new Map(input.recipes.map((recipe) => [recipe.id, recipe]));
+  const attachHeroImages = input.attachHeroImages ?? true;
+
+  return {
+    primaryFeed: enrichFridgeRaidCandidates(
+      [...scored.tier5, ...scored.tier4, ...scored.tier3],
+      recipesById,
+      attachHeroImages,
+    ),
+    extended: enrichFridgeRaidCandidates(scored.extended, recipesById, attachHeroImages),
+    sideDishes: enrichFridgeRaidCandidates(scored.sideDishes, recipesById, attachHeroImages),
   };
 }
 

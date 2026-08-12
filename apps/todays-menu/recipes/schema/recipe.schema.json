@@ -1,0 +1,218 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://hankki.app/schemas/master-recipe.v1.json",
+  "title": "HANKKI Master Recipe",
+  "description": "Official JSON schema for HANKKI master recipe database records.",
+  "type": "object",
+  "required": [
+    "id",
+    "slug",
+    "category",
+    "type",
+    "mealTime",
+    "title",
+    "subtitle",
+    "difficulty",
+    "cookTime",
+    "servings",
+    "tags",
+    "emotions",
+    "ingredients",
+    "steps",
+    "hankkiTip",
+    "image",
+    "meta"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z]{2}_[a-z0-9_]+$",
+      "description": "Stable recipe ID. Format: {categoryPrefix}_{slug}"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "description": "URL-safe slug"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "korean",
+        "japanese",
+        "chinese",
+        "western",
+        "dessert",
+        "healthy",
+        "baby",
+        "snacks",
+        "drinks"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "enum": ["MAIN", "SIDE", "SOUP", "DESSERT", "DRINK"],
+      "description": "Meal role. Only MAIN is eligible for primary recommendation (Product Decision #002)."
+    },
+    "mealTime": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["BREAKFAST", "LUNCH", "DINNER", "LATE_NIGHT"]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "recommendedSides": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true,
+      "description": "Future: paired 반찬 recipe IDs shown after MAIN is accepted."
+    },
+    "aiReason": { "$ref": "#/$defs/localizedText" },
+    "title": { "$ref": "#/$defs/localizedText" },
+    "subtitle": { "$ref": "#/$defs/localizedText" },
+    "description": { "$ref": "#/$defs/localizedText" },
+    "difficulty": {
+      "type": "string",
+      "enum": ["easy", "normal", "hard"]
+    },
+    "cookTime": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 600
+    },
+    "servings": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 12
+    },
+    "tags": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/tagId" },
+      "uniqueItems": true
+    },
+    "emotions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/emotionId" },
+      "uniqueItems": true,
+      "minItems": 1,
+      "maxItems": 4
+    },
+    "ingredients": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/ingredient" }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/step" }
+    },
+    "hankkiTip": { "$ref": "#/$defs/hankkiMessage" },
+    "image": {
+      "type": "object",
+      "required": ["emoji"],
+      "additionalProperties": false,
+      "properties": {
+        "emoji": { "type": "string", "minLength": 1 },
+        "url": { "type": ["string", "null"] }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "required": ["version", "status", "createdAt", "updatedAt"],
+      "additionalProperties": false,
+      "properties": {
+        "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+        "status": { "type": "string", "enum": ["draft", "published"] },
+        "createdAt": { "type": "string", "format": "date" },
+        "updatedAt": { "type": "string", "format": "date" }
+      }
+    }
+  },
+  "$defs": {
+    "localizedText": {
+      "type": "object",
+      "required": ["ko"],
+      "additionalProperties": false,
+      "properties": {
+        "ko": { "type": "string", "minLength": 1 },
+        "en": { "type": "string" }
+      }
+    },
+    "hankkiMessage": {
+      "type": "object",
+      "required": ["id", "locale", "context", "text"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^msg_[a-z0-9_]+$" },
+        "locale": { "type": "string", "enum": ["ko", "en"] },
+        "context": {
+          "type": "string",
+          "enum": [
+            "step_guide",
+            "tip",
+            "greeting",
+            "completion",
+            "confirmation",
+            "celebration"
+          ]
+        },
+        "text": { "type": "string", "minLength": 1 }
+      }
+    },
+    "ingredient": {
+      "type": "object",
+      "required": ["name", "amount"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "$ref": "#/$defs/localizedText" },
+        "amount": { "type": "string", "minLength": 1 },
+        "optional": { "type": "boolean" }
+      }
+    },
+    "step": {
+      "type": "object",
+      "required": ["order", "instruction", "hankkiMessage"],
+      "additionalProperties": false,
+      "properties": {
+        "order": { "type": "integer", "minimum": 1 },
+        "instruction": { "$ref": "#/$defs/localizedText" },
+        "hankkiMessage": { "$ref": "#/$defs/hankkiMessage" }
+      }
+    },
+    "tagId": {
+      "type": "string",
+      "enum": [
+        "quick",
+        "comfort",
+        "spicy",
+        "mild",
+        "healthy",
+        "budget",
+        "family",
+        "solo",
+        "late_night",
+        "meal_prep",
+        "one_pot",
+        "rice_based",
+        "high_protein",
+        "vegetarian_option"
+      ]
+    },
+    "emotionId": {
+      "type": "string",
+      "enum": [
+        "warm",
+        "cozy",
+        "happy",
+        "energetic",
+        "relaxed",
+        "nostalgic",
+        "refreshing",
+        "indulgent"
+      ]
+    }
+  }
+}

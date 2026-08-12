@@ -36,9 +36,12 @@ export default function RootLayout() {
         <Stack.Screen name="dine-out-coming-soon" />
         <Stack.Screen name="ai-recommendation-settings" />
         <Stack.Screen name="meal-history" />
+        <Stack.Screen name="recently-viewed" />
+        <Stack.Screen name="shopping/[recipeId]" />
         <Stack.Screen name="fridge-raid/index" />
         <Stack.Screen name="fridge-raid/results" />
         <Stack.Screen name="convenience-combos/index" />
+        <Stack.Screen name="convenience-combos/all" />
         <Stack.Screen name="convenience-combos/[id]" />
       </Stack>
     </SafeAreaProvider>

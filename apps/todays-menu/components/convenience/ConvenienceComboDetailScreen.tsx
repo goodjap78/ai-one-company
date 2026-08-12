@@ -12,26 +12,46 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { convenienceCombosCopy } from '../../constants/convenienceCombosCopy';
 import { ds } from '../../constants/designSystem';
+import { NAV_BACK } from '../../constants/navigationCopy';
 import type { ConvenienceCombo } from '../../data/content/types/convenienceCombo';
 import {
   findSimilarConvenienceCombos,
   formatComboKindLabel,
   formatEstimatedPriceRange,
-  formatStoreScopeLabel,
   getConvenienceComboById,
-  getPrimarySituationTag,
   resolveAvailabilityDisclaimer,
-  situationTagToLabel,
 } from '../../services/convenience/convenienceComboCatalog';
 import {
   getConvenienceFavoriteIds,
   toggleConvenienceFavorite,
 } from '../../services/convenience/convenienceFavoritesStorage';
 import { resolveConvenienceComboImage } from '../../services/images/resolveConvenienceComboImage';
+import { APP_HOME_HREF } from '../../constants/appRoutes';
+import {
+  navigateToConvenienceAll,
+  navigateToConvenienceDetailFromDetail,
+  navigateToConvenienceRecommendation,
+} from '../../services/convenience/convenienceComboNavigation';
+import { SeedMascot } from '../common/SeedMascot';
 import { FavoriteHeartButton } from '../favorites/FavoriteHeartButton';
-import { ScreenBackButton } from '../ui/ScreenBackButton';
+import { ScreenReplaceNavButton } from '../ui/ScreenReplaceNavButton';
 import { screenLayout } from '../ui/screenLayout';
-import { ConvenienceComboCard } from './ConvenienceComboCard';
+import { ConvenienceComboSuggestionStrip } from './ConvenienceComboSuggestionStrip';
+import { ConvenienceComboItemCards } from './ConvenienceComboItemCards';
+
+const SUMMARY_THUMB_SIZE = 96;
+const FALLBACK_ACCENT = '#E8834A';
+
+function splitComboPoints(text: string, max = 3): string[] {
+  const trimmed = text.trim();
+  if (!trimmed) return [];
+  const bySentence = trimmed
+    .split(/(?<=[.!?])\s+/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+  if (bySentence.length >= 2) return bySentence.slice(0, max);
+  return [trimmed];
+}
 
 export function ConvenienceComboDetailScreen() {
   const router = useRouter();
@@ -68,30 +88,22 @@ export function ConvenienceComboDetailScreen() {
     await loadFavoriteState();
   };
 
-  const handleToggleSimilarFavorite = async (comboId: string) => {
-    const ok = await toggleConvenienceFavorite(comboId);
-    if (!ok) {
-      Alert.alert(convenienceCombosCopy.favoriteSaveFailed);
-      return;
-    }
-    await loadFavoriteState();
-  };
-
   if (!combo) {
     return (
       <SafeAreaView style={screenLayout.safeArea} edges={['top', 'bottom']}>
         <View style={screenLayout.page}>
           <View style={screenLayout.frame}>
-            <ScreenBackButton
-              label={convenienceCombosCopy.title}
-              fallbackHref="/convenience-combos"
+            <ScreenReplaceNavButton
+              href={APP_HOME_HREF}
+              label={NAV_BACK.home}
+              accessibilityLabel="홈으로"
             />
             <View style={styles.emptyBox}>
               <Text style={styles.emptyTitle}>{convenienceCombosCopy.notFound}</Text>
               <Text style={styles.emptyHint}>{convenienceCombosCopy.notFoundHint}</Text>
               <Pressable
                 style={styles.backListButton}
-                onPress={() => router.replace('/convenience-combos')}
+                onPress={() => navigateToConvenienceRecommendation(router)}
               >
                 <Text style={styles.backListButtonText}>{convenienceCombosCopy.title}</Text>
               </Pressable>
@@ -106,13 +118,11 @@ export function ConvenienceComboDetailScreen() {
     <ComboDetailContent
       combo={combo}
       isFavorite={isFavorite}
-      favoriteIds={favoriteIds}
       similar={similar}
       onToggleFavorite={handleToggleFavorite}
-      onToggleSimilarFavorite={handleToggleSimilarFavorite}
-      onOpenCombo={(id) =>
-        router.push({ pathname: '/convenience-combos/[id]', params: { id } })
-      }
+      onOpenCombo={(id) => navigateToConvenienceDetailFromDetail(router, id)}
+      onViewAll={() => navigateToConvenienceAll(router)}
+      onAnotherRecommendation={() => navigateToConvenienceRecommendation(router)}
     />
   );
 }
@@ -120,32 +130,34 @@ export function ConvenienceComboDetailScreen() {
 function ComboDetailContent({
   combo,
   isFavorite,
-  favoriteIds,
   similar,
   onToggleFavorite,
-  onToggleSimilarFavorite,
   onOpenCombo,
+  onViewAll,
+  onAnotherRecommendation,
 }: {
   combo: ConvenienceCombo;
   isFavorite: boolean;
-  favoriteIds: Set<string>;
   similar: ConvenienceCombo[];
   onToggleFavorite: () => void;
-  onToggleSimilarFavorite: (comboId: string) => void;
   onOpenCombo: (id: string) => void;
+  onViewAll: () => void;
+  onAnotherRecommendation: () => void;
 }) {
-  const situationTag = getPrimarySituationTag(combo);
-  const situationLabel = situationTag ? situationTagToLabel(situationTag) : null;
-  const priceLabel = formatEstimatedPriceRange(combo.estimatedPriceRange);
-  const guideSteps = combo.assemblyGuide.slice(0, 3);
   const isHack = combo.comboKind === 'hack_combo';
   const kindLabel = formatComboKindLabel(combo.comboKind);
+  const priceLabel = formatEstimatedPriceRange(combo.estimatedPriceRange);
+  const prepLabel = convenienceCombosCopy.prepMinutes(combo.prepTimeMinutes);
   const disclaimer = resolveAvailabilityDisclaimer(combo);
   const hasDistinctTransformation =
     isHack &&
     combo.transformationName &&
     combo.transformationName.trim() !== combo.title.trim();
+  const displayTitle = hasDistinctTransformation ? combo.transformationName! : combo.title;
   const heroImage = resolveConvenienceComboImage(combo);
+  const comboPoints = splitComboPoints(combo.whyItWorks, 3);
+  const guideSteps = combo.assemblyGuide.slice(0, 3);
+  const guideMessage = convenienceCombosCopy.detailGuideMessage;
 
   return (
     <SafeAreaView style={screenLayout.safeArea} edges={['top', 'bottom']}>
@@ -155,25 +167,49 @@ function ComboDetailContent({
           showsVerticalScrollIndicator={false}
         >
           <View style={screenLayout.frame}>
-            <View style={styles.navRow}>
-              <ScreenBackButton
-                label={convenienceCombosCopy.title}
-                fallbackHref="/convenience-combos"
-              />
-              <FavoriteHeartButton isFavorite={isFavorite} onPress={onToggleFavorite} />
-            </View>
+            <ScreenReplaceNavButton
+              href={APP_HOME_HREF}
+              label={NAV_BACK.home}
+              accessibilityLabel="홈으로"
+            />
 
-            {heroImage ? (
-              <Image
-                source={heroImage}
-                style={styles.detailHeroImage}
-                resizeMode="cover"
-                accessibilityIgnoresInvertColors
-              />
-            ) : null}
+            <View style={styles.summaryCard}>
+              {heroImage ? (
+                <Image
+                  source={heroImage}
+                  style={styles.summaryThumb}
+                  resizeMode="cover"
+                  accessibilityIgnoresInvertColors
+                />
+              ) : (
+                <View
+                  style={[
+                    styles.summaryThumb,
+                    styles.summaryThumbFallback,
+                    { backgroundColor: FALLBACK_ACCENT },
+                  ]}
+                />
+              )}
 
-            <View style={styles.hero}>
-              <View style={styles.tagRow}>
+              <View style={styles.summaryBody}>
+                <Text style={styles.summaryTitle} numberOfLines={2}>
+                  {displayTitle}
+                </Text>
+                {hasDistinctTransformation ? (
+                  <Text style={styles.summarySubtitle} numberOfLines={1}>
+                    {combo.title}
+                  </Text>
+                ) : null}
+                <View style={styles.summaryMeta}>
+                  {priceLabel ? (
+                    <Text style={styles.summaryMetaText} numberOfLines={1}>
+                      {priceLabel}
+                    </Text>
+                  ) : null}
+                  <Text style={styles.summaryMetaText} numberOfLines={1}>
+                    {convenienceCombosCopy.prepTime}: {prepLabel}
+                  </Text>
+                </View>
                 <View
                   style={[
                     styles.kindBadge,
@@ -189,89 +225,61 @@ function ComboDetailContent({
                     {kindLabel}
                   </Text>
                 </View>
-                {situationLabel ? (
-                  <View style={styles.situationTag}>
-                    <Text style={styles.situationTagText}>{situationLabel}</Text>
-                  </View>
-                ) : null}
-                <Text style={styles.storeLabel}>
-                  {formatStoreScopeLabel(combo.storeScope)}
+              </View>
+
+              <FavoriteHeartButton isFavorite={isFavorite} onPress={onToggleFavorite} />
+            </View>
+
+            <View
+              style={styles.guideRow}
+              accessibilityRole="text"
+              accessibilityLabel={`한끼: ${guideMessage}`}
+            >
+              <SeedMascot variant="recommend" size={48} style={styles.guideSeed} />
+              <View style={styles.guideBubble}>
+                <Text style={styles.guideBubbleText} numberOfLines={2}>
+                  {guideMessage}
                 </Text>
               </View>
-              <Text style={styles.title} accessibilityRole="header">
-                {combo.title}
-              </Text>
-              {hasDistinctTransformation ? (
-                <View style={styles.transformationBox}>
-                  <Text style={styles.transformationLabel}>
-                    {convenienceCombosCopy.transformationTitle}
-                  </Text>
-                  <Text style={styles.transformationName}>{combo.transformationName}</Text>
-                </View>
-              ) : null}
-              <Text style={styles.description}>{combo.description}</Text>
-              <Text style={styles.favoriteHint}>
-                {isFavorite ? convenienceCombosCopy.saved : convenienceCombosCopy.favorites}
-              </Text>
             </View>
 
-            <View style={styles.metaCard}>
-              {priceLabel ? (
-                <Text style={styles.metaLine}>
-                  {convenienceCombosCopy.estimatedPrice}: {priceLabel}
-                </Text>
-              ) : null}
-              <Text style={styles.metaLine}>
-                {convenienceCombosCopy.prepTime}:{' '}
-                {convenienceCombosCopy.prepMinutes(combo.prepTimeMinutes)}
-              </Text>
-              <Text style={styles.metaLine}>
-                {convenienceCombosCopy.difficulty}: {combo.difficulty}
-              </Text>
-              {combo.calories != null ? (
-                <Text style={styles.metaLine}>
-                  {convenienceCombosCopy.calories}: {combo.calories}{' '}
-                  {convenienceCombosCopy.caloriesUnit}
-                </Text>
-              ) : null}
-            </View>
-
-            <View style={styles.section}>
+            <View style={styles.sectionCard}>
               <Text style={styles.sectionTitle}>
-                {isHack
-                  ? convenienceCombosCopy.whyItWorksTitle
-                  : convenienceCombosCopy.whyPairingTitle}
+                {convenienceCombosCopy.componentsTitle}
               </Text>
-              <Text style={styles.bodyText}>{combo.whyItWorks}</Text>
+              <ConvenienceComboItemCards items={combo.items} />
             </View>
 
-            <View style={styles.section}>
-              <Text style={styles.sectionTitle}>
-                {isHack
-                  ? convenienceCombosCopy.assemblyHackHint
-                  : convenienceCombosCopy.assemblyEasyHint}
-              </Text>
-              {combo.items.map((item) => (
-                <Text key={item.name} style={styles.itemLine}>· {item.name}</Text>
-              ))}
-            </View>
-
-            {!isHack && situationLabel ? (
-              <View style={styles.section}>
+            {comboPoints.length > 0 ? (
+              <View style={styles.sectionCard}>
                 <Text style={styles.sectionTitle}>
-                  {convenienceCombosCopy.recommendedSituationTitle}
+                  {convenienceCombosCopy.comboPointsTitle}
                 </Text>
-                <Text style={styles.bodyText}>{situationLabel}</Text>
+                {comboPoints.map((point) => (
+                  <View key={point} style={styles.checkRow}>
+                    <View style={styles.checkIcon}>
+                      <Text style={styles.checkIconText}>✓</Text>
+                    </View>
+                    <Text style={styles.checkText}>{point}</Text>
+                  </View>
+                ))}
               </View>
             ) : null}
 
-            {isHack && guideSteps.length > 0 ? (
-              <View style={styles.section}>
-                <Text style={styles.sectionTitle}>{convenienceCombosCopy.assemblyTitle}</Text>
+            {guideSteps.length > 0 ? (
+              <View style={styles.sectionCard}>
+                <Text style={styles.sectionTitle}>
+                  {convenienceCombosCopy.howToMakeTitle}
+                </Text>
                 {guideSteps.map((step, index) => (
-                  <Text key={`${index}-${step}`} style={styles.guideStep}>
-                    {index + 1}. {step}
-                  </Text>
+                  <View key={`${index}-${step}`} style={styles.stepRow}>
+                    <View style={styles.stepBadge}>
+                      <Text style={styles.stepBadgeText}>{index + 1}</Text>
+                    </View>
+                    <Text style={styles.stepText} numberOfLines={2}>
+                      {step}
+                    </Text>
+                  </View>
                 ))}
               </View>
             ) : null}
@@ -280,20 +288,37 @@ function ComboDetailContent({
               <Text style={styles.noteText}>{disclaimer}</Text>
             </View>
 
+            <View style={styles.actionBlock}>
+              <Pressable
+                style={({ pressed }) => [styles.primaryButton, pressed && styles.buttonPressed]}
+                onPress={onViewAll}
+                accessibilityRole="button"
+              >
+                <Text style={styles.primaryButtonText}>
+                  {convenienceCombosCopy.viewAllCombos}
+                </Text>
+              </Pressable>
+              <Pressable
+                style={({ pressed }) => [
+                  styles.secondaryButton,
+                  pressed && styles.buttonPressed,
+                ]}
+                onPress={onAnotherRecommendation}
+                accessibilityRole="button"
+              >
+                <Text style={styles.secondaryButtonText}>
+                  {convenienceCombosCopy.anotherRecommendationDetail}
+                </Text>
+              </Pressable>
+            </View>
+
             {similar.length > 0 ? (
-              <View style={styles.section}>
+              <View style={styles.similarSection}>
                 <Text style={styles.sectionTitle}>{convenienceCombosCopy.similarTitle}</Text>
-                <View style={styles.similarList}>
-                  {similar.map((item) => (
-                    <ConvenienceComboCard
-                      key={item.id}
-                      combo={item}
-                      isFavorite={favoriteIds.has(item.id)}
-                      onToggleFavorite={() => onToggleSimilarFavorite(item.id)}
-                      onView={() => onOpenCombo(item.id)}
-                    />
-                  ))}
-                </View>
+                <ConvenienceComboSuggestionStrip
+                  combos={similar}
+                  onPressCombo={onOpenCombo}
+                />
               </View>
             ) : null}
           </View>
@@ -307,28 +332,54 @@ const styles = StyleSheet.create({
   scrollContent: {
     paddingBottom: ds.spacing.xl,
   },
-  navRow: {
+  summaryCard: {
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    alignItems: 'flex-start',
     gap: ds.spacing.sm,
-  },
-  detailHeroImage: {
-    width: '100%',
-    aspectRatio: 16 / 9,
+    backgroundColor: ds.colors.card,
     borderRadius: ds.radius.card,
-    backgroundColor: '#F3E7DB',
+    padding: ds.spacing.cardInner,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: ds.colors.borderLight,
     ...ds.shadow.card,
   },
-  hero: {
-    gap: ds.spacing.sm,
+  summaryThumb: {
+    width: SUMMARY_THUMB_SIZE,
+    height: SUMMARY_THUMB_SIZE,
+    borderRadius: ds.radius.chip,
+    backgroundColor: '#F3E7DB',
   },
-  tagRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  summaryThumbFallback: {
+    opacity: 0.9,
+  },
+  summaryBody: {
+    flex: 1,
+    minWidth: 0,
+    gap: 6,
+  },
+  summaryTitle: {
+    fontSize: 18,
+    lineHeight: 24,
+    fontWeight: '800',
+    color: '#3A2417',
+  },
+  summarySubtitle: {
+    fontSize: 13,
+    lineHeight: 18,
+    fontWeight: '600',
+    color: ds.colors.textSecondary,
+  },
+  summaryMeta: {
+    gap: 2,
+  },
+  summaryMetaText: {
+    fontSize: 13,
+    lineHeight: 18,
+    fontWeight: '600',
+    color: ds.colors.textSecondary,
   },
   kindBadge: {
+    alignSelf: 'flex-start',
     borderRadius: 999,
     paddingHorizontal: 10,
     paddingVertical: 4,
@@ -349,93 +400,95 @@ const styles = StyleSheet.create({
   kindBadgeTextEasy: {
     color: '#3D6B4F',
   },
-  situationTag: {
-    backgroundColor: ds.colors.badgeBg,
-    borderRadius: 999,
-    paddingHorizontal: 10,
-    paddingVertical: 4,
+  guideRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
   },
-  situationTagText: {
-    fontSize: 11,
-    fontWeight: '700',
-    color: ds.colors.badgeText,
+  guideSeed: {
+    flexShrink: 0,
+    backgroundColor: 'transparent',
   },
-  storeLabel: {
-    fontSize: 12,
+  guideBubble: {
+    flex: 1,
+    minWidth: 0,
+    backgroundColor: '#FFF6EE',
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: ds.colors.borderLight,
+    paddingVertical: 10,
+    paddingHorizontal: ds.spacing.cardInner,
+  },
+  guideBubbleText: {
+    fontSize: 14,
+    lineHeight: 20,
     fontWeight: '600',
-    color: ds.colors.textMuted,
-  },
-  title: {
-    ...ds.typography.foodName,
     color: '#3A2417',
   },
-  transformationBox: {
-    backgroundColor: ds.colors.honeyTipBg,
-    borderRadius: ds.radius.card,
-    padding: ds.spacing.sm,
-    gap: 4,
-  },
-  transformationLabel: {
-    ...ds.typography.caption,
-    fontWeight: '700',
-    color: ds.colors.textSecondary,
-  },
-  transformationName: {
-    fontSize: 18,
-    lineHeight: 24,
-    fontWeight: '800',
-    color: '#3A2417',
-  },
-  description: {
-    ...ds.typography.body,
-    color: ds.colors.warmText,
-    lineHeight: 22,
-  },
-  favoriteHint: {
-    ...ds.typography.caption,
-    fontWeight: '600',
-    color: ds.colors.textSecondary,
-  },
-  metaCard: {
+  sectionCard: {
     backgroundColor: ds.colors.card,
     borderRadius: ds.radius.card,
     padding: ds.spacing.cardInner,
-    gap: 6,
+    gap: ds.spacing.sm,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: ds.colors.borderLight,
     ...ds.shadow.card,
   },
-  metaLine: {
-    ...ds.typography.caption,
-    fontWeight: '600',
-    color: ds.colors.textSecondary,
-  },
-  section: {
-    gap: ds.spacing.sm,
-  },
   sectionTitle: {
-    ...ds.typography.body,
     fontSize: 17,
+    lineHeight: 24,
     fontWeight: '800',
     color: '#3A2417',
   },
-  bodyText: {
-    ...ds.typography.body,
-    fontSize: 15,
-    color: ds.colors.warmText,
-    lineHeight: 22,
+  checkRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 10,
   },
-  itemLine: {
-    ...ds.typography.body,
-    fontSize: 15,
-    color: ds.colors.warmText,
-    lineHeight: 22,
+  checkIcon: {
+    width: 22,
+    height: 22,
+    borderRadius: 11,
+    backgroundColor: ds.colors.primarySoft,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 1,
   },
-  guideStep: {
-    ...ds.typography.body,
+  checkIconText: {
+    fontSize: 12,
+    fontWeight: '800',
+    color: ds.colors.primaryDark,
+  },
+  checkText: {
+    flex: 1,
     fontSize: 15,
-    color: ds.colors.warmText,
     lineHeight: 22,
+    color: ds.colors.warmText,
+  },
+  stepRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 10,
+  },
+  stepBadge: {
+    width: 26,
+    height: 26,
+    borderRadius: 13,
+    backgroundColor: ds.colors.primary,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 1,
+  },
+  stepBadgeText: {
+    fontSize: 13,
+    fontWeight: '800',
+    color: '#FFFFFF',
+  },
+  stepText: {
+    flex: 1,
+    fontSize: 15,
+    lineHeight: 22,
+    color: ds.colors.warmText,
   },
   noteBox: {
     backgroundColor: ds.colors.honeyTipBg,
@@ -447,8 +500,40 @@ const styles = StyleSheet.create({
     color: ds.colors.warmText,
     lineHeight: 18,
   },
-  similarList: {
-    gap: ds.spacing.cardInner,
+  actionBlock: {
+    gap: ds.spacing.sm,
+    marginTop: ds.spacing.xs,
+  },
+  primaryButton: {
+    backgroundColor: ds.colors.primary,
+    borderRadius: ds.radius.button,
+    paddingVertical: 14,
+    alignItems: 'center',
+  },
+  primaryButtonText: {
+    ...ds.typography.button,
+    color: '#FFFFFF',
+    fontSize: 15,
+  },
+  secondaryButton: {
+    borderRadius: ds.radius.button,
+    paddingVertical: 12,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: ds.colors.borderLight,
+    backgroundColor: ds.colors.card,
+  },
+  secondaryButtonText: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: ds.colors.textSecondary,
+  },
+  buttonPressed: {
+    opacity: 0.88,
+  },
+  similarSection: {
+    gap: ds.spacing.sm,
+    marginTop: ds.spacing.md,
   },
   emptyBox: {
     gap: ds.spacing.md,

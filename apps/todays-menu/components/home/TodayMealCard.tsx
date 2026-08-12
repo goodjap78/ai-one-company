@@ -167,16 +167,16 @@ export const TodayMealCard = memo(function TodayMealCard({
               />
               <LinearGradient
                 colors={[
+                  'rgba(35, 20, 12, 0.42)',
+                  'rgba(35, 20, 12, 0.12)',
                   'transparent',
-                  'transparent',
-                  'rgba(35, 20, 12, 0.22)',
-                  'rgba(35, 20, 12, 0.34)',
+                  'rgba(35, 20, 12, 0.45)',
                 ]}
-                locations={[0, 0.45, 0.78, 1]}
+                locations={[0, 0.22, 0.55, 1]}
                 style={styles.heroGradient}
                 pointerEvents="none"
               />
-              <View style={styles.heroOverlay} pointerEvents="none">
+              <View style={styles.heroTopOverlay} pointerEvents="none">
                 <View style={styles.heroBadge}>
                   <Text style={styles.heroBadgeText}>{northStarHomeCopy.hero.badge}</Text>
                 </View>
@@ -184,7 +184,9 @@ export const TodayMealCard = memo(function TodayMealCard({
                   {recommendation.recipe.title}
                 </Text>
               </View>
-              {recommendTip ? <HomeRecommendTip message={recommendTip} /> : null}
+              {recommendTip ? (
+                <HomeRecommendTip message={recommendTip} maxLines={2} compact />
+              ) : null}
             </View>
             <View style={styles.heartOverlay} pointerEvents="box-none">
               <FavoriteHeartButton isFavorite={isHearted} onPress={onHeartPress} variant="hero" />
@@ -245,12 +247,12 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     zIndex: 2,
   },
-  heroOverlay: {
+  heroTopOverlay: {
     position: 'absolute',
     top: ds.spacing.cardInner,
     left: ds.spacing.cardInner,
     right: 56,
-    gap: 8,
+    gap: 6,
     zIndex: 3,
   },
   heroBadge: {
@@ -270,7 +272,9 @@ const styles = StyleSheet.create({
   heroTitle: {
     ...ds.typography.foodName,
     color: '#FFFFFF',
-    textShadowColor: 'rgba(0,0,0,0.5)',
+    fontSize: 20,
+    lineHeight: 26,
+    textShadowColor: 'rgba(0,0,0,0.45)',
     textShadowOffset: { width: 0, height: 1 },
     textShadowRadius: 6,
   },

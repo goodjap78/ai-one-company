@@ -69,8 +69,9 @@ function backfillPantryItemIconKey(item: LegacyPantryItem, now: Date): PantryIte
 function migrateLegacyItem(item: LegacyPantryItem, now: Date): PantryItem {
   const { canonicalName, displayName } = resolveIngredient(item.name);
   const iconKey = resolveStoredIconKey(displayName, canonicalName, item.iconKey);
+  const matchKey = resolvePantryItemMatchKey(iconKey, displayName);
   return {
-    id: item.id || `pantry_${canonicalName}`,
+    id: item.id || (matchKey ? `pantry_${matchKey}` : `pantry_${canonicalName}`),
     name: displayName,
     normalizedName: canonicalName,
     iconKey,
@@ -107,9 +108,10 @@ function migrateStore(raw: PantryStore | LegacyPantryStore, now = new Date()): P
 function createPantryItem(name: string, iconKey: string | undefined, now: Date): PantryItem {
   const { canonicalName, displayName } = resolveIngredient(name);
   const resolvedIconKey = resolveStoredIconKey(displayName, canonicalName, iconKey);
+  const matchKey = resolvePantryItemMatchKey(resolvedIconKey, displayName);
 
   return {
-    id: `pantry_${canonicalName}`,
+    id: matchKey ? `pantry_${matchKey}` : `pantry_${canonicalName}`,
     name: displayName,
     normalizedName: canonicalName,
     iconKey: resolvedIconKey,

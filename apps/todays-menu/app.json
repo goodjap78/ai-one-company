@@ -1,0 +1,44 @@
+{
+  "expo": {
+    "name": "한끼",
+    "slug": "todays-menu",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "todays-menu",
+    "userInterfaceStyle": "light",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FFF4EC"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.aionecompany.todaysmenu",
+      "buildNumber": "1",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFF4EC"
+      },
+      "package": "com.aionecompany.todaysmenu",
+      "versionCode": 5,
+      "softwareKeyboardLayoutMode": "resize"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font"
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "6273721d-6284-4025-8b52-457191e0f9a3"
+      }
+    },
+    "owner": "mymy1004"
+  }
+}

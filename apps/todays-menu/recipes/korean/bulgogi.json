@@ -1,0 +1,97 @@
+{
+  "id": "kr_bulgogi",
+  "slug": "bulgogi",
+  "category": "korean",
+  "type": "MAIN",
+  "mealTime": ["DINNER", "LUNCH"],
+  "title": { "ko": "불고기", "en": "Bulgogi" },
+  "subtitle": {
+    "ko": "달콤한 소고기 집밥",
+    "en": "Sweet and savory Korean beef"
+  },
+  "description": {
+    "ko": "달콤한 양념에 재운 소고기를 구워 만드는 대표 한식이에요.",
+    "en": "Classic Korean marinated beef grilled until caramelized."
+  },
+  "difficulty": "normal",
+  "cookTime": 25,
+  "servings": 2,
+  "tags": ["comfort", "family", "high_protein", "quick"],
+  "emotions": ["warm", "happy", "nostalgic"],
+  "ingredients": [
+    { "name": { "ko": "소고기 불고기용", "en": "Beef slices" }, "amount": "300g" },
+    { "name": { "ko": "양파", "en": "Onion" }, "amount": "1/2개" },
+    { "name": { "ko": "대파", "en": "Green onion" }, "amount": "1대" },
+    { "name": { "ko": "간장", "en": "Soy sauce" }, "amount": "3큰술" },
+    { "name": { "ko": "설탕", "en": "Sugar" }, "amount": "1큰술" },
+    { "name": { "ko": "다진 마늘", "en": "Minced garlic" }, "amount": "1큰술" },
+    { "name": { "ko": "참기름", "en": "Sesame oil" }, "amount": "1작은술" }
+  ],
+  "steps": [
+    {
+      "order": 1,
+      "instruction": {
+        "ko": "소고기에 간장, 설탕, 다진 마늘, 참기름을 넣고 15분 재워요.",
+        "en": "Marinate the beef with soy sauce, sugar, garlic, and sesame oil for 15 minutes."
+      },
+      "hankkiMessage": {
+        "id": "msg_kr_bulgogi_step_1",
+        "locale": "ko",
+        "context": "step_guide",
+        "text": "양념에 재우는 시간이 맛을 만들어요, 같이 해봐요!"
+      }
+    },
+    {
+      "order": 2,
+      "instruction": {
+        "ko": "팬을 달군 뒤 소고기를 넓게 펼쳐 구워요.",
+        "en": "Heat a pan and sear the beef in a single layer."
+      },
+      "hankkiMessage": {
+        "id": "msg_kr_bulgogi_step_2",
+        "locale": "ko",
+        "context": "step_guide",
+        "text": "불은 중불이 좋아요. 천천히 익혀볼까요?"
+      }
+    },
+    {
+      "order": 3,
+      "instruction": {
+        "ko": "양파와 대파를 넣고 함께 볶아요.",
+        "en": "Add onion and green onion and stir-fry together."
+      },
+      "hankkiMessage": {
+        "id": "msg_kr_bulgogi_step_3",
+        "locale": "ko",
+        "context": "step_guide",
+        "text": "야채가 들어가면 향이 훨씬 좋아져요."
+      }
+    },
+    {
+      "order": 4,
+      "instruction": {
+        "ko": "밥과 함께 따뜻하게 드세요.",
+        "en": "Serve warm with rice."
+      },
+      "hankkiMessage": {
+        "id": "msg_kr_bulgogi_step_4",
+        "locale": "ko",
+        "context": "completion",
+        "text": "와, 벌써 불고기 완성이에요!"
+      }
+    }
+  ],
+  "hankkiTip": {
+    "id": "msg_kr_bulgogi_tip",
+    "locale": "ko",
+    "context": "tip",
+    "text": "양파를 넉넉히 넣으면 더 달큰하고 부드러워요."
+  },
+  "image": { "emoji": "🥩", "url": null },
+  "meta": {
+    "version": "1.0.0",
+    "status": "published",
+    "createdAt": "2026-07-06",
+    "updatedAt": "2026-07-06"
+  }
+}

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { AppIcon } from '../ui/AppIcon';
 import { ds } from '../../constants/designSystem';
 import { MOBILE_MAX_WIDTH, MOBILE_SCREEN_PADDING } from '../../constants/mobileShell';
@@ -9,14 +9,17 @@ import type { ComingSoonFeatureId } from '../../types/featureSurvey';
 import type { HomeIconKey } from './homeIcons';
 import { getHomeIcon } from './homeIcons';
 
-const CARD_GAP = ds.spacing.cardInner;
-const CARD_RADIUS = ds.radius.card;
+const CARD_GAP = 8;
+/** Full cards visible + intentional peek of next card (~14–20px). */
+const FULL_VISIBLE_CARDS = 3;
+const PEEK_PX = 18;
 
 const SURVEY_ID_BY_CARD: Record<string, ComingSoonFeatureId> = {
   dineOut: 'dine_out',
   kids: 'kids_meal',
   receipt: 'receipt',
   health: 'health',
+  reward: 'reward',
 };
 
 const ICON_BY_ID: Record<string, HomeIconKey> = {
@@ -24,6 +27,7 @@ const ICON_BY_ID: Record<string, HomeIconKey> = {
   kids: 'kids',
   receipt: 'receipt',
   health: 'health',
+  reward: 'reward',
 };
 
 const PASTELS = [
@@ -31,31 +35,62 @@ const PASTELS = [
   { bg: '#F3F8F1', icon: '#5A8A3A', badge: '#5A6A4A' },
   { bg: '#F0F6FF', icon: '#4A6AAA', badge: '#3A4A6A' },
   { bg: '#FFF8EE', icon: '#C47A2A', badge: '#8A5A3E' },
+  { bg: '#FFF8EF', icon: '#E85A28', badge: '#8A6A52' },
 ] as const;
+
+type SecondaryCard = {
+  id: string;
+  title: string;
+  subtitle: string;
+  badge?: string;
+};
 
 type Props = {
   onComingSoonPress: (featureId: ComingSoonFeatureId) => void;
 };
 
+function useSecondaryCardWidth(screenWidth: number): number {
+  const contentWidth = Math.min(screenWidth, MOBILE_MAX_WIDTH) - MOBILE_SCREEN_PADDING * 2;
+  const gapTotal = CARD_GAP * FULL_VISIBLE_CARDS;
+  const usable = Math.max(0, contentWidth - gapTotal - PEEK_PX);
+  return Math.max(96, Math.floor(usable / FULL_VISIBLE_CARDS));
+}
+
 /**
- * Coming-soon 2×2 grid — taps open priority surveys (H3-12). Layout unchanged.
+ * Sprint 61-D — readable horizontal shortcuts (below primary feature visual weight).
  */
 export const HomeComingSoonSection = memo(function HomeComingSoonSection({
   onComingSoonPress,
 }: Props) {
   const { width } = useWindowDimensions();
   const narrow = width <= NARROW_WIDTH_BREAKPOINT;
-  const cards = northStarHomeCopy.comingSoon.cards;
-  const contentWidth = Math.min(width, MOBILE_MAX_WIDTH) - MOBILE_SCREEN_PADDING * 2;
-  const cardWidth = Math.floor((contentWidth - CARD_GAP) / 2);
+  const baseCardWidth = useSecondaryCardWidth(width);
+
+  const rewardCard: SecondaryCard = {
+    id: 'reward',
+    title: northStarHomeCopy.reward.title,
+    subtitle: northStarHomeCopy.reward.subtitle,
+    badge: northStarHomeCopy.reward.badge,
+  };
+
+  const cards: SecondaryCard[] = [...northStarHomeCopy.comingSoon.cards, rewardCard];
 
   return (
     <View style={styles.section}>
-      <Text style={[styles.sectionTitle, narrow && styles.sectionTitleNarrow]} accessibilityRole="header">
+      <Text
+        style={[styles.sectionTitle, narrow && styles.sectionTitleNarrow]}
+        accessibilityRole="header"
+      >
         {northStarHomeCopy.comingSoon.sectionTitle}
       </Text>
 
-      <View style={styles.grid}>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        clipToPadding={false}
+        contentContainerStyle={styles.scrollContent}
+        style={styles.scroll}
+      >
         {cards.map((card, index) => {
           const pastel = PASTELS[index % PASTELS.length];
           const iconKey = ICON_BY_ID[card.id] ?? 'pairingDefault';
@@ -65,36 +100,38 @@ export const HomeComingSoonSection = memo(function HomeComingSoonSection({
             <Pressable
               key={card.id}
               style={({ pressed }) => [
-                styles.card,
-                { width: cardWidth, backgroundColor: pastel.bg },
+                styles.btn,
+                { width: baseCardWidth, backgroundColor: pastel.bg },
                 pressed && styles.pressed,
               ]}
               onPress={() => {
                 if (surveyId) onComingSoonPress(surveyId);
               }}
               accessibilityRole="button"
-              accessibilityLabel={`${card.title}. ${card.badge}. ${card.subtitle}`}
+              accessibilityLabel={`${card.title}. ${card.badge ?? ''}. ${card.subtitle}`}
             >
-              <View style={styles.cardTop}>
-                <View style={[styles.iconWrap, { backgroundColor: 'rgba(255,255,255,0.75)' }]}>
-                  <AppIcon name={getHomeIcon(iconKey)} size={narrow ? 18 : 20} color={pastel.icon} />
-                </View>
-                <View style={styles.badge}>
-                  <Text style={[styles.badgeText, { color: pastel.badge }]} numberOfLines={1}>
-                    {card.badge}
-                  </Text>
-                </View>
-              </View>
-              <Text style={[styles.cardTitle, narrow && styles.cardTitleNarrow]} numberOfLines={1}>
+              <AppIcon
+                name={getHomeIcon(iconKey)}
+                size={narrow ? 14 : 15}
+                color={pastel.icon}
+              />
+              <Text
+                style={[styles.btnTitle, narrow && styles.btnTitleNarrow]}
+                numberOfLines={1}
+                adjustsFontSizeToFit
+                minimumFontScale={0.78}
+              >
                 {card.title}
               </Text>
-              <Text style={[styles.cardSubtitle, narrow && styles.cardSubtitleNarrow]} numberOfLines={2}>
-                {card.subtitle}
-              </Text>
+              {card.badge ? (
+                <Text style={[styles.badgeText, { color: pastel.badge }]} numberOfLines={1}>
+                  {card.badge}
+                </Text>
+              ) : null}
             </Pressable>
           );
         })}
-      </View>
+      </ScrollView>
     </View>
   );
 });
@@ -103,79 +140,61 @@ const styles = StyleSheet.create({
   section: {
     width: '100%',
     maxWidth: '100%',
-    gap: ds.spacing.cardInner,
+    gap: 6,
+    paddingBottom: 2,
   },
   sectionTitle: {
     ...ds.typography.sectionTitle,
+    fontSize: 15,
+    lineHeight: 20,
     color: '#3A2417',
   },
   sectionTitleNarrow: {
-    fontSize: 20,
-    lineHeight: 28,
+    fontSize: 14,
+    lineHeight: 18,
   },
-  grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+  scroll: {
     width: '100%',
-    gap: CARD_GAP,
   },
-  card: {
-    maxWidth: '100%',
-    minWidth: 0,
-    borderRadius: CARD_RADIUS,
-    padding: ds.spacing.cardInner,
-    gap: ds.spacing.cardInner,
+  scrollContent: {
+    gap: CARD_GAP,
+    paddingRight: PEEK_PX,
+    paddingTop: 2,
+    paddingBottom: 10,
+  },
+  btn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+    paddingVertical: 11,
+    paddingHorizontal: 10,
+    borderRadius: ds.radius.card,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: ds.colors.borderLight,
+    minHeight: 54,
     ...ds.shadow.card,
+    shadowOpacity: 0.06,
   },
   pressed: {
     opacity: 0.9,
   },
-  cardTop: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 6,
-  },
-  iconWrap: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  badge: {
-    backgroundColor: 'rgba(255,255,255,0.8)',
-    borderRadius: 999,
-    paddingHorizontal: 8,
-    paddingVertical: 3,
-    maxWidth: '55%',
-  },
-  badgeText: {
-    fontSize: 10,
-    lineHeight: 13,
+  btnTitle: {
+    flex: 1,
+    minWidth: 0,
+    fontSize: 11,
+    lineHeight: 14,
     fontWeight: '700',
-  },
-  cardTitle: {
-    ...ds.typography.body,
-    fontSize: 15,
-    lineHeight: 20,
-    fontWeight: '800',
     color: '#3A2417',
     letterSpacing: -0.2,
   },
-  cardTitleNarrow: {
-    fontSize: 14,
-    lineHeight: 18,
+  btnTitleNarrow: {
+    fontSize: 10,
+    lineHeight: 13,
   },
-  cardSubtitle: {
-    ...ds.typography.caption,
-    fontWeight: '500',
-    color: ds.colors.warmText,
-  },
-  cardSubtitleNarrow: {
-    fontSize: 11,
-    lineHeight: 15,
+  badgeText: {
+    fontSize: 9,
+    lineHeight: 12,
+    fontWeight: '700',
+    flexShrink: 0,
   },
 });

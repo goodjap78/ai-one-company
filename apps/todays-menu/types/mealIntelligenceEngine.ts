@@ -31,6 +31,7 @@ export const MEAL_SCORE_FACTORS = [
   'timeOfDay',
   'weekdayWeekend',
   'mealTime',
+  'mealTimeMetadata',
   'preferenceDna',
   'recentMeals',
   'variety',

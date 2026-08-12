@@ -1,0 +1,17 @@
+export {
+  analyzeRecentMeals,
+  buildFoodMemorySnapshot,
+  FOOD_MEMORY_ANALYSIS_WINDOW,
+  FOOD_MEMORY_MAX_ACCEPTED,
+  FOOD_MEMORY_MAX_EVENTS,
+  getFoodMemory,
+  getFoodMemoryEvents,
+  getFoodMemoryRecords,
+  menuToFoodMemoryCategory,
+  preferenceScoreToHmieDelta,
+  recordFoodMemoryEvent,
+  recordFoodMeal,
+  resolveMealFoodMeta,
+  saveFoodMemoryEvent,
+  saveFoodMemoryRecord,
+} from './foodMemoryService';

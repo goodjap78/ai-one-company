@@ -31,3 +31,19 @@ See `sideDishHeroHints.ts` and Sprint 50-B scope (`recipe_0141`–`recipe_0160`)
 - Review candidates live in `generated/image-factory/review/` until `hero:approve`.
 - Never auto-approve production heroes.
 - Backup production before overwrite (`hero:approve --force` / `hero:rollback`).
+
+## CROP_SAFE_FOOD_RULE (v1 — 2026-08-12)
+
+Future food hero generation must survive **Home Hero**, **Recipe Detail Hero**, **recommendation card**, and **thumbnail** crops from a **single asset**.
+
+- Primary food subject must stay near image center (target centroid X 50%, Y 44–48%).
+- Important food mass must fit inside a **center 60–70% safe-zone** — not touching top/bottom/left/right edges.
+- Avoid placing the primary dish near frame edges; minimize plate/bowl clipping on landscape hero crop.
+- Generated assets must survive both landscape hero crop and card/thumbnail crop without losing the dish identity.
+- Plated dishes should prefer **centered composition**.
+- For suitable dishes (omelette, jeon, pasta on plate, etc.), prefer **top-down or 70–90° high-angle** so the full plate reads clearly.
+- Prioritize **food visibility** over empty background — but keep margins inside the safe-zone.
+- Do **not** force top-down on every menu; keep natural angles when they remain crop-safe.
+- No rice/kimchi/side spreads unless the named dish is a combo exception.
+
+Reference replacement: `omelette.jpg` (recipe `059`) — crop-safe centered top-down omelette on cream wood.

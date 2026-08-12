@@ -18,8 +18,11 @@ import {
 } from '../services/fridge/fridgeRecommendationIntelligence';
 import {
   buildPantryMatchKeySet,
+  FRIDGE_FRENCH_FRIES_MATCH_KEY,
   resolveFridgeIngredientInput,
 } from '../services/fridge/fridgeIngredientMatch';
+import { traceFridgePantrySelection } from '../services/fridge/traceFridgePantrySelection';
+import { lookupIngredientAlias } from '../data/ingredients/ingredientAliases';
 import { getFridgeRecipeIndexEntry, clearFridgeRecipeIndexCache } from '../services/fridge/fridgeRecipeIndex';
 import type { PantryItem, PantrySnapshot } from '../types/pantry';
 import type { RecommendationContext } from '../types/preference';
@@ -394,6 +397,58 @@ run('추가 시나리오 — 양파·감자·햄', () => {
     { label: '햄', iconKey: 'ham' },
   ]);
   assert(countPrimaryFridgeCandidates(scored) > 0, 'onion potato ham primary');
+});
+
+run('감자튀김 alias — french_fries', () => {
+  assert(lookupIngredientAlias('감자튀김') === FRIDGE_FRENCH_FRIES_MATCH_KEY, 'alias map');
+  assert(lookupIngredientAlias('프렌치프라이') === FRIDGE_FRENCH_FRIES_MATCH_KEY, '프렌치프라이');
+  const resolved = resolveFridgeIngredientInput('감자튀김');
+  assert(resolved?.iconKey === FRIDGE_FRENCH_FRIES_MATCH_KEY, 'fridge input');
+  assert(resolved?.iconKey !== 'potato', 'not potato iconKey');
+});
+
+run('french_fries pantry — potato 레시피 매칭 확장', () => {
+  const pantry = pantryFromChips([{ label: '감자튀김', iconKey: FRIDGE_FRENCH_FRIES_MATCH_KEY }]);
+  const keys = buildPantryMatchKeySet(pantry);
+  assert(keys.has(FRIDGE_FRENCH_FRIES_MATCH_KEY), 'owns french_fries');
+  assert(keys.has('potato'), 'satisfies potato');
+});
+
+const FOUR_SELECTION_FIXTURE = [
+  { label: '감자튀김', iconKey: FRIDGE_FRENCH_FRIES_MATCH_KEY },
+  { label: '계란', iconKey: 'egg' },
+  { label: '햄', iconKey: 'ham' },
+  { label: '양파', iconKey: 'onion' },
+] as const;
+
+run('4개 선택 전달 보존 — trace', () => {
+  const pantry = pantryFromChips([...FOUR_SELECTION_FIXTURE]);
+  const trace = traceFridgePantrySelection(pantry);
+  assert(trace.selectedCount === 4, 'selected count 4');
+  assert(trace.matchKeys.length === 4, 'normalized count 4');
+  assert(trace.matchKeys.includes(FRIDGE_FRENCH_FRIES_MATCH_KEY), 'french_fries key');
+  assert(!trace.matchKeys.includes('spinach'), 'no spinach key');
+  assert(trace.selectedIngredientIds.length === 4, 'ids preserved');
+});
+
+run('4개 선택 — spinach 오염 방지 + 활용 재료 반영', () => {
+  const scored = scoreWithChips([...FOUR_SELECTION_FIXTURE]);
+  const pool = [...primaryCandidates(scored), ...scored.extended, ...scored.sideDishes];
+  assert(pool.length > 0, 'expected recommendations');
+  const spinachOnlyPool = pool.filter(
+    (item) =>
+      item.matchedSelectedCount === 1 &&
+      item.matchedSelectedIngredients.length === 1 &&
+      item.matchedSelectedIngredients[0] === '시금치',
+  );
+  assert(
+    spinachOnlyPool.length < pool.length,
+    'results are not exclusively spinach-only utilization',
+  );
+  const friesHits = pool.filter((item) =>
+    item.matchedSelectedIngredients.some((name) => name.includes('감자튀김')),
+  );
+  assert(friesHits.length > 0, '감자튀김 활용 메뉴 존재');
 });
 
 console.log('\nFridge Recommendation Intelligence QA — done');

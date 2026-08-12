@@ -9,6 +9,7 @@ import { ds } from '../../constants/designSystem';
 import { getHankkiRecipeById } from '../../data/recipes/hankkiRecipes';
 import { saveMeal } from '../../services/MealHistoryService';
 import { isFavorite, toggleFavorite } from '../../services/FavoriteService';
+import { recordViewedRecipe } from '../../services/viewedRecipe';
 import { resolveMealFoodMeta } from '../../services/memory/foodMemory';
 import { fetchRecipe, getRecipeById } from '../../services/recipe';
 import { getRecommendationSession } from '../../services/recommendationSession';
@@ -30,6 +31,8 @@ import { RecipeIngredientsList } from '../recipe/RecipeIngredientsList';
 import { RecipeServingAdjuster } from '../recipe/RecipeServingAdjuster';
 import { recipePremiumStyles } from '../recipe/recipePremiumStyles';
 import { RecipeStepsList } from '../recipe/RecipeStepsList';
+import { IngredientsShoppingCta } from '../shopping/IngredientsShoppingCta';
+import { CoupangDynamicBanner } from '../ads/CoupangDynamicBanner';
 import { ScreenLoading } from '../ui/ScreenLoading';
 import { ScreenBackButton } from '../ui/ScreenBackButton';
 
@@ -86,6 +89,11 @@ export function IngredientsScreen({ recipeId }: Props) {
       cancelled = true;
     };
   }, [recipeId]);
+
+  useEffect(() => {
+    if (!recipeId || !recipe) return;
+    void recordViewedRecipe(recipeId);
+  }, [recipeId, recipe?.id]);
 
   useEffect(() => {
     if (recipe?.servings) {
@@ -227,7 +235,7 @@ export function IngredientsScreen({ recipeId }: Props) {
             </View>
 
             {/* 3 Hero + Seed mascot tip */}
-            <RecipeHeroImage image={recipe.image} seedMessage={seedMessage} />
+            <RecipeHeroImage image={recipe.image} recipeId={recipeId} seedMessage={seedMessage} />
 
             {/* 4 Quick info */}
             <RecipeInfoMeta
@@ -251,6 +259,7 @@ export function IngredientsScreen({ recipeId }: Props) {
               baseServings={recipe.servings}
               targetServings={targetServings}
             />
+            <IngredientsShoppingCta recipeId={recipeId} />
 
             {/* 9 만드는 방법 — all steps in one scroll */}
             <RecipeStepsList steps={recipe.steps} />
@@ -268,6 +277,9 @@ export function IngredientsScreen({ recipeId }: Props) {
             />
 
             <RecipeFeedbackCard recipeId={recipeId} onSubmitted={handleFeedbackSubmitted} />
+
+            {/* After shopping CTA + body — scroll bottom only */}
+            <CoupangDynamicBanner />
           </View>
         </ScrollView>
 

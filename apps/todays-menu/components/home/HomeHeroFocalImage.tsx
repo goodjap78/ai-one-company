@@ -24,8 +24,8 @@ function resolveHomeHeroImageKey(
 }
 
 /**
- * Home hero food layer with consistent focal positioning.
- * Detail / thumb screens keep using plain MealImageView.
+ * Home + recipe detail hero food layer with consistent focal positioning.
+ * Small cards use FocalMealImage with a lower focalScale.
  */
 export function HomeHeroFocalImage({
   image,

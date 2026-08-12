@@ -1,5 +1,5 @@
-import { ConvenienceCombosScreen } from '../../components/convenience/ConvenienceCombosScreen';
+import { ConvenienceComboRecommendationScreen } from '../../components/convenience/ConvenienceComboRecommendationScreen';
 
 export default function ConvenienceCombosRoute() {
-  return <ConvenienceCombosScreen />;
+  return <ConvenienceComboRecommendationScreen />;
 }

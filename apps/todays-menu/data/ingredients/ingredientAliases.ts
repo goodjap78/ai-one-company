@@ -120,6 +120,11 @@ export const INGREDIENT_ALIASES: Record<string, string> = {
   버섯: 'mushroom',
   표고버섯: 'mushroom',
   감자: 'potato',
+  감자튀김: 'french_fries',
+  프렌치프라이: 'french_fries',
+  '프렌치 프라이': 'french_fries',
+  'french fries': 'french_fries',
+  fries: 'french_fries',
   양배추: 'cabbage',
   시금치: 'spinach',
   브로콜리: 'broccoli',
@@ -201,6 +206,7 @@ export const INGREDIENT_ICON_CATEGORY: Record<string, IngredientIconCategory> = 
   zucchini: 'vegetable',
   mushroom: 'vegetable',
   potato: 'vegetable',
+  french_fries: 'processed',
   cabbage: 'vegetable',
   spinach: 'vegetable',
   broccoli: 'vegetable',
@@ -283,7 +289,7 @@ export function lookupIngredientAlias(rawName: string): string | null {
   if (exact) return exact;
 
   for (const entry of ALIAS_ENTRIES) {
-    if (entry.compact.length < 2) continue;
+    if (entry.compact.length < 3) continue;
     if (compact.includes(entry.compact)) return entry.iconKey;
   }
 

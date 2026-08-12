@@ -1,0 +1,8 @@
+# Local / generated
+generated/
+.env
+.env.*
+!.env.example
+
+.vercel
+.env*

@@ -4,6 +4,33 @@
 export const convenienceCombosCopy = {
   title: '편의점 꿀조합',
   description: '든든한 한 끼부터 간식까지, 상황에 맞는 조합을 골라보세요.',
+  recommendationDescription:
+    '지금 상황에 맞는 조합을 한끼가 먼저 골라드릴게요.',
+  todayRecommendationTitle: '오늘의 추천',
+  todayRecommendationBadge: '오늘의 추천 ⭐',
+  alternateTitle: '이런 조합도 있어요',
+  viewAllCombos: '전체 50개 조합 보기',
+  eatThisCombo: '이 조합으로 먹기',
+  anotherRecommendation: '다른 조합 추천',
+  anotherRecommendationDetail: '다른 조합 추천하기',
+  allListDescription: '전체 조합을 필터와 정렬로 탐색해 보세요.',
+  detailGuideMessage: '이렇게 먹으면 딱이에요!',
+  comboPointsTitle: '조합 포인트',
+  componentsTitle: '구성품',
+  optionalItemBadge: '선택',
+  howToMakeTitle: '만드는 방법',
+  /** Hero 말풍선 전용 — 짧은 감성 한마디 (10~15자, 상세 설명은 카드 본문). */
+  guideDefault: '오늘은 이걸로!',
+  situationGuide: {
+    hearty: '든든하게 해결!',
+    budget: '가성비 최고!',
+    lateNight: '야식으로 딱!',
+    spicy: '매콤하게 가요!',
+    light: '부담 없이!',
+    protein: '단백질 챙겨요!',
+    dessert: '달달하게!',
+    hangover: '속부터 풀어요!',
+  },
   countLabel: (count: number) => `등록된 조합 수: ${count}개`,
   resultCount: (count: number) => `${count}개 조합`,
   all: '전체',
@@ -61,3 +88,11 @@ export const convenienceCombosCopy = {
 } as const;
 
 export type ConvenienceSituationCopyKey = keyof typeof convenienceCombosCopy.situation;
+
+export type ConvenienceSituationGuideKey = keyof typeof convenienceCombosCopy.situationGuide;
+
+export function getConvenienceSituationGuideMessage(
+  situationId: ConvenienceSituationGuideKey,
+): string {
+  return convenienceCombosCopy.situationGuide[situationId];
+}

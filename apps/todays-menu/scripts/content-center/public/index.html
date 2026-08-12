@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HANKKI Content Center</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div>
+        <p class="eyebrow">Internal · CONTENT-CENTER-1</p>
+        <h1>HANKKI Content Center</h1>
+        <p class="sub">
+          Hero review · Ingredient icon status · Recipe readiness — not part of
+          the mobile app
+        </p>
+      </div>
+      <div class="top-actions">
+        <button type="button" id="btn-refresh" class="ghost">Refresh</button>
+        <a
+          class="ghost"
+          href="/ingredients.html"
+          style="text-decoration: none; display: inline-block; padding: 0.55rem 0.8rem"
+          >Ingredient Library</a
+        >
+      </div>
+    </header>
+
+    <section id="scale" class="scale"></section>
+    <section id="summary" class="summary"></section>
+
+    <main class="layout">
+      <aside class="list-pane">
+        <div class="filters" id="filters">
+          <button type="button" data-filter="all" class="active">All</button>
+          <button type="button" data-filter="ready">Ready</button>
+          <button type="button" data-filter="review_needed">
+            Review needed
+          </button>
+          <button type="button" data-filter="missing_assets">
+            Missing assets
+          </button>
+        </div>
+        <div id="recipe-list" class="recipe-list" role="list"></div>
+      </aside>
+
+      <section id="detail" class="detail-pane">
+        <p class="empty">Select a recipe from the list.</p>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" hidden></div>
+
+    <dialog id="compare-dialog">
+      <form method="dialog" class="compare-shell">
+        <header>
+          <strong>버전 비교</strong>
+          <button type="submit" class="ghost" value="cancel">닫기</button>
+        </header>
+        <div class="compare-picks">
+          <label>
+            A
+            <select id="compare-a"></select>
+          </label>
+          <label>
+            B
+            <select id="compare-b"></select>
+          </label>
+        </div>
+        <div class="compare-views">
+          <figure>
+            <figcaption id="compare-cap-a">A</figcaption>
+            <img id="compare-img-a" alt="Version A" />
+          </figure>
+          <figure>
+            <figcaption id="compare-cap-b">B</figcaption>
+            <img id="compare-img-b" alt="Version B" />
+          </figure>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

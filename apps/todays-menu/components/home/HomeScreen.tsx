@@ -11,10 +11,13 @@ import { HomeComingSoonSection } from './HomeComingSoonSection';
 import { HomeFavoritePopup } from './HomeFavoritePopup';
 import { HomeFeatureCards } from './HomeFeatureCards';
 import { HomeHeroTitles } from './HomeHeroTitles';
-import { HomeRewardCard } from './HomeRewardCard';
+import { HomePersonalSection } from './HomePersonalSection';
 import { TodayMealCard } from './TodayMealCard';
+import { MealTimeSlotTabs } from './MealTimeSlotTabs';
+import { AlternativeMealsRow } from './AlternativeMealsRow';
 import { Toast } from './Toast';
 import { useHomeScreen } from './useHomeScreen';
+import { CoupangDynamicBanner } from '../ads/CoupangDynamicBanner';
 import { logHomeRootMount, logHomeRootUnmount } from '../../utils/homeDebugLog';
 import type { ComingSoonFeatureId } from '../../types/featureSurvey';
 
@@ -23,8 +26,7 @@ type Props = {
 };
 
 /**
- * North Star Home — compact header + feature cards + food hero + coming soon + reward.
- * Coming Soon taps open priority surveys (H3-12) without changing card layout.
+ * Sprint 61-D — tighter vertical rhythm, decision-first hero.
  */
 export function HomeScreen({ nickname }: Props) {
   const router = useRouter();
@@ -56,6 +58,12 @@ export function HomeScreen({ nickname }: Props) {
     handleMealModeChange,
     handleHeartPress,
     handleRetry,
+    handleSelectAlternative,
+    handleSlotChange,
+    selectedSlot,
+    clockPrimarySlot,
+    favoriteCount,
+    viewedRecipeCount,
   } = useHomeScreen(nickname);
 
   const {
@@ -78,7 +86,6 @@ export function HomeScreen({ nickname }: Props) {
   );
 
   return (
-    // Top only — bottom inset is owned by the tab bar.
     <SafeAreaView style={styles.safeArea} edges={['top']}>
       <View style={mobileShell.container}>
         <ScrollView
@@ -95,7 +102,7 @@ export function HomeScreen({ nickname }: Props) {
           overScrollMode="never"
         >
           <View style={styles.phoneFrame}>
-            <HomeHeroTitles />
+            <HomeHeroTitles selectedSlot={selectedSlot} />
             <HomeFeatureCards
               mealMode={mealMode}
               disabled={modeSelectorDisabled}
@@ -103,6 +110,15 @@ export function HomeScreen({ nickname }: Props) {
               onConveniencePress={() => router.push('/convenience-combos')}
               onFridgePress={() => router.push('/fridge-raid')}
             />
+
+            <View style={styles.slotSection}>
+              <MealTimeSlotTabs
+                selectedSlot={selectedSlot}
+                clockPrimarySlot={clockPrimarySlot}
+                disabled={modeSelectorDisabled}
+                onSelect={handleSlotChange}
+              />
+            </View>
 
             <TodayMealCard
               todayBrief={todayBrief}
@@ -117,8 +133,21 @@ export function HomeScreen({ nickname }: Props) {
               onRetry={handleRetry}
             />
 
+            {recommendation?.alternatives && recommendation.alternatives.length > 0 ? (
+              <AlternativeMealsRow
+                alternatives={recommendation.alternatives}
+                selectedId={recommendation.recipe.id}
+                disabled={isRefreshing || screenState !== 'ready'}
+                onSelect={handleSelectAlternative}
+              />
+            ) : null}
+
             <HomeComingSoonSection onComingSoonPress={handleComingSoonPress} />
-            <HomeRewardCard onPress={() => openSurvey('reward')} />
+            <HomePersonalSection
+              favoriteCount={favoriteCount}
+              recentViewedCount={viewedRecipeCount}
+            />
+            <CoupangDynamicBanner />
           </View>
         </ScrollView>
 
@@ -166,16 +195,17 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   scrollContent: {
-    /** Sprint H6 — slightly tighter top so CTA fits above tab on iPhone */
-    paddingTop: 10,
+    paddingTop: 8,
     alignItems: 'center',
   },
   phoneFrame: {
     width: '100%',
     maxWidth: '100%',
-    gap: ds.spacing.section,
-    // Visible so header Seed can attach to the kids card (H2-7).
+    gap: 8,
     overflow: 'visible',
+  },
+  slotSection: {
+    width: '100%',
   },
   toastHost: {
     position: 'absolute',

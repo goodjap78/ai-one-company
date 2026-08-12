@@ -28,6 +28,8 @@ export const ds = {
     chipPastel: ['#FFF3E8', '#FFF8EE', '#F3F8F1', '#FFF5F0', '#F7F3FF', '#FFF9E8'] as const,
     shadow: '#A67C5B',
     glow: '#FF6B35',
+    /** Convenience combo item icons — matches sectionCard interior (not canvas). */
+    convenienceComponentIconBg: '#FFFCF7',
   },
   typography: {
     pageTitle: { fontSize: 28, lineHeight: 36, fontWeight: '700' as const, letterSpacing: -0.4 },

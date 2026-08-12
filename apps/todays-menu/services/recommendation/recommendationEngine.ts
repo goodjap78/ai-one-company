@@ -25,6 +25,7 @@ import {
   loadRecentShownMenus,
   noteRecommendedMenu,
 } from './recommendationRefreshHistory';
+import { getRecommendationRandom } from './recommendationRng';
 
 let recommendationCounter = 0;
 
@@ -206,7 +207,9 @@ function recommendFromCatalogWithPool(
   const ranking = rankTopMeals(candidates, situation, request.context, {
     excludeMenuId: request.excludeMenuId,
     limit: 3,
-    refreshSalt: options.isRefresh ? Date.now() + recommendationCounter * 31 : 0,
+    refreshSalt: options.isRefresh
+      ? Math.floor(getRecommendationRandom() * 1_000_000_000) + recommendationCounter * 31
+      : 0,
     expandPickPool: Boolean(options.isRefresh),
   });
 
@@ -266,13 +269,19 @@ export function recommendMenu(request: RecommendationRequest): HomeRecommendatio
 
 export async function recommendMenuWithContext(
   request: Omit<RecommendationRequest, 'context'>,
+  options: { dailyExcludeRecipeId?: string } = {},
 ): Promise<HomeRecommendationDTO> {
   const [context, yesterdayIds] = await Promise.all([
     loadRecommendationContext(),
     getYesterdayRecipeIds(),
   ]);
   await loadRecentShownMenus();
-  const enriched = await withPantryEnrichedContext(request, context);
+  const excludeMenuId =
+    request.excludeMenuId ?? options.dailyExcludeRecipeId ?? undefined;
+  const enriched = await withPantryEnrichedContext(
+    { ...request, excludeMenuId },
+    context,
+  );
   return recommendFromCatalog(enriched, yesterdayIds);
 }
 

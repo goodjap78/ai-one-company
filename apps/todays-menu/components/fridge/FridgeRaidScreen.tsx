@@ -19,6 +19,7 @@ import {
 } from '../../constants/fridgeRaidCopy';
 import { NAV_BACK } from '../../constants/navigationCopy';
 import { ds } from '../../constants/designSystem';
+import { APP_HOME_HREF } from '../../constants/appRoutes';
 import {
   FRIDGE_CHIP_GAP,
   FRIDGE_CHIP_MIN_HEIGHT,
@@ -32,7 +33,7 @@ import {
 import type { PantryItem } from '../../types/pantry';
 import { IngredientTagEditor } from '../my/IngredientTagEditor';
 import { appChrome } from '../ui/appChrome';
-import { ScreenBackButton } from '../ui/ScreenBackButton';
+import { ScreenReplaceNavButton } from '../ui/ScreenReplaceNavButton';
 import { ScreenLoading } from '../ui/ScreenLoading';
 import { screenLayout } from '../ui/screenLayout';
 
@@ -120,10 +121,16 @@ export function FridgeRaidScreen() {
     await loadPantry();
   };
 
-  const handleRecommend = () => {
+  const handleRecommend = async () => {
     if (navigating) return;
     setNavigating(true);
+    const pantry = await getPantry();
+    if (pantry.items.length === 0) {
+      setNavigating(false);
+      return;
+    }
     router.push('/fridge-raid/results');
+    setNavigating(false);
   };
 
   const tagLabels = items.map((item) => item.name);
@@ -145,7 +152,11 @@ export function FridgeRaidScreen() {
             keyboardShouldPersistTaps="handled"
           >
             <View style={screenLayout.frame}>
-              <ScreenBackButton label={NAV_BACK.home} fallbackHref="/" />
+              <ScreenReplaceNavButton
+                href={APP_HOME_HREF}
+                label={NAV_BACK.home}
+                accessibilityLabel="홈으로"
+              />
 
               <View style={styles.header}>
                 <Text style={screenLayout.title} accessibilityRole="header">

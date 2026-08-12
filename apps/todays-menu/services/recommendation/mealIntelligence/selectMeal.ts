@@ -5,12 +5,14 @@ import { HMIE_TOP_N } from './hmieWeights';
 import { scoreMeal } from './scoreMeal';
 import { storeRecommendationScoreDebug } from './recommendationScoreDebug';
 import { buildMetadataPersonalizationReason } from './aiRecommendationReasonCopy';
+import { getNow } from '../../../utils/dateProvider';
+import { getRecommendationRandom } from '../../recommendationRng';
 
 /** First daily pick — deterministic band among top scorers. */
 const TOP_PICK_POOL_INITIAL = 3;
 
 function buildDailyPickSalt(refreshSalt: number): number {
-  const today = new Date();
+  const today = getNow();
   return (
     refreshSalt +
     today.getFullYear() * 10_000 +
