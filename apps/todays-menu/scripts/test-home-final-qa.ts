@@ -49,6 +49,8 @@ run('HomeScreen — final section order', () => {
   assert(secondaryIdx < personalIdx, '한끼 더하기 before personal');
   const bannerIdx = src.indexOf('<CoupangDynamicBanner');
   assert(bannerIdx > personalIdx, 'dynamic banner after 나의 한끼');
+  const admobIdx = src.indexOf('<AdMobBanner');
+  assert(admobIdx > bannerIdx, 'AdMob banner after Coupang');
 });
 
 run('TodayMealCard — badge/title inside hero image', () => {

@@ -17,6 +17,7 @@ import { MealTimeSlotTabs } from './MealTimeSlotTabs';
 import { AlternativeMealsRow } from './AlternativeMealsRow';
 import { Toast } from './Toast';
 import { useHomeScreen } from './useHomeScreen';
+import { AdMobBanner } from '../ads/AdMobBanner';
 import { CoupangDynamicBanner } from '../ads/CoupangDynamicBanner';
 import { logHomeRootMount, logHomeRootUnmount } from '../../utils/homeDebugLog';
 import type { ComingSoonFeatureId } from '../../types/featureSurvey';
@@ -148,6 +149,7 @@ export function HomeScreen({ nickname }: Props) {
               recentViewedCount={viewedRecipeCount}
             />
             <CoupangDynamicBanner />
+            <AdMobBanner />
           </View>
         </ScrollView>
 

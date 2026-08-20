@@ -72,6 +72,8 @@ run('Home placement — after 나의 한끼 / Personal, scroll content', () => {
   const personalIdx = src.indexOf('<HomePersonalSection');
   const bannerIdx = src.indexOf('<CoupangDynamicBanner');
   assert(personalIdx >= 0 && bannerIdx > personalIdx, 'banner after HomePersonalSection');
+  const admobIdx = src.indexOf('<AdMobBanner');
+  assert(admobIdx > bannerIdx, 'AdMob after Coupang on Home');
   const heroIdx = src.indexOf('<HomeHeroTitles');
   const featureIdx = src.indexOf('<HomeFeatureCards');
   assert(bannerIdx > heroIdx && bannerIdx > featureIdx, 'not between hero/features');
@@ -84,8 +86,8 @@ run('Home placement — after 나의 한끼 / Personal, scroll content', () => {
 run('Ingredients placement — after shopping CTA + body end', () => {
   const src = read('components/ingredients/IngredientsScreen.tsx');
   assert(src.includes('CoupangDynamicBanner'), 'banner on ingredients');
-  assert(src.includes('IngredientsShoppingCta'), 'shopping CTA kept');
-  const ctaIdx = src.indexOf('<IngredientsShoppingCta');
+  assert(src.includes('RecipePrepChoiceCta'), 'shopping CTA kept');
+  const ctaIdx = src.indexOf('<RecipePrepChoiceCta');
   const stepsIdx = src.indexOf('<RecipeStepsList');
   const bannerIdx = src.indexOf('<CoupangDynamicBanner');
   assert(ctaIdx >= 0 && bannerIdx > ctaIdx, 'banner after shopping CTA');

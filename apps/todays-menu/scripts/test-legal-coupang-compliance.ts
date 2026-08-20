@@ -66,7 +66,20 @@ run('Privacy distinguishes third-party provision vs external services', () => {
   assert(!src.includes('쿠팡에 개인정보를 제공합니다'), 'no false PII-to-Coupang claim');
   assert(src.includes('광고 식별자'), 'ad id not in shopping request (stated)');
   assert(src.includes('장보기 요청에 포함하지'), 'shopping request exclusion stated');
-  assert(src.includes('2026-08-12'), 'updated date');
+  assert(src.includes('2026-08-15'), 'updated date');
+  assert(src.includes('Firebase Analytics'), 'Firebase Analytics disclosed');
+  assert(src.includes('Google Analytics for Firebase'), 'GA for Firebase named');
+  assert(
+    !src.includes('별도의 분석·광고 SDK는 현재 앱에 포함되어 있지 않습니다'),
+    'removed obsolete no-analytics-SDK claim',
+  );
+  assert(src.includes('Google AdMob'), 'AdMob disclosed');
+  assert(src.includes('Google Mobile Ads SDK'), 'Mobile Ads SDK named');
+  assert(
+    !src.includes('별도의 배너·전면 광고 SDK는 현재 앱에 포함되어 있지 않습니다'),
+    'removed obsolete no-AdMob claim',
+  );
+  assert(src.includes('ads-partners.coupang.com'), 'banner host disclosed');
 });
 
 run('My Legal Section still uses LEGAL_URLS', () => {

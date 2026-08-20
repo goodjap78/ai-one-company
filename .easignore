@@ -1,0 +1,54 @@
+# EAS Build upload ignore (git repository root)
+# When this file exists, EAS CLI uses it instead of .gitignore.
+# Keep production runtime: apps/todays-menu/assets/, firebase configs,
+# app.config.js, data/, services/, components/, constants/, package*.json.
+
+# --- From root .gitignore ---
+node_modules/
+.pnpm-store/
+.expo/
+dist/
+web-build/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.env.local
+.env.production
+.DS_Store
+Thumbs.db
+build/
+coverage/
+
+# --- From apps/todays-menu/.gitignore (+ EAS size fixes) ---
+apps/todays-menu/generated/
+apps/todays-menu/.vercel/
+apps/todays-menu/.env
+apps/todays-menu/.env.*
+!apps/todays-menu/.env.example
+
+# --- Required EAS archive exclusions (HANKKI size overrun) ---
+apps/todays-menu/.tmp-metro-check/
+apps/todays-menu/dist/
+apps/todays-menu/.expo/
+apps/todays-menu/.expo-web-test/
+apps/todays-menu/web-build/
+apps/todays-menu/coverage/
+apps/todays-menu/build/
+
+# Docs / QA only (no runtime imports from docs/)
+apps/todays-menu/docs/
+
+# Local tooling / logs
+apps/todays-menu/*.log
+apps/todays-menu/eas-build-output.log
+apps/todays-menu/tsc-result.txt
+*.log
+
+# Build artifacts anywhere in the monorepo
+**/*.aab
+**/*.apk
+
+# Optional: do not upload full local git objects if CLI supports it
+.git/

@@ -2,9 +2,12 @@ import { Jua_400Regular } from '@expo-google-fonts/jua';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { useEffect } from 'react';
 import { View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ds } from '../constants/designSystem';
+import { initAnalytics } from '../services/analytics';
+import { initAdMob } from '../services/ads/initAdMob';
 
 /**
  * Root layout — load shared fonts before mounting the app tree (Sprint H4).
@@ -14,6 +17,11 @@ export default function RootLayout() {
   const [fontsLoaded] = useFonts({
     Jua_400Regular,
   });
+
+  useEffect(() => {
+    initAnalytics();
+    initAdMob();
+  }, []);
 
   if (!fontsLoaded) {
     return <View style={{ flex: 1, backgroundColor: ds.colors.canvas }} />;
@@ -38,6 +46,7 @@ export default function RootLayout() {
         <Stack.Screen name="meal-history" />
         <Stack.Screen name="recently-viewed" />
         <Stack.Screen name="shopping/[recipeId]" />
+        <Stack.Screen name="qa/meal-kit" />
         <Stack.Screen name="fridge-raid/index" />
         <Stack.Screen name="fridge-raid/results" />
         <Stack.Screen name="convenience-combos/index" />
