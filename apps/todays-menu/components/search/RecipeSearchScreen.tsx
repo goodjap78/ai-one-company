@@ -18,6 +18,7 @@ import {
   searchRecipes,
 } from '../../services/search';
 import type { RecipeSearchResult } from '../../types/recipeSearch';
+import { setRecipeOpenSource } from '../../services/analytics';
 import { SectionEmptyState } from '../ui/SectionEmptyState';
 
 export function RecipeSearchScreen() {
@@ -39,6 +40,7 @@ export function RecipeSearchScreen() {
         const next = await addRecentSearch(trimmedQuery);
         setRecentSearches(next);
       }
+      setRecipeOpenSource('search');
       router.push(`/recipe/${item.recipeId}`);
     },
     [router, trimmedQuery],

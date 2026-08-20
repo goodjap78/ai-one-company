@@ -1,5 +1,5 @@
 /**
- * Sprint 58.1 — Batch 2 late night catalog expansion QA.
+ * Sprint 58.1 ??Batch 2 late night catalog expansion QA.
  * Run: npm run test:meal-catalog-batch2
  */
 import fs from 'node:fs';
@@ -52,9 +52,9 @@ let failed = 0;
 function assert(cond: boolean, msg: string): void {
   if (!cond) {
     failed += 1;
-    console.error(`❌ ${msg}`);
+    console.error(`??${msg}`);
   } else {
-    console.log(`✅ ${msg}`);
+    console.log(`??${msg}`);
   }
 }
 
@@ -63,14 +63,14 @@ function normalizeTitle(name: string): string {
 }
 
 function tokenize(name: string): Set<string> {
-  return new Set(name.replace(/\s+/g, '').split(/(?=[가-힣])/).filter((t) => t.length >= 2));
+  return new Set(name.replace(/\s+/g, '').split(/(?=[가-??)/).filter((t) => t.length >= 2));
 }
 
-console.log('Sprint 58.1 meal-catalog-batch2 QA — start\n');
+console.log('Sprint 58.1 meal-catalog-batch2 QA ??start\n');
 
 const batch2Recipes = HANKKI_RECIPES.filter((r) => BATCH_2_IDS.includes(r.id));
 assert(batch2Recipes.length === 30, `batch2 recipes exactly 30 (got ${batch2Recipes.length})`);
-assert(HANKKI_RECIPES.length === 300, `catalog total 300 (got ${HANKKI_RECIPES.length})`);
+assert(HANKKI_RECIPES.length === 304, `catalog total 304 (got ${HANKKI_RECIPES.length})`);
 assert(BATCH_16_INPUTS.length === 15, 'batch16 count 15');
 assert(BATCH_17_INPUTS.length === 15, 'batch17 count 15');
 assert(BATCH_2_SELECTED_COUNT === 30, 'candidate audit selected 30');
@@ -81,7 +81,7 @@ for (const id of BATCH_2_IDS) {
   const recipe = HANKKI_RECIPES.find((r) => r.id === id);
   assert(recipe != null, `recipe exists ${id}`);
   if (recipe) {
-    assert(recipe.mealType.includes('야식'), `${id} mealType 야식`);
+    assert(recipe.mealType.includes('?�식'), `${id} mealType ?�식`);
     assert(recipe.recipe.steps.length >= 4, `${id} steps >= 4`);
     assert(recipe.ingredients.length > 0, `${id} ingredients non-empty`);
     assert(recipe.time <= 25, `${id} time <= 25min (got ${recipe.time})`);
@@ -119,7 +119,7 @@ console.log(`   near-duplicate pairs reported: ${nearDuplicates.length}`);
 
 const production = validateHankkiProductionDb();
 assert(production.ok, `validateHankkiProductionDb ok (issues: ${production.issues.length})`);
-assert(production.recipeCount === 300, `production count 300 (got ${production.recipeCount})`);
+assert(production.recipeCount === 304, `production count 304 (got ${production.recipeCount})`);
 
 const unitAudit = auditRecipeIngredientUnits(HANKKI_RECIPES);
 assert(unitAudit.invalid === 0, `ingredient unit invalid 0 (got ${unitAudit.invalid})`);
@@ -153,15 +153,15 @@ const poolSummary = buildMealTimePoolSummary(allEntries);
 const lateNightPool = poolSummary.find((p) => p.slot === 'lateNight');
 if (lateNightPool) {
   console.log(
-    `   lateNight pool ≥0.7=${lateNightPool.counts[0.7]} ≥0.5=${lateNightPool.counts[0.5]} gap070=${lateNightPool.gap070}`,
+    `   lateNight pool ??.7=${lateNightPool.counts[0.7]} ??.5=${lateNightPool.counts[0.5]} gap070=${lateNightPool.gap070}`,
   );
   assert(lateNightPool.counts[0.7] >= 40, `lateNight pool >= 0.7 at least 40 (got ${lateNightPool.counts[0.7]})`);
 }
 
 const ramenLateNight = countFoodTypeInSlot(allEntries, 'lateNight', 'ramen');
 const lightLateCount = countFoodTypeInSlot(allEntries, 'lateNight', 'light_late');
-console.log(`   catalog lateNight ramen (≥0.7): ${ramenLateNight}`);
-console.log(`   catalog lateNight light_late (≥0.7): ${lightLateCount}`);
+console.log(`   catalog lateNight ramen (??.7): ${ramenLateNight}`);
+console.log(`   catalog lateNight light_late (??.7): ${lightLateCount}`);
 assert(ramenLateNight >= 12, `lateNight ramen >= 12 (got ${ramenLateNight})`);
 assert(lightLateCount >= 6, `lateNight light_late >= 6 (got ${lightLateCount})`);
 
@@ -245,5 +245,5 @@ assert(
   'batch2-candidate-audit.json written',
 );
 
-console.log('\nSprint 58.1 meal-catalog-batch2 QA — done (' + failed + ' failed)');
+console.log('\nSprint 58.1 meal-catalog-batch2 QA ??done (' + failed + ' failed)');
 if (failed > 0) process.exit(1);

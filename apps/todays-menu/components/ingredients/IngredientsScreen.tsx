@@ -31,7 +31,8 @@ import { RecipeIngredientsList } from '../recipe/RecipeIngredientsList';
 import { RecipeServingAdjuster } from '../recipe/RecipeServingAdjuster';
 import { recipePremiumStyles } from '../recipe/recipePremiumStyles';
 import { RecipeStepsList } from '../recipe/RecipeStepsList';
-import { IngredientsShoppingCta } from '../shopping/IngredientsShoppingCta';
+import { consumeRecipeOpenSource, trackRecipeOpen } from '../../services/analytics';
+import { RecipePrepChoiceCta } from '../shopping/RecipePrepChoiceCta';
 import { CoupangDynamicBanner } from '../ads/CoupangDynamicBanner';
 import { ScreenLoading } from '../ui/ScreenLoading';
 import { ScreenBackButton } from '../ui/ScreenBackButton';
@@ -93,6 +94,10 @@ export function IngredientsScreen({ recipeId }: Props) {
   useEffect(() => {
     if (!recipeId || !recipe) return;
     void recordViewedRecipe(recipeId);
+    trackRecipeOpen({
+      recipe_id: recipeId,
+      source: consumeRecipeOpenSource(),
+    });
   }, [recipeId, recipe?.id]);
 
   useEffect(() => {
@@ -245,6 +250,8 @@ export function IngredientsScreen({ recipeId }: Props) {
               calories={calories}
             />
 
+            <RecipePrepChoiceCta recipeId={recipeId} />
+
             {/* 5–7 주재료 / 부재료 / 양념 */}
             <RecipeServingAdjuster
               baseServings={recipe.servings}
@@ -259,7 +266,6 @@ export function IngredientsScreen({ recipeId }: Props) {
               baseServings={recipe.servings}
               targetServings={targetServings}
             />
-            <IngredientsShoppingCta recipeId={recipeId} />
 
             {/* 9 만드는 방법 — all steps in one scroll */}
             <RecipeStepsList steps={recipe.steps} />

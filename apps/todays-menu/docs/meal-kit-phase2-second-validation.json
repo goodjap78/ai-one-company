@@ -1,0 +1,124 @@
+{
+  "generatedAt": "2026-08-13T10:22:13.271Z",
+  "stats": {
+    "apiRequestCount": 4,
+    "rateLimitEvents": 0,
+    "cacheHits": 0
+  },
+  "rows": [
+    {
+      "id": "recipe_0301",
+      "name": "밀푀유나베",
+      "searchKeyword": "밀푀유나베 밀키트",
+      "rawCount": 5,
+      "validCount": 5,
+      "clearMealKitCount": 5,
+      "brandDiversity": 3,
+      "brands": [
+        "고기가좋다",
+        "쿠킹박스",
+        "MYCHEF"
+      ],
+      "finalQuality": "STRONG",
+      "secondValidationPass": true,
+      "validTitles": [
+        "고기가좋다 밀푀유나베 샤브샤브 캠핑 밀키트 완제품, 3개, 1kg",
+        "밀푀유나베 2인분 1.2kg 집들이 캠핑밀키트 쿠킹박스, 1.2kg, 1개",
+        "밀푀유나베 2인분 1.2kg 집들이 캠핑밀키트 쿠킹박스, 1.2kg, 2개",
+        "MYCHEF 밀푀유나베 & 칼국수 밀키트 2~3인분",
+        "고기가좋다 밀푀유나베 밀키트 3~4인분 캠핑 집들이 간편조리식품"
+      ],
+      "rawTitles": [
+        "고기가좋다 밀푀유나베 샤브샤브 캠핑 밀키트 완제품, 3개, 1kg",
+        "밀푀유나베 2인분 1.2kg 집들이 캠핑밀키트 쿠킹박스, 1.2kg, 1개",
+        "밀푀유나베 2인분 1.2kg 집들이 캠핑밀키트 쿠킹박스, 1.2kg, 2개",
+        "MYCHEF 밀푀유나베 & 칼국수 밀키트 2~3인분",
+        "고기가좋다 밀푀유나베 밀키트 3~4인분 캠핑 집들이 간편조리식품"
+      ]
+    },
+    {
+      "id": "recipe_0302",
+      "name": "불고기전골",
+      "searchKeyword": "불고기전골 밀키트",
+      "rawCount": 5,
+      "validCount": 4,
+      "clearMealKitCount": 4,
+      "brandDiversity": 3,
+      "brands": [
+        "우본",
+        "프레시지",
+        "MYCHEF"
+      ],
+      "finalQuality": "STRONG",
+      "secondValidationPass": true,
+      "validTitles": [
+        "우본 한우 양념 소불고기 불고기 전골 밀키트 500g, 500g, 5개",
+        "프레시지 서울식 불고기 전골 밀키트 2인분",
+        "MYCHEF 버섯가득 소불고기전골 밀키트 2~3인분",
+        "프레시지 서울식 불고기 전골 밀키트 2인분"
+      ],
+      "rawTitles": [
+        "뚝불고기 400g 5개 엠에스푸드 뚝불 즉석 요리 캠핑 간단 간편 엄마손맛 간편식 혼밥 음식, 400g, 5개",
+        "우본 한우 양념 소불고기 불고기 전골 밀키트 500g, 500g, 5개",
+        "프레시지 서울식 불고기 전골 밀키트 2인분",
+        "MYCHEF 버섯가득 소불고기전골 밀키트 2~3인분",
+        "프레시지 서울식 불고기 전골 밀키트 2인분"
+      ]
+    },
+    {
+      "id": "recipe_0303",
+      "name": "쭈꾸미볶음",
+      "searchKeyword": "쭈꾸미볶음 밀키트",
+      "rawCount": 5,
+      "validCount": 2,
+      "clearMealKitCount": 1,
+      "brandDiversity": 2,
+      "brands": [
+        "우주",
+        "쭈꾸미 함량 81%"
+      ],
+      "finalQuality": "VALID",
+      "secondValidationPass": true,
+      "validTitles": [
+        "[로켓프레시] 우주 쭈꾸미 볶음 (냉동), 1kg, 1개",
+        "쭈꾸미 함량 81% 프리미엄 매운 양념 쭈꾸미 볶음 밀키트 캠핑요리 500g"
+      ],
+      "rawTitles": [
+        "[로켓프레시] 우주 쭈꾸미 볶음 (냉동), 1kg, 1개",
+        "미스터쭈꾸미 양념쭈꾸미 순한 매운맛 (냉동), 500g, 2개",
+        "쭈꾸미 사령부 매운맛 (냉동), 350g, 3개",
+        "하남쭈꾸미 보통 매운맛 (냉동)",
+        "쭈꾸미 함량 81% 프리미엄 매운 양념 쭈꾸미 볶음 밀키트 캠핑요리 500g"
+      ]
+    },
+    {
+      "id": "recipe_0304",
+      "name": "해물탕",
+      "searchKeyword": "해물탕 밀키트",
+      "rawCount": 5,
+      "validCount": 4,
+      "clearMealKitCount": 3,
+      "brandDiversity": 3,
+      "brands": [
+        "간편한수인",
+        "탕선생",
+        "바다자리"
+      ],
+      "finalQuality": "STRONG",
+      "secondValidationPass": true,
+      "validTitles": [
+        "간편한수인 (당일제조) (냉장상품) 면사리 냄비 모두 주는 알탕 해물탕 밀키트 4인, 1개, 1.8kg",
+        "간편한수인 (당일제조) (냉장상품) 면사리 냄비 모두 주는 알탕 해물탕 밀키트 4인, 1개, 1.8kg",
+        "[로켓프레시] THE 푸짐한 탕선생 해물탕 3~4인분 (냉동)",
+        "[로켓프레시] 바다자리 해물가득 문어해물탕 밀키트"
+      ],
+      "rawTitles": [
+        "업소용 얼큰해물짬뽕탕(안주세상 750g), 750g, 10개",
+        "간편한수인 (당일제조) (냉장상품) 면사리 냄비 모두 주는 알탕 해물탕 밀키트 4인, 1개, 1.8kg",
+        "간편한수인 (당일제조) (냉장상품) 면사리 냄비 모두 주는 알탕 해물탕 밀키트 4인, 1개, 1.8kg",
+        "[로켓프레시] THE 푸짐한 탕선생 해물탕 3~4인분 (냉동)",
+        "[로켓프레시] 바다자리 해물가득 문어해물탕 밀키트"
+      ]
+    }
+  ]
+}

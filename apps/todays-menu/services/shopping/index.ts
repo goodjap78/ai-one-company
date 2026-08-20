@@ -35,7 +35,11 @@ export {
   canOpenShoppingProduct,
   resolveOutboundProductUrl,
 } from './resolveOutboundProductUrl';
-export { trackShoppingEvent, setShoppingAnalyticsListener } from './shoppingAnalytics';
+export {
+  trackShoppingEvent,
+  setShoppingAnalyticsListener,
+  setShoppingAnalyticsProvider,
+} from './shoppingAnalytics';
 export {
   disabledProductAdapter,
   getShoppingProductAdapter,

@@ -1,5 +1,5 @@
 /**
- * Sprint 58 — Batch 1 breakfast catalog expansion QA.
+ * Sprint 58 ??Batch 1 breakfast catalog expansion QA.
  * Run: npm run test:meal-catalog-batch1
  */
 import fs from 'node:fs';
@@ -48,9 +48,9 @@ let failed = 0;
 function assert(cond: boolean, msg: string): void {
   if (!cond) {
     failed += 1;
-    console.error(`❌ ${msg}`);
+    console.error(`??${msg}`);
   } else {
-    console.log(`✅ ${msg}`);
+    console.log(`??${msg}`);
   }
 }
 
@@ -58,11 +58,11 @@ function normalizeTitle(name: string): string {
   return name.replace(/\s+/g, '').toLowerCase();
 }
 
-console.log('Sprint 58 meal-catalog-batch1 QA — start\n');
+console.log('Sprint 58 meal-catalog-batch1 QA ??start\n');
 
 const batch1Recipes = HANKKI_RECIPES.filter((r) => BATCH_1_IDS.includes(r.id));
 assert(batch1Recipes.length === 30, `batch1 recipes exactly 30 (got ${batch1Recipes.length})`);
-assert(HANKKI_RECIPES.length === 300, `catalog total 300 (got ${HANKKI_RECIPES.length})`);
+assert(HANKKI_RECIPES.length === 304, `catalog total 304 (got ${HANKKI_RECIPES.length})`);
 assert(BATCH_14_INPUTS.length === 15, 'batch14 count 15');
 assert(BATCH_15_INPUTS.length === 15, 'batch15 count 15');
 assert(BATCH_1_SELECTED_COUNT === 30, 'candidate audit selected 30');
@@ -73,7 +73,7 @@ for (const id of BATCH_1_IDS) {
   const recipe = HANKKI_RECIPES.find((r) => r.id === id);
   assert(recipe != null, `recipe exists ${id}`);
   if (recipe) {
-    assert(recipe.mealType.includes('아침'), `${id} mealType 아침`);
+    assert(recipe.mealType.includes('?�침'), `${id} mealType ?�침`);
     assert(recipe.recipe.steps.length >= 4, `${id} steps >= 4`);
     assert(recipe.ingredients.length > 0, `${id} ingredients non-empty`);
   }
@@ -86,7 +86,7 @@ assert(new Set(normalized).size === normalized.length, 'duplicate normalized tit
 
 const production = validateHankkiProductionDb();
 assert(production.ok, `validateHankkiProductionDb ok (issues: ${production.issues.length})`);
-assert(production.recipeCount === 300, `production count 300 (got ${production.recipeCount})`);
+assert(production.recipeCount === 304, `production count 304 (got ${production.recipeCount})`);
 
 const unitAudit = auditRecipeIngredientUnits(HANKKI_RECIPES);
 assert(unitAudit.invalid === 0, `ingredient unit invalid 0 (got ${unitAudit.invalid})`);
@@ -119,7 +119,7 @@ const poolSummary = buildMealTimePoolSummary(allEntries);
 const breakfastPool = poolSummary.find((p) => p.slot === 'breakfast');
 if (breakfastPool) {
   console.log(
-    `   breakfast pool ≥0.7=${breakfastPool.counts[0.7]} ≥0.5=${breakfastPool.counts[0.5]} gap070=${breakfastPool.gap070}`,
+    `   breakfast pool ??.7=${breakfastPool.counts[0.7]} ??.5=${breakfastPool.counts[0.5]} gap070=${breakfastPool.gap070}`,
   );
   assert(breakfastPool.counts[0.7] >= 45, `breakfast pool >= 0.7 at least 45 (got ${breakfastPool.counts[0.7]})`);
 }
@@ -168,5 +168,5 @@ fs.writeFileSync(
 assert(fs.existsSync(path.join(outDir, 'batch1-audit.json')), 'batch1-audit.json written');
 assert(fs.existsSync(path.join(outDir, 'batch1-image-gap.json')), 'batch1-image-gap.json written');
 
-console.log('\nSprint 58 meal-catalog-batch1 QA — done (' + failed + ' failed)');
+console.log('\nSprint 58 meal-catalog-batch1 QA ??done (' + failed + ' failed)');
 if (failed > 0) process.exit(1);

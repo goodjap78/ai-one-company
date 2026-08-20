@@ -27,6 +27,8 @@ export type ShoppingConfig = {
   /** Affiliate disclosure — null hides until legal copy is approved. */
   affiliateDisclosureText: string | null;
   maxProductsPerIngredient: number;
+  /** Meal-kit mode may fetch a few extra raw hits, then filter down to 3. */
+  maxMealKitSearchResults: number;
   /** Max parallel product searches per screen. */
   maxConcurrentSearches: number;
 };
@@ -41,6 +43,7 @@ export const SHOPPING_CONFIG: ShoppingConfig = {
   purchaseCtaDisabledHint: '상품 연결 준비 중',
   affiliateDisclosureText: COUPANG_PARTNERS_OFFICIAL_DISCLOSURE,
   maxProductsPerIngredient: 3,
+  maxMealKitSearchResults: 8,
   maxConcurrentSearches: 2,
 };
 
@@ -53,9 +56,10 @@ export const COMMON_STAPLE_MATCH_KEYS: readonly string[] = [
   'sugar',
 ];
 
-export type ShoppingListMode = 'all' | 'missing';
+export type ShoppingListMode = 'all' | 'missing' | 'meal-kit';
 
 export function parseShoppingListMode(value: string | undefined | null): ShoppingListMode {
   if (value === 'missing') return 'missing';
+  if (value === 'meal-kit' || value === 'mealKit' || value === 'mealkit') return 'meal-kit';
   return 'all';
 }

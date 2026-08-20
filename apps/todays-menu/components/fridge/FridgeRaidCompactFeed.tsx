@@ -16,6 +16,7 @@ import {
   resolveFridgeCompactLayoutMode,
 } from '../../constants/fridgeCompactLayout';
 import type { FridgeRaidCandidate } from '../../services/fridge/fridgeRaidTypes';
+import { trackShoppingCtaClick } from '../../services/analytics';
 import { FridgeRaidCompactCard } from './FridgeRaidCompactCard';
 
 type Props = {
@@ -35,6 +36,7 @@ export function FridgeRaidCompactFeed({ candidates, onPressRecipe }: Props) {
   const snapInterval = fridgeCompactSnapInterval(cardWidth);
 
   const handlePressShopping = (recipeId: string) => {
+    trackShoppingCtaClick({ recipe_id: recipeId, mode: 'missing' });
     router.push(`/shopping/${recipeId}?mode=missing`);
   };
 

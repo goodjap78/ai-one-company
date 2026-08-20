@@ -183,7 +183,7 @@ run('Full catalog audit — keyword coverage 100%', () => {
   console.log(`lines removed by merge (sum across recipes): ${mergeReduced}`);
 
   assert(emptyKeywords === 0, 'empty keyword count 0');
-  assert(totalLines === 2262, `expected 2262 lines got ${totalLines}`);
+  assert(totalLines === 2303, `expected 2303 lines got ${totalLines}`);
 });
 
 run('MatchKey consistency — missing uses fridge keys', () => {

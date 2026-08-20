@@ -1,5 +1,5 @@
 /**
- * Sprint 58.4 — Final Batch catalog expansion QA (+20 → 300).
+ * Sprint 58.4 ??Final Batch catalog expansion QA (+20 ??300).
  * Run: npm run test:meal-catalog-batch5
  */
 import fs from 'node:fs';
@@ -57,9 +57,9 @@ let failed = 0;
 function assert(cond: boolean, msg: string): void {
   if (!cond) {
     failed += 1;
-    console.error(`❌ ${msg}`);
+    console.error(`??${msg}`);
   } else {
-    console.log(`✅ ${msg}`);
+    console.log(`??${msg}`);
   }
 }
 
@@ -68,14 +68,14 @@ function normalizeTitle(name: string): string {
 }
 
 function tokenize(name: string): Set<string> {
-  return new Set(name.replace(/\s+/g, '').split(/(?=[가-힣])/).filter((t) => t.length >= 2));
+  return new Set(name.replace(/\s+/g, '').split(/(?=[가-??)/).filter((t) => t.length >= 2));
 }
 
-console.log('Sprint 58.4 meal-catalog-batch5 QA — start\n');
+console.log('Sprint 58.4 meal-catalog-batch5 QA ??start\n');
 
 const batch5Recipes = HANKKI_RECIPES.filter((r) => BATCH_5_IDS.includes(r.id));
 assert(batch5Recipes.length === 20, `batch5 recipes exactly 20 (got ${batch5Recipes.length})`);
-assert(HANKKI_RECIPES.length === 300, `catalog total 300 (got ${HANKKI_RECIPES.length})`);
+assert(HANKKI_RECIPES.length === 304, `catalog total 304 (got ${HANKKI_RECIPES.length})`);
 assert(BATCH_22_INPUTS.length === 10, 'batch22 count 10');
 assert(BATCH_23_INPUTS.length === 10, 'batch23 count 10');
 assert(BATCH_5_SELECTED_COUNT === 20, 'candidate audit selected 20');
@@ -123,7 +123,7 @@ console.log(`   near-duplicate pairs reported: ${nearDuplicates.length}`);
 
 const production = validateHankkiProductionDb();
 assert(production.ok, `validateHankkiProductionDb ok (issues: ${production.issues.length})`);
-assert(production.recipeCount === 300, `production count 300 (got ${production.recipeCount})`);
+assert(production.recipeCount === 304, `production count 304 (got ${production.recipeCount})`);
 
 const meta = validateAllRecipeStandardMetadata();
 assert(meta.ok, `standard metadata ok (issues: ${meta.issues.length})`);
@@ -159,9 +159,9 @@ for (const recipe of batch5Recipes) {
     assert(fit.fit.dinner >= 0.7, `${recipe.id} dinner >= 0.7 (got ${fit.fit.dinner})`);
   }
   if (recipe.id >= 'recipe_0283' && recipe.id <= 'recipe_0291' && recipe.id !== 'recipe_0299') {
-    const slot = recipe.mealType.includes('아침')
+    const slot = recipe.mealType.includes('?�침')
       ? 'breakfast'
-      : recipe.mealType.includes('야식')
+      : recipe.mealType.includes('?�식')
         ? 'lateNight'
         : 'lunch';
     assert(fit.fit[slot] >= 0.7, `${recipe.id} ${slot} >= 0.7 (got ${fit.fit[slot]})`);
@@ -182,7 +182,7 @@ const gapsWithTarget = foodTypeGaps.filter((g) => g.target > 0 && g.gap > 0);
 
 for (const p of poolSummary) {
   console.log(
-    `   ${p.slot} pool ≥0.7=${p.counts[0.7]} ≥0.5=${p.counts[0.5]} gap070=${p.gap070}`,
+    `   ${p.slot} pool ??.7=${p.counts[0.7]} ??.5=${p.counts[0.5]} gap070=${p.gap070}`,
   );
 }
 
@@ -192,14 +192,14 @@ const gimbapAfter = countFoodTypeInSlot(allEntries, 'lunch', 'gimbap');
 const riceBowlAfter = countFoodTypeInSlot(allEntries, 'lunch', 'rice_bowl');
 
 console.log(
-  `   dinner pasta_western: ${pastaBefore} → ${pastaAfter} (Δ${pastaAfter - pastaBefore})`,
+  `   dinner pasta_western: ${pastaBefore} ??${pastaAfter} (?${pastaAfter - pastaBefore})`,
 );
 console.log(
-  `   lunch sandwich_lunch: ${sandwichBefore} → ${sandwichAfter} (Δ${sandwichAfter - sandwichBefore})`,
+  `   lunch sandwich_lunch: ${sandwichBefore} ??${sandwichAfter} (?${sandwichAfter - sandwichBefore})`,
 );
-console.log(`   lunch gimbap: ${gimbapBefore} → ${gimbapAfter} (Δ${gimbapAfter - gimbapBefore})`);
+console.log(`   lunch gimbap: ${gimbapBefore} ??${gimbapAfter} (?${gimbapAfter - gimbapBefore})`);
 console.log(
-  `   lunch rice_bowl: ${riceBowlBefore} → ${riceBowlAfter} (Δ${riceBowlAfter - riceBowlBefore})`,
+  `   lunch rice_bowl: ${riceBowlBefore} ??${riceBowlAfter} (?${riceBowlAfter - riceBowlBefore})`,
 );
 
 for (const g of gapsWithTarget) {
@@ -295,5 +295,5 @@ assert(
   'batch5-candidate-audit.json written',
 );
 
-console.log('\nSprint 58.4 meal-catalog-batch5 QA — done (' + failed + ' failed)');
+console.log('\nSprint 58.4 meal-catalog-batch5 QA ??done (' + failed + ' failed)');
 if (failed > 0) process.exit(1);

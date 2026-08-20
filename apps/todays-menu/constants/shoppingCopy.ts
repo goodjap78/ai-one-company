@@ -28,4 +28,17 @@ export const SHOPPING_COPY = {
   productsError: '상품을 불러오지 못했어요.',
   productExternalHint: '외부 쇼핑으로 이동',
   productPriceUnavailable: '',
+  /** Sprint 66-A — Meal Kit Limited Pilot (HIGH only). */
+  mealKitSectionTitle: '간편하게 먹을래요?',
+  mealKitSectionBody: '이 메뉴는 밀키트로도 간편하게 준비할 수 있어요.',
+  mealKitCta: '밀키트로 간편하게 →',
+  mealKitScreenTitle: '밀키트 추천',
+  mealKitScreenHint: '바로 조리할 수 있는 밀키트·간편식을 찾아봤어요.',
+  mealKitEmpty: '현재 추천 가능한 밀키트가 없어요.',
+  mealKitFeatureUnavailable: '밀키트 추천은 준비 중이에요.',
+  mealKitProductsTitle: '추천 밀키트',
+  prepChoiceShoppingTitle: '필요한 재료 장보기',
+  prepChoiceShoppingSubtitle: '직접 만들어 먹어요',
+  prepChoiceMealKitTitle: '밀키트로 간편하게',
+  prepChoiceMealKitSubtitle: '간편하게 준비해요',
 };

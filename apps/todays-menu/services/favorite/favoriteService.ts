@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { AddFavoriteInput, AddFavoriteResult, UserPreference } from '../../types/preference';
+import { trackFavoriteChange } from '../analytics';
 import { createUserPreference, upgradeUserPreference } from './preferenceResolver';
 
 const FAVORITES_KEY = '@hankki/favorites';
@@ -139,6 +140,7 @@ export async function addFavorite(input: AddFavoriteInput): Promise<AddFavoriteR
 
   const preference = createUserPreference(input);
   await writeFavorites([preference, ...favorites]);
+  trackFavoriteChange({ recipe_id: input.recipeId, action: 'add' });
 
   return { added: true, preference };
 }
@@ -152,6 +154,7 @@ export async function removeFavorite(recipeId: string): Promise<boolean> {
   }
 
   await writeFavorites(next);
+  trackFavoriteChange({ recipe_id: recipeId, action: 'remove' });
   return true;
 }
 

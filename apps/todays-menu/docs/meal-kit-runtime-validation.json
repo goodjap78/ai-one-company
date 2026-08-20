@@ -1,0 +1,736 @@
+{
+  "generatedAt": "2026-08-13T05:28:32.854Z",
+  "proxy": "https://hankki-shopping-proxy.vercel.app",
+  "fetchLimit": 8,
+  "passCount": 23,
+  "failCount": 1,
+  "rows": [
+    {
+      "recipeId": "001",
+      "recipeName": "제육볶음",
+      "searchKeyword": "제육볶음 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 2,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "[로켓프레시] 하이포크 한돈 고추장 제육볶음, 2개, 700g",
+        "[로켓프레시] 고기본연 동물복지 인증 초신선 생고기로 갓버무린 하루신선 제육볶음, 800g, 1개",
+        "[로켓프레시] 오늘차림 한돈 고추장 제육볶음",
+        "삼삼 고추장 불고기 제육볶음 두루치기 반찬 밀키트",
+        "제주 흑돼지 제육볶음 두루치기 고추장 불고기 돼지 불백 캠핑 밀키트 1.2kg, 1개"
+      ],
+      "validTitles": [
+        "삼삼 고추장 불고기 제육볶음 두루치기 반찬 밀키트",
+        "제주 흑돼지 제육볶음 두루치기 고추장 불고기 돼지 불백 캠핑 밀키트 1.2kg, 1개"
+      ],
+      "rejected": [
+        {
+          "title": "[로켓프레시] 하이포크 한돈 고추장 제육볶음, 2개, 700g",
+          "reason": "missing_meal_kit_or_ready_term"
+        },
+        {
+          "title": "[로켓프레시] 고기본연 동물복지 인증 초신선 생고기로 갓버무린 하루신선 제육볶음, 800g, 1개",
+          "reason": "missing_meal_kit_or_ready_term"
+        },
+        {
+          "title": "[로켓프레시] 오늘차림 한돈 고추장 제육볶음",
+          "reason": "missing_meal_kit_or_ready_term"
+        }
+      ]
+    },
+    {
+      "recipeId": "003",
+      "recipeName": "김치찌개",
+      "searchKeyword": "김치찌개 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 3,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "[간편한식] 이 푸짐한 돼지고기 김치찌개 세트, 10개, 320g",
+        "소온 돼지김치찌개 밀키트 5분요리, 4개, 650g",
+        "MYCHEF 묵은지 김치찌개 밀키트 2인분",
+        "[로켓프레시] 프레시지 The Easy 김치찌개",
+        "[로켓프레시] 프레시지 The Easy 김치찌개"
+      ],
+      "validTitles": [
+        "[간편한식] 이 푸짐한 돼지고기 김치찌개 세트, 10개, 320g",
+        "소온 돼지김치찌개 밀키트 5분요리, 4개, 650g",
+        "MYCHEF 묵은지 김치찌개 밀키트 2인분"
+      ],
+      "rejected": [
+        {
+          "title": "[로켓프레시] 프레시지 The Easy 김치찌개",
+          "reason": "missing_meal_kit_or_ready_term"
+        },
+        {
+          "title": "[로켓프레시] 프레시지 The Easy 김치찌개",
+          "reason": "missing_meal_kit_or_ready_term"
+        }
+      ]
+    },
+    {
+      "recipeId": "004",
+      "recipeName": "된장찌개",
+      "searchKeyword": "된장찌개 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 3,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "더미식 우렁 된장찌개, 350g, 3개",
+        "담뿍 차돌 된장찌개 (냉동), 400g, 6개",
+        "김구원선생 국산두부가 들어간 전통 된장찌개 밀키트 2인분",
+        "고기가좋다 고기집 한우 된장찌개 밀키트 집밥 술밥 술안주 된장밥(냉장)",
+        "비비고 두부듬뿍 된장찌개"
+      ],
+      "validTitles": [
+        "담뿍 차돌 된장찌개 (냉동), 400g, 6개",
+        "김구원선생 국산두부가 들어간 전통 된장찌개 밀키트 2인분",
+        "고기가좋다 고기집 한우 된장찌개 밀키트 집밥 술밥 술안주 된장밥(냉장)"
+      ],
+      "rejected": [
+        {
+          "title": "더미식 우렁 된장찌개, 350g, 3개",
+          "reason": "missing_meal_kit_or_ready_term"
+        },
+        {
+          "title": "비비고 두부듬뿍 된장찌개",
+          "reason": "missing_meal_kit_or_ready_term"
+        }
+      ]
+    },
+    {
+      "recipeId": "006",
+      "recipeName": "불고기",
+      "searchKeyword": "불고기 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 3,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "뚝불고기 400g 5개 엠에스푸드 뚝불 즉석 요리 캠핑 간단 간편 엄마손맛 간편식 혼밥 음식, 400g, 5개",
+        "우본 한우 양념 소불고기 불고기 전골 밀키트 500g, 500g, 5개",
+        "[로켓프레시] 소담소담 엄선한 한우로 만든 한우 소불고기 2~3인분 (냉동), 1개, 500g",
+        "프레시지 서울식 불고기 전골 밀키트 2인분",
+        "고기듬뿍 양념 소불고기 (냉장)"
+      ],
+      "validTitles": [
+        "뚝불고기 400g 5개 엠에스푸드 뚝불 즉석 요리 캠핑 간단 간편 엄마손맛 간편식 혼밥 음식, 400g, 5개",
+        "우본 한우 양념 소불고기 불고기 전골 밀키트 500g, 500g, 5개",
+        "[로켓프레시] 소담소담 엄선한 한우로 만든 한우 소불고기 2~3인분 (냉동), 1개, 500g"
+      ],
+      "rejected": [
+        {
+          "title": "고기듬뿍 양념 소불고기 (냉장)",
+          "reason": "missing_meal_kit_or_ready_term"
+        }
+      ]
+    },
+    {
+      "recipeId": "007",
+      "recipeName": "김치볶음밥",
+      "searchKeyword": "김치볶음밥 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 3,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "[로켓프레시] 굽네 닭가슴살 김치볶음밥 (냉동), 200g, 6개",
+        "아워홈 행복한맛남 김치볶음밥 3kg x 1봉, 1개, 3kg",
+        "[로켓프레시] 곰곰 한끼 김치볶음밥 (냉동)",
+        "[인생건어물] 김치볶음밥 300g 30봉 밀키트 대용량 업소용",
+        "[로켓프레시] 풀무원 우삼겹 김치볶음밥 2인분 (냉동)"
+      ],
+      "validTitles": [
+        "[로켓프레시] 굽네 닭가슴살 김치볶음밥 (냉동), 200g, 6개",
+        "[로켓프레시] 곰곰 한끼 김치볶음밥 (냉동)",
+        "[인생건어물] 김치볶음밥 300g 30봉 밀키트 대용량 업소용"
+      ],
+      "rejected": [
+        {
+          "title": "아워홈 행복한맛남 김치볶음밥 3kg x 1봉, 1개, 3kg",
+          "reason": "missing_meal_kit_or_ready_term"
+        }
+      ]
+    },
+    {
+      "recipeId": "012",
+      "recipeName": "닭볶음탕",
+      "searchKeyword": "닭볶음탕 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 3,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "조순금닭도리탕 닭볶음탕 밀키트(3-4인분) [원산지:국산(경기도 안산시 상록구)], 3kg, 1박스",
+        "닭다리가 4개! 국내산 사다리닭볶음탕 닭도리탕 밀키트 1.15kg 2인분, 1개, 1.15kg",
+        "왕십리 15년 전통 사계절 닭볶음탕, 3.88kg, 1개",
+        "[로켓프레시] 하림 무항생제 인증 마늘 듬뿍 닭볶음탕 밀키트",
+        "자연실록 무항생제 인증 태양초 닭볶음탕 밀키트"
+      ],
+      "validTitles": [
+        "조순금닭도리탕 닭볶음탕 밀키트(3-4인분) [원산지:국산(경기도 안산시 상록구)], 3kg, 1박스",
+        "닭다리가 4개! 국내산 사다리닭볶음탕 닭도리탕 밀키트 1.15kg 2인분, 1개, 1.15kg",
+        "[로켓프레시] 하림 무항생제 인증 마늘 듬뿍 닭볶음탕 밀키트"
+      ],
+      "rejected": [
+        {
+          "title": "왕십리 15년 전통 사계절 닭볶음탕, 3.88kg, 1개",
+          "reason": "missing_meal_kit_or_ready_term"
+        }
+      ]
+    },
+    {
+      "recipeId": "013",
+      "recipeName": "오징어볶음",
+      "searchKeyword": "오징어볶음 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 3,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "[로켓프레시] 팔당오징어 순한맛 (냉동), 400g, 1개",
+        "어부백서 매콤달콤 오징어볶음 400g 2인분 x3팩 밀키트, 3개, 400g",
+        "인생식탁 인생오볶 매콤 오징어볶음 2인분 400g 1팩",
+        "쿡솜씨 매콤오징어볶음 밀키트 캠핑 음식 요리",
+        "라투이 오징어볶음 600g 캠핑 낚시 차박 간편조리 밀키트"
+      ],
+      "validTitles": [
+        "어부백서 매콤달콤 오징어볶음 400g 2인분 x3팩 밀키트, 3개, 400g",
+        "쿡솜씨 매콤오징어볶음 밀키트 캠핑 음식 요리",
+        "라투이 오징어볶음 600g 캠핑 낚시 차박 간편조리 밀키트"
+      ],
+      "rejected": [
+        {
+          "title": "[로켓프레시] 팔당오징어 순한맛 (냉동), 400g, 1개",
+          "reason": "missing_recipe_or_keyword"
+        },
+        {
+          "title": "인생식탁 인생오볶 매콤 오징어볶음 2인분 400g 1팩",
+          "reason": "missing_meal_kit_or_ready_term"
+        }
+      ]
+    },
+    {
+      "recipeId": "014",
+      "recipeName": "갈비탕",
+      "searchKeyword": "갈비탕 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 1,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "양재창 수제 갈비탕 밀키트, 6개, 1.5kg",
+        "[이가네식품] 이재수명장, 명인의 프리미엄 명장왕갈비탕 1-2인분, 6개, 1kg",
+        "53년 전통 종로 가마솥 할마이 갈비탕",
+        "[로켓프레시] 신세계푸드 호텔컬렉션 에센셜 순살 소갈비탕 냉장",
+        "양반 왕갈비탕"
+      ],
+      "validTitles": [
+        "양재창 수제 갈비탕 밀키트, 6개, 1.5kg"
+      ],
+      "rejected": [
+        {
+          "title": "[이가네식품] 이재수명장, 명인의 프리미엄 명장왕갈비탕 1-2인분, 6개, 1kg",
+          "reason": "missing_meal_kit_or_ready_term"
+        },
+        {
+          "title": "53년 전통 종로 가마솥 할마이 갈비탕",
+          "reason": "missing_meal_kit_or_ready_term"
+        },
+        {
+          "title": "[로켓프레시] 신세계푸드 호텔컬렉션 에센셜 순살 소갈비탕 냉장",
+          "reason": "missing_meal_kit_or_ready_term"
+        },
+        {
+          "title": "양반 왕갈비탕",
+          "reason": "missing_meal_kit_or_ready_term"
+        }
+      ]
+    },
+    {
+      "recipeId": "015",
+      "recipeName": "육개장",
+      "searchKeyword": "육개장 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 3,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "육개장맛집 홍익육개장, 750g, 5개",
+        "온식구 육개장, 12개, 500g",
+        "외갓집 진심 육개장 (냉동)",
+        "프레시지 소고기 대파 육개장 밀키트 3~4인분",
+        "육대장 본점 온라인스토어 옛날 전통 육개장 소고기 육개장 파개장 즉석국 밀키트 5팩 (1팩 2인분)"
+      ],
+      "validTitles": [
+        "외갓집 진심 육개장 (냉동)",
+        "프레시지 소고기 대파 육개장 밀키트 3~4인분",
+        "육대장 본점 온라인스토어 옛날 전통 육개장 소고기 육개장 파개장 즉석국 밀키트 5팩 (1팩 2인분)"
+      ],
+      "rejected": [
+        {
+          "title": "육개장맛집 홍익육개장, 750g, 5개",
+          "reason": "missing_meal_kit_or_ready_term"
+        },
+        {
+          "title": "온식구 육개장, 12개, 500g",
+          "reason": "missing_meal_kit_or_ready_term"
+        }
+      ]
+    },
+    {
+      "recipeId": "024",
+      "recipeName": "부대찌개",
+      "searchKeyword": "부대찌개 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 3,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "[마음심은] 정통 송탄식 부대찌개 600g x 3팩 간편식 밀키트 캠핑 술안주 부대전골, 3개, 600g",
+        "[로켓프레시] 오뎅식당 부대찌개 (냉동), 1kg, 1개",
+        "의정부식 얼큰한 부대찌개 밀키트 1kg 2팩 햄듬뿍 4~6인분 사나이쉐프",
+        "정든 부대찌개 밀키트 2000g 2~3인분 송탄식 의정부식 부대찌개 전골",
+        "MYCHEF 놀부 부대찌개 밀키트 2인분"
+      ],
+      "validTitles": [
+        "[마음심은] 정통 송탄식 부대찌개 600g x 3팩 간편식 밀키트 캠핑 술안주 부대전골, 3개, 600g",
+        "[로켓프레시] 오뎅식당 부대찌개 (냉동), 1kg, 1개",
+        "의정부식 얼큰한 부대찌개 밀키트 1kg 2팩 햄듬뿍 4~6인분 사나이쉐프"
+      ],
+      "rejected": []
+    },
+    {
+      "recipeId": "025",
+      "recipeName": "청국장찌개",
+      "searchKeyword": "청국장찌개 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 3,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "냄새안나는 국산 청국장찌개 밀키트 ( 청국장 +육수팩 세트)",
+        "할머니 손맛 그대로 두부청국장찌개, 1개, 500g",
+        "[무료배송/부직포 가방 증정] 대천어가 온식구 즉석국 밀키트 8종 간편국 선물세트, 1세트, 500g",
+        "앙트레 쿠킹박스 간편한식 청국장찌개 밀키트 2인분",
+        "곰곰 옛날식 청국장찌개 (냉동)"
+      ],
+      "validTitles": [
+        "냄새안나는 국산 청국장찌개 밀키트 ( 청국장 +육수팩 세트)",
+        "앙트레 쿠킹박스 간편한식 청국장찌개 밀키트 2인분",
+        "곰곰 옛날식 청국장찌개 (냉동)"
+      ],
+      "rejected": [
+        {
+          "title": "할머니 손맛 그대로 두부청국장찌개, 1개, 500g",
+          "reason": "missing_meal_kit_or_ready_term"
+        },
+        {
+          "title": "[무료배송/부직포 가방 증정] 대천어가 온식구 즉석국 밀키트 8종 간편국 선물세트, 1세트, 500g",
+          "reason": "missing_recipe_or_keyword"
+        }
+      ]
+    },
+    {
+      "recipeId": "026",
+      "recipeName": "소고기무국",
+      "searchKeyword": "소고기무국 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 2,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "양반 진국 소고기무국, 460g, 4개",
+        "더미식 소고기뭇국, 350g, 4개",
+        "온식구 소고기무국, 1개, 500g",
+        "MYCHEF 한우 소고기무국 밀키트 2인분",
+        "서민갑부 소고기무국 밀키트 소고기국"
+      ],
+      "validTitles": [
+        "MYCHEF 한우 소고기무국 밀키트 2인분",
+        "서민갑부 소고기무국 밀키트 소고기국"
+      ],
+      "rejected": [
+        {
+          "title": "양반 진국 소고기무국, 460g, 4개",
+          "reason": "missing_meal_kit_or_ready_term"
+        },
+        {
+          "title": "더미식 소고기뭇국, 350g, 4개",
+          "reason": "missing_recipe_or_keyword"
+        },
+        {
+          "title": "온식구 소고기무국, 1개, 500g",
+          "reason": "missing_meal_kit_or_ready_term"
+        }
+      ]
+    },
+    {
+      "recipeId": "028",
+      "recipeName": "콩나물국",
+      "searchKeyword": "콩나물국 밀키트",
+      "rawProductCount": 2,
+      "validProductCount": 0,
+      "finalStatus": "FAIL",
+      "rawTitles": [
+        "[무료배송/부직포 가방 증정] 대천어가 온식구 즉석국 밀키트 8종 간편국 선물세트, 1세트, 500g",
+        "셰프애찬 새콤달콤 시원한 여름별미 오이냉국, 3개, 1kg"
+      ],
+      "validTitles": [],
+      "rejected": [
+        {
+          "title": "[무료배송/부직포 가방 증정] 대천어가 온식구 즉석국 밀키트 8종 간편국 선물세트, 1세트, 500g",
+          "reason": "missing_recipe_or_keyword"
+        },
+        {
+          "title": "셰프애찬 새콤달콤 시원한 여름별미 오이냉국, 3개, 1kg",
+          "reason": "missing_recipe_or_keyword"
+        }
+      ]
+    },
+    {
+      "recipeId": "047",
+      "recipeName": "순대국",
+      "searchKeyword": "순대국 간편식",
+      "rawProductCount": 5,
+      "validProductCount": 1,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "무봉리 토종 순대국 785g 10팩 묶음 다대기 들깨가루 포함 순댓국 밀키트, 785g, 10개",
+        "속이꽉찬 얼큰 순대국 순대국밥, 600g, 10개",
+        "이음식 양평해장국 실온보관 레토르트 간편식 1-2인분",
+        "도드람 전통순대국 530gx3입",
+        "비비고 꼬리곰탕"
+      ],
+      "validTitles": [
+        "무봉리 토종 순대국 785g 10팩 묶음 다대기 들깨가루 포함 순댓국 밀키트, 785g, 10개"
+      ],
+      "rejected": [
+        {
+          "title": "속이꽉찬 얼큰 순대국 순대국밥, 600g, 10개",
+          "reason": "missing_meal_kit_or_ready_term"
+        },
+        {
+          "title": "이음식 양평해장국 실온보관 레토르트 간편식 1-2인분",
+          "reason": "missing_recipe_or_keyword"
+        },
+        {
+          "title": "도드람 전통순대국 530gx3입",
+          "reason": "missing_meal_kit_or_ready_term"
+        },
+        {
+          "title": "비비고 꼬리곰탕",
+          "reason": "missing_recipe_or_keyword"
+        }
+      ]
+    },
+    {
+      "recipeId": "048",
+      "recipeName": "칼국수",
+      "searchKeyword": "칼국수 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 3,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "군산 엄마손 생 칼국수 밀키트(1인분), 10개, 235g",
+        "군산 엄마손 생 칼국수 밀키트(1인분), 6개, 235g",
+        "누들정 생칼국수 밀키트 2인분 (멸치육수), 400g, 1개",
+        "비비고 바지락칼국수 2인분 (냉동)",
+        "프레시밀 채소칼국수 2~3인분"
+      ],
+      "validTitles": [
+        "군산 엄마손 생 칼국수 밀키트(1인분), 10개, 235g",
+        "군산 엄마손 생 칼국수 밀키트(1인분), 6개, 235g",
+        "누들정 생칼국수 밀키트 2인분 (멸치육수), 400g, 1개"
+      ],
+      "rejected": [
+        {
+          "title": "프레시밀 채소칼국수 2~3인분",
+          "reason": "tool_or_cookware"
+        }
+      ]
+    },
+    {
+      "recipeId": "049",
+      "recipeName": "수제비",
+      "searchKeyword": "수제비 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 3,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "마녀바스켓 떼어먹는 엄마손수제비 밀키트(1인분), 173g, 4개",
+        "삼시푸드 생수제비 1kg 하절기 아이스박스 포장, 1kg, 1개",
+        "옛맛지기 민국이네 생수제비(수제비+스프) 간편한 밀키트, 3개, 315g",
+        "프레시밀 감자수제비 밀키트 2~3인분",
+        "[로켓프레시] 풀무원 해물 생 수제비 2인분"
+      ],
+      "validTitles": [
+        "마녀바스켓 떼어먹는 엄마손수제비 밀키트(1인분), 173g, 4개",
+        "옛맛지기 민국이네 생수제비(수제비+스프) 간편한 밀키트, 3개, 315g",
+        "프레시밀 감자수제비 밀키트 2~3인분"
+      ],
+      "rejected": [
+        {
+          "title": "삼시푸드 생수제비 1kg 하절기 아이스박스 포장, 1kg, 1개",
+          "reason": "missing_meal_kit_or_ready_term"
+        },
+        {
+          "title": "[로켓프레시] 풀무원 해물 생 수제비 2인분",
+          "reason": "missing_meal_kit_or_ready_term"
+        }
+      ]
+    },
+    {
+      "recipeId": "062",
+      "recipeName": "매콤순대볶음",
+      "searchKeyword": "매콤순대볶음 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 2,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "쿡솜씨 신림동식 깻잎매콤순대볶음 밀키트 캠핑 음식 요리",
+        "미스터쭈꾸미 양념쭈꾸미 순한 매운맛 (냉동), 500g, 2개",
+        "[SET-왕십리모듬] 왕십리야채곱창 + 깻잎매콤순대볶음 밀키트",
+        "피코크 매콤 순대볶음",
+        "피코크 매콤 순대볶음"
+      ],
+      "validTitles": [
+        "쿡솜씨 신림동식 깻잎매콤순대볶음 밀키트 캠핑 음식 요리",
+        "[SET-왕십리모듬] 왕십리야채곱창 + 깻잎매콤순대볶음 밀키트"
+      ],
+      "rejected": [
+        {
+          "title": "미스터쭈꾸미 양념쭈꾸미 순한 매운맛 (냉동), 500g, 2개",
+          "reason": "missing_recipe_or_keyword"
+        },
+        {
+          "title": "피코크 매콤 순대볶음",
+          "reason": "missing_meal_kit_or_ready_term"
+        },
+        {
+          "title": "피코크 매콤 순대볶음",
+          "reason": "missing_meal_kit_or_ready_term"
+        }
+      ]
+    },
+    {
+      "recipeId": "065",
+      "recipeName": "치즈볼",
+      "searchKeyword": "치즈볼 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 3,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "[로켓프레시] 벨리푸드 모짜렐라 치즈볼 (냉동), 600g, 1개",
+        "[로켓프레시] 벨리푸드 모짜 치즈 찰볼 (냉동), 1.2kg, 2개",
+        "[인생건어물] 우유 모짜렐라 치즈볼 1.2kg 10봉 밀키트 대용량 업소용",
+        "[인생건어물] 우유 모짜렐라 치즈볼 1.2kg 5봉 밀키트 대용량 업소용",
+        "[인생건어물] 왕빅도그 오리지널 생지 1050g 1봉 밀키트 대용량 업소용"
+      ],
+      "validTitles": [
+        "[로켓프레시] 벨리푸드 모짜렐라 치즈볼 (냉동), 600g, 1개",
+        "[인생건어물] 우유 모짜렐라 치즈볼 1.2kg 10봉 밀키트 대용량 업소용",
+        "[인생건어물] 우유 모짜렐라 치즈볼 1.2kg 5봉 밀키트 대용량 업소용"
+      ],
+      "rejected": [
+        {
+          "title": "[로켓프레시] 벨리푸드 모짜 치즈 찰볼 (냉동), 1.2kg, 2개",
+          "reason": "missing_recipe_or_keyword"
+        },
+        {
+          "title": "[인생건어물] 왕빅도그 오리지널 생지 1050g 1봉 밀키트 대용량 업소용",
+          "reason": "missing_recipe_or_keyword"
+        }
+      ]
+    },
+    {
+      "recipeId": "066",
+      "recipeName": "감자튀김",
+      "searchKeyword": "감자튀김 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 2,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "스퀴즈 9MM 코팅 스킨오프 냉동 감자 튀김 레귤러컷 스트레이트컷 2KG, 1개, 4kg",
+        "복선당 동파육 (냉동), 300g, 1팩",
+        "호랑이굴 소 곱대창전골 밀키트 (2인분,우동면 포함), 560g, 1개",
+        "[인생건어물] 쉐프원 케이준 프라이 2kg 감자 튀김 밀키트 대용량 업소용",
+        "[인생건어물] 형기네 리뉴얼 감자채전 800g 밀키트 대용량 업소용"
+      ],
+      "validTitles": [
+        "스퀴즈 9MM 코팅 스킨오프 냉동 감자 튀김 레귤러컷 스트레이트컷 2KG, 1개, 4kg",
+        "[인생건어물] 쉐프원 케이준 프라이 2kg 감자 튀김 밀키트 대용량 업소용"
+      ],
+      "rejected": [
+        {
+          "title": "복선당 동파육 (냉동), 300g, 1팩",
+          "reason": "missing_recipe_or_keyword"
+        },
+        {
+          "title": "호랑이굴 소 곱대창전골 밀키트 (2인분,우동면 포함), 560g, 1개",
+          "reason": "missing_recipe_or_keyword"
+        },
+        {
+          "title": "[인생건어물] 형기네 리뉴얼 감자채전 800g 밀키트 대용량 업소용",
+          "reason": "missing_recipe_or_keyword"
+        }
+      ]
+    },
+    {
+      "recipeId": "088",
+      "recipeName": "비빔냉면",
+      "searchKeyword": "비빔냉면 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 2,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "비빔듬뿍비냉세트)함흥냉면 2kg (10인분) + 비빔장1kg, 1kg, 1세트",
+        "(당일배송) 조선호랑이냉면 비빔냉면 냉면 밀키트 (5인분), 1개, 1.73kg",
+        "CJ제일제당 함흥 비빔냉면 2인분",
+        "[로켓프레시] 북촌손만두 피냉면 2인분 (냉동)",
+        "장사의신 냉면 밀키트 (물냉면5 비빔냉면5)"
+      ],
+      "validTitles": [
+        "(당일배송) 조선호랑이냉면 비빔냉면 냉면 밀키트 (5인분), 1개, 1.73kg",
+        "장사의신 냉면 밀키트 (물냉면5 비빔냉면5)"
+      ],
+      "rejected": [
+        {
+          "title": "비빔듬뿍비냉세트)함흥냉면 2kg (10인분) + 비빔장1kg, 1kg, 1세트",
+          "reason": "missing_recipe_or_keyword"
+        },
+        {
+          "title": "CJ제일제당 함흥 비빔냉면 2인분",
+          "reason": "missing_meal_kit_or_ready_term"
+        },
+        {
+          "title": "[로켓프레시] 북촌손만두 피냉면 2인분 (냉동)",
+          "reason": "missing_recipe_or_keyword"
+        }
+      ]
+    },
+    {
+      "recipeId": "recipe_0103",
+      "recipeName": "새우볶음밥",
+      "searchKeyword": "새우볶음밥 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 3,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "아워홈 프리미엄새우볶음밥Ⅱ 300g 10봉, 3kg, 1세트",
+        "푸르온 새우 볶음밥 (냉동), 270g, 8팩",
+        "아워홈 행복한맛남 새우볶음밥, 3kg, 1개",
+        "[인생건어물] 새우볶음밥 300g 30봉 밀키트 대용량 업소용",
+        "[인생건어물] 새우볶음밥 300g 10봉 밀키트 대용량 업소용"
+      ],
+      "validTitles": [
+        "푸르온 새우 볶음밥 (냉동), 270g, 8팩",
+        "[인생건어물] 새우볶음밥 300g 30봉 밀키트 대용량 업소용",
+        "[인생건어물] 새우볶음밥 300g 10봉 밀키트 대용량 업소용"
+      ],
+      "rejected": [
+        {
+          "title": "아워홈 프리미엄새우볶음밥Ⅱ 300g 10봉, 3kg, 1세트",
+          "reason": "missing_meal_kit_or_ready_term"
+        },
+        {
+          "title": "아워홈 행복한맛남 새우볶음밥, 3kg, 1개",
+          "reason": "missing_meal_kit_or_ready_term"
+        }
+      ]
+    },
+    {
+      "recipeId": "recipe_0125",
+      "recipeName": "황태해장국",
+      "searchKeyword": "황태해장국 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 2,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "해와바다 정말 진한 용대리 황태 보양진국 450g, 3개, 450g",
+        "[백발명가] 황태해장국 밀키트 800g 2인분, 5개, 800g",
+        "[백발명가] 황태해장국 밀키트 800g 2인분, 800g, 1개",
+        "MYCHEF 현대옥 황태콩나물국밥",
+        "[로켓프레시] 신세계푸드 호텔컬렉션 에센셜 황태해장국 냉장"
+      ],
+      "validTitles": [
+        "[백발명가] 황태해장국 밀키트 800g 2인분, 5개, 800g",
+        "[백발명가] 황태해장국 밀키트 800g 2인분, 800g, 1개"
+      ],
+      "rejected": [
+        {
+          "title": "해와바다 정말 진한 용대리 황태 보양진국 450g, 3개, 450g",
+          "reason": "missing_recipe_or_keyword"
+        },
+        {
+          "title": "MYCHEF 현대옥 황태콩나물국밥",
+          "reason": "missing_recipe_or_keyword"
+        },
+        {
+          "title": "[로켓프레시] 신세계푸드 호텔컬렉션 에센셜 황태해장국 냉장",
+          "reason": "missing_meal_kit_or_ready_term"
+        }
+      ]
+    },
+    {
+      "recipeId": "recipe_0159",
+      "recipeName": "애호박전",
+      "searchKeyword": "애호박전 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 2,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "재료 듬뿍 오징어애호박전 반죽 밀키트 초간편 부침개",
+        "[로켓프레시] 안원당 감자채전 (냉동), 2개, 240g",
+        "[로켓프레시] 프레시밀 애호박 양파전 밀키트 2~3인분",
+        "오뚜기 가뿐한끼 촉촉스팀 닭가슴살 블랙페퍼 100g 5개+매콤닭가슴살곤약볶음밥 400g 2개",
+        "오징어애호박전 반죽 밀키트 간편한 한끼 야식 애호박 부침개 반죽"
+      ],
+      "validTitles": [
+        "재료 듬뿍 오징어애호박전 반죽 밀키트 초간편 부침개",
+        "오징어애호박전 반죽 밀키트 간편한 한끼 야식 애호박 부침개 반죽"
+      ],
+      "rejected": [
+        {
+          "title": "[로켓프레시] 안원당 감자채전 (냉동), 2개, 240g",
+          "reason": "missing_recipe_or_keyword"
+        },
+        {
+          "title": "[로켓프레시] 프레시밀 애호박 양파전 밀키트 2~3인분",
+          "reason": "missing_recipe_or_keyword"
+        },
+        {
+          "title": "오뚜기 가뿐한끼 촉촉스팀 닭가슴살 블랙페퍼 100g 5개+매콤닭가슴살곤약볶음밥 400g 2개",
+          "reason": "missing_recipe_or_keyword"
+        }
+      ]
+    },
+    {
+      "recipeId": "recipe_0272",
+      "recipeName": "고등어무조림",
+      "searchKeyword": "고등어무조림 밀키트",
+      "rawProductCount": 5,
+      "validProductCount": 1,
+      "finalStatus": "PASS",
+      "rawTitles": [
+        "[로켓프레시] 엄마애바다 화덕구이 고등어순살 시레기 무조림 (냉동), 1개, 660g",
+        "[반찬가게 찬장] 매콤고등어무조림 수제반찬 집밥 반찬 배달 맛집, 800g, 1개",
+        "[제주웰링] 제주도맛집 간편식 영양식 고등어조림 500g, 1개, 500g",
+        "[로켓프레시] 아라찬 고등어 매콤 무조림 (냉동)",
+        "칼칼한 전라도식 고등어무조림 밀키트"
+      ],
+      "validTitles": [
+        "칼칼한 전라도식 고등어무조림 밀키트"
+      ],
+      "rejected": [
+        {
+          "title": "[로켓프레시] 엄마애바다 화덕구이 고등어순살 시레기 무조림 (냉동), 1개, 660g",
+          "reason": "missing_recipe_or_keyword"
+        },
+        {
+          "title": "[반찬가게 찬장] 매콤고등어무조림 수제반찬 집밥 반찬 배달 맛집, 800g, 1개",
+          "reason": "missing_meal_kit_or_ready_term"
+        },
+        {
+          "title": "[제주웰링] 제주도맛집 간편식 영양식 고등어조림 500g, 1개, 500g",
+          "reason": "missing_recipe_or_keyword"
+        },
+        {
+          "title": "[로켓프레시] 아라찬 고등어 매콤 무조림 (냉동)",
+          "reason": "missing_recipe_or_keyword"
+        }
+      ]
+    }
+  ]
+}

@@ -25,6 +25,7 @@ import { BATCH_20_INPUTS } from './batches/batch20';
 import { BATCH_21_INPUTS } from './batches/batch21';
 import { BATCH_22_INPUTS } from './batches/batch22';
 import { BATCH_23_INPUTS } from './batches/batch23';
+import { BATCH_24_INPUTS } from './batches/batch24';
 
 /**
  * Sprint RF-5 / RF-6 — HANKKI production recipe database (Batch 01–10).
@@ -733,7 +734,7 @@ const BATCH_01_INPUTS: HankkiRecipeInput[] = [
   },
 ];
 
-/** Production catalog — Batch 01–23 (001–100 + recipe_0101–0300). Sprint RF-6 / 46-C / 47-A / 58–58.4. */
+/** Production catalog — Batch 01–24 (001–100 + recipe_0101–0304). Sprint RF-6 / 58.4 / 66-C. */
 export const HANKKI_RECIPES: Recipe[] = createHankkiRecipeBatch([
   ...BATCH_01_INPUTS,
   ...BATCH_02_INPUTS,
@@ -758,6 +759,7 @@ export const HANKKI_RECIPES: Recipe[] = createHankkiRecipeBatch([
   ...BATCH_21_INPUTS,
   ...BATCH_22_INPUTS,
   ...BATCH_23_INPUTS,
+  ...BATCH_24_INPUTS,
 ]);
 
 export function getHankkiRecipeById(id: string): Recipe | undefined {

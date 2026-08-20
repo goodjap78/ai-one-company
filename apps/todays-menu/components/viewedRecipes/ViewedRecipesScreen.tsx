@@ -11,6 +11,7 @@ import { ds } from '../../constants/designSystem';
 import { NAV_BACK } from '../../constants/navigationCopy';
 import { mobileShell } from '../../constants/mobileShell';
 import { getFavoriteRecipeIds, toggleFavorite } from '../../services/FavoriteService';
+import { setRecipeOpenSource } from '../../services/analytics';
 import type { FavoriteCardData } from '../../services/favorite';
 import {
   getViewedRecipeHistory,
@@ -66,6 +67,7 @@ export function ViewedRecipesScreen() {
   };
 
   const handleOpenRecipe = (item: FavoriteCardData) => {
+    setRecipeOpenSource('history');
     if (item.mode === 'delivery') {
       router.push(`/delivery/${item.recipeId}`);
       return;

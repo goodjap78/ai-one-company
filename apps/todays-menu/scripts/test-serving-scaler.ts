@@ -209,7 +209,7 @@ function main(): void {
   assert(baseSample.ingredients[0]!.amount === originalAmount, '레시피 원본 데이터 변경 없음');
 
   const audit = auditHankkiIngredientAmounts(HANKKI_RECIPES);
-  assert(audit.recipeCount === 300, '300개 레시피 감사');
+  assert(audit.recipeCount === 304, '304개 레시피 감사');
   assert(audit.crashCount === 0, '전수 파싱 크래시 0');
   console.log('\n--- Amount format audit ---');
   console.log(JSON.stringify(audit.categories, null, 2));

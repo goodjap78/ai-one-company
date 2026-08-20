@@ -1,5 +1,5 @@
 import { useRouter, useFocusEffect } from 'expo-router';
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { HANKKI_RECIPES } from '../../data/recipes/hankkiRecipes';
@@ -23,6 +23,7 @@ import { FridgeRaidCompactFeed } from './FridgeRaidCompactFeed';
 import { FridgeRecommendationBannerSlot } from './FridgeRecommendationBannerSlot';
 import { FridgeSelectedIngredientChips } from './FridgeSelectedIngredientChips';
 import { FridgeShoppingBridge } from './FridgeShoppingBridge';
+import { setRecipeOpenSource, trackFridgeResult } from '../../services/analytics';
 import { ScreenReplaceNavButton } from '../ui/ScreenReplaceNavButton';
 import { ScreenLoading } from '../ui/ScreenLoading';
 import { screenLayout } from '../ui/screenLayout';
@@ -86,6 +87,13 @@ export function FridgeRaidResultsScreen() {
   const extendedFeed = results?.extended ?? [];
   const sideDishFeed = results?.sideDishes ?? [];
 
+  useEffect(() => {
+    if (loading || !results) return;
+    trackFridgeResult({
+      result_count: primaryFeed.length + extendedFeed.length + sideDishFeed.length,
+    });
+  }, [loading, results, primaryFeed.length, extendedFeed.length, sideDishFeed.length]);
+
   const visiblePrimaryCandidates = useMemo(
     () => sliceFridgeRecommendationWindow(primaryFeed, recommendationOffset, FRIDGE_COMPACT_WINDOW_SIZE),
     [primaryFeed, recommendationOffset],
@@ -113,6 +121,7 @@ export function FridgeRaidResultsScreen() {
 
   const handleOpenRecipe = useCallback(
     (recipeId: string) => {
+      setRecipeOpenSource('fridge');
       router.push(`/recipe/${recipeId}`);
     },
     [router],

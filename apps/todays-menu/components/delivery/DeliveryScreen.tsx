@@ -10,6 +10,7 @@ import { SeedMascot } from '../common/SeedMascot';
 import { MealHeroImage } from '../home/MealHeroImage';
 import { recordHomeDeliveryComplete } from '../../services/homeService';
 import { recordViewedRecipe } from '../../services/viewedRecipe';
+import { consumeRecipeOpenSource, trackRecipeOpen } from '../../services/analytics';
 import { buildSuggestedPairings } from '../../services/recommendation/mealExperience/buildSuggestedPairings';
 import { getCurrentMealType } from '../../utils/mealType';
 import { resolveMealHeroImage } from '../../utils/mealHeroImage';
@@ -81,6 +82,10 @@ export function DeliveryScreen({ recipeId }: Props) {
   useEffect(() => {
     if (!recipeId || notFound || !title) return;
     void recordViewedRecipe(recipeId);
+    trackRecipeOpen({
+      recipe_id: recipeId,
+      source: consumeRecipeOpenSource(),
+    });
   }, [recipeId, notFound, title]);
 
   const pairings = useMemo(() => {

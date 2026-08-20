@@ -45,6 +45,7 @@ import { screenLayout } from '../ui/screenLayout';
 import { ConvenienceComboSuggestionStrip } from './ConvenienceComboSuggestionStrip';
 import { ConvenienceComboFeaturedHero } from './ConvenienceComboFeaturedHero';
 import { ConvenienceFilterChips } from './ConvenienceFilterChips';
+import { trackConvenienceOpen } from '../../services/analytics';
 import { resolveConvenienceContentMaxWidth } from './convenienceGridLayout';
 
 const ACCENT_COLORS = [
@@ -80,6 +81,10 @@ export function ConvenienceComboRecommendationScreen() {
   useEffect(() => {
     void loadFavorites();
   }, [loadFavorites]);
+
+  useEffect(() => {
+    trackConvenienceOpen();
+  }, []);
 
   useFocusEffect(
     useCallback(() => {

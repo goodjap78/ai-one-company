@@ -121,7 +121,7 @@ run('Wiring — Ingredients CTA routes to shopping', () => {
   const cta = read('components/shopping/IngredientsShoppingCta.tsx');
   assert(cta.includes('/shopping/'), 'shopping route');
   const ingredients = read('components/ingredients/IngredientsScreen.tsx');
-  assert(ingredients.includes('IngredientsShoppingCta'), 'CTA on ingredients screen');
+  assert(ingredients.includes('RecipePrepChoiceCta'), 'CTA on ingredients screen');
 });
 
 run('Wiring — no Coupang hardcode in shopping UI core', () => {

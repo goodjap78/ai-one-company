@@ -3,6 +3,7 @@ import { useRouter } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SHOPPING_COPY } from '../../constants/shoppingCopy';
 import { ds } from '../../constants/designSystem';
+import { trackShoppingCtaClick } from '../../services/analytics';
 
 type Props = {
   recipeId: string;
@@ -17,6 +18,7 @@ export function IngredientsShoppingCta({ recipeId }: Props) {
 
   const handlePress = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    trackShoppingCtaClick({ recipe_id: recipeId, mode: 'all' });
     router.push(`/shopping/${recipeId}`);
   };
 

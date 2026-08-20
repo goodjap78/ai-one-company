@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "841684804877",
+    "project_id": "hankki-c3c8f",
+    "storage_bucket": "hankki-c3c8f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841684804877:android:ab7cec20ed52e92d78fc44",
+        "android_client_info": {
+          "package_name": "com.aionecompany.todaysmenu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqjmTTlYZBPIms1trLGoTTbRel6wJ79j4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

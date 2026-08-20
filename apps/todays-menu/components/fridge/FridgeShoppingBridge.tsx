@@ -5,6 +5,8 @@ import { FRIDGE_SHOPPING_CONFIG } from '../../constants/fridgeShoppingConfig';
 import { SHOPPING_COPY } from '../../constants/shoppingCopy';
 import type { ShoppingIngredientItem } from '../../types/shopping';
 import { ds } from '../../constants/designSystem';
+import { MealKitShoppingCta } from '../shopping/MealKitShoppingCta';
+import { trackShoppingCtaClick } from '../../services/analytics';
 import { recipeRef } from '../recipe/recipePremiumStyles';
 
 type Props = {
@@ -39,6 +41,7 @@ export function FridgeShoppingBridge({ missingItems = [], recipeId = null }: Pro
           style={({ pressed }) => [styles.seasoningLink, pressed && styles.seasoningLinkPressed]}
           onPress={() => {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+            trackShoppingCtaClick({ recipe_id: recipeId, mode: 'missing' });
             router.push(`/shopping/${recipeId}?mode=missing&seasonings=1`);
           }}
           accessibilityRole="button"
@@ -46,12 +49,14 @@ export function FridgeShoppingBridge({ missingItems = [], recipeId = null }: Pro
         >
           <Text style={styles.seasoningLinkLabel}>{SHOPPING_COPY.checkSeasoningsCta}</Text>
         </Pressable>
+        <MealKitShoppingCta recipeId={recipeId} variant="secondary" />
       </View>
     );
   }
 
   const handlePress = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    trackShoppingCtaClick({ recipe_id: recipeId, mode: 'missing' });
     router.push(`/shopping/${recipeId}?mode=missing`);
   };
 
@@ -72,6 +77,7 @@ export function FridgeShoppingBridge({ missingItems = [], recipeId = null }: Pro
           {SHOPPING_COPY.missingIngredientsCountLabel(missingItems.length)}
         </Text>
       </Pressable>
+      <MealKitShoppingCta recipeId={recipeId} variant="secondary" />
     </View>
   );
 }
@@ -79,6 +85,7 @@ export function FridgeShoppingBridge({ missingItems = [], recipeId = null }: Pro
 const styles = StyleSheet.create({
   wrap: {
     paddingTop: ds.spacing.sm,
+    gap: ds.spacing.sm,
   },
   button: {
     backgroundColor: ds.colors.primary,

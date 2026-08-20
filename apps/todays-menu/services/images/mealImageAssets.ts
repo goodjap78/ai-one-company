@@ -9,7 +9,7 @@ import type { MealLocalAssetKey } from './mealImageTypes';
  * `hankki-default` has no .png file; falls back to jaeyuk.jpg.
  */
 export const MEAL_LOCAL_IMAGES: Record<MealLocalAssetKey, ImageSourcePropType> = {
-  // HANKKI recipes (300 registered, alphabetical)
+  // HANKKI recipes (304 registered, alphabetical)
   apple_cheese_toast: require('../../assets/meals/apple_cheese_toast.jpg'),
   apple_yogurt: require('../../assets/meals/apple_yogurt.jpg'),
   avocado_toast: require('../../assets/meals/avocado_toast.jpg'),
@@ -42,6 +42,7 @@ export const MEAL_LOCAL_IMAGES: Record<MealLocalAssetKey, ImageSourcePropType> =
   bugeo_guk: require('../../assets/meals/bugeo_guk.jpg'),
   bulgogi: require('../../assets/meals/bulgogi.jpg'),
   bulgogi_cheese_sand_final: require('../../assets/meals/bulgogi_cheese_sand_final.jpg'),
+  bulgogi_jeongol: require('../../assets/meals/bulgogi_jeongol.jpg'),
   bulgogi_rice_ball_lunch: require('../../assets/meals/bulgogi_rice_ball_lunch.jpg'),
   bulgogi_sand_lunch: require('../../assets/meals/bulgogi_sand_lunch.jpg'),
   burdock_jorim: require('../../assets/meals/burdock_jorim.jpg'),
@@ -136,6 +137,7 @@ export const MEAL_LOCAL_IMAGES: Record<MealLocalAssetKey, ImageSourcePropType> =
   green_onion_egg_soup: require('../../assets/meals/green_onion_egg_soup.jpg'),
   green_pepper_tuna_bokkeum: require('../../assets/meals/green_pepper_tuna_bokkeum.jpg'),
   haemul_pajeon: require('../../assets/meals/haemul_pajeon.jpg'),
+  haemul_tang: require('../../assets/meals/haemul_tang.jpg'),
   ham_cheese_toast: require('../../assets/meals/ham_cheese_toast.jpg'),
   ham_egg_sandwich: require('../../assets/meals/ham_egg_sandwich.jpg'),
   hamburger: require('../../assets/meals/hamburger.jpg'),
@@ -150,6 +152,7 @@ export const MEAL_LOCAL_IMAGES: Record<MealLocalAssetKey, ImageSourcePropType> =
   janchi_mandu_guk: require('../../assets/meals/janchi_mandu_guk.jpg'),
   japchae: require('../../assets/meals/japchae.jpg'),
   jjimdak: require('../../assets/meals/jjimdak.jpg'),
+  jjuggumi_bokkeum: require('../../assets/meals/jjuggumi_bokkeum.jpg'),
   kal_mandu_guk: require('../../assets/meals/kal_mandu_guk.jpg'),
   kalguksu: require('../../assets/meals/kalguksu.jpg'),
   kimchi_bibim_noodle: require('../../assets/meals/kimchi_bibim_noodle.jpg'),
@@ -171,6 +174,7 @@ export const MEAL_LOCAL_IMAGES: Record<MealLocalAssetKey, ImageSourcePropType> =
   microwave_egg_steam: require('../../assets/meals/microwave_egg_steam.jpg'),
   microwave_potato: require('../../assets/meals/microwave_potato.jpg'),
   microwave_tofu_steam: require('../../assets/meals/microwave_tofu_steam.jpg'),
+  millefeuille_nabe: require('../../assets/meals/millefeuille_nabe.jpg'),
   miyeok_chomuchim: require('../../assets/meals/miyeok_chomuchim.jpg'),
   miyeok_guk: require('../../assets/meals/miyeok_guk.jpg'),
   mushroom_bulgogi_donburi_lunch: require('../../assets/meals/mushroom_bulgogi_donburi_lunch.jpg'),

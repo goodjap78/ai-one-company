@@ -31,10 +31,12 @@ function applyAffiliatePolicy(products: ShoppingProduct[]): ShoppingProduct[] {
 export const coupangProductAdapter: ShoppingProductAdapter = {
   availability: 'available',
   async searchProducts(input) {
-    const limit = Math.min(
-      input.limit ?? SHOPPING_CONFIG.maxProductsPerIngredient,
+    const requested = input.limit ?? SHOPPING_CONFIG.maxProductsPerIngredient;
+    const hardCap = Math.max(
       SHOPPING_CONFIG.maxProductsPerIngredient,
+      SHOPPING_CONFIG.maxMealKitSearchResults,
     );
+    const limit = Math.min(Math.max(1, requested), hardCap);
 
     const keyword = input.shoppingKeyword.trim();
     if (!keyword) return [];

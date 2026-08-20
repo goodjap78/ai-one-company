@@ -36,6 +36,7 @@ import { appChrome } from '../ui/appChrome';
 import { ScreenReplaceNavButton } from '../ui/ScreenReplaceNavButton';
 import { ScreenLoading } from '../ui/ScreenLoading';
 import { screenLayout } from '../ui/screenLayout';
+import { trackFridgeOpen } from '../../services/analytics';
 
 const MAX_SELECTION = 40;
 
@@ -60,6 +61,10 @@ export function FridgeRaidScreen() {
   useEffect(() => {
     void loadPantry();
   }, [loadPantry]);
+
+  useEffect(() => {
+    trackFridgeOpen();
+  }, []);
 
   const ownedMatchKeys = useMemo(
     () => new Set(items.map((item) => resolvePantryItemMatchKey(item.iconKey, item.name))),

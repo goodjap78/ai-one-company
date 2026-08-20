@@ -1,0 +1,5942 @@
+{
+  "generatedAt": "2026-08-13T09:14:15.401Z",
+  "proxy": "https://hankki-shopping-proxy.vercel.app",
+  "fetchLimit": 8,
+  "stats": {
+    "apiRequestCount": 691,
+    "rateLimitEvents": 90,
+    "cacheHits": 0
+  },
+  "previousEligible": [
+    "001",
+    "003",
+    "004",
+    "006",
+    "007",
+    "012",
+    "013",
+    "014",
+    "015",
+    "024",
+    "025",
+    "026",
+    "047",
+    "048",
+    "049",
+    "062",
+    "065",
+    "066",
+    "088",
+    "recipe_0103",
+    "recipe_0125",
+    "recipe_0159",
+    "recipe_0272"
+  ],
+  "rows": [
+    {
+      "recipeId": "001",
+      "recipeName": "제육볶음",
+      "category": [
+        "한식",
+        "집밥",
+        "저녁"
+      ],
+      "searchQueries": [
+        "제육볶음 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 2,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "삼삼 고추장 불고기 제육볶음 두루치기 반찬 밀키트",
+        "제주 흑돼지 제육볶음 두루치기 고추장 불고기 돼지 불백 캠핑 밀키트 1.2kg, 1개"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "KEEP"
+    },
+    {
+      "recipeId": "002",
+      "recipeName": "계란볶음밥",
+      "category": [
+        "간편식",
+        "집밥"
+      ],
+      "searchQueries": [
+        "계란볶음밥 밀키트",
+        "계란볶음밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "003",
+      "recipeName": "김치찌개",
+      "category": [
+        "한식",
+        "국물요리"
+      ],
+      "searchQueries": [
+        "김치찌개 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 3,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "[간편한식] 이 푸짐한 돼지고기 김치찌개 세트, 10개, 320g",
+        "삼겹살 묵은지 김치찌개 865g 밀키트 홈파티 캠핑요리, 865g, 1개",
+        "MYCHEF 묵은지 김치찌개 밀키트 2인분"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "KEEP"
+    },
+    {
+      "recipeId": "004",
+      "recipeName": "된장찌개",
+      "category": [
+        "한식",
+        "집밥",
+        "국물요리"
+      ],
+      "searchQueries": [
+        "된장찌개 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 4,
+      "clearMealKitCount": 1,
+      "validProductTitles": [
+        "김구원선생 국산두부가 들어간 전통 된장찌개 밀키트 2인분",
+        "[로켓프레시] 더미식 차돌박이 된장찌개 2인분 (냉동), 700g, 1개",
+        "쏘리맘 차돌 된장찌개 5개 엠에스푸드 즉석 요리 캠핑 간단 간편 엄마손맛 간편식 혼밥 음식, 5개, 600g",
+        "담뿍 차돌 된장찌개 (냉동), 400g, 6개"
+      ],
+      "status": "VALID",
+      "vsPrevious": "KEEP"
+    },
+    {
+      "recipeId": "005",
+      "recipeName": "비빔밥",
+      "category": [
+        "한식",
+        "건강식"
+      ],
+      "searchQueries": [
+        "비빔밥 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "우리집 야채비빔밥 335g 간편식 x 5개 [원산지:상세설명에 표시]"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "006",
+      "recipeName": "불고기",
+      "category": [
+        "한식",
+        "가족식"
+      ],
+      "searchQueries": [
+        "불고기 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 3,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "뚝불고기 400g 5개 엠에스푸드 뚝불 즉석 요리 캠핑 간단 간편 엄마손맛 간편식 혼밥 음식, 400g, 5개",
+        "우본 한우 양념 소불고기 불고기 전골 밀키트 500g, 500g, 5개",
+        "프레시지 서울식 불고기 전골 밀키트 2인분"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "KEEP"
+    },
+    {
+      "recipeId": "007",
+      "recipeName": "김치볶음밥",
+      "category": [
+        "간편식",
+        "집밥"
+      ],
+      "searchQueries": [
+        "김치볶음밥 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 4,
+      "clearMealKitCount": 1,
+      "validProductTitles": [
+        "[로켓프레시] 굽네 닭가슴살 김치볶음밥 (냉동), 200g, 6개",
+        "[로켓프레시] 굽네 닭가슴살 김치볶음밥 (냉동), 200g, 4개",
+        "[로켓프레시] 곰곰 한끼 김치볶음밥 (냉동)",
+        "[인생건어물] 김치볶음밥 300g 30봉 밀키트 대용량 업소용"
+      ],
+      "status": "VALID",
+      "vsPrevious": "KEEP"
+    },
+    {
+      "recipeId": "008",
+      "recipeName": "카레라이스",
+      "category": [
+        "한식",
+        "아이식단"
+      ],
+      "searchQueries": [
+        "카레라이스 밀키트",
+        "카레라이스 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "009",
+      "recipeName": "돈까스",
+      "category": [
+        "외식",
+        "간편식"
+      ],
+      "searchQueries": [
+        "돈까스 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 2,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "[로켓프레시] 미식연구소 갓튀겨나온 곱빼기 통등심 젓가락 돈까스 (냉동), 500g, 2개",
+        "[로켓프레시] 랜선식당 제주 흑돼지 미니 돈까스 (냉동), 320g, 5개"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "010",
+      "recipeName": "닭갈비",
+      "category": [
+        "한식",
+        "가족식"
+      ],
+      "searchQueries": [
+        "닭갈비 밀키트"
+      ],
+      "productsChecked": 3,
+      "validProductCount": 2,
+      "clearMealKitCount": 1,
+      "validProductTitles": [
+        "마들푸드 춘천 닭갈비 밀키트 부재료 포함 국내산 닭다리살, 4인세트(닭갈비1kg+양배추고구마+떡+소스), 1세트, 1kg",
+        "[로켓프레시] 홍익상회 팔팔닭갈비 (냉동), 500g, 3개"
+      ],
+      "status": "VALID",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "011",
+      "recipeName": "순두부찌개",
+      "category": [
+        "한식",
+        "국물요리",
+        "집밥"
+      ],
+      "searchQueries": [
+        "순두부찌개 밀키트",
+        "순두부찌개 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "012",
+      "recipeName": "닭볶음탕",
+      "category": [
+        "한식",
+        "조림",
+        "가족식"
+      ],
+      "searchQueries": [
+        "닭볶음탕 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 4,
+      "clearMealKitCount": 4,
+      "validProductTitles": [
+        "닭다리가 4개! 국내산 사다리닭볶음탕 닭도리탕 밀키트 1.15kg 2인분, 1개, 1.15kg",
+        "닭다리가 4개 ! 국내산 사다리닭볶음탕 닭도리탕 밀키트 1.15kg 2개, 2개, 1.15kg",
+        "[로켓프레시] 하림 무항생제 인증 마늘 듬뿍 닭볶음탕 밀키트",
+        "자연실록 무항생제 인증 태양초 닭볶음탕 밀키트"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "KEEP"
+    },
+    {
+      "recipeId": "013",
+      "recipeName": "오징어볶음",
+      "category": [
+        "한식",
+        "볶음",
+        "집밥"
+      ],
+      "searchQueries": [
+        "오징어볶음 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 3,
+      "clearMealKitCount": 3,
+      "validProductTitles": [
+        "어부백서 매콤달콤 오징어볶음 400g 2인분 x3팩 밀키트, 3개, 400g",
+        "쿡솜씨 매콤오징어볶음 밀키트 캠핑 음식 요리",
+        "라투이 오징어볶음 600g 캠핑 낚시 차박 간편조리 밀키트"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "KEEP"
+    },
+    {
+      "recipeId": "014",
+      "recipeName": "갈비탕",
+      "category": [
+        "한식",
+        "국물요리",
+        "보양"
+      ],
+      "searchQueries": [
+        "갈비탕 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 1,
+      "validProductTitles": [
+        "양재창 수제 갈비탕 밀키트, 6개, 1.5kg"
+      ],
+      "status": "VALID",
+      "vsPrevious": "KEEP"
+    },
+    {
+      "recipeId": "015",
+      "recipeName": "육개장",
+      "category": [
+        "한식",
+        "국물요리",
+        "매콤"
+      ],
+      "searchQueries": [
+        "육개장 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 3,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "외갓집 진심 육개장 (냉동)",
+        "프레시지 소고기 대파 육개장 밀키트 3~4인분",
+        "육대장 본점 온라인스토어 옛날 전통 육개장 소고기 육개장 파개장 즉석국 밀키트 5팩 (1팩 2인분)"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "KEEP"
+    },
+    {
+      "recipeId": "016",
+      "recipeName": "미역국",
+      "category": [
+        "한식",
+        "국물요리",
+        "건강"
+      ],
+      "searchQueries": [
+        "미역국 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 2,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "친절한이서방 전복 미역국 밀키트 (2인분), 3개, 160g",
+        "친절한이서방 전복 미역국 밀키트 (2인분), 1개, 160g"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "017",
+      "recipeName": "떡국",
+      "category": [
+        "한식",
+        "국물요리",
+        "명절"
+      ],
+      "searchQueries": [
+        "떡국 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "백제 우리 햅쌀 즉석 떡국, 163g, 16개"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "018",
+      "recipeName": "감자조림",
+      "category": [
+        "한식",
+        "반찬",
+        "집밥"
+      ],
+      "searchQueries": [
+        "감자조림 밀키트",
+        "감자조림 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "019",
+      "recipeName": "계란말이",
+      "category": [
+        "한식",
+        "반찬",
+        "간편식"
+      ],
+      "searchQueries": [
+        "계란말이 밀키트",
+        "계란말이 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "020",
+      "recipeName": "소불고기덮밥",
+      "category": [
+        "한식",
+        "덮밥",
+        "간편식"
+      ],
+      "searchQueries": [
+        "소불고기덮밥 밀키트",
+        "소불고기덮밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "냉동 온더고 보이는 맛 숯불향 데리야끼 소불고기 덮밥 250g X 5개 한끼식사 직장인 자취생 도시락 혼밥, 250g, 5세트"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "021",
+      "recipeName": "고등어구이",
+      "category": [
+        "한식",
+        "생선구이",
+        "집밥"
+      ],
+      "searchQueries": [
+        "고등어구이 밀키트",
+        "고등어구이 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "022",
+      "recipeName": "삼겹살구이",
+      "category": [
+        "한식",
+        "고기구이",
+        "가족식"
+      ],
+      "searchQueries": [
+        "삼겹살구이 밀키트",
+        "삼겹살구이 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "[로켓프레시] 하이포크 한돈 급냉 삼겹살 구이용 (냉동), 1개, 500g"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "023",
+      "recipeName": "돼지불백",
+      "category": [
+        "한식",
+        "볶음",
+        "집밥"
+      ],
+      "searchQueries": [
+        "돼지불백 밀키트",
+        "돼지불백 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "[인포벨]TV홈쇼핑정품 애드크로스 우돈타 한돈 돼지 불백 양념육 국내산 돼지고기 불고기 전골 간편식 반찬"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "024",
+      "recipeName": "부대찌개",
+      "category": [
+        "한식",
+        "국물요리",
+        "찌개"
+      ],
+      "searchQueries": [
+        "부대찌개 밀키트",
+        "부대찌개 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "[로켓프레시] 오뎅식당 부대찌개 (냉동), 1kg, 1개"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "REMOVE"
+    },
+    {
+      "recipeId": "025",
+      "recipeName": "청국장찌개",
+      "category": [
+        "한식",
+        "국물요리",
+        "찌개"
+      ],
+      "searchQueries": [
+        "청국장찌개 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 4,
+      "clearMealKitCount": 3,
+      "validProductTitles": [
+        "냄새안나는 국산 청국장찌개 밀키트 ( 청국장 +육수팩 세트)",
+        "앙트레 쿠킹박스 간편한식 청국장찌개 밀키트 2인분",
+        "곰곰 옛날식 청국장찌개 (냉동)",
+        "앙트레 쿠킹박스 간편한식 청국장찌개 밀키트 2인분"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "KEEP"
+    },
+    {
+      "recipeId": "026",
+      "recipeName": "소고기무국",
+      "category": [
+        "한식",
+        "국물요리",
+        "국"
+      ],
+      "searchQueries": [
+        "소고기무국 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 3,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "MYCHEF 한우 소고기무국 밀키트 2인분",
+        "교동전선생 소고기무국 (냉동)",
+        "서민갑부 소고기무국 밀키트 소고기국"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "KEEP"
+    },
+    {
+      "recipeId": "027",
+      "recipeName": "북엇국",
+      "category": [
+        "한식",
+        "국물요리",
+        "해장"
+      ],
+      "searchQueries": [
+        "북엇국 밀키트",
+        "북엇국 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "028",
+      "recipeName": "콩나물국",
+      "category": [
+        "한식",
+        "국물요리",
+        "해장"
+      ],
+      "searchQueries": [
+        "콩나물국 밀키트",
+        "콩나물국 간편식"
+      ],
+      "productsChecked": 0,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "029",
+      "recipeName": "두부조림",
+      "category": [
+        "한식",
+        "조림",
+        "반찬"
+      ],
+      "searchQueries": [
+        "두부조림 밀키트",
+        "두부조림 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "030",
+      "recipeName": "멸치볶음",
+      "category": [
+        "한식",
+        "밑반찬",
+        "볶음"
+      ],
+      "searchQueries": [
+        "멸치볶음 밀키트",
+        "멸치볶음 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 2,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "[로켓프레시] 냠냠바다 만능 멸치 볶음조림용 (냉동), 1개, 1kg",
+        "[로켓프레시] 지리 멸치 볶음용 (냉동), 1개, 300g"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "031",
+      "recipeName": "오므라이스",
+      "category": [
+        "양식",
+        "덮밥",
+        "집밥"
+      ],
+      "searchQueries": [
+        "오므라이스 밀키트",
+        "오므라이스 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "032",
+      "recipeName": "떡갈비",
+      "category": [
+        "한식",
+        "고기요리",
+        "구이"
+      ],
+      "searchQueries": [
+        "떡갈비 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 3,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "[엔터푸드] 떡갈비 밀키트 (150g), 150g, 1개",
+        "[로켓프레시] 프레시지 가열하지 않아 육즙 가득한 최현석의 한우 떡갈비 (냉동)",
+        "한돈 수제떡갈비 간편조리 밀키트"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "033",
+      "recipeName": "갈치조림",
+      "category": [
+        "한식",
+        "조림",
+        "생선"
+      ],
+      "searchQueries": [
+        "갈치조림 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 4,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "여수 맛집 청정게장촌 갈치조림 2~3인분 양념 밀키트 국내산 캠핑, 1개, 1kg",
+        "[로켓프레시] 프로즌 시래기 갈치조림 (냉동), 1개, 560g",
+        "[로켓프레시] 초록햇살 갈치조림 (냉동)",
+        "훈훈수산 순살 갈치조림 밀키트 제주 은갈치조림 간편 조리"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "034",
+      "recipeName": "닭개장",
+      "category": [
+        "한식",
+        "국물요리",
+        "해장"
+      ],
+      "searchQueries": [
+        "닭개장 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 5,
+      "clearMealKitCount": 4,
+      "validProductTitles": [
+        "[로켓프레시] 프로즌 재료가득 든든닭개장 5개입 (냉동), 1.15kg, 1개",
+        "부광식품 즉석 닭개장 600g 원팩 밀키트 식당용 업소용 가정용 냉동 간단요리 대용량, 1개, 600g",
+        "국내산 밀키트 4인분 SET 캠핑 간편식 무료배송(옵션.02) 닭개장+닭개장",
+        "국내산 밀키트 4인분 SET 캠핑 간편식 무료배송(옵션.02) 닭개장+닭개장",
+        "부광식품 즉석 닭개장 600g (25개) 대용량 원팩 밀키트 식당용 업소용 가정용 냉동"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "035",
+      "recipeName": "감자탕",
+      "category": [
+        "한식",
+        "국물요리",
+        "탕"
+      ],
+      "searchQueries": [
+        "감자탕 밀키트",
+        "감자탕 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "[로켓프레시] 미미밀 뼈없는 감자탕 1~2인분 (냉동), 700g, 1개"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "036",
+      "recipeName": "잔치국수",
+      "category": [
+        "한식",
+        "면요리",
+        "국물요리"
+      ],
+      "searchQueries": [
+        "잔치국수 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "이지쿡 1인 구포 잔치국수 (면+스프) [소확행몰] 쫄깃한 면 간편한 즉석 1인분 면요리 식품"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "037",
+      "recipeName": "비빔국수",
+      "category": [
+        "한식",
+        "면요리",
+        "여름"
+      ],
+      "searchQueries": [
+        "비빔국수 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 1,
+      "validProductTitles": [
+        "[로켓프레시] 쿡솜씨 물비빔국수 밀키트 (냉동)"
+      ],
+      "status": "VALID",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "038",
+      "recipeName": "냉면",
+      "category": [
+        "한식",
+        "면요리",
+        "여름"
+      ],
+      "searchQueries": [
+        "냉면 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 2,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "(당일배송) 조선호랑이냉면 물냉면 냉면 밀키트 (5인분), 3.05kg, 1개",
+        "[연매출20억] 육산 물냉면 밀키트 5인분세트, 3kg"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "039",
+      "recipeName": "잡채",
+      "category": [
+        "한식",
+        "면요리",
+        "잔치음식"
+      ],
+      "searchQueries": [
+        "잡채 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 1,
+      "validProductTitles": [
+        "맛집곳간 인생잡채 매운맛 매운잡채 밀키트 10분완성 실온보관 간편식 100%국내산채소, 3개, 99g"
+      ],
+      "status": "VALID",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "040",
+      "recipeName": "김밥",
+      "category": [
+        "한식",
+        "김밥",
+        "도시락"
+      ],
+      "searchQueries": [
+        "김밥 밀키트",
+        "김밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "[로켓프레시] 김밥천국 김밥용 우엉조림 (냉동), 250g, 1개"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "041",
+      "recipeName": "라면",
+      "category": [
+        "분식",
+        "면요리",
+        "간편식"
+      ],
+      "searchQueries": [
+        "라면 밀키트",
+        "라면 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 3,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "이지밥 핫앤쿡 라면애밥 세트 비화식 발열도시락 전투식량 간편식 등산도시락, 4개, 110g",
+        "육개장 오뚜기 컵 즉석식품 간편식 매운 푸짐한 한끼 한국식 맛있는 라면",
+        "CL 농심 올리브 짜파게티 140g x 40봉 간편식/봉지라면/점메추/자취요리/오늘뭐먹지/간편조리/저메추"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "042",
+      "recipeName": "김치라면",
+      "category": [
+        "분식",
+        "면요리",
+        "김치"
+      ],
+      "searchQueries": [
+        "김치라면 밀키트",
+        "김치라면 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "김치 라면밥 캠핑 야외 등산 낚시 즉석 간편식"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "043",
+      "recipeName": "치즈라면",
+      "category": [
+        "분식",
+        "면요리",
+        "간편식"
+      ],
+      "searchQueries": [
+        "치즈라면 밀키트",
+        "치즈라면 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "044",
+      "recipeName": "떡볶이",
+      "category": [
+        "분식",
+        "간식",
+        "한식"
+      ],
+      "searchQueries": [
+        "떡볶이 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 5,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "[로켓프레시] 사과떡볶이 오리지널팩 밀떡볶이 순한맛 (냉동), 870g, 2개",
+        "[로켓프레시] 미정당 가래떡 쌀떡볶이 (냉동), 670g, 2개",
+        "[로켓프레시] 사과떡볶이 오리지널팩 밀떡볶이 매운맛 (냉동), 870g, 2개",
+        "떡볶이의신 신당동 즉석쫄볶이",
+        "[로켓프레시] 고래사어묵 어묵떡볶이 2인분 (냉동)"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "045",
+      "recipeName": "라볶이",
+      "category": [
+        "분식",
+        "면요리",
+        "간식"
+      ],
+      "searchQueries": [
+        "라볶이 밀키트",
+        "라볶이 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "046",
+      "recipeName": "순대볶음",
+      "category": [
+        "분식",
+        "볶음",
+        "안주"
+      ],
+      "searchQueries": [
+        "순대볶음 밀키트",
+        "순대볶음 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "047",
+      "recipeName": "순대국",
+      "category": [
+        "한식",
+        "국물요리",
+        "분식"
+      ],
+      "searchQueries": [
+        "순대국 밀키트",
+        "순대국 간편식"
+      ],
+      "productsChecked": 2,
+      "validProductCount": 2,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "무봉리 토종 순대국 785g 10팩 묶음 다대기 들깨가루 포함 순댓국 밀키트, 785g, 10개",
+        "무봉리 토종 순대국 785g 4팩 묶음할인 다대기 들깨가루 포함 순댓국 볼살 사골 냉동 간편식 밀키트, 785g, 4개"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "KEEP"
+    },
+    {
+      "recipeId": "048",
+      "recipeName": "칼국수",
+      "category": [
+        "한식",
+        "면요리",
+        "국물요리"
+      ],
+      "searchQueries": [
+        "칼국수 밀키트",
+        "칼국수 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "REMOVE"
+    },
+    {
+      "recipeId": "049",
+      "recipeName": "수제비",
+      "category": [
+        "한식",
+        "국물요리",
+        "면요리"
+      ],
+      "searchQueries": [
+        "수제비 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 2,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "마녀바스켓 떼어먹는 엄마손수제비 밀키트(1인분), 173g, 4개",
+        "프레시밀 감자수제비 밀키트 2~3인분"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "KEEP"
+    },
+    {
+      "recipeId": "050",
+      "recipeName": "해물파전",
+      "category": [
+        "한식",
+        "전",
+        "안주"
+      ],
+      "searchQueries": [
+        "해물파전 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "수산왕국 냉동 해물파전 오징어 새우 부침개, 10개, 900g"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "051",
+      "recipeName": "크림파스타",
+      "category": [
+        "양식",
+        "파스타"
+      ],
+      "searchQueries": [
+        "크림파스타 밀키트",
+        "크림파스타 간편식"
+      ],
+      "productsChecked": 0,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "052",
+      "recipeName": "토마토파스타",
+      "category": [
+        "양식",
+        "파스타"
+      ],
+      "searchQueries": [
+        "토마토파스타 밀키트",
+        "토마토파스타 간편식"
+      ],
+      "productsChecked": 0,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "053",
+      "recipeName": "햄버거",
+      "category": [
+        "양식",
+        "샌드위치"
+      ],
+      "searchQueries": [
+        "햄버거 밀키트",
+        "햄버거 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "054",
+      "recipeName": "치킨스테이크",
+      "category": [
+        "양식",
+        "닭요리"
+      ],
+      "searchQueries": [
+        "치킨스테이크 밀키트",
+        "치킨스테이크 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "055",
+      "recipeName": "미트볼",
+      "category": [
+        "양식",
+        "고기요리"
+      ],
+      "searchQueries": [
+        "미트볼 밀키트",
+        "미트볼 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "056",
+      "recipeName": "감자그라탕",
+      "category": [
+        "양식",
+        "오븐요리"
+      ],
+      "searchQueries": [
+        "감자그라탕 밀키트",
+        "감자그라탕 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "057",
+      "recipeName": "클럽샌드위치",
+      "category": [
+        "양식",
+        "샌드위치"
+      ],
+      "searchQueries": [
+        "클럽샌드위치 밀키트",
+        "클럽샌드위치 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "058",
+      "recipeName": "시저샐러드",
+      "category": [
+        "양식",
+        "샐러드"
+      ],
+      "searchQueries": [
+        "시저샐러드 밀키트",
+        "시저샐러드 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "059",
+      "recipeName": "오믈렛",
+      "category": [
+        "양식",
+        "계란요리"
+      ],
+      "searchQueries": [
+        "오믈렛 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 2,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "[로켓프레시] 맘스케이크 청주오믈렛 (냉동), 18g, 2개, 12개입",
+        "[로켓프레시] 맘스케이크 청주오믈렛 딸기 (냉동), 18g, 1개, 12개입"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "060",
+      "recipeName": "프렌치토스트",
+      "category": [
+        "양식",
+        "아침",
+        "간식"
+      ],
+      "searchQueries": [
+        "프렌치토스트 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 1,
+      "validProductTitles": [
+        "[맛집키트] 마핑파 프렌치토스트 쿠킹박스 밀키트(2~3인) 홈브런치 집들이 밀키트 홈파티 홈카페 l"
+      ],
+      "status": "VALID",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "061",
+      "recipeName": "로제떡볶이",
+      "category": [
+        "분식",
+        "간식"
+      ],
+      "searchQueries": [
+        "로제떡볶이 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 3,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "[로켓프레시] 서울마님 즉석 로제떡볶이 (냉동), 280g, 3개",
+        "[로켓프레시] 사과떡볶이 로제팩 로제떡볶이 순한맛 (냉동), 750g, 1개",
+        "[로켓프레시] 석관동 로제 떡볶이 (냉동)"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "062",
+      "recipeName": "매콤순대볶음",
+      "category": [
+        "분식",
+        "볶음"
+      ],
+      "searchQueries": [
+        "매콤순대볶음 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 2,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "쿡솜씨 신림동식 깻잎매콤순대볶음 밀키트 캠핑 음식 요리",
+        "[SET-왕십리모듬] 왕십리야채곱창 + 깻잎매콤순대볶음 밀키트"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "KEEP"
+    },
+    {
+      "recipeId": "063",
+      "recipeName": "참치김밥",
+      "category": [
+        "분식",
+        "김밥",
+        "도시락"
+      ],
+      "searchQueries": [
+        "참치김밥 밀키트",
+        "참치김밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "064",
+      "recipeName": "핫도그",
+      "category": [
+        "분식",
+        "간식",
+        "튀김"
+      ],
+      "searchQueries": [
+        "핫도그 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "렐리쉬 피클 핫도그 (냉동)"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "065",
+      "recipeName": "치즈볼",
+      "category": [
+        "간식",
+        "튀김"
+      ],
+      "searchQueries": [
+        "치즈볼 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 3,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "[로켓프레시] 벨리푸드 모짜렐라 치즈볼 (냉동), 600g, 1개",
+        "[인생건어물] 우유 모짜렐라 치즈볼 1.2kg 10봉 밀키트 대용량 업소용",
+        "[인생건어물] 우유 모짜렐라 치즈볼 1.2kg 5봉 밀키트 대용량 업소용"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "KEEP"
+    },
+    {
+      "recipeId": "066",
+      "recipeName": "감자튀김",
+      "category": [
+        "간식",
+        "튀김"
+      ],
+      "searchQueries": [
+        "감자튀김 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 1,
+      "validProductTitles": [
+        "[인생건어물] 쉐프원 케이준 프라이 2kg 감자 튀김 밀키트 대용량 업소용"
+      ],
+      "status": "VALID",
+      "vsPrevious": "KEEP"
+    },
+    {
+      "recipeId": "067",
+      "recipeName": "마늘빵토스트",
+      "category": [
+        "간식",
+        "빵"
+      ],
+      "searchQueries": [
+        "마늘빵토스트 밀키트",
+        "마늘빵토스트 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "068",
+      "recipeName": "라면볶이",
+      "category": [
+        "분식",
+        "라면",
+        "간식"
+      ],
+      "searchQueries": [
+        "라면볶이 밀키트",
+        "라면볶이 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "069",
+      "recipeName": "고구마맛탕",
+      "category": [
+        "간식",
+        "디저트"
+      ],
+      "searchQueries": [
+        "고구마맛탕 밀키트",
+        "고구마맛탕 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "070",
+      "recipeName": "호떡",
+      "category": [
+        "간식",
+        "디저트"
+      ],
+      "searchQueries": [
+        "호떡 밀키트",
+        "호떡 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 2,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "호떡당 꿀호떡 (냉동), 70g, 6개, 5개입",
+        "호떡당 꿀호떡 (냉동), 70g, 4개, 5개입"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "071",
+      "recipeName": "닭가슴살샐러드",
+      "category": [
+        "건강식",
+        "샐러드"
+      ],
+      "searchQueries": [
+        "닭가슴살샐러드 밀키트",
+        "닭가슴살샐러드 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "072",
+      "recipeName": "연어포케",
+      "category": [
+        "건강식",
+        "볼"
+      ],
+      "searchQueries": [
+        "연어포케 밀키트",
+        "연어포케 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "073",
+      "recipeName": "두부스테이크",
+      "category": [
+        "건강식",
+        "두부요리"
+      ],
+      "searchQueries": [
+        "두부스테이크 밀키트",
+        "두부스테이크 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "074",
+      "recipeName": "채소수프",
+      "category": [
+        "건강식",
+        "국물요리"
+      ],
+      "searchQueries": [
+        "채소수프 밀키트",
+        "채소수프 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "075",
+      "recipeName": "퀴노아볼",
+      "category": [
+        "건강식",
+        "볼"
+      ],
+      "searchQueries": [
+        "퀴노아볼 밀키트",
+        "퀴노아볼 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "076",
+      "recipeName": "현미비빔밥",
+      "category": [
+        "건강식",
+        "한식",
+        "비빔밥"
+      ],
+      "searchQueries": [
+        "현미비빔밥 밀키트",
+        "현미비빔밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "077",
+      "recipeName": "곤약볶음",
+      "category": [
+        "건강식",
+        "볶음",
+        "저칼로리"
+      ],
+      "searchQueries": [
+        "곤약볶음 밀키트",
+        "곤약볶음 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "078",
+      "recipeName": "닭살수프",
+      "category": [
+        "건강식",
+        "국물요리"
+      ],
+      "searchQueries": [
+        "닭살수프 밀키트",
+        "닭살수프 간편식"
+      ],
+      "productsChecked": 0,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "079",
+      "recipeName": "아보카도토스트",
+      "category": [
+        "건강식",
+        "아침",
+        "토스트"
+      ],
+      "searchQueries": [
+        "아보카도토스트 밀키트",
+        "아보카도토스트 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "080",
+      "recipeName": "그릭요거트볼",
+      "category": [
+        "건강식",
+        "아침",
+        "볼"
+      ],
+      "searchQueries": [
+        "그릭요거트볼 밀키트",
+        "그릭요거트볼 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "081",
+      "recipeName": "참치마요덮밥",
+      "category": [
+        "한식",
+        "덮밥",
+        "초간단"
+      ],
+      "searchQueries": [
+        "참치마요덮밥 밀키트",
+        "참치마요덮밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "082",
+      "recipeName": "계란국",
+      "category": [
+        "한식",
+        "국물요리",
+        "초간단"
+      ],
+      "searchQueries": [
+        "계란국 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "간편집밥 부드러운 계란국, 10g, 5개"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "083",
+      "recipeName": "베이컨볶음밥",
+      "category": [
+        "볶음밥",
+        "초간단"
+      ],
+      "searchQueries": [
+        "베이컨볶음밥 밀키트",
+        "베이컨볶음밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "084",
+      "recipeName": "소시지야채볶음",
+      "category": [
+        "볶음",
+        "초간단"
+      ],
+      "searchQueries": [
+        "소시지야채볶음 밀키트",
+        "소시지야채볶음 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "085",
+      "recipeName": "치즈계란밥",
+      "category": [
+        "덮밥",
+        "초간단"
+      ],
+      "searchQueries": [
+        "치즈계란밥 밀키트",
+        "치즈계란밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "086",
+      "recipeName": "참치김치찌개",
+      "category": [
+        "한식",
+        "국물요리",
+        "초간단"
+      ],
+      "searchQueries": [
+        "참치김치찌개 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 2,
+      "clearMealKitCount": 1,
+      "validProductTitles": [
+        "곰곰 참치김치찌개 (냉동)",
+        "쿡솜씨  참치 김치찌개 밀키트 2인분"
+      ],
+      "status": "VALID",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "087",
+      "recipeName": "즉석카레",
+      "category": [
+        "카레",
+        "초간단"
+      ],
+      "searchQueries": [
+        "즉석카레 밀키트",
+        "즉석카레 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "088",
+      "recipeName": "비빔냉면",
+      "category": [
+        "한식",
+        "면요리",
+        "여름"
+      ],
+      "searchQueries": [
+        "비빔냉면 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 1,
+      "validProductTitles": [
+        "(당일배송) 조선호랑이냉면 비빔냉면 냉면 밀키트 (5인분), 1개, 1.73kg"
+      ],
+      "status": "VALID",
+      "vsPrevious": "KEEP"
+    },
+    {
+      "recipeId": "089",
+      "recipeName": "유부초밥",
+      "category": [
+        "일식",
+        "초밥",
+        "초간단"
+      ],
+      "searchQueries": [
+        "유부초밥 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "한성 저당 유부초밥 280g  /냉장 도시락 간편식사"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "090",
+      "recipeName": "냄비우동",
+      "category": [
+        "일식",
+        "면요리",
+        "초간단"
+      ],
+      "searchQueries": [
+        "냄비우동 밀키트",
+        "냄비우동 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "091",
+      "recipeName": "보쌈",
+      "category": [
+        "한식",
+        "고기요리",
+        "파티"
+      ],
+      "searchQueries": [
+        "보쌈 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 4,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "복선당 전통 목전지 보쌈 295g (냉동), 295g, 1세트",
+        "[로켓프레시] 복선당 목전지 보쌈 280g + 마늘보쌈소스 150g + 참소스 20g + 새우맛양념 15g 세트 (냉동), 465g, 2세트",
+        "발열 용기 한방 통 보쌈 수육 캠핑음식 밀키트",
+        "오겹살 한방 통 보쌈 수육 캠핑음식 밀키트"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "092",
+      "recipeName": "찜닭",
+      "category": [
+        "한식",
+        "조림",
+        "가족식"
+      ],
+      "searchQueries": [
+        "찜닭 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 3,
+      "clearMealKitCount": 1,
+      "validProductTitles": [
+        "[로켓프레시] 청춘불판 순살 안동찜닭 (냉동), 900g, 1팩",
+        "[로켓프레시] 요리락 저당 안동식 순살찜닭 (냉동), 1개, 500g",
+        "[로켓프레시] 하림 안동식 찜닭 밀키트"
+      ],
+      "status": "VALID",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "093",
+      "recipeName": "낙지볶음",
+      "category": [
+        "한식",
+        "해산물",
+        "볶음"
+      ],
+      "searchQueries": [
+        "낙지볶음 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 5,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "교동낙지 양념 손질 낙지 볶음, 5개, 450g",
+        "[로켓프레시] 실비집 무교동 매콤 낙지볶음 (냉동), 1개, 300g",
+        "[로켓프레시] 꾸버가 철판떼기 낙지 볶음 (냉동)",
+        "[로켓프레시] 알찬해 바로바로 손질 낙지 볶음 (냉동)",
+        "[로켓프레시] 곰곰 낙지볶음 (냉동)"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "094",
+      "recipeName": "고등어조림",
+      "category": [
+        "한식",
+        "조림",
+        "생선"
+      ],
+      "searchQueries": [
+        "고등어조림 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 2,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "[제주웰링] 제주도맛집 간편식 영양식 고등어조림 500g, 1개, 500g",
+        "[로켓프레시] 초록햇살 고등어조림 (냉동)"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "095",
+      "recipeName": "은갈치조림",
+      "category": [
+        "한식",
+        "조림",
+        "생선"
+      ],
+      "searchQueries": [
+        "은갈치조림 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 2,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "훈훈수산 순살 갈치조림 밀키트 제주 은갈치조림 간편 조리",
+        "제철진미 제주 은갈치 조림 밀키트"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "096",
+      "recipeName": "된장국",
+      "category": [
+        "한식",
+        "국물요리"
+      ],
+      "searchQueries": [
+        "된장국 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "[로켓프레시] 더미식 냉이 된장국 2인분 (냉동), 700g, 1개"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "097",
+      "recipeName": "시금치나물",
+      "category": [
+        "한식",
+        "나물",
+        "반찬"
+      ],
+      "searchQueries": [
+        "시금치나물 밀키트",
+        "시금치나물 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "098",
+      "recipeName": "견과멸치볶음",
+      "category": [
+        "한식",
+        "밑반찬"
+      ],
+      "searchQueries": [
+        "견과멸치볶음 밀키트",
+        "견과멸치볶음 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "099",
+      "recipeName": "계란국밥",
+      "category": [
+        "한식",
+        "국밥",
+        "초간단"
+      ],
+      "searchQueries": [
+        "계란국밥 밀키트",
+        "계란국밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "100",
+      "recipeName": "김치볶음",
+      "category": [
+        "한식",
+        "반찬",
+        "볶음"
+      ],
+      "searchQueries": [
+        "김치볶음 밀키트",
+        "김치볶음 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0101",
+      "recipeName": "소고기버섯덮밥",
+      "category": [
+        "한식",
+        "덮밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "소고기버섯덮밥 밀키트",
+        "소고기버섯덮밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0102",
+      "recipeName": "닭가슴살덮밥",
+      "category": [
+        "한식",
+        "덮밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "닭가슴살덮밥 밀키트",
+        "닭가슴살덮밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0103",
+      "recipeName": "새우볶음밥",
+      "category": [
+        "한식",
+        "볶음밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "새우볶음밥 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 4,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "푸르온 새우 볶음밥 (냉동), 270g, 8팩",
+        "푸르온 새우 볶음밥 (냉동), 270g, 4팩",
+        "[인생건어물] 새우볶음밥 300g 30봉 밀키트 대용량 업소용",
+        "[인생건어물] 새우볶음밥 300g 10봉 밀키트 대용량 업소용"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "KEEP"
+    },
+    {
+      "recipeId": "recipe_0104",
+      "recipeName": "날치알김치볶음밥",
+      "category": [
+        "한식",
+        "볶음밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "날치알김치볶음밥 밀키트",
+        "날치알김치볶음밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0105",
+      "recipeName": "스팸김치볶음밥",
+      "category": [
+        "간편식",
+        "볶음밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "스팸김치볶음밥 밀키트",
+        "스팸김치볶음밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "(프레시안) 스팸김치볶음밥 간편식 덮밥"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0106",
+      "recipeName": "우삼겹간장비빔면",
+      "category": [
+        "한식",
+        "면요리",
+        "1인식"
+      ],
+      "searchQueries": [
+        "우삼겹간장비빔면 밀키트",
+        "우삼겹간장비빔면 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0107",
+      "recipeName": "콩나물국수",
+      "category": [
+        "한식",
+        "면요리",
+        "국물"
+      ],
+      "searchQueries": [
+        "콩나물국수 밀키트",
+        "콩나물국수 간편식"
+      ],
+      "productsChecked": 0,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0108",
+      "recipeName": "소면장국",
+      "category": [
+        "한식",
+        "면요리",
+        "국물"
+      ],
+      "searchQueries": [
+        "소면장국 밀키트",
+        "소면장국 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0109",
+      "recipeName": "팟타이볶음면",
+      "category": [
+        "아시안",
+        "면요리",
+        "1인식"
+      ],
+      "searchQueries": [
+        "팟타이볶음면 밀키트",
+        "팟타이볶음면 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0110",
+      "recipeName": "전자레인지계란찜",
+      "category": [
+        "간편식",
+        "전자레인지",
+        "1인식"
+      ],
+      "searchQueries": [
+        "전자레인지계란찜 밀키트",
+        "전자레인지계란찜 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0111",
+      "recipeName": "전자레인지감자조림",
+      "category": [
+        "간편식",
+        "전자레인지",
+        "1인식"
+      ],
+      "searchQueries": [
+        "전자레인지감자조림 밀키트",
+        "전자레인지감자조림 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0112",
+      "recipeName": "전자레인지두부찜",
+      "category": [
+        "간편식",
+        "전자레인지",
+        "1인식"
+      ],
+      "searchQueries": [
+        "전자레인지두부찜 밀키트",
+        "전자레인지두부찜 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0113",
+      "recipeName": "레몬버터생선구이",
+      "category": [
+        "양식",
+        "전자레인지",
+        "1인식"
+      ],
+      "searchQueries": [
+        "레몬버터생선구이 밀키트",
+        "레몬버터생선구이 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0114",
+      "recipeName": "얼큰콩나물국",
+      "category": [
+        "한식",
+        "국물요리",
+        "1인식"
+      ],
+      "searchQueries": [
+        "얼큰콩나물국 밀키트",
+        "얼큰콩나물국 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0115",
+      "recipeName": "청양참치찌개",
+      "category": [
+        "한식",
+        "찌개",
+        "1인식"
+      ],
+      "searchQueries": [
+        "청양참치찌개 밀키트",
+        "청양참치찌개 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0116",
+      "recipeName": "두부김치찌개",
+      "category": [
+        "한식",
+        "찌개",
+        "1인식"
+      ],
+      "searchQueries": [
+        "두부김치찌개 밀키트",
+        "두부김치찌개 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0117",
+      "recipeName": "마늘토스트",
+      "category": [
+        "간편식",
+        "토스트",
+        "1인식"
+      ],
+      "searchQueries": [
+        "마늘토스트 밀키트",
+        "마늘토스트 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0118",
+      "recipeName": "피넛버터토스트",
+      "category": [
+        "간편식",
+        "토스트",
+        "1인식"
+      ],
+      "searchQueries": [
+        "피넛버터토스트 밀키트",
+        "피넛버터토스트 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0119",
+      "recipeName": "닭가슴살야채볶음",
+      "category": [
+        "한식",
+        "볶음",
+        "1인식"
+      ],
+      "searchQueries": [
+        "닭가슴살야채볶음 밀키트",
+        "닭가슴살야채볶음 간편식"
+      ],
+      "productsChecked": 0,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0120",
+      "recipeName": "치즈순대라면",
+      "category": [
+        "간편식",
+        "라면",
+        "야식"
+      ],
+      "searchQueries": [
+        "치즈순대라면 밀키트",
+        "치즈순대라면 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0121",
+      "recipeName": "떡만둣국",
+      "category": [
+        "한식",
+        "국물",
+        "집밥"
+      ],
+      "searchQueries": [
+        "떡만둣국 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 2,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "마이셰프 한우 사골 떡만둣국 2인분 (냉동)",
+        "마이셰프 한우 사골 떡만둣국 2인분 (냉동)"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0122",
+      "recipeName": "오뎅탕",
+      "category": [
+        "한식",
+        "탕",
+        "국물"
+      ],
+      "searchQueries": [
+        "오뎅탕 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 1,
+      "validProductTitles": [
+        "마녀바스켓 어묵탕 오뎅탕 밀키트(스프포함), 200g, 10개"
+      ],
+      "status": "VALID",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "recipe_0123",
+      "recipeName": "시래기된장국",
+      "category": [
+        "한식",
+        "국물",
+        "집밥"
+      ],
+      "searchQueries": [
+        "시래기된장국 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 2,
+      "clearMealKitCount": 1,
+      "validProductTitles": [
+        "피아골미선씨 프리미엄 고로쇠 시래기된장국 (냉동)",
+        "구수하고 맛있는 우렁 시래기 된장국 밀키트"
+      ],
+      "status": "VALID",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "recipe_0124",
+      "recipeName": "북어콩나물국",
+      "category": [
+        "한식",
+        "국물"
+      ],
+      "searchQueries": [
+        "북어콩나물국 밀키트",
+        "북어콩나물국 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0125",
+      "recipeName": "황태해장국",
+      "category": [
+        "한식",
+        "국물",
+        "해장"
+      ],
+      "searchQueries": [
+        "황태해장국 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 1,
+      "validProductTitles": [
+        "[백발명가] 황태해장국 밀키트 800g 2인분, 5개, 800g"
+      ],
+      "status": "VALID",
+      "vsPrevious": "KEEP"
+    },
+    {
+      "recipeId": "recipe_0126",
+      "recipeName": "제육김치볶음",
+      "category": [
+        "한식",
+        "볶음",
+        "집밥"
+      ],
+      "searchQueries": [
+        "제육김치볶음 밀키트",
+        "제육김치볶음 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0127",
+      "recipeName": "오삼불고기",
+      "category": [
+        "한식",
+        "볶음",
+        "가족식"
+      ],
+      "searchQueries": [
+        "오삼불고기 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 3,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "[로켓프레시] 셰프초이스 오삼불고기 (냉동)",
+        "특제양념 밀키트 오삼불고기 500g",
+        "특제양념 밀키트 오삼불고기 500g"
+      ],
+      "status": "VALID",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "recipe_0128",
+      "recipeName": "꽈리고추참치볶음",
+      "category": [
+        "한식",
+        "볶음",
+        "반찬"
+      ],
+      "searchQueries": [
+        "꽈리고추참치볶음 밀키트",
+        "꽈리고추참치볶음 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0129",
+      "recipeName": "돼지갈비찜",
+      "category": [
+        "한식",
+        "찜",
+        "가족식"
+      ],
+      "searchQueries": [
+        "돼지갈비찜 밀키트",
+        "돼지갈비찜 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0130",
+      "recipeName": "가지덮밥",
+      "category": [
+        "한식",
+        "덮밥"
+      ],
+      "searchQueries": [
+        "가지덮밥 밀키트",
+        "가지덮밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0131",
+      "recipeName": "낙지비빔밥",
+      "category": [
+        "한식",
+        "비빔밥"
+      ],
+      "searchQueries": [
+        "낙지비빔밥 밀키트",
+        "낙지비빔밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0132",
+      "recipeName": "오징어덮밥",
+      "category": [
+        "한식",
+        "덮밥"
+      ],
+      "searchQueries": [
+        "오징어덮밥 밀키트",
+        "오징어덮밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0133",
+      "recipeName": "잔치만두국",
+      "category": [
+        "한식",
+        "국물",
+        "면"
+      ],
+      "searchQueries": [
+        "잔치만두국 밀키트",
+        "잔치만두국 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0134",
+      "recipeName": "소고기떡국",
+      "category": [
+        "한식",
+        "국물",
+        "명절"
+      ],
+      "searchQueries": [
+        "소고기떡국 밀키트",
+        "소고기떡국 간편식"
+      ],
+      "productsChecked": 0,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0135",
+      "recipeName": "칼만둣국",
+      "category": [
+        "한식",
+        "국물",
+        "면"
+      ],
+      "searchQueries": [
+        "칼만둣국 밀키트",
+        "칼만둣국 간편식"
+      ],
+      "productsChecked": 3,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0136",
+      "recipeName": "시금치된장무침",
+      "category": [
+        "한식",
+        "반찬"
+      ],
+      "searchQueries": [
+        "시금치된장무침 밀키트",
+        "시금치된장무침 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0137",
+      "recipeName": "오이무침",
+      "category": [
+        "한식",
+        "반찬"
+      ],
+      "searchQueries": [
+        "오이무침 밀키트",
+        "오이무침 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0138",
+      "recipeName": "콩나물잡채",
+      "category": [
+        "한식",
+        "반찬",
+        "나물"
+      ],
+      "searchQueries": [
+        "콩나물잡채 밀키트",
+        "콩나물잡채 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0139",
+      "recipeName": "팥토스트",
+      "category": [
+        "간식",
+        "토스트"
+      ],
+      "searchQueries": [
+        "팥토스트 밀키트",
+        "팥토스트 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0140",
+      "recipeName": "꿀떡구이",
+      "category": [
+        "간식",
+        "디저트"
+      ],
+      "searchQueries": [
+        "꿀떡구이 밀키트",
+        "꿀떡구이 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0141",
+      "recipeName": "콩나물무침",
+      "category": [
+        "한식",
+        "반찬",
+        "나물"
+      ],
+      "searchQueries": [
+        "콩나물무침 밀키트",
+        "콩나물무침 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0142",
+      "recipeName": "숙주나물",
+      "category": [
+        "한식",
+        "반찬",
+        "나물"
+      ],
+      "searchQueries": [
+        "숙주나물 밀키트",
+        "숙주나물 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0143",
+      "recipeName": "가지무침",
+      "category": [
+        "한식",
+        "반찬",
+        "나물"
+      ],
+      "searchQueries": [
+        "가지무침 밀키트",
+        "가지무침 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0144",
+      "recipeName": "무생채",
+      "category": [
+        "한식",
+        "반찬",
+        "나물"
+      ],
+      "searchQueries": [
+        "무생채 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 2,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "음식나라실습키트 한식조리기능사 실기재료 밀키트판매(6가지) 6번-잡채,더덕생채,미나리강회,탕평채,비빔밥,무생채",
+        "맛있는 무생채 밀키트 10kg 가정용 업소영 국내가공"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "recipe_0145",
+      "recipeName": "미역초무침",
+      "category": [
+        "한식",
+        "반찬",
+        "나물"
+      ],
+      "searchQueries": [
+        "미역초무침 밀키트",
+        "미역초무침 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0146",
+      "recipeName": "어묵볶음",
+      "category": [
+        "한식",
+        "반찬",
+        "볶음"
+      ],
+      "searchQueries": [
+        "어묵볶음 밀키트",
+        "어묵볶음 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0147",
+      "recipeName": "진미채볶음",
+      "category": [
+        "한식",
+        "반찬",
+        "볶음"
+      ],
+      "searchQueries": [
+        "진미채볶음 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 2,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "본죽 밑반찬 2종 반찬세트(진미채볶음, 깻잎무침) 간편식 밀키트",
+        "본죽 밑반찬 2종 반찬세트(진미채볶음, 깻잎무침) 간편식 밀키트"
+      ],
+      "status": "VALID",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "recipe_0148",
+      "recipeName": "감자채볶음",
+      "category": [
+        "한식",
+        "반찬",
+        "볶음"
+      ],
+      "searchQueries": [
+        "감자채볶음 밀키트",
+        "감자채볶음 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0149",
+      "recipeName": "새우볶음",
+      "category": [
+        "한식",
+        "반찬",
+        "볶음"
+      ],
+      "searchQueries": [
+        "새우볶음 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 1,
+      "validProductTitles": [
+        "을지옥 쭈꾸미볶음 밀키트 세트 대창 차돌 삼겹 새우 볶음밥 2개씩 16ea"
+      ],
+      "status": "VALID",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "recipe_0150",
+      "recipeName": "메추리알장조림",
+      "category": [
+        "한식",
+        "반찬",
+        "조림"
+      ],
+      "searchQueries": [
+        "메추리알장조림 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 2,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "본죽 밑반찬 장조림 3종 반찬세트(쇠고기장조림, 메추리알장조림, 꽈리고추 돼지고기 장조림) 간편식 밀키트",
+        "비비고 한끼 국반찬세트(햇반, 소고기미역국, 메추리알장조림, 김치볶음, 구운김) 혼밥 간편식 밀키트"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "recipe_0151",
+      "recipeName": "연근조림",
+      "category": [
+        "한식",
+        "반찬",
+        "조림"
+      ],
+      "searchQueries": [
+        "연근조림 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 2,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "비비고 간편반찬 오징어채볶음 호두연근조림 세트 가정간편식 밀키트",
+        "비비고 간편반찬 무말랭이무침 호두연근조림 세트 가정간편식 밀키트"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "recipe_0152",
+      "recipeName": "우엉조림",
+      "category": [
+        "한식",
+        "반찬",
+        "조림"
+      ],
+      "searchQueries": [
+        "우엉조림 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "[로켓프레시] 김밥천국 김밥용 우엉조림 (냉동), 250g, 1개"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0153",
+      "recipeName": "꽈리고추감자조림",
+      "category": [
+        "한식",
+        "반찬",
+        "조림"
+      ],
+      "searchQueries": [
+        "꽈리고추감자조림 밀키트",
+        "꽈리고추감자조림 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0154",
+      "recipeName": "계란장조림",
+      "category": [
+        "한식",
+        "반찬",
+        "조림"
+      ],
+      "searchQueries": [
+        "계란장조림 밀키트",
+        "계란장조림 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0155",
+      "recipeName": "두부부침",
+      "category": [
+        "한식",
+        "반찬",
+        "부침"
+      ],
+      "searchQueries": [
+        "두부부침 밀키트",
+        "두부부침 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0156",
+      "recipeName": "두부강정",
+      "category": [
+        "한식",
+        "반찬",
+        "볶음"
+      ],
+      "searchQueries": [
+        "두부강정 밀키트",
+        "두부강정 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0157",
+      "recipeName": "소고기장조림",
+      "category": [
+        "한식",
+        "반찬",
+        "조림"
+      ],
+      "searchQueries": [
+        "소고기장조림 밀키트",
+        "소고기장조림 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0158",
+      "recipeName": "꽁치간장조림",
+      "category": [
+        "한식",
+        "반찬",
+        "조림"
+      ],
+      "searchQueries": [
+        "꽁치간장조림 밀키트",
+        "꽁치간장조림 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0159",
+      "recipeName": "애호박전",
+      "category": [
+        "한식",
+        "반찬",
+        "전"
+      ],
+      "searchQueries": [
+        "애호박전 밀키트",
+        "애호박전 간편식"
+      ],
+      "productsChecked": 0,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "REMOVE"
+    },
+    {
+      "recipeId": "recipe_0160",
+      "recipeName": "두부전",
+      "category": [
+        "한식",
+        "반찬",
+        "전"
+      ],
+      "searchQueries": [
+        "두부전 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "올바른 닭가슴살 두부전 (냉동), 500g, 1팩"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0161",
+      "recipeName": "닭가슴살죽",
+      "category": [
+        "아침",
+        "죽",
+        "집밥"
+      ],
+      "searchQueries": [
+        "닭가슴살죽 밀키트",
+        "닭가슴살죽 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0162",
+      "recipeName": "참치야채죽",
+      "category": [
+        "아침",
+        "죽",
+        "집밥"
+      ],
+      "searchQueries": [
+        "참치야채죽 밀키트",
+        "참치야채죽 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0163",
+      "recipeName": "단호박죽",
+      "category": [
+        "아침",
+        "죽",
+        "집밥"
+      ],
+      "searchQueries": [
+        "단호박죽 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 1,
+      "validProductTitles": [
+        "[국내산] 본초맘죽 단호박죽 영양 간편식 밀키트 간편죽 이유식 아기죽 아침대용"
+      ],
+      "status": "VALID",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "recipe_0164",
+      "recipeName": "버섯죽",
+      "category": [
+        "아침",
+        "죽",
+        "집밥"
+      ],
+      "searchQueries": [
+        "버섯죽 밀키트",
+        "버섯죽 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0165",
+      "recipeName": "감자계란죽",
+      "category": [
+        "아침",
+        "죽",
+        "집밥"
+      ],
+      "searchQueries": [
+        "감자계란죽 밀키트",
+        "감자계란죽 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0166",
+      "recipeName": "두부야채죽",
+      "category": [
+        "아침",
+        "죽",
+        "집밥"
+      ],
+      "searchQueries": [
+        "두부야채죽 밀키트",
+        "두부야채죽 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0167",
+      "recipeName": "에그스크램블",
+      "category": [
+        "아침",
+        "계란",
+        "집밥"
+      ],
+      "searchQueries": [
+        "에그스크램블 밀키트",
+        "에그스크램블 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0168",
+      "recipeName": "햄에그샌드위치",
+      "category": [
+        "아침",
+        "샌드위치",
+        "집밥"
+      ],
+      "searchQueries": [
+        "햄에그샌드위치 밀키트",
+        "햄에그샌드위치 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0169",
+      "recipeName": "채소오믈렛",
+      "category": [
+        "아침",
+        "계란",
+        "집밥"
+      ],
+      "searchQueries": [
+        "채소오믈렛 밀키트",
+        "채소오믈렛 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0170",
+      "recipeName": "토마토계란볶음",
+      "category": [
+        "아침",
+        "계란",
+        "집밥"
+      ],
+      "searchQueries": [
+        "토마토계란볶음 밀키트",
+        "토마토계란볶음 간편식"
+      ],
+      "productsChecked": 0,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0171",
+      "recipeName": "치즈계란프라이",
+      "category": [
+        "아침",
+        "계란",
+        "집밥"
+      ],
+      "searchQueries": [
+        "치즈계란프라이 밀키트",
+        "치즈계란프라이 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0172",
+      "recipeName": "페퍼에그",
+      "category": [
+        "아침",
+        "계란",
+        "집밥"
+      ],
+      "searchQueries": [
+        "페퍼에그 밀키트",
+        "페퍼에그 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0173",
+      "recipeName": "햄치즈토스트",
+      "category": [
+        "아침",
+        "토스트",
+        "집밥"
+      ],
+      "searchQueries": [
+        "햄치즈토스트 밀키트",
+        "햄치즈토스트 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0174",
+      "recipeName": "참치샌드위치",
+      "category": [
+        "아침",
+        "샌드위치",
+        "집밥"
+      ],
+      "searchQueries": [
+        "참치샌드위치 밀키트",
+        "참치샌드위치 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0175",
+      "recipeName": "사과치즈토스트",
+      "category": [
+        "아침",
+        "토스트",
+        "집밥"
+      ],
+      "searchQueries": [
+        "사과치즈토스트 밀키트",
+        "사과치즈토스트 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0176",
+      "recipeName": "감자샐러드샌드",
+      "category": [
+        "아침",
+        "샌드위치",
+        "집밥"
+      ],
+      "searchQueries": [
+        "감자샐러드샌드 밀키트",
+        "감자샐러드샌드 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0177",
+      "recipeName": "바질토마토샌드",
+      "category": [
+        "아침",
+        "샌드위치",
+        "집밥"
+      ],
+      "searchQueries": [
+        "바질토마토샌드 밀키트",
+        "바질토마토샌드 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0178",
+      "recipeName": "요거트과일볼",
+      "category": [
+        "아침",
+        "요거트",
+        "건강식"
+      ],
+      "searchQueries": [
+        "요거트과일볼 밀키트",
+        "요거트과일볼 간편식"
+      ],
+      "productsChecked": 2,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0179",
+      "recipeName": "바나나오트요거트",
+      "category": [
+        "아침",
+        "요거트",
+        "건강식"
+      ],
+      "searchQueries": [
+        "바나나오트요거트 밀키트",
+        "바나나오트요거트 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0180",
+      "recipeName": "사과요거트",
+      "category": [
+        "아침",
+        "요거트",
+        "건강식"
+      ],
+      "searchQueries": [
+        "사과요거트 밀키트",
+        "사과요거트 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0181",
+      "recipeName": "베리요거트파르페",
+      "category": [
+        "아침",
+        "요거트",
+        "건강식"
+      ],
+      "searchQueries": [
+        "베리요거트파르페 밀키트",
+        "베리요거트파르페 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0182",
+      "recipeName": "과일그래놀라볼",
+      "category": [
+        "아침",
+        "요거트",
+        "건강식"
+      ],
+      "searchQueries": [
+        "과일그래놀라볼 밀키트",
+        "과일그래놀라볼 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0183",
+      "recipeName": "계란아보카도샐러드",
+      "category": [
+        "아침",
+        "샐러드",
+        "건강식"
+      ],
+      "searchQueries": [
+        "계란아보카도샐러드 밀키트",
+        "계란아보카도샐러드 간편식"
+      ],
+      "productsChecked": 0,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0184",
+      "recipeName": "두부콩나물샐러드",
+      "category": [
+        "아침",
+        "샐러드",
+        "건강식"
+      ],
+      "searchQueries": [
+        "두부콩나물샐러드 밀키트",
+        "두부콩나물샐러드 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0185",
+      "recipeName": "닭가슴살아침샐러드",
+      "category": [
+        "아침",
+        "샐러드",
+        "건강식"
+      ],
+      "searchQueries": [
+        "닭가슴살아침샐러드 밀키트",
+        "닭가슴살아침샐러드 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0186",
+      "recipeName": "감자오이샐러드",
+      "category": [
+        "아침",
+        "샐러드",
+        "건강식"
+      ],
+      "searchQueries": [
+        "감자오이샐러드 밀키트",
+        "감자오이샐러드 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0187",
+      "recipeName": "파계란국",
+      "category": [
+        "아침",
+        "국",
+        "집밥"
+      ],
+      "searchQueries": [
+        "파계란국 밀키트",
+        "파계란국 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0188",
+      "recipeName": "두부맑은국",
+      "category": [
+        "아침",
+        "국",
+        "집밥"
+      ],
+      "searchQueries": [
+        "두부맑은국 밀키트",
+        "두부맑은국 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0189",
+      "recipeName": "감자맑은국",
+      "category": [
+        "아침",
+        "국",
+        "집밥"
+      ],
+      "searchQueries": [
+        "감자맑은국 밀키트",
+        "감자맑은국 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0190",
+      "recipeName": "양파계란국",
+      "category": [
+        "아침",
+        "국",
+        "집밥"
+      ],
+      "searchQueries": [
+        "양파계란국 밀키트",
+        "양파계란국 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0191",
+      "recipeName": "계란치즈라면",
+      "category": [
+        "분식",
+        "면요리",
+        "야식"
+      ],
+      "searchQueries": [
+        "계란치즈라면 밀키트",
+        "계란치즈라면 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0192",
+      "recipeName": "순두부라면",
+      "category": [
+        "분식",
+        "면요리",
+        "야식"
+      ],
+      "searchQueries": [
+        "순두부라면 밀키트",
+        "순두부라면 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0193",
+      "recipeName": "콩나물라면",
+      "category": [
+        "분식",
+        "면요리",
+        "야식"
+      ],
+      "searchQueries": [
+        "콩나물라면 밀키트",
+        "콩나물라면 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0194",
+      "recipeName": "김치비빔면",
+      "category": [
+        "분식",
+        "면요리",
+        "야식"
+      ],
+      "searchQueries": [
+        "김치비빔면 밀키트",
+        "김치비빔면 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0195",
+      "recipeName": "참치비빔면",
+      "category": [
+        "분식",
+        "면요리",
+        "야식"
+      ],
+      "searchQueries": [
+        "참치비빔면 밀키트",
+        "참치비빔면 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0196",
+      "recipeName": "볶음우동",
+      "category": [
+        "분식",
+        "면요리",
+        "야식"
+      ],
+      "searchQueries": [
+        "볶음우동 밀키트",
+        "볶음우동 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "오타후쿠 간편식 볶음우동 소바 일본 캠핑 요리 간편식 즉석요리 소스 야끼소바 2인분 오리지널맛 370g 1개"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0197",
+      "recipeName": "매콤어묵우동",
+      "category": [
+        "분식",
+        "면요리",
+        "야식"
+      ],
+      "searchQueries": [
+        "매콤어묵우동 밀키트",
+        "매콤어묵우동 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0198",
+      "recipeName": "들기름비빔국수",
+      "category": [
+        "분식",
+        "면요리",
+        "야식"
+      ],
+      "searchQueries": [
+        "들기름비빔국수 밀키트",
+        "들기름비빔국수 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0199",
+      "recipeName": "치즈떡볶이",
+      "category": [
+        "분식",
+        "야식",
+        "떡볶이"
+      ],
+      "searchQueries": [
+        "치즈떡볶이 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 1,
+      "validProductTitles": [
+        "[인생건어물] 형기네 눈꽃치즈 떡볶이 470g 5봉 밀키트 대용량 업소용"
+      ],
+      "status": "VALID",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "recipe_0200",
+      "recipeName": "간장떡볶이",
+      "category": [
+        "분식",
+        "야식",
+        "떡볶이"
+      ],
+      "searchQueries": [
+        "간장떡볶이 밀키트",
+        "간장떡볶이 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0201",
+      "recipeName": "어묵떡볶이",
+      "category": [
+        "분식",
+        "야식",
+        "떡볶이"
+      ],
+      "searchQueries": [
+        "어묵떡볶이 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "[로켓프레시] 사과떡볶이 반전팩 어묵떡볶이 매운맛 (냉동), 850g, 2개"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0202",
+      "recipeName": "김치전",
+      "category": [
+        "분식",
+        "야식",
+        "전"
+      ],
+      "searchQueries": [
+        "김치전 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 5,
+      "clearMealKitCount": 1,
+      "validProductTitles": [
+        "오뚜기 초간편 김치전 믹스",
+        "수산왕국 냉동 한입 김치전, 3개, 900g",
+        "쿡솜씨  해물 김치전 밀키트 2인분",
+        "오뚜기 초간편 김치전 믹스",
+        "오뚜기 초간편 김치전 믹스"
+      ],
+      "status": "VALID",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "recipe_0203",
+      "recipeName": "감자전",
+      "category": [
+        "분식",
+        "야식",
+        "전"
+      ],
+      "searchQueries": [
+        "감자전 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 2,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "오뚜기 초간편 감자전믹스",
+        "오뚜기 초간편 감자전 믹스 1200g"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0204",
+      "recipeName": "매콤참치덮밥",
+      "category": [
+        "야식",
+        "덮밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "매콤참치덮밥 밀키트",
+        "매콤참치덮밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0205",
+      "recipeName": "매운어묵볶음밥",
+      "category": [
+        "야식",
+        "볶음밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "매운어묵볶음밥 밀키트",
+        "매운어묵볶음밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0206",
+      "recipeName": "고추장계란밥",
+      "category": [
+        "야식",
+        "밥요리",
+        "1인식"
+      ],
+      "searchQueries": [
+        "고추장계란밥 밀키트",
+        "고추장계란밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0207",
+      "recipeName": "매콤두부덮밥",
+      "category": [
+        "야식",
+        "덮밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "매콤두부덮밥 밀키트",
+        "매콤두부덮밥 간편식"
+      ],
+      "productsChecked": 0,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0208",
+      "recipeName": "김치치즈밥",
+      "category": [
+        "야식",
+        "밥요리",
+        "1인식"
+      ],
+      "searchQueries": [
+        "김치치즈밥 밀키트",
+        "김치치즈밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0209",
+      "recipeName": "계란두부국",
+      "category": [
+        "야식",
+        "국",
+        "가벼운"
+      ],
+      "searchQueries": [
+        "계란두부국 밀키트",
+        "계란두부국 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0210",
+      "recipeName": "오이참치무침",
+      "category": [
+        "야식",
+        "무침",
+        "가벼운"
+      ],
+      "searchQueries": [
+        "오이참치무침 밀키트",
+        "오이참치무침 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0211",
+      "recipeName": "두부김치라이트",
+      "category": [
+        "야식",
+        "무침",
+        "가벼운"
+      ],
+      "searchQueries": [
+        "두부김치라이트 밀키트",
+        "두부김치라이트 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0212",
+      "recipeName": "계란김밥볼",
+      "category": [
+        "야식",
+        "간편식",
+        "가벼운"
+      ],
+      "searchQueries": [
+        "계란김밥볼 밀키트",
+        "계란김밥볼 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0213",
+      "recipeName": "야채계란죽",
+      "category": [
+        "야식",
+        "죽",
+        "가벼운"
+      ],
+      "searchQueries": [
+        "야채계란죽 밀키트",
+        "야채계란죽 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0214",
+      "recipeName": "매콤어묵볶음",
+      "category": [
+        "야식",
+        "안주",
+        "볶음"
+      ],
+      "searchQueries": [
+        "매콤어묵볶음 밀키트",
+        "매콤어묵볶음 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0215",
+      "recipeName": "버터오징어볶음",
+      "category": [
+        "야식",
+        "안주",
+        "볶음"
+      ],
+      "searchQueries": [
+        "버터오징어볶음 밀키트",
+        "버터오징어볶음 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0216",
+      "recipeName": "두부김치볶음",
+      "category": [
+        "야식",
+        "안주",
+        "볶음"
+      ],
+      "searchQueries": [
+        "두부김치볶음 밀키트",
+        "두부김치볶음 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0217",
+      "recipeName": "콘치즈",
+      "category": [
+        "야식",
+        "간식",
+        "스낵"
+      ],
+      "searchQueries": [
+        "콘치즈 밀키트",
+        "콘치즈 간편식"
+      ],
+      "productsChecked": 0,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0218",
+      "recipeName": "치즈감자",
+      "category": [
+        "야식",
+        "간식",
+        "스낵"
+      ],
+      "searchQueries": [
+        "치즈감자 밀키트",
+        "치즈감자 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0219",
+      "recipeName": "마요감자",
+      "category": [
+        "야식",
+        "간식",
+        "스낵"
+      ],
+      "searchQueries": [
+        "마요감자 밀키트",
+        "마요감자 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0220",
+      "recipeName": "부추전",
+      "category": [
+        "분식",
+        "야식",
+        "전"
+      ],
+      "searchQueries": [
+        "부추전 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 2,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "사옹원 알찬 해물부추전1kg(냉동) 한입크기 에어프라이어 해물전, 5개, 1kg",
+        "[로켓프레시] 서울마님 부추전 반죽 (냉동)"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0221",
+      "recipeName": "닭가슴살간장덮밥",
+      "category": [
+        "점심",
+        "한식",
+        "덮밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "닭가슴살간장덮밥 밀키트",
+        "닭가슴살간장덮밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0222",
+      "recipeName": "버섯불고기덮밥",
+      "category": [
+        "점심",
+        "한식",
+        "덮밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "버섯불고기덮밥 밀키트",
+        "버섯불고기덮밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0223",
+      "recipeName": "두부마파덮밥",
+      "category": [
+        "점심",
+        "한식",
+        "덮밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "두부마파덮밥 밀키트",
+        "두부마파덮밥 간편식"
+      ],
+      "productsChecked": 2,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0224",
+      "recipeName": "참치김치덮밥",
+      "category": [
+        "점심",
+        "한식",
+        "덮밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "참치김치덮밥 밀키트",
+        "참치김치덮밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0225",
+      "recipeName": "계란카레덮밥",
+      "category": [
+        "점심",
+        "한식",
+        "덮밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "계란카레덮밥 밀키트",
+        "계란카레덮밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0226",
+      "recipeName": "가지소보로덮밥",
+      "category": [
+        "점심",
+        "한식",
+        "덮밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "가지소보로덮밥 밀키트",
+        "가지소보로덮밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0227",
+      "recipeName": "소고기양파덮밥",
+      "category": [
+        "점심",
+        "한식",
+        "덮밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "소고기양파덮밥 밀키트",
+        "소고기양파덮밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0228",
+      "recipeName": "닭고기데리야키덮밥",
+      "category": [
+        "점심",
+        "일식",
+        "덮밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "닭고기데리야키덮밥 밀키트",
+        "닭고기데리야키덮밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0229",
+      "recipeName": "새우계란볶음밥",
+      "category": [
+        "점심",
+        "한식",
+        "볶음밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "새우계란볶음밥 밀키트",
+        "새우계란볶음밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0230",
+      "recipeName": "버섯간장볶음밥",
+      "category": [
+        "점심",
+        "한식",
+        "볶음밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "버섯간장볶음밥 밀키트",
+        "버섯간장볶음밥 간편식"
+      ],
+      "productsChecked": 0,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0231",
+      "recipeName": "닭가슴살채소볶음밥",
+      "category": [
+        "점심",
+        "한식",
+        "볶음밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "닭가슴살채소볶음밥 밀키트",
+        "닭가슴살채소볶음밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0232",
+      "recipeName": "두부김치볶음밥",
+      "category": [
+        "점심",
+        "한식",
+        "볶음밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "두부김치볶음밥 밀키트",
+        "두부김치볶음밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0233",
+      "recipeName": "참치마늘볶음밥",
+      "category": [
+        "점심",
+        "한식",
+        "볶음밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "참치마늘볶음밥 밀키트",
+        "참치마늘볶음밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0234",
+      "recipeName": "카레볶음밥",
+      "category": [
+        "점심",
+        "한식",
+        "볶음밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "카레볶음밥 밀키트",
+        "카레볶음밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0235",
+      "recipeName": "닭칼국수",
+      "category": [
+        "점심",
+        "한식",
+        "면요리",
+        "1인식"
+      ],
+      "searchQueries": [
+        "닭칼국수 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 1,
+      "validProductTitles": [
+        "간편담은 쫄깃 구포 잔치국수 비빔국수 해물맛칼국수 닭칼국수 김치국수 1인분 (면+스프 라면처럼 간편 밀키트), 1개, 108g"
+      ],
+      "status": "VALID",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "recipe_0236",
+      "recipeName": "비빔쫄면",
+      "category": [
+        "점심",
+        "분식",
+        "면요리",
+        "1인식"
+      ],
+      "searchQueries": [
+        "비빔쫄면 밀키트",
+        "비빔쫄면 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 2,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "미식가 쫄면 냉쫄면 비빔쫄면 간편식 가정용 업소용 식자재, 1개, 2kg",
+        "자연드림 쫄깃쫄깃 발효생쫄면 냉장면 비빔쫄면 간편식"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0237",
+      "recipeName": "들깨국수",
+      "category": [
+        "점심",
+        "한식",
+        "면요리",
+        "1인식"
+      ],
+      "searchQueries": [
+        "들깨국수 밀키트",
+        "들깨국수 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0238",
+      "recipeName": "참치냉우동",
+      "category": [
+        "점심",
+        "일식",
+        "면요리",
+        "1인식"
+      ],
+      "searchQueries": [
+        "참치냉우동 밀키트",
+        "참치냉우동 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0239",
+      "recipeName": "간장비빔면",
+      "category": [
+        "점심",
+        "분식",
+        "면요리",
+        "1인식"
+      ],
+      "searchQueries": [
+        "간장비빔면 밀키트",
+        "간장비빔면 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0240",
+      "recipeName": "버섯크림우동",
+      "category": [
+        "점심",
+        "양식",
+        "면요리",
+        "1인식"
+      ],
+      "searchQueries": [
+        "버섯크림우동 밀키트",
+        "버섯크림우동 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0241",
+      "recipeName": "참치야채김밥",
+      "category": [
+        "점심",
+        "한식",
+        "김밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "참치야채김밥 밀키트",
+        "참치야채김밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0242",
+      "recipeName": "계란김밥",
+      "category": [
+        "점심",
+        "한식",
+        "김밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "계란김밥 밀키트",
+        "계란김밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0243",
+      "recipeName": "불고기주먹밥",
+      "category": [
+        "점심",
+        "한식",
+        "김밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "불고기주먹밥 밀키트",
+        "불고기주먹밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0244",
+      "recipeName": "김치치즈주먹밥",
+      "category": [
+        "점심",
+        "한식",
+        "김밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "김치치즈주먹밥 밀키트",
+        "김치치즈주먹밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0245",
+      "recipeName": "닭가슴살샌드위치",
+      "category": [
+        "점심",
+        "샌드위치",
+        "1인식"
+      ],
+      "searchQueries": [
+        "닭가슴살샌드위치 밀키트",
+        "닭가슴살샌드위치 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0246",
+      "recipeName": "불고기샌드",
+      "category": [
+        "점심",
+        "샌드위치",
+        "1인식"
+      ],
+      "searchQueries": [
+        "불고기샌드 밀키트",
+        "불고기샌드 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0247",
+      "recipeName": "에그아보카도샌드",
+      "category": [
+        "점심",
+        "샌드위치",
+        "1인식"
+      ],
+      "searchQueries": [
+        "에그아보카도샌드 밀키트",
+        "에그아보카도샌드 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0248",
+      "recipeName": "두부김치밥",
+      "category": [
+        "점심",
+        "한식",
+        "간편식",
+        "1인식"
+      ],
+      "searchQueries": [
+        "두부김치밥 밀키트",
+        "두부김치밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0249",
+      "recipeName": "콩나물비빔밥",
+      "category": [
+        "점심",
+        "한식",
+        "비빔밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "콩나물비빔밥 밀키트",
+        "콩나물비빔밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0250",
+      "recipeName": "참치채소비빔밥",
+      "category": [
+        "점심",
+        "한식",
+        "비빔밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "참치채소비빔밥 밀키트",
+        "참치채소비빔밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0251",
+      "recipeName": "버섯들깨탕",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "국물"
+      ],
+      "searchQueries": [
+        "버섯들깨탕 밀키트",
+        "버섯들깨탕 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0252",
+      "recipeName": "애호박된장찌개",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "찌개"
+      ],
+      "searchQueries": [
+        "애호박된장찌개 밀키트",
+        "애호박된장찌개 간편식"
+      ],
+      "productsChecked": 0,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0253",
+      "recipeName": "두부버섯전골",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "전골"
+      ],
+      "searchQueries": [
+        "두부버섯전골 밀키트",
+        "두부버섯전골 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0254",
+      "recipeName": "닭곰탕",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "국물"
+      ],
+      "searchQueries": [
+        "닭곰탕 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 3,
+      "clearMealKitCount": 2,
+      "validProductTitles": [
+        "춘풍접객 진한 닭곰탕 600g 영양식 곰탕 가정식 업소용 밀키트 냉동 즉석국, 1개, 600g",
+        "[로켓프레시] 곰곰 닭곰탕 (냉동)",
+        "춘풍접객 진한 닭곰탕 600g  식당용 업소용 영양식 곰탕 가정식 밀키트 즉석국"
+      ],
+      "status": "STRONG",
+      "vsPrevious": "ADD"
+    },
+    {
+      "recipeId": "recipe_0255",
+      "recipeName": "돼지고기김치찌개",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "찌개"
+      ],
+      "searchQueries": [
+        "돼지고기김치찌개 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 0,
+      "validProductTitles": [
+        "[간편한식] 이 푸짐한 돼지고기 김치찌개 세트, 10개, 320g"
+      ],
+      "status": "WEAK",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0256",
+      "recipeName": "팽이버섯맑은국",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "국물"
+      ],
+      "searchQueries": [
+        "팽이버섯맑은국 밀키트",
+        "팽이버섯맑은국 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0257",
+      "recipeName": "청양어묵탕",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "탕"
+      ],
+      "searchQueries": [
+        "청양어묵탕 밀키트",
+        "청양어묵탕 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0258",
+      "recipeName": "간장닭구이",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "구이"
+      ],
+      "searchQueries": [
+        "간장닭구이 밀키트",
+        "간장닭구이 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0259",
+      "recipeName": "고추장돼지불고기",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "볶음"
+      ],
+      "searchQueries": [
+        "고추장돼지불고기 밀키트",
+        "고추장돼지불고기 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0260",
+      "recipeName": "소고기숙주볶음",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "볶음"
+      ],
+      "searchQueries": [
+        "소고기숙주볶음 밀키트",
+        "소고기숙주볶음 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0261",
+      "recipeName": "닭다리살채소볶음",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "볶음"
+      ],
+      "searchQueries": [
+        "닭다리살채소볶음 밀키트",
+        "닭다리살채소볶음 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0262",
+      "recipeName": "돼지고기두부조림",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "조림"
+      ],
+      "searchQueries": [
+        "돼지고기두부조림 밀키트",
+        "돼지고기두부조림 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0263",
+      "recipeName": "소고기가지볶음",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "볶음"
+      ],
+      "searchQueries": [
+        "소고기가지볶음 밀키트",
+        "소고기가지볶음 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0264",
+      "recipeName": "닭고기버섯볶음",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "볶음"
+      ],
+      "searchQueries": [
+        "닭고기버섯볶음 밀키트",
+        "닭고기버섯볶음 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0265",
+      "recipeName": "고등어간장구이",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "구이"
+      ],
+      "searchQueries": [
+        "고등어간장구이 밀키트",
+        "고등어간장구이 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0266",
+      "recipeName": "두부양념구이",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "구이"
+      ],
+      "searchQueries": [
+        "두부양념구이 밀키트",
+        "두부양념구이 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0267",
+      "recipeName": "닭가슴살마늘구이",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "구이"
+      ],
+      "searchQueries": [
+        "닭가슴살마늘구이 밀키트",
+        "닭가슴살마늘구이 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0268",
+      "recipeName": "버섯치즈구이",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "구이"
+      ],
+      "searchQueries": [
+        "버섯치즈구이 밀키트",
+        "버섯치즈구이 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0269",
+      "recipeName": "가지된장구이",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "구이"
+      ],
+      "searchQueries": [
+        "가지된장구이 밀키트",
+        "가지된장구이 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0270",
+      "recipeName": "오징어간장볶음",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "볶음",
+        "해산물"
+      ],
+      "searchQueries": [
+        "오징어간장볶음 밀키트",
+        "오징어간장볶음 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0271",
+      "recipeName": "새우마늘볶음",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "볶음",
+        "해산물"
+      ],
+      "searchQueries": [
+        "새우마늘볶음 밀키트",
+        "새우마늘볶음 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0272",
+      "recipeName": "고등어무조림",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "조림",
+        "해산물"
+      ],
+      "searchQueries": [
+        "고등어무조림 밀키트"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 1,
+      "clearMealKitCount": 1,
+      "validProductTitles": [
+        "칼칼한 전라도식 고등어무조림 밀키트"
+      ],
+      "status": "VALID",
+      "vsPrevious": "KEEP"
+    },
+    {
+      "recipeId": "recipe_0273",
+      "recipeName": "연어채소구이",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "구이",
+        "해산물"
+      ],
+      "searchQueries": [
+        "연어채소구이 밀키트",
+        "연어채소구이 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0274",
+      "recipeName": "버섯크림파스타",
+      "category": [
+        "저녁",
+        "양식",
+        "집밥",
+        "파스타"
+      ],
+      "searchQueries": [
+        "버섯크림파스타 밀키트",
+        "버섯크림파스타 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0275",
+      "recipeName": "토마토치킨파스타",
+      "category": [
+        "저녁",
+        "양식",
+        "집밥",
+        "파스타"
+      ],
+      "searchQueries": [
+        "토마토치킨파스타 밀키트",
+        "토마토치킨파스타 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0276",
+      "recipeName": "새우오일파스타",
+      "category": [
+        "저녁",
+        "양식",
+        "집밥",
+        "파스타"
+      ],
+      "searchQueries": [
+        "새우오일파스타 밀키트",
+        "새우오일파스타 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0277",
+      "recipeName": "가지토마토파스타",
+      "category": [
+        "저녁",
+        "양식",
+        "집밥",
+        "파스타"
+      ],
+      "searchQueries": [
+        "가지토마토파스타 밀키트",
+        "가지토마토파스타 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0278",
+      "recipeName": "감자소고기조림",
+      "category": [
+        "저녁",
+        "가족식",
+        "집밥",
+        "조림"
+      ],
+      "searchQueries": [
+        "감자소고기조림 밀키트",
+        "감자소고기조림 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0279",
+      "recipeName": "두부버섯조림",
+      "category": [
+        "저녁",
+        "가족식",
+        "집밥",
+        "조림"
+      ],
+      "searchQueries": [
+        "두부버섯조림 밀키트",
+        "두부버섯조림 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0280",
+      "recipeName": "닭감자간장조림",
+      "category": [
+        "저녁",
+        "가족식",
+        "집밥",
+        "조림"
+      ],
+      "searchQueries": [
+        "닭감자간장조림 밀키트",
+        "닭감자간장조림 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0281",
+      "recipeName": "시금치크림파스타",
+      "category": [
+        "저녁",
+        "양식",
+        "집밥",
+        "파스타"
+      ],
+      "searchQueries": [
+        "시금치크림파스타 밀키트",
+        "시금치크림파스타 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0282",
+      "recipeName": "닭고기오일파스타",
+      "category": [
+        "저녁",
+        "양식",
+        "집밥",
+        "파스타"
+      ],
+      "searchQueries": [
+        "닭고기오일파스타 밀키트",
+        "닭고기오일파스타 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0283",
+      "recipeName": "두부에그샌드",
+      "category": [
+        "점심",
+        "샌드위치",
+        "1인식"
+      ],
+      "searchQueries": [
+        "두부에그샌드 밀키트",
+        "두부에그샌드 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0284",
+      "recipeName": "불고기치즈샌드",
+      "category": [
+        "점심",
+        "샌드위치",
+        "1인식"
+      ],
+      "searchQueries": [
+        "불고기치즈샌드 밀키트",
+        "불고기치즈샌드 간편식"
+      ],
+      "productsChecked": 2,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0285",
+      "recipeName": "참치사과샌드",
+      "category": [
+        "점심",
+        "샌드위치",
+        "1인식"
+      ],
+      "searchQueries": [
+        "참치사과샌드 밀키트",
+        "참치사과샌드 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0286",
+      "recipeName": "닭가슴살주먹밥",
+      "category": [
+        "점심",
+        "한식",
+        "김밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "닭가슴살주먹밥 밀키트",
+        "닭가슴살주먹밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0287",
+      "recipeName": "소고기김주먹밥",
+      "category": [
+        "점심",
+        "한식",
+        "김밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "소고기김주먹밥 밀키트",
+        "소고기김주먹밥 간편식"
+      ],
+      "productsChecked": 0,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0288",
+      "recipeName": "채소치즈김밥",
+      "category": [
+        "점심",
+        "한식",
+        "김밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "채소치즈김밥 밀키트",
+        "채소치즈김밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0289",
+      "recipeName": "새우간장덮밥",
+      "category": [
+        "점심",
+        "한식",
+        "덮밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "새우간장덮밥 밀키트",
+        "새우간장덮밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0290",
+      "recipeName": "버섯계란덮밥",
+      "category": [
+        "점심",
+        "한식",
+        "덮밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "버섯계란덮밥 밀키트",
+        "버섯계란덮밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0291",
+      "recipeName": "소고기숙주덮밥",
+      "category": [
+        "점심",
+        "한식",
+        "덮밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "소고기숙주덮밥 밀키트",
+        "소고기숙주덮밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0292",
+      "recipeName": "시금치계란스프",
+      "category": [
+        "아침",
+        "국",
+        "집밥"
+      ],
+      "searchQueries": [
+        "시금치계란스프 밀키트",
+        "시금치계란스프 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0293",
+      "recipeName": "토마토에그토스트",
+      "category": [
+        "아침",
+        "토스트",
+        "집밥"
+      ],
+      "searchQueries": [
+        "토마토에그토스트 밀키트",
+        "토마토에그토스트 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0294",
+      "recipeName": "오트밀호두볼",
+      "category": [
+        "아침",
+        "죽",
+        "건강식"
+      ],
+      "searchQueries": [
+        "오트밀호두볼 밀키트",
+        "오트밀호두볼 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0295",
+      "recipeName": "버터계란토스트",
+      "category": [
+        "아침",
+        "토스트",
+        "집밥"
+      ],
+      "searchQueries": [
+        "버터계란토스트 밀키트",
+        "버터계란토스트 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0296",
+      "recipeName": "양파계란부침",
+      "category": [
+        "야식",
+        "전",
+        "가벼운"
+      ],
+      "searchQueries": [
+        "양파계란부침 밀키트",
+        "양파계란부침 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0297",
+      "recipeName": "버섯계란라이트",
+      "category": [
+        "야식",
+        "계란",
+        "가벼운"
+      ],
+      "searchQueries": [
+        "버섯계란라이트 밀키트",
+        "버섯계란라이트 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0298",
+      "recipeName": "참치야채라이트",
+      "category": [
+        "야식",
+        "무침",
+        "가벼운"
+      ],
+      "searchQueries": [
+        "참치야채라이트 밀키트",
+        "참치야채라이트 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0299",
+      "recipeName": "야채김치볶음",
+      "category": [
+        "저녁",
+        "한식",
+        "집밥",
+        "볶음"
+      ],
+      "searchQueries": [
+        "야채김치볶음 밀키트",
+        "야채김치볶음 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    },
+    {
+      "recipeId": "recipe_0300",
+      "recipeName": "연어간장덮밥",
+      "category": [
+        "점심",
+        "일식",
+        "덮밥",
+        "1인식"
+      ],
+      "searchQueries": [
+        "연어간장덮밥 밀키트",
+        "연어간장덮밥 간편식"
+      ],
+      "productsChecked": 5,
+      "validProductCount": 0,
+      "clearMealKitCount": 0,
+      "validProductTitles": [],
+      "status": "NONE",
+      "vsPrevious": "STAY_OUT"
+    }
+  ]
+}

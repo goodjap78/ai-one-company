@@ -26,7 +26,7 @@
         "backgroundColor": "#FFF4EC"
       },
       "package": "com.aionecompany.todaysmenu",
-      "versionCode": 5,
+      "versionCode": 8,
       "softwareKeyboardLayoutMode": "resize"
     },
     "plugins": [

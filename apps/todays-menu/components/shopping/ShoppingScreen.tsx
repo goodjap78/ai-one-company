@@ -1,4 +1,3 @@
-import { useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
@@ -11,7 +10,6 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { SHOPPING_COPY } from '../../constants/shoppingCopy';
 import {
-  parseShoppingListMode,
   SHOPPING_CONFIG,
   type ShoppingListMode,
 } from '../../constants/shoppingConfig';
@@ -29,10 +27,15 @@ import {
 } from '../../services/shopping/shoppingSelection';
 import type { ShoppingIngredientGroup, ShoppingIngredientItem } from '../../types/shopping';
 import { resolveMealHeroImage } from '../../utils/mealHeroImage';
-import { parseRouteParam } from '../../utils/routeParams';
 import { MealImageView } from '../meal/MealImageView';
 import { recipePremiumStyles, recipeRef } from '../recipe/recipePremiumStyles';
 import { ScreenBackButton } from '../ui/ScreenBackButton';
+import { MealKitShoppingPanel } from './MealKitShoppingPanel';
+import {
+  setShoppingAnalyticsContext,
+  toAnalyticsShoppingMode,
+  trackShoppingScreenView,
+} from '../../services/analytics';
 import { ShoppingIngredientRow } from './ShoppingIngredientRow';
 import { ShoppingProductResults } from './ShoppingProductResults';
 
@@ -90,6 +93,34 @@ type Props = {
  * Sprint 63-C — contextual shopping list (no product API / affiliate links).
  */
 export function ShoppingScreen({
+  recipeId,
+  mode,
+  showSeasoningsInitially = false,
+}: Props) {
+  useEffect(() => {
+    if (!recipeId) return;
+    const analyticsMode = toAnalyticsShoppingMode(mode);
+    setShoppingAnalyticsContext(recipeId, analyticsMode);
+    trackShoppingScreenView({
+      recipe_id: recipeId,
+      mode: analyticsMode,
+    });
+  }, [recipeId, mode]);
+
+  if (mode === 'meal-kit') {
+    return <MealKitShoppingPanel recipeId={recipeId} />;
+  }
+
+  return (
+    <IngredientShoppingScreen
+      recipeId={recipeId}
+      mode={mode}
+      showSeasoningsInitially={showSeasoningsInitially}
+    />
+  );
+}
+
+function IngredientShoppingScreen({
   recipeId,
   mode,
   showSeasoningsInitially = false,

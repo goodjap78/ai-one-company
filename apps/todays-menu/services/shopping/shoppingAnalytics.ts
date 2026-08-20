@@ -1,5 +1,6 @@
 /**
- * Sprint 63-D — analytics hook surface (no-op until provider is wired).
+ * Sprint 63-D — shopping analytics hook.
+ * Test listener stays local; production provider is the central analytics wrapper.
  */
 
 export type ShoppingAnalyticsEventName =
@@ -9,19 +10,36 @@ export type ShoppingAnalyticsEventName =
 
 export type ShoppingAnalyticsPayload = Record<string, string | number | boolean | undefined>;
 
-let listener: ((name: ShoppingAnalyticsEventName, payload: ShoppingAnalyticsPayload) => void) | null =
-  null;
+type ShoppingAnalyticsHandler = (
+  name: ShoppingAnalyticsEventName,
+  payload: ShoppingAnalyticsPayload,
+) => void;
+
+let listener: ShoppingAnalyticsHandler | null = null;
+let provider: ShoppingAnalyticsHandler | null = null;
 
 /** Test-only — attach a listener without console logging in production. */
-export function setShoppingAnalyticsListener(
-  fn: ((name: ShoppingAnalyticsEventName, payload: ShoppingAnalyticsPayload) => void) | null,
-): void {
+export function setShoppingAnalyticsListener(fn: ShoppingAnalyticsHandler | null): void {
   listener = fn;
+}
+
+/** Production analytics wrapper — does not replace the test listener. */
+export function setShoppingAnalyticsProvider(fn: ShoppingAnalyticsHandler | null): void {
+  provider = fn;
 }
 
 export function trackShoppingEvent(
   name: ShoppingAnalyticsEventName,
   payload: ShoppingAnalyticsPayload = {},
 ): void {
-  if (listener) listener(name, payload);
+  try {
+    listener?.(name, payload);
+  } catch {
+    // ignore
+  }
+  try {
+    provider?.(name, payload);
+  } catch {
+    // ignore
+  }
 }

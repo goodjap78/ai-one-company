@@ -37,11 +37,11 @@ function sha256Json(obj: unknown): string {
 
 console.log('Sprint 57 meal-time metadata QA — start\n');
 
-assert(HANKKI_RECIPES.length === 300, `HANKKI_RECIPES count 300 (got ${HANKKI_RECIPES.length})`);
+assert(HANKKI_RECIPES.length === 304, `HANKKI_RECIPES count 304 (got ${HANKKI_RECIPES.length})`);
 
 resetRecipeMealTimeMetadataCache();
 const map = buildRecipeMealTimeMetadataMap();
-assert(map.size === 300, `metadata map 300 (got ${map.size})`);
+assert(map.size === 304, `metadata map 304 (got ${map.size})`);
 
 const entries = listRecipeMealTimeMetadata();
 const ids = new Set<string>();
@@ -75,10 +75,10 @@ assert(
 const { auditPath, summaryPath, recipeCount } = writeMealTimeAuditArtifacts(appRoot);
 assert(fs.existsSync(auditPath), 'meal-time-audit.json created');
 assert(fs.existsSync(summaryPath), 'meal-time-summary.json created');
-assert(recipeCount === 300, 'audit recipe count 300');
+assert(recipeCount === 304, 'audit recipe count 304');
 
 const audit = JSON.parse(fs.readFileSync(auditPath, 'utf8')) as unknown[];
-assert(audit.length === 300, `audit rows 300 (got ${audit.length})`);
+assert(audit.length === 304, `audit rows 304 (got ${audit.length})`);
 
 const summary = JSON.parse(fs.readFileSync(summaryPath, 'utf8')) as {
   poolSummary: Array<{ slot: string; counts: Record<string, number>; gap070: number }>;

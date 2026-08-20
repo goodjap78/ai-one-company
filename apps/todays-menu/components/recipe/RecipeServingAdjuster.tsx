@@ -38,6 +38,7 @@ export function RecipeServingAdjuster({
             onChange(targetServings - 1);
           }}
           disabled={!canDecrease}
+          hitSlop={8}
           accessibilityRole="button"
           accessibilityLabel={labels.servingAdjustDecreaseA11y}
           accessibilityState={{ disabled: !canDecrease }}
@@ -57,6 +58,7 @@ export function RecipeServingAdjuster({
             onChange(targetServings + 1);
           }}
           disabled={!canIncrease}
+          hitSlop={8}
           accessibilityRole="button"
           accessibilityLabel={labels.servingAdjustIncreaseA11y}
           accessibilityState={{ disabled: !canIncrease }}
@@ -84,17 +86,17 @@ export function RecipeServingAdjuster({
 
 const styles = StyleSheet.create({
   root: {
-    gap: 10,
+    gap: 6,
     backgroundColor: recipeRef.colors.pastelCard,
-    borderRadius: 16,
+    borderRadius: 14,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: '#E8DFD4',
-    paddingHorizontal: 14,
-    paddingVertical: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
   },
   title: {
-    fontSize: 15,
-    lineHeight: 20,
+    fontSize: 14,
+    lineHeight: 18,
     fontWeight: '800',
     color: recipeRef.colors.textDeep,
   },
@@ -102,41 +104,40 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 16,
+    gap: 12,
   },
   stepButton: {
-    minWidth: ds.sizes.touchTarget,
-    minHeight: ds.sizes.touchTarget,
+    width: 40,
+    height: 40,
     borderRadius: 999,
     backgroundColor: '#FFFFFF',
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: '#E8DFD4',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 12,
   },
   stepButtonDisabled: {
     opacity: 0.45,
   },
   stepButtonText: {
-    fontSize: 22,
-    lineHeight: 26,
+    fontSize: 18,
+    lineHeight: 22,
     fontWeight: '700',
     color: recipeRef.colors.textDeep,
   },
   servingValue: {
-    fontSize: 18,
-    lineHeight: 24,
+    fontSize: 16,
+    lineHeight: 20,
     fontWeight: '800',
     color: recipeRef.colors.textDeep,
-    minWidth: 72,
+    minWidth: 64,
     textAlign: 'center',
   },
   resetButton: {
     alignSelf: 'center',
-    minHeight: ds.sizes.chipHeight,
+    minHeight: 36,
     paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingVertical: 4,
     justifyContent: 'center',
   },
   resetButtonText: {

@@ -271,6 +271,12 @@ export const RECIPE_IMAGE_MAP: Record<string, RecipeImageMapEntry> = {
   '099': { kind: 'local', key: 'egg_gukbap' },
   '100': { kind: 'local', key: 'kimchi_bokkeum' },
 
+  // Batch 24 meal-kit expansion (recipe_0301–0304)
+  recipe_0301: { kind: 'local', key: 'millefeuille_nabe' },
+  recipe_0302: { kind: 'local', key: 'bulgogi_jeongol' },
+  recipe_0303: { kind: 'local', key: 'jjuggumi_bokkeum' },
+  recipe_0304: { kind: 'local', key: 'haemul_tang' },
+
   // Legacy core / gold ids (same-dish HANKKI keys where available)
   core_kr_bibimbap: { kind: 'local', key: 'bibimbap' },
   gold_kr_bibimbap: { kind: 'local', key: 'bibimbap' },

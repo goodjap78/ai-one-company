@@ -21,6 +21,11 @@ import {
   setRecommendationSession,
 } from '../../services/recommendationSession';
 import { getFavoriteRecipeIds, toggleFavorite } from '../../services/FavoriteService';
+import {
+  setRecipeOpenSource,
+  trackRecipeImpression,
+  trackRecommendationRefresh,
+} from '../../services/analytics';
 import { getViewedRecipeDisplayCount } from '../../services/viewedRecipe';
 import {
   getContextMemorySelection,
@@ -74,6 +79,7 @@ export function useHomeScreen(nickname: string) {
   });
 
   const lastRefreshRef = useRef(0);
+  const lastHeroImpressionKeyRef = useRef<string | null>(null);
   const refreshInFlightRef = useRef(false);
   const loadedDateKeyRef = useRef<string | null>(null);
   const loadedSlotRef = useRef<MealTimeSlotKey | null>(null);
@@ -99,6 +105,15 @@ export function useHomeScreen(nickname: string) {
       const heroId = data.recipe?.id?.trim();
       if (heroId && !data.noCandidatesAvailable) {
         addSessionHeroId(heroId);
+        const impressionKey = `${dateKey}:${slot}:${heroId}`;
+        if (lastHeroImpressionKeyRef.current !== impressionKey) {
+          lastHeroImpressionKeyRef.current = impressionKey;
+          trackRecipeImpression({
+            recipe_id: heroId,
+            meal_time: slotMealType,
+            source: 'home',
+          });
+        }
       }
     },
     [],
@@ -308,6 +323,7 @@ export function useHomeScreen(nickname: string) {
     const previousIds = buildRecipeIdsFromRecommendation(recommendation);
     refreshInFlightRef.current = true;
     setIsRefreshing(true);
+    trackRecommendationRefresh({ meal_time: mealType });
 
     try {
       const next = await refreshMealTimeSlotHomeRecommendation(
@@ -322,7 +338,7 @@ export function useHomeScreen(nickname: string) {
       refreshInFlightRef.current = false;
       setIsRefreshing(false);
     }
-  }, [recommendation, selectedSlot, mealMode, applySession]);
+  }, [recommendation, selectedSlot, mealMode, mealType, applySession]);
 
   const handleAccept = useCallback(async () => {
     if (!recommendation) return;
@@ -338,10 +354,12 @@ export function useHomeScreen(nickname: string) {
       );
 
       if (mealMode === 'delivery') {
+        setRecipeOpenSource('delivery');
         router.push(`/delivery/${recommendation.recipe.id}`);
         return;
       }
 
+      setRecipeOpenSource('home');
       router.push(`/ingredients/${recommendation.recipe.id}`);
     } catch {
       setToastMessage(labels.acceptErrorToast);
@@ -419,6 +437,17 @@ export function useHomeScreen(nickname: string) {
         recommendation: next,
       });
       await persistMealTimeSlotHomeRecommendation(selectedSlot, next);
+
+      const altHeroId = next.recipe?.id?.trim();
+      if (altHeroId && !next.noCandidatesAvailable) {
+        const impressionKey = `${getLocalDateKey(getNow())}:${selectedSlot}:${altHeroId}`;
+        lastHeroImpressionKeyRef.current = impressionKey;
+        trackRecipeImpression({
+          recipe_id: altHeroId,
+          meal_time: mealType,
+          source: 'alternative',
+        });
+      }
     },
     [recommendation, isRefreshing, mealType, mealMode, selectedSlot],
   );

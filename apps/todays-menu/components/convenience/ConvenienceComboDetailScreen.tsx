@@ -38,6 +38,7 @@ import { ScreenReplaceNavButton } from '../ui/ScreenReplaceNavButton';
 import { screenLayout } from '../ui/screenLayout';
 import { ConvenienceComboSuggestionStrip } from './ConvenienceComboSuggestionStrip';
 import { ConvenienceComboItemCards } from './ConvenienceComboItemCards';
+import { trackConvenienceComboOpen } from '../../services/analytics';
 
 const SUMMARY_THUMB_SIZE = 96;
 const FALLBACK_ACCENT = '#E8834A';
@@ -72,6 +73,11 @@ export function ConvenienceComboDetailScreen() {
   useEffect(() => {
     void loadFavoriteState();
   }, [loadFavoriteState]);
+
+  useEffect(() => {
+    if (!comboId) return;
+    trackConvenienceComboOpen({ combo_id: comboId });
+  }, [comboId]);
 
   const similar = useMemo(
     () => (combo ? findSimilarConvenienceCombos(combo, 3) : []),

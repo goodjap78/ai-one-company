@@ -1,6 +1,6 @@
 /**
- * Sprint 58.4 — Full 300-recipe catalog integrity QA.
- * Run: npm run test:meal-catalog-300
+ * Sprint 58.4 / 66-C — Full catalog integrity QA (304 after meal-kit Phase 3).
+ * Run: npm run test:meal-catalog-300 | npm run test:meal-catalog-304
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -32,15 +32,22 @@ function normalizeTitle(name: string): string {
   return name.replace(/\s+/g, '').toLowerCase();
 }
 
-console.log('Sprint 58.4 meal-catalog-300 QA — start\n');
+const CATALOG_SIZE = 304;
 
-assert(HANKKI_RECIPES.length === 300, `catalog exactly 300 (got ${HANKKI_RECIPES.length})`);
+console.log('Sprint 66-C meal-catalog-304 QA — start\n');
+
+assert(HANKKI_RECIPES.length === CATALOG_SIZE, `catalog exactly ${CATALOG_SIZE} (got ${HANKKI_RECIPES.length})`);
 
 const allIds = HANKKI_RECIPES.map((r) => r.id);
-assert(new Set(allIds).size === 300, 'duplicate recipeId 0');
+assert(new Set(allIds).size === CATALOG_SIZE, 'duplicate recipeId 0');
 
 const normalized = HANKKI_RECIPES.map((r) => normalizeTitle(r.name));
-assert(new Set(normalized).size === 300, 'duplicate normalized title 0');
+assert(new Set(normalized).size === CATALOG_SIZE, 'duplicate normalized title 0');
+
+const merged = ['recipe_0301', 'recipe_0302', 'recipe_0303', 'recipe_0304'];
+for (const id of merged) {
+  assert(allIds.includes(id), `merged id present ${id}`);
+}
 
 let emptyIngredients = 0;
 let emptySteps = 0;
@@ -69,7 +76,7 @@ console.log(`   ingredient/step heuristic mismatches: ${stepMismatch}`);
 
 const production = validateHankkiProductionDb();
 assert(production.ok, `production db ok (issues: ${production.issues.length})`);
-assert(production.recipeCount === 300, `production count 300`);
+assert(production.recipeCount === CATALOG_SIZE, `production count ${CATALOG_SIZE}`);
 
 const meta = validateAllRecipeStandardMetadata();
 assert(meta.ok, `metadata issues 0 (got ${meta.issues.length})`);
@@ -106,8 +113,8 @@ fs.writeFileSync(
   JSON.stringify(
     {
       recordedAt: new Date().toISOString(),
-      sprint: '58.4',
-      recipeCount: 300,
+      sprint: '66-C',
+      recipeCount: CATALOG_SIZE,
       poolSummary,
       foodTypeGaps: foodTypeGaps.filter((g) => g.target > 0),
       remainingGaps,
@@ -124,5 +131,5 @@ fs.writeFileSync(
 
 assert(fs.existsSync(path.join(outDir, 'catalog-300-audit.json')), 'catalog-300-audit.json written');
 
-console.log('\nSprint 58.4 meal-catalog-300 QA — done (' + failed + ' failed)');
+console.log('\nSprint 66-C meal-catalog-304 QA — done (' + failed + ' failed)');
 if (failed > 0) process.exit(1);

@@ -16,6 +16,7 @@ import { appChrome } from '../ui/appChrome';
 import { ScreenBackButton } from '../ui/ScreenBackButton';
 import { resolveFavoriteCards } from '../../services/favorite';
 import { getFavoriteRecipeIds, getFavorites, toggleFavorite } from '../../services/FavoriteService';
+import { setRecipeOpenSource } from '../../services/analytics';
 import { getCurrentMealType } from '../../utils/mealType';
 import { Toast } from '../home/Toast';
 import { FavoritesEmptyState } from './FavoritesEmptyState';
@@ -71,6 +72,7 @@ export function FavoritesScreen({ variant = 'stack' }: Props) {
   };
 
   const handleOpenRecipe = (item: FavoriteCardData) => {
+    setRecipeOpenSource('favorite');
     router.push(`/ingredients/${item.recipeId}`);
   };
 
