@@ -23,7 +23,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FF6B35"
+        "backgroundColor": "#FDFDFD"
       },
       "package": "com.aionecompany.todaysmenu",
       "versionCode": 8,
