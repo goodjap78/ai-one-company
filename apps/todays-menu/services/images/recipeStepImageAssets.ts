@@ -1,27 +1,33 @@
 import type { ImageSourcePropType } from 'react-native';
 
 /**
- * Sprint R3 / R4 — cooking-step image keys.
+ * Sprint R3 / R4 / Child Step Pilot — cooking-step image keys.
  * Register a key only when the file exists under `assets/recipe-steps/`.
  * Never use dynamic require().
  */
 export type RecipeStepImageKey =
-  | 'jaeyuk_step_01'
-  | 'jaeyuk_step_02'
-  | 'jaeyuk_step_03'
-  | 'jaeyuk_step_04'
-  | 'egg_rice_step_01'
-  | 'egg_rice_step_02'
-  | 'egg_rice_step_03'
-  | 'egg_rice_step_04'
-  | 'kimchi_stew_step_01'
-  | 'kimchi_stew_step_02'
-  | 'kimchi_stew_step_03'
-  | 'kimchi_stew_step_04'
-  | 'doenjang_stew_step_01'
-  | 'doenjang_stew_step_02'
-  | 'doenjang_stew_step_03'
-  | 'doenjang_stew_step_04'
+  | 'baby_beef_soft_rice_step_01'
+  | 'baby_beef_soft_rice_step_03'
+  | 'baby_beef_soft_rice_step_05'
+  | 'baby_beef_veg_family_rice_step_01'
+  | 'baby_beef_veg_family_rice_step_04'
+  | 'baby_beef_veg_family_rice_step_05'
+  | 'baby_beef_zucchini_porridge_step_01'
+  | 'baby_beef_zucchini_porridge_step_04'
+  | 'baby_beef_zucchini_porridge_step_05'
+  | 'baby_egg_porridge_step_01'
+  | 'baby_egg_porridge_step_02'
+  | 'baby_egg_porridge_step_04'
+  | 'baby_pumpkin_thin_porridge_step_01'
+  | 'baby_pumpkin_thin_porridge_step_02'
+  | 'baby_pumpkin_thin_porridge_step_03'
+  | 'baby_rice_thin_porridge_step_01'
+  | 'baby_rice_thin_porridge_step_02'
+  | 'baby_rice_thin_porridge_step_03'
+  | 'beef_bulgogi_don_step_01'
+  | 'beef_bulgogi_don_step_02'
+  | 'beef_bulgogi_don_step_03'
+  | 'beef_bulgogi_don_step_04'
   | 'bibimbap_step_01'
   | 'bibimbap_step_02'
   | 'bibimbap_step_03'
@@ -31,71 +37,301 @@ export type RecipeStepImageKey =
   | 'bulgogi_step_02'
   | 'bulgogi_step_03'
   | 'bulgogi_step_04'
-  | 'kimchi_fried_rice_step_01'
-  | 'kimchi_fried_rice_step_02'
-  | 'kimchi_fried_rice_step_03'
-  | 'kimchi_fried_rice_step_04'
   | 'curry_rice_step_01'
   | 'curry_rice_step_02'
   | 'curry_rice_step_03'
   | 'curry_rice_step_04'
   | 'curry_rice_step_05'
-  | 'pork_cutlet_step_01'
-  | 'pork_cutlet_step_02'
-  | 'pork_cutlet_step_03'
-  | 'pork_cutlet_step_04'
-  | 'dakgalbi_step_01'
-  | 'dakgalbi_step_02'
-  | 'dakgalbi_step_03'
-  | 'dakgalbi_step_04'
-  | 'sundubu_jjigae_step_01'
-  | 'sundubu_jjigae_step_02'
-  | 'sundubu_jjigae_step_03'
-  | 'sundubu_jjigae_step_04'
   | 'dakbokkeumtang_step_01'
   | 'dakbokkeumtang_step_02'
   | 'dakbokkeumtang_step_03'
   | 'dakbokkeumtang_step_04'
-  | 'ojingeo_bokkeum_step_01'
-  | 'ojingeo_bokkeum_step_02'
-  | 'ojingeo_bokkeum_step_03'
-  | 'ojingeo_bokkeum_step_04'
-  | 'galbitang_step_01'
-  | 'galbitang_step_02'
-  | 'galbitang_step_03'
-  | 'galbitang_step_04'
-  | 'yukgaejang_step_01'
-  | 'yukgaejang_step_02'
-  | 'yukgaejang_step_03'
-  | 'yukgaejang_step_04'
-  | 'miyeok_guk_step_01'
-  | 'miyeok_guk_step_02'
-  | 'miyeok_guk_step_03'
-  | 'miyeok_guk_step_04'
-  | 'tteokguk_step_01'
-  | 'tteokguk_step_02'
-  | 'tteokguk_step_03'
-  | 'tteokguk_step_04'
-  | 'gamja_jorim_step_01'
-  | 'gamja_jorim_step_02'
-  | 'gamja_jorim_step_03'
-  | 'gamja_jorim_step_04'
+  | 'dakgalbi_step_01'
+  | 'dakgalbi_step_02'
+  | 'dakgalbi_step_03'
+  | 'dakgalbi_step_04'
+  | 'doenjang_stew_step_01'
+  | 'doenjang_stew_step_02'
+  | 'doenjang_stew_step_03'
+  | 'doenjang_stew_step_04'
+  | 'egg_rice_step_01'
+  | 'egg_rice_step_02'
+  | 'egg_rice_step_03'
+  | 'egg_rice_step_04'
   | 'egg_roll_step_01'
   | 'egg_roll_step_02'
   | 'egg_roll_step_03'
   | 'egg_roll_step_04'
-  | 'beef_bulgogi_don_step_01'
-  | 'beef_bulgogi_don_step_02'
-  | 'beef_bulgogi_don_step_03'
-  | 'beef_bulgogi_don_step_04';
+  | 'elementary_pizza_toast_step_01'
+  | 'elementary_pizza_toast_step_02'
+  | 'elementary_pizza_toast_step_03'
+  | 'elementary_pizza_toast_step_04'
+  | 'elementary_tuna_mayo_rice_ball_step_01'
+  | 'elementary_tuna_mayo_rice_ball_step_04'
+  | 'elementary_tuna_mayo_rice_ball_step_05'
+  | 'galbitang_step_01'
+  | 'galbitang_step_02'
+  | 'galbitang_step_03'
+  | 'galbitang_step_04'
+  | 'gamja_jorim_step_01'
+  | 'gamja_jorim_step_02'
+  | 'gamja_jorim_step_03'
+  | 'gamja_jorim_step_04'
+  | 'hotcake_breakfast_step_01'
+  | 'hotcake_breakfast_step_03'
+  | 'hotcake_breakfast_step_04'
+  | 'jaeyuk_step_01'
+  | 'jaeyuk_step_02'
+  | 'jaeyuk_step_03'
+  | 'jaeyuk_step_04'
+  | 'kimchi_fried_rice_step_01'
+  | 'kimchi_fried_rice_step_02'
+  | 'kimchi_fried_rice_step_03'
+  | 'kimchi_fried_rice_step_04'
+  | 'kimchi_stew_step_01'
+  | 'kimchi_stew_step_02'
+  | 'kimchi_stew_step_03'
+  | 'kimchi_stew_step_04'
+  | 'miyeok_guk_step_01'
+  | 'miyeok_guk_step_02'
+  | 'miyeok_guk_step_03'
+  | 'miyeok_guk_step_04'
+  | 'ojingeo_bokkeum_step_01'
+  | 'ojingeo_bokkeum_step_02'
+  | 'ojingeo_bokkeum_step_03'
+  | 'ojingeo_bokkeum_step_04'
+  | 'pork_cutlet_step_01'
+  | 'pork_cutlet_step_02'
+  | 'pork_cutlet_step_03'
+  | 'pork_cutlet_step_04'
+  | 'sundubu_jjigae_step_01'
+  | 'sundubu_jjigae_step_02'
+  | 'sundubu_jjigae_step_03'
+  | 'sundubu_jjigae_step_04'
+  | 'toddler_mashed_banana_oatmeal_porridge_step_01'
+  | 'toddler_mashed_banana_oatmeal_porridge_step_02'
+  | 'toddler_mashed_banana_oatmeal_porridge_step_03'
+  | 'toddler_mashed_tofu_egg_scramble_step_01'
+  | 'toddler_mashed_tofu_egg_scramble_step_03'
+  | 'toddler_mashed_tofu_egg_scramble_step_04'
+  | 'toddler_tuna_veg_fried_rice_step_02'
+  | 'toddler_tuna_veg_fried_rice_step_04'
+  | 'toddler_tuna_veg_fried_rice_step_05'
+  | 'tteokguk_step_01'
+  | 'tteokguk_step_02'
+  | 'tteokguk_step_03'
+  | 'tteokguk_step_04'
+  | 'yukgaejang_step_01'
+  | 'yukgaejang_step_02'
+  | 'yukgaejang_step_03'
+  | 'yukgaejang_step_04';
 
 /**
- * Static asset registry — no on-disk step photos yet.
+ * Static asset registry — only keys with on-disk JPG are required.
  */
 export const RECIPE_STEP_IMAGE_ASSETS: Partial<
   Record<RecipeStepImageKey, ImageSourcePropType>
 > = {
-  // Register with static require() when files exist.
+  baby_beef_cabbage_porridge_step_01: require('../../assets/recipe-steps/baby_beef_cabbage_porridge_step_01.jpg'),
+  baby_beef_cabbage_porridge_step_02: require('../../assets/recipe-steps/baby_beef_cabbage_porridge_step_02.jpg'),
+  baby_beef_cabbage_porridge_step_05: require('../../assets/recipe-steps/baby_beef_cabbage_porridge_step_05.jpg'),
+  baby_beef_pumpkin_mashed_rice_step_01: require('../../assets/recipe-steps/baby_beef_pumpkin_mashed_rice_step_01.jpg'),
+  baby_beef_pumpkin_mashed_rice_step_04: require('../../assets/recipe-steps/baby_beef_pumpkin_mashed_rice_step_04.jpg'),
+  baby_beef_pumpkin_mashed_rice_step_05: require('../../assets/recipe-steps/baby_beef_pumpkin_mashed_rice_step_05.jpg'),
+  baby_beef_soft_rice_step_01: require('../../assets/recipe-steps/baby_beef_soft_rice_step_01.jpg'),
+  baby_beef_soft_rice_step_03: require('../../assets/recipe-steps/baby_beef_soft_rice_step_03.jpg'),
+  baby_beef_soft_rice_step_05: require('../../assets/recipe-steps/baby_beef_soft_rice_step_05.jpg'),
+  baby_beef_spinach_porridge_step_01: require('../../assets/recipe-steps/baby_beef_spinach_porridge_step_01.jpg'),
+  baby_beef_spinach_porridge_step_03: require('../../assets/recipe-steps/baby_beef_spinach_porridge_step_03.jpg'),
+  baby_beef_spinach_porridge_step_05: require('../../assets/recipe-steps/baby_beef_spinach_porridge_step_05.jpg'),
+  baby_beef_veg_family_rice_step_01: require('../../assets/recipe-steps/baby_beef_veg_family_rice_step_01.jpg'),
+  baby_beef_veg_family_rice_step_04: require('../../assets/recipe-steps/baby_beef_veg_family_rice_step_04.jpg'),
+  baby_beef_veg_family_rice_step_05: require('../../assets/recipe-steps/baby_beef_veg_family_rice_step_05.jpg'),
+  baby_beef_zucchini_porridge_step_01: require('../../assets/recipe-steps/baby_beef_zucchini_porridge_step_01.jpg'),
+  baby_beef_zucchini_porridge_step_04: require('../../assets/recipe-steps/baby_beef_zucchini_porridge_step_04.jpg'),
+  baby_beef_zucchini_porridge_step_05: require('../../assets/recipe-steps/baby_beef_zucchini_porridge_step_05.jpg'),
+  baby_beef_zucchini_soft_rice_step_02: require('../../assets/recipe-steps/baby_beef_zucchini_soft_rice_step_02.jpg'),
+  baby_beef_zucchini_soft_rice_step_03: require('../../assets/recipe-steps/baby_beef_zucchini_soft_rice_step_03.jpg'),
+  baby_beef_zucchini_soft_rice_step_05: require('../../assets/recipe-steps/baby_beef_zucchini_soft_rice_step_05.jpg'),
+  baby_beet_thin_porridge_step_01: require('../../assets/recipe-steps/baby_beet_thin_porridge_step_01.jpg'),
+  baby_beet_thin_porridge_step_03: require('../../assets/recipe-steps/baby_beet_thin_porridge_step_03.jpg'),
+  baby_beet_thin_porridge_step_05: require('../../assets/recipe-steps/baby_beet_thin_porridge_step_05.jpg'),
+  baby_broccoli_porridge_step_02: require('../../assets/recipe-steps/baby_broccoli_porridge_step_02.jpg'),
+  baby_broccoli_porridge_step_04: require('../../assets/recipe-steps/baby_broccoli_porridge_step_04.jpg'),
+  baby_broccoli_porridge_step_05: require('../../assets/recipe-steps/baby_broccoli_porridge_step_05.jpg'),
+  baby_cauliflower_thin_porridge_step_01: require('../../assets/recipe-steps/baby_cauliflower_thin_porridge_step_01.jpg'),
+  baby_cauliflower_thin_porridge_step_03: require('../../assets/recipe-steps/baby_cauliflower_thin_porridge_step_03.jpg'),
+  baby_cauliflower_thin_porridge_step_05: require('../../assets/recipe-steps/baby_cauliflower_thin_porridge_step_05.jpg'),
+  baby_chicken_potato_thick_porridge_step_01: require('../../assets/recipe-steps/baby_chicken_potato_thick_porridge_step_01.jpg'),
+  baby_chicken_potato_thick_porridge_step_02: require('../../assets/recipe-steps/baby_chicken_potato_thick_porridge_step_02.jpg'),
+  baby_chicken_potato_thick_porridge_step_05: require('../../assets/recipe-steps/baby_chicken_potato_thick_porridge_step_05.jpg'),
+  baby_egg_porridge_step_01: require('../../assets/recipe-steps/baby_egg_porridge_step_01.jpg'),
+  baby_egg_porridge_step_02: require('../../assets/recipe-steps/baby_egg_porridge_step_02.jpg'),
+  baby_egg_porridge_step_04: require('../../assets/recipe-steps/baby_egg_porridge_step_04.jpg'),
+  baby_potato_carrot_family_rice_step_02: require('../../assets/recipe-steps/baby_potato_carrot_family_rice_step_02.jpg'),
+  baby_potato_carrot_family_rice_step_04: require('../../assets/recipe-steps/baby_potato_carrot_family_rice_step_04.jpg'),
+  baby_potato_carrot_family_rice_step_05: require('../../assets/recipe-steps/baby_potato_carrot_family_rice_step_05.jpg'),
+  baby_pumpkin_thin_porridge_step_01: require('../../assets/recipe-steps/baby_pumpkin_thin_porridge_step_01.jpg'),
+  baby_pumpkin_thin_porridge_step_02: require('../../assets/recipe-steps/baby_pumpkin_thin_porridge_step_02.jpg'),
+  baby_pumpkin_thin_porridge_step_03: require('../../assets/recipe-steps/baby_pumpkin_thin_porridge_step_03.jpg'),
+  baby_rice_thin_porridge_step_01: require('../../assets/recipe-steps/baby_rice_thin_porridge_step_01.jpg'),
+  baby_rice_thin_porridge_step_02: require('../../assets/recipe-steps/baby_rice_thin_porridge_step_02.jpg'),
+  baby_rice_thin_porridge_step_03: require('../../assets/recipe-steps/baby_rice_thin_porridge_step_03.jpg'),
+  baby_steamed_pear_step_01: require('../../assets/recipe-steps/baby_steamed_pear_step_01.jpg'),
+  baby_steamed_pear_step_02: require('../../assets/recipe-steps/baby_steamed_pear_step_02.jpg'),
+  baby_steamed_pear_step_03: require('../../assets/recipe-steps/baby_steamed_pear_step_03.jpg'),
+  baby_tofu_broccoli_porridge_step_01: require('../../assets/recipe-steps/baby_tofu_broccoli_porridge_step_01.jpg'),
+  baby_tofu_broccoli_porridge_step_02: require('../../assets/recipe-steps/baby_tofu_broccoli_porridge_step_02.jpg'),
+  baby_tofu_broccoli_porridge_step_05: require('../../assets/recipe-steps/baby_tofu_broccoli_porridge_step_05.jpg'),
+  baby_tofu_carrot_porridge_step_02: require('../../assets/recipe-steps/baby_tofu_carrot_porridge_step_02.jpg'),
+  baby_tofu_carrot_porridge_step_04: require('../../assets/recipe-steps/baby_tofu_carrot_porridge_step_04.jpg'),
+  baby_tofu_carrot_porridge_step_05: require('../../assets/recipe-steps/baby_tofu_carrot_porridge_step_05.jpg'),
+  baby_tofu_potato_jinjap_step_01: require('../../assets/recipe-steps/baby_tofu_potato_jinjap_step_01.jpg'),
+  baby_tofu_potato_jinjap_step_02: require('../../assets/recipe-steps/baby_tofu_potato_jinjap_step_02.jpg'),
+  baby_tofu_potato_jinjap_step_05: require('../../assets/recipe-steps/baby_tofu_potato_jinjap_step_05.jpg'),
+  baby_tofu_veg_family_rice_step_01: require('../../assets/recipe-steps/baby_tofu_veg_family_rice_step_01.jpg'),
+  baby_tofu_veg_family_rice_step_02: require('../../assets/recipe-steps/baby_tofu_veg_family_rice_step_02.jpg'),
+  baby_tofu_veg_family_rice_step_05: require('../../assets/recipe-steps/baby_tofu_veg_family_rice_step_05.jpg'),
+  baby_white_fish_grilled_rice_step_02: require('../../assets/recipe-steps/baby_white_fish_grilled_rice_step_02.jpg'),
+  baby_white_fish_grilled_rice_step_03: require('../../assets/recipe-steps/baby_white_fish_grilled_rice_step_03.jpg'),
+  baby_white_fish_grilled_rice_step_05: require('../../assets/recipe-steps/baby_white_fish_grilled_rice_step_05.jpg'),
+  baby_white_fish_porridge_step_02: require('../../assets/recipe-steps/baby_white_fish_porridge_step_02.jpg'),
+  baby_white_fish_porridge_step_04: require('../../assets/recipe-steps/baby_white_fish_porridge_step_04.jpg'),
+  baby_white_fish_porridge_step_05: require('../../assets/recipe-steps/baby_white_fish_porridge_step_05.jpg'),
+  baby_white_fish_zucchini_jinjap_step_01: require('../../assets/recipe-steps/baby_white_fish_zucchini_jinjap_step_01.jpg'),
+  baby_white_fish_zucchini_jinjap_step_02: require('../../assets/recipe-steps/baby_white_fish_zucchini_jinjap_step_02.jpg'),
+  baby_white_fish_zucchini_jinjap_step_05: require('../../assets/recipe-steps/baby_white_fish_zucchini_jinjap_step_05.jpg'),
+  elementary_banana_yogurt_bowl_step_01: require('../../assets/recipe-steps/elementary_banana_yogurt_bowl_step_01.jpg'),
+  elementary_banana_yogurt_bowl_step_02: require('../../assets/recipe-steps/elementary_banana_yogurt_bowl_step_02.jpg'),
+  elementary_banana_yogurt_bowl_step_03: require('../../assets/recipe-steps/elementary_banana_yogurt_bowl_step_03.jpg'),
+  elementary_beef_egg_donburi_step_02: require('../../assets/recipe-steps/elementary_beef_egg_donburi_step_02.jpg'),
+  elementary_beef_egg_donburi_step_04: require('../../assets/recipe-steps/elementary_beef_egg_donburi_step_04.jpg'),
+  elementary_beef_egg_donburi_step_05: require('../../assets/recipe-steps/elementary_beef_egg_donburi_step_05.jpg'),
+  elementary_beef_rice_ball_step_02: require('../../assets/recipe-steps/elementary_beef_rice_ball_step_02.jpg'),
+  elementary_beef_rice_ball_step_04: require('../../assets/recipe-steps/elementary_beef_rice_ball_step_04.jpg'),
+  elementary_beef_rice_ball_step_05: require('../../assets/recipe-steps/elementary_beef_rice_ball_step_05.jpg'),
+  elementary_beef_veg_donburi_step_01: require('../../assets/recipe-steps/elementary_beef_veg_donburi_step_01.jpg'),
+  elementary_beef_veg_donburi_step_02: require('../../assets/recipe-steps/elementary_beef_veg_donburi_step_02.jpg'),
+  elementary_beef_veg_donburi_step_04: require('../../assets/recipe-steps/elementary_beef_veg_donburi_step_04.jpg'),
+  elementary_cheese_tuna_rice_ball_step_02: require('../../assets/recipe-steps/elementary_cheese_tuna_rice_ball_step_02.jpg'),
+  elementary_cheese_tuna_rice_ball_step_04: require('../../assets/recipe-steps/elementary_cheese_tuna_rice_ball_step_04.jpg'),
+  elementary_cheese_tuna_rice_ball_step_05: require('../../assets/recipe-steps/elementary_cheese_tuna_rice_ball_step_05.jpg'),
+  elementary_chicken_curry_fried_rice_step_01: require('../../assets/recipe-steps/elementary_chicken_curry_fried_rice_step_01.jpg'),
+  elementary_chicken_curry_fried_rice_step_02: require('../../assets/recipe-steps/elementary_chicken_curry_fried_rice_step_02.jpg'),
+  elementary_chicken_curry_fried_rice_step_05: require('../../assets/recipe-steps/elementary_chicken_curry_fried_rice_step_05.jpg'),
+  elementary_chicken_soy_donburi_step_01: require('../../assets/recipe-steps/elementary_chicken_soy_donburi_step_01.jpg'),
+  elementary_chicken_soy_donburi_step_02: require('../../assets/recipe-steps/elementary_chicken_soy_donburi_step_02.jpg'),
+  elementary_chicken_soy_donburi_step_05: require('../../assets/recipe-steps/elementary_chicken_soy_donburi_step_05.jpg'),
+  elementary_chicken_tortilla_wrap_step_02: require('../../assets/recipe-steps/elementary_chicken_tortilla_wrap_step_02.jpg'),
+  elementary_chicken_tortilla_wrap_step_04: require('../../assets/recipe-steps/elementary_chicken_tortilla_wrap_step_04.jpg'),
+  elementary_chicken_tortilla_wrap_step_05: require('../../assets/recipe-steps/elementary_chicken_tortilla_wrap_step_05.jpg'),
+  elementary_corn_cheese_toast_step_02: require('../../assets/recipe-steps/elementary_corn_cheese_toast_step_02.jpg'),
+  elementary_corn_cheese_toast_step_04: require('../../assets/recipe-steps/elementary_corn_cheese_toast_step_04.jpg'),
+  elementary_corn_cheese_toast_step_05: require('../../assets/recipe-steps/elementary_corn_cheese_toast_step_05.jpg'),
+  elementary_egg_cheese_tortilla_step_01: require('../../assets/recipe-steps/elementary_egg_cheese_tortilla_step_01.jpg'),
+  elementary_egg_cheese_tortilla_step_03: require('../../assets/recipe-steps/elementary_egg_cheese_tortilla_step_03.jpg'),
+  elementary_egg_cheese_tortilla_step_04: require('../../assets/recipe-steps/elementary_egg_cheese_tortilla_step_04.jpg'),
+  elementary_ham_egg_fried_rice_step_01: require('../../assets/recipe-steps/elementary_ham_egg_fried_rice_step_01.jpg'),
+  elementary_ham_egg_fried_rice_step_02: require('../../assets/recipe-steps/elementary_ham_egg_fried_rice_step_02.jpg'),
+  elementary_ham_egg_fried_rice_step_05: require('../../assets/recipe-steps/elementary_ham_egg_fried_rice_step_05.jpg'),
+  elementary_ham_egg_gimbap_step_01: require('../../assets/recipe-steps/elementary_ham_egg_gimbap_step_01.jpg'),
+  elementary_ham_egg_gimbap_step_02: require('../../assets/recipe-steps/elementary_ham_egg_gimbap_step_02.jpg'),
+  elementary_ham_egg_gimbap_step_04: require('../../assets/recipe-steps/elementary_ham_egg_gimbap_step_04.jpg'),
+  elementary_pizza_toast_step_01: require('../../assets/recipe-steps/elementary_pizza_toast_step_01.jpg'),
+  elementary_pizza_toast_step_02: require('../../assets/recipe-steps/elementary_pizza_toast_step_02.jpg'),
+  elementary_pizza_toast_step_03: require('../../assets/recipe-steps/elementary_pizza_toast_step_03.jpg'),
+  elementary_pizza_toast_step_04: require('../../assets/recipe-steps/elementary_pizza_toast_step_04.jpg'),
+  elementary_pizza_tortilla_step_01: require('../../assets/recipe-steps/elementary_pizza_tortilla_step_01.jpg'),
+  elementary_pizza_tortilla_step_04: require('../../assets/recipe-steps/elementary_pizza_tortilla_step_04.jpg'),
+  elementary_pizza_tortilla_step_05: require('../../assets/recipe-steps/elementary_pizza_tortilla_step_05.jpg'),
+  elementary_potato_cheese_bake_step_02: require('../../assets/recipe-steps/elementary_potato_cheese_bake_step_02.jpg'),
+  elementary_potato_cheese_bake_step_03: require('../../assets/recipe-steps/elementary_potato_cheese_bake_step_03.jpg'),
+  elementary_potato_cheese_bake_step_05: require('../../assets/recipe-steps/elementary_potato_cheese_bake_step_05.jpg'),
+  elementary_sweet_potato_cheese_toast_step_01: require('../../assets/recipe-steps/elementary_sweet_potato_cheese_toast_step_01.jpg'),
+  elementary_sweet_potato_cheese_toast_step_02: require('../../assets/recipe-steps/elementary_sweet_potato_cheese_toast_step_02.jpg'),
+  elementary_sweet_potato_cheese_toast_step_05: require('../../assets/recipe-steps/elementary_sweet_potato_cheese_toast_step_05.jpg'),
+  elementary_sweet_potato_yogurt_bowl_step_01: require('../../assets/recipe-steps/elementary_sweet_potato_yogurt_bowl_step_01.jpg'),
+  elementary_sweet_potato_yogurt_bowl_step_02: require('../../assets/recipe-steps/elementary_sweet_potato_yogurt_bowl_step_02.jpg'),
+  elementary_sweet_potato_yogurt_bowl_step_04: require('../../assets/recipe-steps/elementary_sweet_potato_yogurt_bowl_step_04.jpg'),
+  elementary_tteokgalbi_rice_ball_step_01: require('../../assets/recipe-steps/elementary_tteokgalbi_rice_ball_step_01.jpg'),
+  elementary_tteokgalbi_rice_ball_step_03: require('../../assets/recipe-steps/elementary_tteokgalbi_rice_ball_step_03.jpg'),
+  elementary_tteokgalbi_rice_ball_step_05: require('../../assets/recipe-steps/elementary_tteokgalbi_rice_ball_step_05.jpg'),
+  elementary_tuna_egg_donburi_step_01: require('../../assets/recipe-steps/elementary_tuna_egg_donburi_step_01.jpg'),
+  elementary_tuna_egg_donburi_step_02: require('../../assets/recipe-steps/elementary_tuna_egg_donburi_step_02.jpg'),
+  elementary_tuna_egg_donburi_step_05: require('../../assets/recipe-steps/elementary_tuna_egg_donburi_step_05.jpg'),
+  elementary_tuna_mayo_rice_ball_step_01: require('../../assets/recipe-steps/elementary_tuna_mayo_rice_ball_step_01.jpg'),
+  elementary_tuna_mayo_rice_ball_step_04: require('../../assets/recipe-steps/elementary_tuna_mayo_rice_ball_step_04.jpg'),
+  elementary_tuna_mayo_rice_ball_step_05: require('../../assets/recipe-steps/elementary_tuna_mayo_rice_ball_step_05.jpg'),
+  elementary_tuna_tortilla_roll_step_01: require('../../assets/recipe-steps/elementary_tuna_tortilla_roll_step_01.jpg'),
+  elementary_tuna_tortilla_roll_step_03: require('../../assets/recipe-steps/elementary_tuna_tortilla_roll_step_03.jpg'),
+  elementary_tuna_tortilla_roll_step_04: require('../../assets/recipe-steps/elementary_tuna_tortilla_roll_step_04.jpg'),
+  hotcake_breakfast_step_01: require('../../assets/recipe-steps/hotcake_breakfast_step_01.jpg'),
+  hotcake_breakfast_step_03: require('../../assets/recipe-steps/hotcake_breakfast_step_03.jpg'),
+  hotcake_breakfast_step_04: require('../../assets/recipe-steps/hotcake_breakfast_step_04.jpg'),
+  toddler_banana_pancake_snack_step_01: require('../../assets/recipe-steps/toddler_banana_pancake_snack_step_01.jpg'),
+  toddler_banana_pancake_snack_step_03: require('../../assets/recipe-steps/toddler_banana_pancake_snack_step_03.jpg'),
+  toddler_banana_pancake_snack_step_04: require('../../assets/recipe-steps/toddler_banana_pancake_snack_step_04.jpg'),
+  toddler_beef_cabbage_soup_step_02: require('../../assets/recipe-steps/toddler_beef_cabbage_soup_step_02.jpg'),
+  toddler_beef_cabbage_soup_step_03: require('../../assets/recipe-steps/toddler_beef_cabbage_soup_step_03.jpg'),
+  toddler_beef_cabbage_soup_step_05: require('../../assets/recipe-steps/toddler_beef_cabbage_soup_step_05.jpg'),
+  toddler_beef_egg_rice_breakfast_step_01: require('../../assets/recipe-steps/toddler_beef_egg_rice_breakfast_step_01.jpg'),
+  toddler_beef_egg_rice_breakfast_step_02: require('../../assets/recipe-steps/toddler_beef_egg_rice_breakfast_step_02.jpg'),
+  toddler_beef_egg_rice_breakfast_step_05: require('../../assets/recipe-steps/toddler_beef_egg_rice_breakfast_step_05.jpg'),
+  toddler_beef_potato_fried_rice_batch3_step_02: require('../../assets/recipe-steps/toddler_beef_potato_fried_rice_batch3_step_02.jpg'),
+  toddler_beef_potato_fried_rice_batch3_step_04: require('../../assets/recipe-steps/toddler_beef_potato_fried_rice_batch3_step_04.jpg'),
+  toddler_beef_potato_fried_rice_batch3_step_05: require('../../assets/recipe-steps/toddler_beef_potato_fried_rice_batch3_step_05.jpg'),
+  toddler_beef_tofu_donburi_step_01: require('../../assets/recipe-steps/toddler_beef_tofu_donburi_step_01.jpg'),
+  toddler_beef_tofu_donburi_step_02: require('../../assets/recipe-steps/toddler_beef_tofu_donburi_step_02.jpg'),
+  toddler_beef_tofu_donburi_step_05: require('../../assets/recipe-steps/toddler_beef_tofu_donburi_step_05.jpg'),
+  toddler_blueberry_yogurt_snack_step_01: require('../../assets/recipe-steps/toddler_blueberry_yogurt_snack_step_01.jpg'),
+  toddler_blueberry_yogurt_snack_step_03: require('../../assets/recipe-steps/toddler_blueberry_yogurt_snack_step_03.jpg'),
+  toddler_blueberry_yogurt_snack_step_04: require('../../assets/recipe-steps/toddler_blueberry_yogurt_snack_step_04.jpg'),
+  toddler_chicken_breast_veg_stir_step_01: require('../../assets/recipe-steps/toddler_chicken_breast_veg_stir_step_01.jpg'),
+  toddler_chicken_breast_veg_stir_step_03: require('../../assets/recipe-steps/toddler_chicken_breast_veg_stir_step_03.jpg'),
+  toddler_chicken_breast_veg_stir_step_05: require('../../assets/recipe-steps/toddler_chicken_breast_veg_stir_step_05.jpg'),
+  toddler_chicken_potato_soup_step_02: require('../../assets/recipe-steps/toddler_chicken_potato_soup_step_02.jpg'),
+  toddler_chicken_potato_soup_step_04: require('../../assets/recipe-steps/toddler_chicken_potato_soup_step_04.jpg'),
+  toddler_chicken_potato_soup_step_05: require('../../assets/recipe-steps/toddler_chicken_potato_soup_step_05.jpg'),
+  toddler_chicken_rice_ball_breakfast_step_01: require('../../assets/recipe-steps/toddler_chicken_rice_ball_breakfast_step_01.jpg'),
+  toddler_chicken_rice_ball_breakfast_step_03: require('../../assets/recipe-steps/toddler_chicken_rice_ball_breakfast_step_03.jpg'),
+  toddler_chicken_rice_ball_breakfast_step_05: require('../../assets/recipe-steps/toddler_chicken_rice_ball_breakfast_step_05.jpg'),
+  toddler_chicken_veg_donburi_step_01: require('../../assets/recipe-steps/toddler_chicken_veg_donburi_step_01.jpg'),
+  toddler_chicken_veg_donburi_step_03: require('../../assets/recipe-steps/toddler_chicken_veg_donburi_step_03.jpg'),
+  toddler_chicken_veg_donburi_step_05: require('../../assets/recipe-steps/toddler_chicken_veg_donburi_step_05.jpg'),
+  toddler_egg_bread_snack_step_01: require('../../assets/recipe-steps/toddler_egg_bread_snack_step_01.jpg'),
+  toddler_egg_bread_snack_step_03: require('../../assets/recipe-steps/toddler_egg_bread_snack_step_03.jpg'),
+  toddler_egg_cheese_rice_breakfast_step_01: require('../../assets/recipe-steps/toddler_egg_cheese_rice_breakfast_step_01.jpg'),
+  toddler_egg_cheese_rice_breakfast_step_05: require('../../assets/recipe-steps/toddler_egg_cheese_rice_breakfast_step_05.jpg'),
+  toddler_mashed_banana_oatmeal_porridge_step_01: require('../../assets/recipe-steps/toddler_mashed_banana_oatmeal_porridge_step_01.jpg'),
+  toddler_mashed_banana_oatmeal_porridge_step_02: require('../../assets/recipe-steps/toddler_mashed_banana_oatmeal_porridge_step_02.jpg'),
+  toddler_mashed_banana_oatmeal_porridge_step_03: require('../../assets/recipe-steps/toddler_mashed_banana_oatmeal_porridge_step_03.jpg'),
+  toddler_mashed_tofu_egg_scramble_step_01: require('../../assets/recipe-steps/toddler_mashed_tofu_egg_scramble_step_01.jpg'),
+  toddler_mashed_tofu_egg_scramble_step_03: require('../../assets/recipe-steps/toddler_mashed_tofu_egg_scramble_step_03.jpg'),
+  toddler_mashed_tofu_egg_scramble_step_04: require('../../assets/recipe-steps/toddler_mashed_tofu_egg_scramble_step_04.jpg'),
+  toddler_pear_yogurt_step_01: require('../../assets/recipe-steps/toddler_pear_yogurt_step_01.jpg'),
+  toddler_pear_yogurt_step_02: require('../../assets/recipe-steps/toddler_pear_yogurt_step_02.jpg'),
+  toddler_pear_yogurt_step_04: require('../../assets/recipe-steps/toddler_pear_yogurt_step_04.jpg'),
+  toddler_potato_cheese_pancake_snack_step_03: require('../../assets/recipe-steps/toddler_potato_cheese_pancake_snack_step_03.jpg'),
+  toddler_potato_cheese_pancake_snack_step_04: require('../../assets/recipe-steps/toddler_potato_cheese_pancake_snack_step_04.jpg'),
+  toddler_potato_cheese_pancake_snack_step_05: require('../../assets/recipe-steps/toddler_potato_cheese_pancake_snack_step_05.jpg'),
+  toddler_steamed_pumpkin_snack_step_01: require('../../assets/recipe-steps/toddler_steamed_pumpkin_snack_step_01.jpg'),
+  toddler_steamed_pumpkin_snack_step_02: require('../../assets/recipe-steps/toddler_steamed_pumpkin_snack_step_02.jpg'),
+  toddler_steamed_pumpkin_snack_step_05: require('../../assets/recipe-steps/toddler_steamed_pumpkin_snack_step_05.jpg'),
+  toddler_sweet_potato_yogurt_step_01: require('../../assets/recipe-steps/toddler_sweet_potato_yogurt_step_01.jpg'),
+  toddler_sweet_potato_yogurt_step_02: require('../../assets/recipe-steps/toddler_sweet_potato_yogurt_step_02.jpg'),
+  toddler_sweet_potato_yogurt_step_04: require('../../assets/recipe-steps/toddler_sweet_potato_yogurt_step_04.jpg'),
+  toddler_tofu_veg_braise_step_02: require('../../assets/recipe-steps/toddler_tofu_veg_braise_step_02.jpg'),
+  toddler_tofu_veg_braise_step_04: require('../../assets/recipe-steps/toddler_tofu_veg_braise_step_04.jpg'),
+  toddler_tofu_veg_braise_step_05: require('../../assets/recipe-steps/toddler_tofu_veg_braise_step_05.jpg'),
+  toddler_tuna_potato_fried_rice_step_01: require('../../assets/recipe-steps/toddler_tuna_potato_fried_rice_step_01.jpg'),
+  toddler_tuna_potato_fried_rice_step_03: require('../../assets/recipe-steps/toddler_tuna_potato_fried_rice_step_03.jpg'),
+  toddler_tuna_potato_fried_rice_step_05: require('../../assets/recipe-steps/toddler_tuna_potato_fried_rice_step_05.jpg'),
+  toddler_tuna_veg_fried_rice_step_02: require('../../assets/recipe-steps/toddler_tuna_veg_fried_rice_step_02.jpg'),
+  toddler_tuna_veg_fried_rice_step_04: require('../../assets/recipe-steps/toddler_tuna_veg_fried_rice_step_04.jpg'),
+  toddler_tuna_veg_fried_rice_step_05: require('../../assets/recipe-steps/toddler_tuna_veg_fried_rice_step_05.jpg'),
+  toddler_zucchini_braise_step_01: require('../../assets/recipe-steps/toddler_zucchini_braise_step_01.jpg'),
+  toddler_zucchini_braise_step_02: require('../../assets/recipe-steps/toddler_zucchini_braise_step_02.jpg'),
+  toddler_zucchini_braise_step_05: require('../../assets/recipe-steps/toddler_zucchini_braise_step_05.jpg'),
 };
 
 export function getRecipeStepImageSource(

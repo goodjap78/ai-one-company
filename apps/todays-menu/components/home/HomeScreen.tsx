@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet, View } from 'react-native';
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef, useCallback, useState } from 'react';
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ComingSoonSurveyModal } from '../surveys/ComingSoonSurveyModal';
@@ -12,6 +12,8 @@ import { HomeFavoritePopup } from './HomeFavoritePopup';
 import { HomeFeatureCards } from './HomeFeatureCards';
 import { HomeHeroTitles } from './HomeHeroTitles';
 import { HomePersonalSection } from './HomePersonalSection';
+import { HomePurposeCards } from './HomePurposeCards';
+import { HomePurposeSubPanel } from './HomePurposeSubPanel';
 import { TodayMealCard } from './TodayMealCard';
 import { MealTimeSlotTabs } from './MealTimeSlotTabs';
 import { AlternativeMealsRow } from './AlternativeMealsRow';
@@ -20,6 +22,7 @@ import { useHomeScreen } from './useHomeScreen';
 import { AdMobBanner } from '../ads/AdMobBanner';
 import { CoupangDynamicBanner } from '../ads/CoupangDynamicBanner';
 import { logHomeRootMount, logHomeRootUnmount } from '../../utils/homeDebugLog';
+import type { HomePurposeId } from '../../constants/homeIaCopy';
 import type { ComingSoonFeatureId } from '../../types/featureSurvey';
 
 type Props = {
@@ -28,10 +31,12 @@ type Props = {
 
 /**
  * Sprint 61-D — tighter vertical rhythm, decision-first hero.
+ * HANKKI v1.1 — purpose-first home IA with preserved today recommendation.
  */
 export function HomeScreen({ nickname }: Props) {
   const router = useRouter();
   const rootMountCount = useRef(0);
+  const [activePurpose, setActivePurpose] = useState<HomePurposeId>('today');
 
   useEffect(() => {
     rootMountCount.current += 1;
@@ -104,13 +109,23 @@ export function HomeScreen({ nickname }: Props) {
         >
           <View style={styles.phoneFrame}>
             <HomeHeroTitles selectedSlot={selectedSlot} />
-            <HomeFeatureCards
-              mealMode={mealMode}
+            <HomePurposeCards
+              activePurpose={activePurpose}
               disabled={modeSelectorDisabled}
-              onRecommendationPress={() => handleMealModeChange('homemade')}
-              onConveniencePress={() => router.push('/convenience-combos')}
-              onFridgePress={() => router.push('/fridge-raid')}
+              onSelect={setActivePurpose}
             />
+            {activePurpose !== 'today' ? (
+              <HomePurposeSubPanel activePurpose={activePurpose} />
+            ) : null}
+            {activePurpose === 'today' ? (
+              <HomeFeatureCards
+                mealMode={mealMode}
+                disabled={modeSelectorDisabled}
+                onRecommendationPress={() => handleMealModeChange('homemade')}
+                onConveniencePress={() => router.push('/convenience-combos')}
+                onFridgePress={() => router.push('/fridge-raid')}
+              />
+            ) : null}
 
             <View style={styles.slotSection}>
               <MealTimeSlotTabs

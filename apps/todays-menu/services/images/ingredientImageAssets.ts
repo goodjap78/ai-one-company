@@ -75,6 +75,7 @@ export type IngredientImageKey =
   | 'peanut'
   | 'cheese'
   | 'vinegar'
+  | 'mayo'
   | IngredientFallbackImageKey;
 
 /**
@@ -101,8 +102,10 @@ export const INGREDIENT_IMAGE_ASSETS: Partial<
   curry_powder: require('../../assets/ingredients/curry_powder.png'),
   doenjang: require('../../assets/ingredients/doenjang.png'),
   egg: require('../../assets/ingredients/egg.png'),
+  fish: require('../../assets/ingredients/fish.png'),
   fish_cake: require('../../assets/ingredients/fish_cake.png'),
   fish_generic: require('../../assets/ingredients/fish_generic.png'),
+  fishcake: require('../../assets/ingredients/fishcake.png'),
   flour: require('../../assets/ingredients/flour.png'),
   fried_tofu: require('../../assets/ingredients/fried_tofu.png'),
   garlic: require('../../assets/ingredients/garlic.png'),
@@ -209,6 +212,7 @@ export const KNOWN_INGREDIENT_IMAGE_KEYS = new Set<string>([
   'peanut',
   'cheese',
   'vinegar',
+  'mayo',
   'salmon',
   'fallback_meat',
   'fallback_vegetable',

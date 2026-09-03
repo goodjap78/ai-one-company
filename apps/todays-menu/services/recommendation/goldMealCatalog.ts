@@ -3,6 +3,7 @@ import type { GoldMealRecord } from '../../types/goldMeal';
 import type { MealMode } from '../../types/home';
 import type { MenuBadge, MenuItem } from '../../types/recommendation';
 import { HANKKI_RECIPES } from '../../data/recipes/hankkiRecipes';
+import { isExcludedFromGeneralHomeByRecipeId } from '../../data/recipes/generalHomeFeedExclusion';
 import { hankkiRecipeToGoldMeal } from '../../data/recipes/hankkiRecipeMapper';
 import { resolveMealDna } from './mealIntelligence/mealDna';
 
@@ -71,9 +72,13 @@ export function goldMealToMenuItem(meal: GoldMealRecord): MenuItem {
   };
 }
 
-/** Sprint H3-5.1 — homemade catalog from HANKKI_RECIPES. */
+/** Sprint H3-5.1 — homemade catalog from HANKKI_RECIPES. Toddler-approved rows stay out of Home. */
 export function getFlagshipMenuCatalog(mealMode: MealMode): MenuItem[] {
-  return HANKKI_GOLD_MEALS.filter((meal) => meal.mode === mealMode).map(goldMealToMenuItem);
+  return HANKKI_GOLD_MEALS.filter((meal) => {
+    if (meal.mode !== mealMode) return false;
+    if (mealMode === 'homemade' && isExcludedFromGeneralHomeByRecipeId(meal.id)) return false;
+    return true;
+  }).map(goldMealToMenuItem);
 }
 
 export function getFlagshipMenuById(id: string): MenuItem | null {

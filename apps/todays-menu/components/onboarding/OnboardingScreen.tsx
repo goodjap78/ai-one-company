@@ -10,7 +10,6 @@ import {
   StyleSheet,
   Text,
   TextInput,
-  TouchableWithoutFeedback,
   useWindowDimensions,
   View,
 } from 'react-native';
@@ -18,6 +17,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { ONBOARDING_COPY } from '../../constants/onboardingCopy';
 import { NAV_BACK } from '../../constants/navigationCopy';
 import { theme } from '../../constants/theme';
+import {
+  nicknameValidationMessage,
+  NICKNAME_MAX_LENGTH,
+  validateNicknameInput,
+  waitForImeCommit,
+} from '../../services/nicknameValidation';
 import { setOnboardingComplete } from '../../services/onboardingStorage';
 import { saveUserProfile } from '../../services/memory';
 import { saveNickname, getNickname } from '../../services/userStorage';
@@ -35,12 +40,20 @@ export function OnboardingScreen() {
   const copy = isEditMode ? ONBOARDING_COPY.edit : ONBOARDING_COPY;
   const { width, height } = useWindowDimensions();
   const scrollRef = useRef<ScrollView>(null);
+  const inputRef = useRef<TextInput>(null);
+  const nicknameRef = useRef('');
   const [nickname, setNickname] = useState('');
   const [error, setError] = useState('');
   const [saving, setSaving] = useState(false);
   const [editReady, setEditReady] = useState(!isEditMode);
 
+  const syncNickname = useCallback((text: string) => {
+    nicknameRef.current = text;
+    setNickname(text);
+  }, []);
+
   const dismissKeyboard = useCallback(() => {
+    inputRef.current?.blur();
     Keyboard.dismiss();
   }, []);
 
@@ -74,30 +87,54 @@ export function OnboardingScreen() {
     dismissKeyboard();
     setEditReady(false);
     getNickname().then((value) => {
-      if (value?.trim()) setNickname(value.trim());
+      if (value?.trim()) syncNickname(value.trim());
       setEditReady(true);
       dismissKeyboard();
     });
-  }, [dismissKeyboard, isEditMode]);
+  }, [dismissKeyboard, isEditMode, syncNickname]);
+
+  const resolveNicknameForSubmit = useCallback(async (): Promise<string> => {
+    dismissKeyboard();
+    await waitForImeCommit();
+    return nicknameRef.current;
+  }, [dismissKeyboard]);
+
+  const handleNicknameChange = useCallback(
+    (text: string) => {
+      syncNickname(text);
+      if (error) setError('');
+    },
+    [error, syncNickname],
+  );
+
+  const handleNicknameEndEditing = useCallback(
+    (text: string) => {
+      syncNickname(text);
+    },
+    [syncNickname],
+  );
 
   // ~40–50% larger than previous 80px; slightly smaller on short phones.
   const mascotSize: SeedMascotSize = height < 700 ? 112 : width <= 375 ? 116 : 120;
   const compact = height < 700 || width <= 360;
 
   const handleStart = async () => {
-    const trimmed = nickname.trim();
-    if (trimmed.length < 1) {
-      setError(ONBOARDING_COPY.errorEmpty);
-      return;
-    }
-    if (trimmed.length > 12) {
-      setError(ONBOARDING_COPY.errorTooLong);
-      return;
-    }
+    if (saving) return;
 
     setSaving(true);
     setError('');
+
     try {
+      const raw = await resolveNicknameForSubmit();
+      const validated = validateNicknameInput(raw);
+      if (!validated.ok) {
+        setError(nicknameValidationMessage(validated.error));
+        return;
+      }
+
+      const trimmed = validated.value;
+      syncNickname(trimmed);
+
       await saveNickname(trimmed);
       await saveUserProfile({ nickname: trimmed });
       await setOnboardingComplete(true);
@@ -109,6 +146,7 @@ export function OnboardingScreen() {
       router.replace('/(tabs)');
     } catch {
       setError(ONBOARDING_COPY.errorSave);
+    } finally {
       setSaving(false);
     }
   };
@@ -125,65 +163,65 @@ export function OnboardingScreen() {
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
           keyboardVerticalOffset={Platform.OS === 'ios' ? 8 : 0}
         >
-          <TouchableWithoutFeedback onPress={dismissKeyboard} accessible={false}>
-            <View style={styles.flex}>
-              <ScrollView
-                ref={scrollRef}
-                contentContainerStyle={[styles.editPage, compact && styles.editPageCompact]}
-                keyboardShouldPersistTaps="handled"
-                keyboardDismissMode="on-drag"
-                showsVerticalScrollIndicator={false}
-                bounces={false}
-              >
-                <ScreenBackButton label={NAV_BACK.myPage} fallbackHref="/(tabs)/my" />
+          <ScrollView
+            ref={scrollRef}
+            contentContainerStyle={[styles.editPage, compact && styles.editPageCompact]}
+            keyboardShouldPersistTaps="always"
+            keyboardDismissMode="on-drag"
+            showsVerticalScrollIndicator={false}
+            bounces={false}
+          >
+            <ScreenBackButton label={NAV_BACK.myPage} fallbackHref="/(tabs)/my" />
 
-                <View style={styles.editHeader}>
-                  <Text style={[styles.title, compact && styles.titleCompact]} accessibilityRole="header">
-                    {copy.titleLine1}
-                  </Text>
-                  <Text style={[styles.subtitle, compact && styles.subtitleCompact]}>{copy.subtitle}</Text>
-                </View>
-
-                <View style={styles.editForm}>
-                  <TextInput
-                    style={styles.input}
-                    value={nickname}
-                    onChangeText={(text) => {
-                      setNickname(text);
-                      if (error) setError('');
-                    }}
-                    placeholder={ONBOARDING_COPY.placeholder}
-                    placeholderTextColor={theme.colors.textMuted}
-                    maxLength={12}
-                    autoFocus={false}
-                    showSoftInputOnFocus
-                    autoCorrect={false}
-                    autoComplete="off"
-                    editable={editReady}
-                    returnKeyType="done"
-                    onFocus={handleInputFocus}
-                    onSubmitEditing={handleStart}
-                    accessibilityLabel={ONBOARDING_COPY.placeholder}
-                  />
-                  {error ? <Text style={styles.error}>{error}</Text> : null}
-
-                  <Pressable
-                    style={({ pressed }) => [
-                      styles.button,
-                      pressed && styles.buttonPressed,
-                      saving && styles.buttonDisabled,
-                    ]}
-                    onPress={handleStart}
-                    disabled={saving || !editReady}
-                    accessibilityRole="button"
-                    accessibilityLabel={copy.startButton}
-                  >
-                    <Text style={styles.buttonText}>{copy.startButton}</Text>
-                  </Pressable>
-                </View>
-              </ScrollView>
+            <View style={styles.editHeader}>
+              <Text style={[styles.title, compact && styles.titleCompact]} accessibilityRole="header">
+                {copy.titleLine1}
+              </Text>
+              <Text style={[styles.subtitle, compact && styles.subtitleCompact]}>{copy.subtitle}</Text>
             </View>
-          </TouchableWithoutFeedback>
+
+            <View style={styles.editForm}>
+              <TextInput
+                ref={inputRef}
+                style={styles.input}
+                value={nickname}
+                onChangeText={handleNicknameChange}
+                onEndEditing={(event) => handleNicknameEndEditing(event.nativeEvent.text)}
+                placeholder={ONBOARDING_COPY.placeholder}
+                placeholderTextColor={theme.colors.textMuted}
+                maxLength={NICKNAME_MAX_LENGTH}
+                autoFocus={false}
+                showSoftInputOnFocus
+                autoCorrect={false}
+                autoComplete="off"
+                editable={editReady}
+                returnKeyType="done"
+                blurOnSubmit={false}
+                onFocus={handleInputFocus}
+                onSubmitEditing={() => {
+                  void handleStart();
+                }}
+                accessibilityLabel={ONBOARDING_COPY.placeholder}
+              />
+              {error ? <Text style={styles.error}>{error}</Text> : null}
+
+              <Pressable
+                style={({ pressed }) => [
+                  styles.button,
+                  pressed && !saving && styles.buttonPressed,
+                  saving && styles.buttonDisabled,
+                ]}
+                onPress={() => {
+                  void handleStart();
+                }}
+                disabled={saving || !editReady}
+                accessibilityRole="button"
+                accessibilityLabel={copy.startButton}
+              >
+                <Text style={styles.buttonText}>{copy.startButton}</Text>
+              </Pressable>
+            </View>
+          </ScrollView>
         </KeyboardAvoidingView>
       </SafeAreaView>
     );
@@ -196,78 +234,78 @@ export function OnboardingScreen() {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={Platform.OS === 'ios' ? 8 : 0}
       >
-        <TouchableWithoutFeedback onPress={dismissKeyboard} accessible={false}>
-          <View style={styles.flex}>
-            <ScrollView
-              ref={scrollRef}
-              contentContainerStyle={[styles.page, compact && styles.pageCompact, styles.scrollContent]}
-              keyboardShouldPersistTaps="handled"
-              keyboardDismissMode="on-drag"
-              showsVerticalScrollIndicator={false}
-              bounces={false}
-            >
-              <View style={styles.hero}>
-                <View style={[styles.mascotStage, { minHeight: mascotSize }]}>
-                  <SeedMascot variant="wave" size={mascotSize} />
-                </View>
+        <ScrollView
+          ref={scrollRef}
+          contentContainerStyle={[styles.page, compact && styles.pageCompact, styles.scrollContent]}
+          keyboardShouldPersistTaps="always"
+          keyboardDismissMode="on-drag"
+          showsVerticalScrollIndicator={false}
+          bounces={false}
+        >
+          <View style={styles.hero}>
+            <View style={[styles.mascotStage, { minHeight: mascotSize }]}>
+              <SeedMascot variant="wave" size={mascotSize} />
+            </View>
 
-                <View style={styles.greeting}>
-                  <Text
-                    style={[styles.title, compact && styles.titleCompact]}
-                    accessibilityRole="header"
-                  >
-                    {copy.titleLine1}
-                  </Text>
-                  {copy.titleLine2 ? (
-                    <Text style={[styles.titleSecond, compact && styles.titleCompact]}>
-                      {copy.titleLine2}
-                    </Text>
-                  ) : null}
-                  <Text style={[styles.subtitle, compact && styles.subtitleCompact]}>
-                    {copy.subtitle}
-                  </Text>
-                </View>
-              </View>
-
-              <View style={styles.form}>
-                <TextInput
-                  style={styles.input}
-                  value={nickname}
-                  onChangeText={(text) => {
-                    setNickname(text);
-                    if (error) setError('');
-                  }}
-                  placeholder={ONBOARDING_COPY.placeholder}
-                  placeholderTextColor={theme.colors.textMuted}
-                  maxLength={12}
-                  autoFocus={false}
-                  showSoftInputOnFocus
-                  autoCorrect={false}
-                  autoComplete="off"
-                  returnKeyType="done"
-                  onFocus={handleInputFocus}
-                  onSubmitEditing={handleStart}
-                  accessibilityLabel={ONBOARDING_COPY.placeholder}
-                />
-                {error ? <Text style={styles.error}>{error}</Text> : null}
-
-                <Pressable
-                  style={({ pressed }) => [
-                    styles.button,
-                    pressed && styles.buttonPressed,
-                    saving && styles.buttonDisabled,
-                  ]}
-                  onPress={handleStart}
-                  disabled={saving}
-                  accessibilityRole="button"
-                  accessibilityLabel={copy.startButton}
-                >
-                  <Text style={styles.buttonText}>{copy.startButton}</Text>
-                </Pressable>
-              </View>
-            </ScrollView>
+            <View style={styles.greeting}>
+              <Text
+                style={[styles.title, compact && styles.titleCompact]}
+                accessibilityRole="header"
+              >
+                {copy.titleLine1}
+              </Text>
+              {copy.titleLine2 ? (
+                <Text style={[styles.titleSecond, compact && styles.titleCompact]}>
+                  {copy.titleLine2}
+                </Text>
+              ) : null}
+              <Text style={[styles.subtitle, compact && styles.subtitleCompact]}>
+                {copy.subtitle}
+              </Text>
+            </View>
           </View>
-        </TouchableWithoutFeedback>
+
+          <View style={styles.form}>
+            <TextInput
+              ref={inputRef}
+              style={styles.input}
+              value={nickname}
+              onChangeText={handleNicknameChange}
+              onEndEditing={(event) => handleNicknameEndEditing(event.nativeEvent.text)}
+              placeholder={ONBOARDING_COPY.placeholder}
+              placeholderTextColor={theme.colors.textMuted}
+              maxLength={NICKNAME_MAX_LENGTH}
+              autoFocus={false}
+              showSoftInputOnFocus
+              autoCorrect={false}
+              autoComplete="off"
+              returnKeyType="done"
+              blurOnSubmit={false}
+              onFocus={handleInputFocus}
+              onSubmitEditing={() => {
+                void handleStart();
+              }}
+              accessibilityLabel={ONBOARDING_COPY.placeholder}
+            />
+            {error ? <Text style={styles.error}>{error}</Text> : null}
+
+            <Pressable
+              style={({ pressed }) => [
+                styles.button,
+                pressed && !saving && styles.buttonPressed,
+                saving && styles.buttonDisabled,
+              ]}
+              onPress={() => {
+                void handleStart();
+              }}
+              disabled={saving}
+              accessibilityRole="button"
+              accessibilityLabel={copy.startButton}
+            >
+              <Text style={styles.buttonText}>{copy.startButton}</Text>
+            </Pressable>
+          </View>
+        </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );

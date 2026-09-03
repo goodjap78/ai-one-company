@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { fontFamily } from '../../constants/fonts';
 import { ds } from '../../constants/designSystem';
+import { homeIaCopy } from '../../constants/homeIaCopy';
 import { northStarHomeCopy } from '../../constants/northStarHomeCopy';
 import type { MealTimeSlotKey } from '../../types/mealTimeRecommendation';
 import { SeedMascot } from '../common/SeedMascot';
@@ -32,7 +33,7 @@ export const HomeHeroTitles = memo(function HomeHeroTitles({ selectedSlot }: Pro
           adjustsFontSizeToFit
           minimumFontScale={0.85}
         >
-          {northStarHomeCopy.title}
+          {homeIaCopy.heroTitle}
         </Text>
       </View>
       <Text style={styles.subtitle} numberOfLines={2}>

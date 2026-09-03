@@ -1,4 +1,5 @@
 import type { RecipeSearchResult } from '../../types/recipeSearch';
+import { searchHankkiGlobalSupplement } from './globalHankkiSearchPolicy';
 import { getRecipeSearchIndex } from './recipeSearchIndex';
 
 const MAX_RESULTS = 40;
@@ -37,6 +38,14 @@ export function searchRecipes(query: string): RecipeSearchResult[] {
         matchedIngredient,
       });
     }
+  }
+
+  const hankkiSupplement = searchHankkiGlobalSupplement(trimmed);
+  const seen = new Set(results.map((item) => item.recipeId));
+  for (const item of hankkiSupplement) {
+    if (seen.has(item.recipeId)) continue;
+    results.push(item);
+    seen.add(item.recipeId);
   }
 
   return results

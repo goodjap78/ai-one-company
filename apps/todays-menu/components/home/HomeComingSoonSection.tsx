@@ -16,7 +16,6 @@ const PEEK_PX = 18;
 
 const SURVEY_ID_BY_CARD: Record<string, ComingSoonFeatureId> = {
   dineOut: 'dine_out',
-  kids: 'kids_meal',
   receipt: 'receipt',
   health: 'health',
   reward: 'reward',
@@ -24,7 +23,6 @@ const SURVEY_ID_BY_CARD: Record<string, ComingSoonFeatureId> = {
 
 const ICON_BY_ID: Record<string, HomeIconKey> = {
   dineOut: 'delivery',
-  kids: 'kids',
   receipt: 'receipt',
   health: 'health',
   reward: 'reward',

@@ -47,11 +47,23 @@ export default function RootLayout() {
         <Stack.Screen name="recently-viewed" />
         <Stack.Screen name="shopping/[recipeId]" />
         <Stack.Screen name="qa/meal-kit" />
+        <Stack.Screen name="qa/elementary-weekly-share" />
         <Stack.Screen name="fridge-raid/index" />
         <Stack.Screen name="fridge-raid/results" />
         <Stack.Screen name="convenience-combos/index" />
         <Stack.Screen name="convenience-combos/all" />
         <Stack.Screen name="convenience-combos/[id]" />
+        <Stack.Screen name="elementary-breakfast-week" />
+        <Stack.Screen name="elementary-dinner-week" />
+        <Stack.Screen name="elementary-browse" />
+        <Stack.Screen name="toddler-meals" />
+        <Stack.Screen name="toddler-meals-week" />
+        <Stack.Screen name="toddler-breakfast-week" />
+        <Stack.Screen name="toddler-dinner-week" />
+        <Stack.Screen name="baby-food" />
+        <Stack.Screen name="baby-food-week" />
+        <Stack.Screen name="baby-food-batch" />
+        <Stack.Screen name="baby-food-batch-result" />
       </Stack>
     </SafeAreaProvider>
   );

@@ -1,12 +1,18 @@
 import * as Haptics from 'expo-haptics';
 import { useRouter } from 'expo-router';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getHankkiRecipeMessages } from '../../constants/HankkiMessages';
+import { resolveChildDetailContext } from '../../constants/childDetailCopy';
 import { NAV_BACK } from '../../constants/navigationCopy';
 import { ds } from '../../constants/designSystem';
 import { getHankkiRecipeById } from '../../data/recipes/hankkiRecipes';
+import {
+  classifyBabyPortionScaling,
+  scaleBabyIngredientAmount,
+  type BabyPortionPreset,
+} from '../../data/recipes/babyPortionScaling';
 import { saveMeal } from '../../services/MealHistoryService';
 import { isFavorite, toggleFavorite } from '../../services/FavoriteService';
 import { recordViewedRecipe } from '../../services/viewedRecipe';
@@ -29,9 +35,21 @@ import { RecipeHeroImage } from '../recipe/RecipeHeroImage';
 import { RecipeInfoMeta } from '../recipe/RecipeInfoMeta';
 import { RecipeIngredientsList } from '../recipe/RecipeIngredientsList';
 import { RecipeServingAdjuster } from '../recipe/RecipeServingAdjuster';
+import {
+  BabyDetailSafetySections,
+  BabyPortionPresetSelector,
+  ChildDetailAudienceBadge,
+  ElementaryDetailExtraSections,
+  ToddlerDetailExtraSections,
+} from '../recipe/ChildDetailSections';
 import { recipePremiumStyles } from '../recipe/recipePremiumStyles';
 import { RecipeStepsList } from '../recipe/RecipeStepsList';
-import { consumeRecipeOpenSource, trackRecipeOpen } from '../../services/analytics';
+import {
+  consumeRecipeOpenSource,
+  trackBabyPortionChange,
+  trackChildRecipeDetailView,
+  trackRecipeOpen,
+} from '../../services/analytics';
 import { RecipePrepChoiceCta } from '../shopping/RecipePrepChoiceCta';
 import { CoupangDynamicBanner } from '../ads/CoupangDynamicBanner';
 import { ScreenLoading } from '../ui/ScreenLoading';
@@ -46,6 +64,7 @@ const labels = getHankkiRecipeMessages();
 /**
  * Sprint R2 — finalized Recipe Detail: continuous vertical scroll only.
  * Route: /ingredients/[id]. Favorite / eaten / recommendation logic unchanged.
+ * Child audience extensions reuse this screen (no separate full-screen route).
  */
 export function IngredientsScreen({ recipeId }: Props) {
   const router = useRouter();
@@ -58,6 +77,23 @@ export function IngredientsScreen({ recipeId }: Props) {
   const [favorited, setFavorited] = useState(false);
   const [seedMessage, setSeedMessage] = useState<string | null>(null);
   const [targetServings, setTargetServings] = useState(2);
+  const [babyPortion, setBabyPortion] = useState<BabyPortionPreset>(1);
+  const childDetailTrackedRef = useRef<string | null>(null);
+
+  const hankki = useMemo(() => getHankkiRecipeById(recipeId), [recipeId]);
+  const childContext = useMemo(
+    () => resolveChildDetailContext(hankki?.familyAudience.audiences ?? ['general']),
+    [hankki],
+  );
+  const babyScaling = useMemo(
+    () => (hankki && childContext === 'baby' ? classifyBabyPortionScaling(hankki) : null),
+    [hankki, childContext],
+  );
+  const isBaby = childContext === 'baby';
+  const isToddler = childContext === 'toddler';
+  const isElementary = childContext === 'elementary';
+  const hideCoupang = isBaby;
+  const deferShopping = isBaby;
 
   useEffect(() => {
     if (!recipeId) {
@@ -101,9 +137,24 @@ export function IngredientsScreen({ recipeId }: Props) {
   }, [recipeId, recipe?.id]);
 
   useEffect(() => {
+    if (!recipeId || !recipe || !hankki) return;
+    if (childContext === 'general') return;
+    if (childDetailTrackedRef.current === recipeId) return;
+    childDetailTrackedRef.current = recipeId;
+    trackChildRecipeDetailView({
+      recipe_id: recipeId,
+      audience: childContext,
+      ...(childContext === 'baby' && hankki.familyAudience.babyFood?.stage
+        ? { stage: hankki.familyAudience.babyFood.stage }
+        : {}),
+    });
+  }, [recipeId, recipe?.id, hankki, childContext]);
+
+  useEffect(() => {
     if (recipe?.servings) {
       setTargetServings(recipe.servings);
     }
+    setBabyPortion(1);
   }, [recipeId, recipe?.servings]);
 
   useEffect(() => {
@@ -122,8 +173,8 @@ export function IngredientsScreen({ recipeId }: Props) {
         return;
       }
 
-      const hankki = getHankkiRecipeById(recipeId);
-      const context = buildSeedMessageContext(hankki, mealType);
+      const hankkiRecipe = getHankkiRecipeById(recipeId);
+      const context = buildSeedMessageContext(hankkiRecipe, mealType);
       const picked = await pickSeedRecommendationMessage(recipeId, context);
       if (cancelled) return;
 
@@ -132,7 +183,7 @@ export function IngredientsScreen({ recipeId }: Props) {
         return;
       }
 
-      const pool = hankki?.recommendationMessages ?? recipe?.recommendationMessages ?? [];
+      const pool = hankkiRecipe?.recommendationMessages ?? recipe?.recommendationMessages ?? [];
       setSeedMessage(pool[0]?.trim() || labels.warmSentence);
     }
 
@@ -143,6 +194,27 @@ export function IngredientsScreen({ recipeId }: Props) {
   }, [recipeId, mealType, recipe?.recommendationMessages]);
 
   const calories = useMemo(() => resolveRecipeCalories(recipeId), [recipeId]);
+
+  const displayIngredients = useMemo(() => {
+    if (!recipe) return [];
+    if (!isBaby || !babyScaling) return recipe.ingredients;
+    return recipe.ingredients.map((ing) => ({
+      ...ing,
+      amount: scaleBabyIngredientAmount(ing.amount, babyPortion, babyScaling),
+    }));
+  }, [recipe, isBaby, babyScaling, babyPortion]);
+
+  const handleBabyPortionChange = useCallback(
+    (portion: BabyPortionPreset) => {
+      setBabyPortion(portion);
+      trackBabyPortionChange({
+        recipe_id: recipeId,
+        audience: 'baby',
+        portion,
+      });
+    },
+    [recipeId],
+  );
 
   const handleFeedbackSubmitted = useCallback(() => {
     setToastMessage(labels.feedbackThankYouToast);
@@ -213,6 +285,9 @@ export function IngredientsScreen({ recipeId }: Props) {
     );
   }
 
+  const shoppingCta = <RecipePrepChoiceCta recipeId={recipeId} />;
+  const coupangBanner = hideCoupang ? null : <CoupangDynamicBanner />;
+
   return (
     <SafeAreaView style={recipePremiumStyles.canvas} edges={['top', 'bottom']}>
       <View style={styles.page}>
@@ -225,11 +300,15 @@ export function IngredientsScreen({ recipeId }: Props) {
             {/* 1–2 Header + title */}
             <View style={recipePremiumStyles.headerBlock}>
               <ScreenBackButton label={NAV_BACK.home} fallbackHref="/(tabs)" />
-              <View style={recipePremiumStyles.badge}>
-                <Text style={recipePremiumStyles.badgeText}>
-                  {labels.todayRecommendationBadge}
-                </Text>
-              </View>
+              {hankki && childContext !== 'general' ? (
+                <ChildDetailAudienceBadge context={childContext} hankki={hankki} />
+              ) : (
+                <View style={recipePremiumStyles.badge}>
+                  <Text style={recipePremiumStyles.badgeText}>
+                    {labels.todayRecommendationBadge}
+                  </Text>
+                </View>
+              )}
               <Text
                 style={recipePremiumStyles.mealTitle}
                 accessibilityRole="header"
@@ -242,36 +321,57 @@ export function IngredientsScreen({ recipeId }: Props) {
             {/* 3 Hero + Seed mascot tip */}
             <RecipeHeroImage image={recipe.image} recipeId={recipeId} seedMessage={seedMessage} />
 
-            {/* 4 Quick info */}
-            <RecipeInfoMeta
-              cookingTimeMinutes={recipe.cookTime}
-              difficulty={recipe.difficulty}
-              servings={recipe.servings}
-              calories={calories}
-            />
+            {/* Baby portion presets (1 / 3 / 6) */}
+            {isBaby && babyScaling ? (
+              <BabyPortionPresetSelector
+                scaling={babyScaling}
+                portion={babyPortion}
+                onChange={handleBabyPortionChange}
+              />
+            ) : null}
 
-            <RecipePrepChoiceCta recipeId={recipeId} />
+            {/* 4 Quick info — elementary keeps total time visible */}
+            {!isBaby ? (
+              <RecipeInfoMeta
+                cookingTimeMinutes={recipe.cookTime}
+                difficulty={recipe.difficulty}
+                servings={recipe.servings}
+                calories={calories}
+              />
+            ) : null}
+
+            {!deferShopping ? shoppingCta : null}
 
             {/* 5–7 주재료 / 부재료 / 양념 */}
-            <RecipeServingAdjuster
-              baseServings={recipe.servings}
-              targetServings={targetServings}
-              onChange={(servings) =>
-                setTargetServings(Math.min(8, Math.max(1, servings)))
-              }
-              onReset={() => setTargetServings(recipe.servings)}
-            />
+            {!isBaby ? (
+              <RecipeServingAdjuster
+                baseServings={recipe.servings}
+                targetServings={targetServings}
+                onChange={(servings) =>
+                  setTargetServings(Math.min(8, Math.max(1, servings)))
+                }
+                onReset={() => setTargetServings(recipe.servings)}
+              />
+            ) : null}
             <RecipeIngredientsList
-              ingredients={recipe.ingredients}
-              baseServings={recipe.servings}
-              targetServings={targetServings}
+              ingredients={displayIngredients}
+              baseServings={isBaby ? 1 : recipe.servings}
+              targetServings={isBaby ? 1 : targetServings}
             />
 
-            {/* 9 만드는 방법 — all steps in one scroll */}
+            {/* 9 만드는 방법 — text + optional step images (canonical step image path) */}
             <RecipeStepsList steps={recipe.steps} />
+
+            {/* Child audience extension sections */}
+            {isBaby && hankki ? <BabyDetailSafetySections hankki={hankki} /> : null}
+            {isToddler && hankki ? <ToddlerDetailExtraSections hankki={hankki} /> : null}
+            {isElementary && hankki ? <ElementaryDetailExtraSections hankki={hankki} /> : null}
 
             {/* 10 완성 */}
             <RecipeCompletionSection tip={recipe.tip} mealTitle={recipe.title} />
+
+            {/* Baby: shopping after cook/safety */}
+            {deferShopping ? shoppingCta : null}
 
             {/* 11 Actions: 오늘 먹었어요! → 즐겨찾기 → 다른 메뉴 추천 */}
             <RecipeDetailActions
@@ -284,8 +384,8 @@ export function IngredientsScreen({ recipeId }: Props) {
 
             <RecipeFeedbackCard recipeId={recipeId} onSubmitted={handleFeedbackSubmitted} />
 
-            {/* After shopping CTA + body — scroll bottom only */}
-            <CoupangDynamicBanner />
+            {/* After shopping CTA + body — scroll bottom only (hidden for baby) */}
+            {coupangBanner}
           </View>
         </ScrollView>
 

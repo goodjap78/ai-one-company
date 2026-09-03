@@ -10,6 +10,7 @@ import {
   menuPassesCookTimeHardFilter,
 } from './cookTimePreference';
 import { menuPassesAiRecommendationExclusions } from './mealIntelligence/aiRecommendationExclusions';
+import { isExcludedFromGeneralHomeByRecipeId } from '../../data/recipes/generalHomeFeedExclusion';
 import { isSideDishRecipeId } from '../../data/recipes/sideDishRecipeIds';
 
 const DEBUG_PREFIX = '[HANKKI candidates]';
@@ -56,7 +57,9 @@ function filterByMode(menus: MenuItem[], mealMode: MealMode): MenuItem[] {
 }
 
 function filterHomeMealCandidates(menus: MenuItem[]): MenuItem[] {
-  return menus.filter((menu) => !isSideDishRecipeId(menu.id));
+  return menus.filter(
+    (menu) => !isSideDishRecipeId(menu.id) && !isExcludedFromGeneralHomeByRecipeId(menu.id),
+  );
 }
 
 export type CandidatePoolRelaxation =

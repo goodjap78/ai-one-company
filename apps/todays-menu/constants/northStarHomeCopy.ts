@@ -55,12 +55,6 @@ export const northStarHomeCopy = {
         badge: '준비 중',
       },
       {
-        id: 'kids',
-        title: '우리아이 식단',
-        subtitle: '아이 맞춤 식단',
-        badge: '준비 중',
-      },
-      {
         id: 'receipt',
         title: '영수증',
         subtitle: '재료 자동 등록',

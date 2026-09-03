@@ -1,4 +1,5 @@
 import type { Recipe } from '../../data/recipes/types';
+import { isExcludedFromGeneralHomeByRecipeId } from '../../data/recipes/generalHomeFeedExclusion';
 import { isSideDishRecipe } from '../../data/recipes/sideDishPolicy';
 import type { PantrySnapshot } from '../../types/pantry';
 import type { RecommendationContext } from '../../types/preference';
@@ -90,6 +91,8 @@ function bucketForCandidate(
 /**
  * Score every recipe — Refrigerator Intelligence Engine v1.0.
  * Tiers by missing required ingredients; missing ≥ 3 → extended bucket only.
+ * Toddler-approved rows are dropped before scoring (same Home exclusion set).
+ * Baby-approved rows will use the same helper when they exist.
  */
 export function scoreFridgeRaidCandidates(input: FridgeRaidScoreInput): FridgeRaidScoredGroups {
   const empty: FridgeRaidScoredGroups = {
@@ -99,12 +102,13 @@ export function scoreFridgeRaidCandidates(input: FridgeRaidScoreInput): FridgeRa
     extended: [],
     sideDishes: [],
   };
-  if (input.pantry.items.length === 0 || input.recipes.length === 0) {
+  const recipes = input.recipes.filter((recipe) => !isExcludedFromGeneralHomeByRecipeId(recipe.id));
+  if (input.pantry.items.length === 0 || recipes.length === 0) {
     return empty;
   }
 
   const ownedKeys = buildPantryMatchKeySet(input.pantry);
-  const recipeIndex = buildFridgeRecipeIndex(input.recipes);
+  const recipeIndex = buildFridgeRecipeIndex(recipes);
 
   const buckets: FridgeRaidScoredGroups = {
     tier5: [],
@@ -114,7 +118,7 @@ export function scoreFridgeRaidCandidates(input: FridgeRaidScoreInput): FridgeRa
     sideDishes: [],
   };
 
-  for (const recipe of input.recipes) {
+  for (const recipe of recipes) {
     const indexed = recipeIndex.get(recipe.id);
     if (!indexed) continue;
 
