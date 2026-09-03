@@ -4,5 +4,13 @@ generated/
 .env.*
 !.env.example
 
+# Image optimization originals (restore locally; do not commit)
+assets/_backup/
+
+# Local icon audit / review artifacts (do not ship)
+assets/*.rc-audit-backup
+assets/_adaptive-icon-review.png
+assets/_*-review.png
+
 .vercel
 .env*
