@@ -104,7 +104,7 @@ No core feature files were left uncommitted.
 
 ## COMMITS_CREATED
 
-**7**
+**8** (7 logical product commits + 1 docs report; plus optional follow-up docs tweak if present on HEAD)
 
 | # | SHA | Message |
 |---|-----|---------|
@@ -115,16 +115,16 @@ No core feature files were left uncommitted.
 | C5 | `93ce27e` | feat(todays-menu): update meal images and Hankki app icons |
 | C6 | `4489d46` | chore(todays-menu): update package and Expo release config |
 | C7 | `32897ec` | test(todays-menu): add v1.1 QA scripts and release audit reports |
+| C8 | `59cccfb` | docs(todays-menu): add Sprint 13.1 worktree cleanup report |
 
-**COMMIT_SHAS:** `44711eb a10750a b314ee5 64a4527 93ce27e 4489d46 32897ec`  
-(+ this report commit if applied immediately after)
+**COMMIT_SHAS:** `44711eb a10750a b314ee5 64a4527 93ce27e 4489d46 32897ec 59cccfb` (+ any subsequent docs-only tweak on HEAD)
 
 ---
 
 ## UNCOMMITTED_AFTER / GIT_STATUS_FINAL
 
-After C7: **`git status` clean** (`TOTAL_REMAIN=0`).  
-Branch ahead of remote by **7** commits. Local excludes only gitignored icon review/backup files.
+**Target:** `git status` clean (only intentional gitignored icon review/backup locals).  
+Branch ahead of remote by **8+** (docs finalize may add 1).
 
 ---
 
