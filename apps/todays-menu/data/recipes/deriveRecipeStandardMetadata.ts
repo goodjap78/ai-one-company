@@ -6,6 +6,8 @@ import type { RecipeDecisionTags } from './decisionTypes';
 import { PIPELINE_DRAFT_SPECS } from './pipeline/draftSpecsPart1';
 import { PIPELINE_DRAFT_SPECS_PART2 } from './pipeline/draftSpecsPart2';
 import type { PipelineCuisine, RecipeSpec } from './pipeline/types';
+import { ELEMENTARY_DINNER_MEAL_TYPE_PROMOTIONS } from './elementaryDinnerPoolPromotions';
+import { TODDLER_BREAKFAST_MEAL_TYPE_PROMOTIONS } from './toddlerBreakfastPoolPromotions';
 import { RECIPE_STANDARD_METADATA_OVERRIDES } from './recipeStandardMetadataOverrides';
 import type {
   RecipeStandardMetadata,
@@ -21,6 +23,7 @@ import type {
   StandardSpiceLevel,
   StandardTasteProfile,
 } from './recipeStandardMetadataTypes';
+import { peanutOrTreeNutAllergyTags } from './allergyTagDerivation';
 import type { Recipe, RecipeIngredient, RecipeStepContent } from './types';
 
 const PIPELINE_SPEC_BY_ID = new Map<string, RecipeSpec>(
@@ -32,6 +35,7 @@ const ICON_KEY_ALLERGIES: Record<string, StandardAllergyTag[]> = {
   milk: ['milk'],
   cheese: ['milk'],
   butter: ['milk'],
+  // mayo is intentionally unmapped. Do not infer milk (or other allergens) from mayonnaise.
   peanut: ['peanut'],
   flour: ['wheat'],
   bread_crumbs: ['wheat'],
@@ -81,7 +85,12 @@ type DeriveSource = {
   difficulty: string;
   serving: number;
   ingredients: RecipeIngredient[];
-  nutrition: { calorie: number; protein: number };
+  nutrition: {
+    calorie: number;
+    protein: number;
+    carbohydrate?: number;
+    source?: 'legacy' | 'unverified';
+  };
   tags: string[];
   situation: string[];
   aiTags: string[];
@@ -321,11 +330,16 @@ function mapDietaryTags(source: DeriveSource): StandardDietaryTag[] {
   const text = blob(source);
   const out: StandardDietaryTag[] = [];
   const hasMeat = source.ingredients.some((i) => MEAT_ICON_KEYS.has(i.iconKey));
+  const nutritionTrusted = source.nutrition.source !== 'unverified';
 
-  if (/high_protein|단백질/.test(text) || source.nutrition.protein >= 25) {
+  if (/high_protein|단백질/.test(text) || (nutritionTrusted && source.nutrition.protein >= 25)) {
     out.push('high_protein');
   }
-  if (source.nutrition.carbohydrate > 0 && source.nutrition.carbohydrate <= 30) {
+  if (
+    nutritionTrusted &&
+    (source.nutrition.carbohydrate ?? 0) > 0 &&
+    (source.nutrition.carbohydrate ?? 0) <= 30
+  ) {
     out.push('low_carb');
   }
   if (
@@ -334,10 +348,16 @@ function mapDietaryTags(source: DeriveSource): StandardDietaryTag[] {
   ) {
     out.push('vegetarian');
   }
-  if (/가벼운|light|다이어트|healthy|담백/.test(text) || source.nutrition.calorie < 400) {
+  if (
+    /가벼운|light|다이어트|healthy|담백/.test(text) ||
+    (nutritionTrusted && source.nutrition.calorie < 400)
+  ) {
     out.push('light_meal');
   }
-  if (/든든|comfort|hearty|배부/.test(text) || source.nutrition.calorie >= 550) {
+  if (
+    /든든|comfort|hearty|배부/.test(text) ||
+    (nutritionTrusted && source.nutrition.calorie >= 550)
+  ) {
     out.push('filling_meal');
   }
 
@@ -354,11 +374,15 @@ function deriveAllergyTags(source: DeriveSource): StandardAllergyTag[] {
   const out: StandardAllergyTag[] = [];
   for (const ing of source.ingredients) {
     const mapped = ICON_KEY_ALLERGIES[ing.iconKey];
-    if (mapped) out.push(...mapped);
+    const peanutOrNut = peanutOrTreeNutAllergyTags(ing.name, ing.iconKey);
+    if (peanutOrNut.length > 0 || ing.iconKey === 'peanut') {
+      out.push(...peanutOrNut);
+    } else if (mapped && !(ing.iconKey === 'butter' && /마요/.test(ing.name))) {
+      out.push(...mapped);
+    }
 
     const name = ing.name.toLowerCase();
     if (/새우|게|조개|홍합/.test(name)) out.push('shellfish');
-    if (/견과|아몬드|호두/.test(name)) out.push('nuts');
     if (/밀가루|빵|면/.test(name) && !mapped?.includes('wheat')) out.push('wheat');
     if (/두부|된장|간장/.test(name) && !mapped?.includes('soy')) out.push('soy');
   }
@@ -536,9 +560,13 @@ export function deriveRecipeStandardMetadata(
     reviewNotes: unique(reviewNotes),
   };
 
+  const dinnerPromotion = ELEMENTARY_DINNER_MEAL_TYPE_PROMOTIONS[source.id];
+  const toddlerBreakfastPromotion = TODDLER_BREAKFAST_MEAL_TYPE_PROMOTIONS[source.id];
   const idOverride = RECIPE_STANDARD_METADATA_OVERRIDES[source.id];
-  const merged = mergeMetadata(base, idOverride);
-  const finalMerged = mergeMetadata(merged, inputOverride);
+  const merged = mergeMetadata(base, dinnerPromotion);
+  const mergedToddlerBf = mergeMetadata(merged, toddlerBreakfastPromotion);
+  const mergedWithId = mergeMetadata(mergedToddlerBf, idOverride);
+  const finalMerged = mergeMetadata(mergedWithId, inputOverride);
 
   if (finalMerged.reviewNotes.length > 0 && !inputOverride?.reviewNeeded) {
     finalMerged.reviewNeeded = finalMerged.reviewNeeded || finalMerged.reviewNotes.length > 0;

@@ -3,8 +3,9 @@
  */
 import type { CollectionId } from '../../content/types/contentBase';
 import type { HankkiRecipeInput } from '../recipeMasterTemplate';
+import type { RecipeFamilyAudienceOverride } from '../recipeFamilyAudienceTypes';
 import type { RecipeStandardMetadataOverride } from '../recipeStandardMetadataTypes';
-import type { RecipeIngredient } from '../types';
+import type { RecipeIngredient, RecipeNutrition } from '../types';
 
 type IngredientLine = {
   name: string;
@@ -27,7 +28,7 @@ export type Batch46CRecipeSpec = {
   mains: IngredientLine[];
   subs: IngredientLine[];
   seasonings: IngredientLine[];
-  nutrition: { calorie: number; protein: number; carbohydrate: number; fat: number };
+  nutrition: RecipeNutrition;
   steps: Array<{ title: string; instruction: string; tip: string }>;
   recommendationMessages: string[];
   recommendationReasons: string[];
@@ -35,6 +36,7 @@ export type Batch46CRecipeSpec = {
   recommendationPriority: number;
   standardMetadata?: RecipeStandardMetadataOverride;
   collectionIds?: CollectionId[];
+  familyAudience?: RecipeFamilyAudienceOverride;
 };
 
 function toIngredient(
@@ -85,6 +87,7 @@ export function buildBatch46CRecipe(spec: Batch46CRecipeSpec): HankkiRecipeInput
     recommendationPriority: spec.recommendationPriority,
     standardMetadata: spec.standardMetadata,
     collectionIds: spec.collectionIds,
+    familyAudience: spec.familyAudience,
     recipe: { steps },
   };
 }

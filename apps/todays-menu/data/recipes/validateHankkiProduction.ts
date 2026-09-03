@@ -4,6 +4,7 @@
  */
 import type { Recipe, RecipeStepContent } from './types';
 import { HANKKI_RECIPES } from './hankkiRecipes';
+import { validateRecipeFamilyAudience } from './validateRecipeFamilyAudience';
 
 export type ProductionValidationIssue = {
   recipeId: string;
@@ -102,6 +103,16 @@ export function validateHankkiRecipe(recipe: Recipe): ProductionValidationIssue[
 
   if (!recipe.standardMetadata) {
     push('standardMetadata', 'Missing standardMetadata');
+  }
+
+  if (!recipe.familyAudience) {
+    push('familyAudience', 'Missing familyAudience');
+  } else if (!recipe.familyAudience.audiences?.length) {
+    push('familyAudience.audiences', 'audiences must not be empty');
+  } else {
+    for (const issue of validateRecipeFamilyAudience(recipe)) {
+      issues.push(issue);
+    }
   }
 
   if (

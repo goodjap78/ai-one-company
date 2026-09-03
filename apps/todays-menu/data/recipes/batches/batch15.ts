@@ -33,7 +33,7 @@ const BATCH_15_SPECS: Batch46CRecipeSpec[] = [
     ],
     subs: [{ name: '양파', amount: '1/4개', iconKey: 'onion' }],
     seasonings: [
-      { name: '마요네즈', amount: '2큰술', iconKey: 'butter' },
+      { name: '마요네즈', amount: '2큰술', iconKey: 'mayo' },
       { name: '소금', amount: '1/4작은술', iconKey: 'salt' },
     ],
     nutrition: { calorie: 380, protein: 14, carbohydrate: 44, fat: 18 },

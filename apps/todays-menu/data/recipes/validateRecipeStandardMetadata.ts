@@ -15,6 +15,7 @@ import {
   type RecipeStandardMetadata,
   type StandardAllergyTag,
 } from './recipeStandardMetadataTypes';
+import { peanutOrTreeNutAllergyTags } from './allergyTagDerivation';
 import { HANKKI_RECIPES } from './hankkiRecipes';
 import type { Recipe } from './types';
 
@@ -23,6 +24,7 @@ const ICON_KEY_ALLERGY_HINTS: Record<string, StandardAllergyTag[]> = {
   milk: ['milk'],
   cheese: ['milk'],
   butter: ['milk'],
+  // mayo is intentionally unmapped. Do not infer milk from mayonnaise.
   peanut: ['peanut'],
   flour: ['wheat'],
   bread_crumbs: ['wheat'],
@@ -85,8 +87,16 @@ function hasDuplicateValues<T>(items: T[]): boolean {
 function expectedAllergiesFromIngredients(recipe: Recipe): StandardAllergyTag[] {
   const out: StandardAllergyTag[] = [];
   for (const ing of recipe.ingredients) {
+    const peanutOrNut = peanutOrTreeNutAllergyTags(ing.name, ing.iconKey);
+    if (peanutOrNut.length > 0 || ing.iconKey === 'peanut') {
+      out.push(...peanutOrNut);
+      continue;
+    }
     const mapped = ICON_KEY_ALLERGY_HINTS[ing.iconKey];
-    if (mapped) out.push(...mapped);
+    // Mayo was historically keyed as butter; do not require milk from mayonnaise.
+    if (mapped && !(ing.iconKey === 'butter' && /마요/.test(ing.name))) {
+      out.push(...mapped);
+    }
   }
   return [...new Set(out)];
 }

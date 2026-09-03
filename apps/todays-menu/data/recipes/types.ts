@@ -6,6 +6,8 @@
  */
 
 import type { RecipeDecisionTags } from './decisionTypes';
+import type { RecipeFamilyAudienceMetadata } from './recipeFamilyAudienceTypes';
+import type { ElementaryRecipeQualityMetadata } from './elementaryRecipeQualityTypes';
 import type { RecipeStandardMetadata } from './recipeStandardMetadataTypes';
 import type { CollectionId } from '../content/types/contentBase';
 
@@ -33,12 +35,20 @@ export interface RecipeIngredient {
   group: 'main' | 'sub' | 'seasoning';
 }
 
-/** Estimated nutrition per serving. */
+/** Nutrition per serving. Numbers may be schema placeholders — check `source`. */
+export type NutritionSource = 'legacy' | 'unverified';
+
 export interface RecipeNutrition {
   calorie: number;
   protein: number;
   carbohydrate: number;
   fat: number;
+  /**
+   * legacy: existing catalog values (not independently verified).
+   * unverified: schema placeholder only — must not be shown as measured nutrition.
+   * Omitted source is treated as legacy for backward compatibility.
+   */
+  source?: NutritionSource;
 }
 
 /**
@@ -84,6 +94,8 @@ export interface Recipe {
   mealType: string[];
   /** Cook time in minutes (Batch 01: cookingTime). */
   time: number;
+  /** Optional prep time in minutes (Sprint 6 — child recipe quality). */
+  prepTimeMinutes?: number;
   difficulty: string;
   /** Number of servings (Batch 01: servings). */
   serving: number;
@@ -128,6 +140,18 @@ export interface Recipe {
    * Attached via `createHankkiRecipe` — do not hand-author in batch files.
    */
   standardMetadata: RecipeStandardMetadata;
+
+  /**
+   * Sprint v1.1 #1 — family / child audience layer.
+   * Parallel to standardMetadata. Home recommendation does not read this yet.
+   */
+  familyAudience: RecipeFamilyAudienceMetadata;
+
+  /**
+   * Sprint 6 — editorial quality pass for elementary recipes.
+   * Shown on recipe detail when contentVerificationStatus is reviewed/verified.
+   */
+  elementaryQuality?: ElementaryRecipeQualityMetadata;
 
   // ——— Sprint 46-B — Content catalog ———
   contentType: 'recipe';

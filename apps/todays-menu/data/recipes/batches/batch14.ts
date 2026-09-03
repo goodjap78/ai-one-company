@@ -551,7 +551,7 @@ const BATCH_14_SPECS: Batch46CRecipeSpec[] = [
       { name: '오이', amount: '1/3개', iconKey: 'zucchini' },
     ],
     seasonings: [
-      { name: '마요네즈', amount: '1큰술', iconKey: 'butter' },
+      { name: '마요네즈', amount: '1큰술', iconKey: 'mayo' },
       { name: '소금', amount: '1꼬집', iconKey: 'salt' },
     ],
     nutrition: { calorie: 350, protein: 20, carbohydrate: 34, fat: 16 },

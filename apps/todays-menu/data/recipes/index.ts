@@ -72,6 +72,251 @@ export {
   validateHankkiRecipe,
 } from './validateHankkiProduction';
 
+export { deriveRecipeFamilyAudience } from './deriveRecipeFamilyAudience';
+
+export {
+  isEligibleForChildFeed,
+  isExcludedFromGeneralHomeFeed,
+  shouldIgnoreFamilyAudienceForHomeFeed,
+} from './recipeFamilyAudiencePolicy';
+
+export {
+  isExcludedFromGeneralHomeByRecipeId,
+  listGeneralHomeExcludedRecipeIds,
+} from './generalHomeFeedExclusion';
+
+export {
+  validateAllRecipeFamilyAudience,
+  validateRecipeFamilyAudience,
+} from './validateRecipeFamilyAudience';
+
+export { RECIPE_FAMILY_AUDIENCE_OVERRIDES } from './recipeFamilyAudienceOverrides';
+
+export {
+  TODDLER_PILOT_IDS,
+  TODDLER_PILOT_OVERRIDES,
+} from './toddlerPilotOverrides';
+
+export {
+  BABY_PILOT_IDS,
+  BABY_PILOT_OVERRIDES,
+} from './babyPilotOverrides';
+
+export {
+  BABY_FOOD_FEED_DEFAULT_STAGE,
+  BABY_FOOD_FEED_STAGES,
+  babyFoodFeedStageOf,
+  isBabyFoodFeedStage,
+  isEligibleBabyFoodCompletionRecipe,
+  isEligibleBabyFoodFeedRecipe,
+  listBabyFoodCompletionRecipes,
+  listBabyFoodFeedRecipes,
+} from './babyFoodFeed';
+export type { BabyFoodFeedStage } from './babyFoodFeed';
+
+export {
+  isEligibleToddlerMealFeedRecipe,
+  isToddlerFeedMealType,
+  listToddlerMealFeedRecipes,
+  pickToddlerMealFeed,
+  TODDLER_FEED_MEAL_TYPES,
+} from './toddlerMealFeed';
+export type { ToddlerFeedMealType, ToddlerMealFeedPick } from './toddlerMealFeed';
+
+export {
+  classifyToddlerWeeklyForm,
+  generateToddlerBreakfastWeek,
+  generateToddlerDinnerWeek,
+  generateToddlerWeeklyPlan,
+  isToddlerWeeklyPlanEligible,
+  listToddlerWeeklyPlanCandidates,
+  listToddlerWeeklyPlanMealCounts,
+} from './toddlerWeeklyPlan';
+export type {
+  ToddlerWeeklyPlanCandidate,
+  ToddlerWeeklyPlanFailure,
+  ToddlerWeeklyPlanResult,
+  ToddlerWeeklyPlanSuccess,
+  ToddlerWeeklyProteinGroup,
+} from './toddlerWeeklyPlan';
+export type {
+  ToddlerBreakfastWeekResult,
+} from './toddlerBreakfastWeeklyPlan';
+export type {
+  ToddlerDinnerWeekResult,
+} from './toddlerDinnerWeeklyPlan';
+
+export {
+  TODDLER_CANDIDATE_REVIEWS,
+  TODDLER_CANDIDATE_REVIEW_IDS,
+} from './toddlerCandidateReviews';
+export type { ToddlerCandidateReviewId } from './toddlerCandidateReviews';
+
+export {
+  evaluateToddlerSafetyDraft,
+  listToddlerAuthorReviewRequirements,
+  suggestToddlerChokingCautions,
+  toToddlerSafetyReviewInput,
+} from './toddlerSafetyPolicy';
+
+export {
+  evaluateBabyFoodDraft,
+  isExistingGeneralPorridge,
+  isTextureBlockedAsSoleForStage,
+  listBabyAuthorReviewRequirements,
+  suggestBabyChokingCautions,
+  toBabyFoodReviewInput,
+} from './babyFoodPolicy';
+export type { BabyFoodEvaluation, BabyFoodReviewInput } from './babyFoodPolicy';
+
+export {
+  BABY_ALLERGY_POLICY,
+  BABY_CHOKING_ALIASES,
+  BABY_CHOKING_CAUTION_CODES,
+  BABY_CHOKING_EXTRA_CODES,
+  BABY_COOKING_SAFETY_FLAGS,
+  BABY_COOKING_SAFETY_POLICY,
+  BABY_GENERAL_FEED_POLICY,
+  BABY_HONEY_POLICY,
+  BABY_OFFICIAL_MONTH_RANGE_POLICY,
+  BABY_OFFICIAL_STAGE_LABELS,
+  BABY_POLICY_SOURCES,
+  BABY_PROMOTION_POLICY,
+  BABY_REVIEW_STATUSES,
+  BABY_STAGE_TEXTURE_MAPPING,
+  BABY_STARTING_POLICY,
+  BABY_USER_FACING_STAGE_NAMES,
+  EXISTING_GENERAL_PORRIDGE_SEVEN_IDS,
+  isOfficialBabyMonthRangeForStage,
+  normalizeBabyFoodMonthRange,
+  officialMonthRangeForStage,
+} from './babyFoodPolicyTypes';
+export type {
+  BabyChokingCautionCode,
+  BabyCookingSafetyFlag,
+  BabyReviewStatus,
+  BabyTextureCode,
+} from './babyFoodPolicyTypes';
+export type { ToddlerSafetyEvaluation, ToddlerSafetyReviewInput } from './toddlerSafetyPolicy';
+
+export {
+  FORBIDDEN_TODDLER_NUTRITION_CLAIMS,
+  HONEY_POLICY,
+  SODIUM_SUGAR_POLICY,
+  TODDLER_AGE_SCOPE,
+  TODDLER_APP_AGE_FILTER_DECISION,
+  TODDLER_CHOKING_CAUTION_CODES,
+  TODDLER_POLICY_SOURCES,
+  TODDLER_REVIEW_STATUSES,
+  TODDLER_SEASONING_FLAGS,
+  TODDLER_TEXTURE_FLAGS,
+} from './toddlerSafetyPolicyTypes';
+export type {
+  ToddlerChokingCautionCode,
+  ToddlerReviewStatus,
+  ToddlerSafetyReview,
+  ToddlerSeasoningFlag,
+  ToddlerTextureFlag,
+} from './toddlerSafetyPolicyTypes';
+
+export type { FamilyAudienceIssue } from './validateRecipeFamilyAudience';
+export type { ChildFeedEligibility, ChildFeedRequest } from './recipeFamilyAudiencePolicy';
+export {
+  babySafetyReviewBlocksApproval,
+  validateBabyApprovedRecipe,
+} from './validateBabyFoodProduction';
+export {
+  BABY_FIRST_BATCH_ID_END,
+  BABY_FIRST_BATCH_ID_START,
+  BABY_FIRST_BATCH_RESERVATIONS,
+  listBabyFirstBatchIds,
+} from './babyFirstBatchReservation';
+export { peanutOrTreeNutAllergyTags } from './allergyTagDerivation';
+
+export type {
+  AudienceReviewStatus,
+  BabyFoodMetadata,
+  BabyFoodMonthRange,
+  BabyFoodMonthRangeBound,
+  BabyFoodStage,
+  BabyFoodTexture,
+  BabySafetyReview,
+  ChildFeedCollisionFlag,
+  ChildMealMetadata,
+  ChildRecipeAudience,
+  RecipeAudience,
+  RecipeCautionCode,
+  RecipeFamilyAudienceMetadata,
+  RecipeFamilyAudienceOverride,
+  RecipeSafetySignals,
+  WeeklyMealPlan,
+  WeeklyPlanAudience,
+  WeeklyPlanDay,
+  WeeklyPlanDiversityCategory,
+  WeeklyPlanSlot,
+} from './recipeFamilyAudienceTypes';
+
+export {
+  AUDIENCE_REVIEW_STATUSES,
+  BABY_FOOD_MONTH_RANGE_BOUNDS,
+  BABY_FOOD_STAGES,
+  BABY_FOOD_TEXTURES,
+  CHILD_AUDIENCES,
+  CHILD_FEED_COLLISION_FLAGS,
+  hasChildAudience,
+  isRecipeAudience,
+  RECIPE_AUDIENCES,
+  RECIPE_CAUTION_CODES,
+  WEEKLY_PLAN_DAYS,
+  WEEKLY_PLAN_DIVERSITY_CATEGORIES,
+} from './recipeFamilyAudienceTypes';
+
+export {
+  classifyWeeklyPlanDiversity,
+  generateElementaryBreakfastWeek,
+  isElementaryBreakfastWeekEligible,
+  listElementaryBreakfastWeekCandidates,
+  normalizeWeeklyPlanSeed,
+} from './elementaryBreakfastWeeklyPlan';
+export type {
+  ElementaryBreakfastWeekCandidate,
+  ElementaryBreakfastWeekFailure,
+  ElementaryBreakfastWeekResult,
+  ElementaryBreakfastWeekSuccess,
+  WeeklyPlanFormGroup,
+} from './elementaryBreakfastWeeklyPlan';
+
+export {
+  classifyDinnerWeeklyForm,
+  generateElementaryDinnerWeek,
+  isElementaryDinnerWeekEligible,
+  listElementaryDinnerWeekCandidates,
+} from './elementaryDinnerWeeklyPlan';
+export type {
+  DinnerWeeklyFormGroup,
+  DinnerWeeklyProteinGroup,
+  ElementaryDinnerWeekCandidate,
+  ElementaryDinnerWeekFailure,
+  ElementaryDinnerWeekResult,
+  ElementaryDinnerWeekSuccess,
+} from './elementaryDinnerWeeklyPlan';
+
+export {
+  generateBabyWeeklyPlan,
+  isBabyWeeklyPlanEligible,
+  listBabyWeeklyPlanCandidates,
+  listBabyWeeklyPlanStageCounts,
+} from './babyWeeklyPlan';
+export type {
+  BabyWeeklyPlanCandidate,
+  BabyWeeklyPlanFailure,
+  BabyWeeklyPlanResult,
+  BabyWeeklyPlanSuccess,
+  BabyWeeklyProteinGroup,
+  BabyWeeklyTextureGroup,
+  BabyWeeklyVegFruitGroup,
+} from './babyWeeklyPlan';
+
 export {
   deriveRecipeStandardMetadata,
   deriveRecipeStandardMetadataFromRecipe,

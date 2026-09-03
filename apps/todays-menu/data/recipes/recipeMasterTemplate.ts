@@ -8,11 +8,17 @@
  * searchTags, recommendationPriority). Overrides are optional on input;
  * missing values are derived so Batch 01/02 stay compatible.
  */
+import { deriveRecipeFamilyAudience } from './deriveRecipeFamilyAudience';
+import { RECIPE_FAMILY_AUDIENCE_OVERRIDES } from './recipeFamilyAudienceOverrides';
 import { deriveRecipeStandardMetadata } from './deriveRecipeStandardMetadata';
 import { deriveCollectionIds } from './deriveCollectionIds';
+import { applyElementarySprint6QualityPatch } from './elementarySprint6QualityPatches';
+import { applyToddlerSprint9QualityPatch } from './toddlerSprint9QualityPatches';
+import { applyToddlerSprint10QualityPatch } from './toddlerSprint10QualityPatches';
 import { enrichDecisionMetadata } from './enrichDecisionMetadata';
 import type { RecipeDecisionInput } from './decisionTypes';
 import type { CollectionId } from '../content/types/contentBase';
+import type { RecipeFamilyAudienceOverride } from './recipeFamilyAudienceTypes';
 import type { RecipeStandardMetadataOverride } from './recipeStandardMetadataTypes';
 import type {
   Recipe,
@@ -31,6 +37,7 @@ export type HankkiRecipeInput = Omit<
   | 'searchTags'
   | 'recommendationPriority'
   | 'standardMetadata'
+  | 'familyAudience'
   | 'contentType'
   | 'collectionIds'
 > & {
@@ -41,6 +48,8 @@ export type HankkiRecipeInput = Omit<
 } & RecipeDecisionInput & {
   /** Optional per-recipe override for standardized metadata derivation. */
   standardMetadata?: RecipeStandardMetadataOverride;
+  /** Optional explicit family/child audience. Never inferred from kids_meal. */
+  familyAudience?: RecipeFamilyAudienceOverride;
 };
 
 function trimMessages(messages: string[]): string[] {
@@ -154,32 +163,48 @@ export function createHankkiRecipe(input: HankkiRecipeInput): Recipe {
     override: input.collectionIds,
   });
 
-  return {
-    id: input.id.trim(),
-    name: input.name.trim(),
-    category: [...input.category],
-    mealType: [...input.mealType],
-    time: input.time,
-    difficulty: input.difficulty.trim(),
-    serving: input.serving,
-    ingredients,
-    nutrition: { ...input.nutrition },
-    tags: [...input.tags],
-    situation: [...input.situation],
-    aiTags: [...input.aiTags],
-    heroImageKey,
-    image: input.image?.trim() || `assets/meals/${heroImageKey}.jpg`,
-    recommendationMessages,
-    heroMascotMessage: input.heroMascotMessage?.trim() || undefined,
-    recipe: { steps },
-    decisionTags: decision.decisionTags,
-    recommendationReasons: decision.recommendationReasons,
-    searchTags: decision.searchTags,
-    recommendationPriority: decision.recommendationPriority,
-    standardMetadata,
-    contentType: 'recipe',
-    collectionIds,
-  };
+  const familyAudience = deriveRecipeFamilyAudience(
+    {
+      id: input.id.trim(),
+      name: input.name.trim(),
+      category: input.category,
+      ingredients,
+      standardMetadata,
+    },
+    input.familyAudience ?? RECIPE_FAMILY_AUDIENCE_OVERRIDES[input.id.trim()],
+  );
+
+  return applyToddlerSprint10QualityPatch(
+    applyToddlerSprint9QualityPatch(
+      applyElementarySprint6QualityPatch({
+        id: input.id.trim(),
+        name: input.name.trim(),
+        category: [...input.category],
+        mealType: [...input.mealType],
+        time: input.time,
+        difficulty: input.difficulty.trim(),
+        serving: input.serving,
+        ingredients,
+        nutrition: { ...input.nutrition },
+        tags: [...input.tags],
+        situation: [...input.situation],
+        aiTags: [...input.aiTags],
+        heroImageKey,
+        image: input.image?.trim() || `assets/meals/${heroImageKey}.jpg`,
+        recommendationMessages,
+        heroMascotMessage: input.heroMascotMessage?.trim() || undefined,
+        recipe: { steps },
+        decisionTags: decision.decisionTags,
+        recommendationReasons: decision.recommendationReasons,
+        searchTags: decision.searchTags,
+        recommendationPriority: decision.recommendationPriority,
+        standardMetadata,
+        familyAudience,
+        contentType: 'recipe',
+        collectionIds,
+      }),
+    ),
+  );
 }
 
 /** Assemble a batch array through the master template (no duplicated path logic). */

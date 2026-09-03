@@ -75,7 +75,8 @@ export const INGREDIENT_ALIASES: Record<string, string> = {
   맛살: 'imitation_crab',
   게맛살: 'imitation_crab',
   새우: 'shrimp',
-  새우젓: 'salt',
+  마요네즈: 'mayo',
+  마요: 'mayo',
   유부: 'fried_tofu',
   유부주머니: 'fried_tofu',
   오징어: 'squid',
@@ -261,6 +262,7 @@ export const INGREDIENT_ICON_CATEGORY: Record<string, IngredientIconCategory> = 
   burdock: 'vegetable',
   cheese: 'dairy',
   vinegar: 'sauce',
+  mayo: 'sauce',
 };
 
 const ALIAS_ENTRIES = Object.entries(INGREDIENT_ALIASES)

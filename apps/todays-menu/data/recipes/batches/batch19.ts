@@ -251,7 +251,7 @@ const BATCH_19_SPECS: Batch46CRecipeSpec[] = [
     seasonings: [
       { name: '참기름', amount: '1큰술', iconKey: 'sesame_oil' },
       { name: '소금', amount: '1/4작은술', iconKey: 'salt' },
-      { name: '마요네즈', amount: '1큰술', iconKey: 'butter' },
+      { name: '마요네즈', amount: '1큰술', iconKey: 'mayo' },
     ],
     nutrition: { calorie: 380, protein: 16, carbohydrate: 52, fat: 12 },
     steps: [
@@ -328,7 +328,7 @@ const BATCH_19_SPECS: Batch46CRecipeSpec[] = [
     aiTags: ['quick', 'solo', 'comfort', 'rice_based'],
     mains: [
       { name: '밥', amount: '1.5공기', iconKey: 'rice' },
-      { name: '돼지고기', amount: '100g', iconKey: 'pork' },
+      { name: '소고기', amount: '100g', iconKey: 'beef' },
       { name: '김가루', amount: '2큰술', iconKey: 'seaweed' },
     ],
     subs: [{ name: '대파', amount: '1/2대', iconKey: 'green_onion' }],
@@ -340,7 +340,7 @@ const BATCH_19_SPECS: Batch46CRecipeSpec[] = [
     ],
     nutrition: { calorie: 420, protein: 20, carbohydrate: 56, fat: 14 },
     steps: [
-      { title: '불고기 볶기', instruction: '돼지고기를 간장·설탕·마늘에 재워 팬에서 볶아요.', tip: '얇게 썰면 빠르게 익어요.' },
+      { title: '불고기 볶기', instruction: '소고기를 간장·설탕·마늘에 재워 팬에서 볶아요.', tip: '얇게 썰면 빠르게 익어요.' },
       { title: '밥 양념', instruction: '밥에 참기름·김가루·대파를 넣고 섞어요.', tip: '밥이 따뜻할 때 섞어요.' },
       { title: '주먹밥 만들기', instruction: '밥에 불고기를 넣고 동그랗게 뭉쳐요.', tip: '비닐장갑을 끼면 편해요.' },
       { title: '김 감싸기', instruction: '김가루를 뿌리고 한입 크기로 완성해요.', tip: '통깨를 뿌리면 더 고소해요.' },
@@ -418,7 +418,7 @@ const BATCH_19_SPECS: Batch46CRecipeSpec[] = [
     ],
     subs: [{ name: '토마토', amount: '2슬라이스', iconKey: 'tomato' }],
     seasonings: [
-      { name: '마요네즈', amount: '1큰술', iconKey: 'butter' },
+      { name: '마요네즈', amount: '1큰술', iconKey: 'mayo' },
       { name: '소금', amount: '약간', iconKey: 'salt' },
       { name: '후추', amount: '약간', iconKey: 'pepper' },
     ],
@@ -455,7 +455,7 @@ const BATCH_19_SPECS: Batch46CRecipeSpec[] = [
     aiTags: ['quick', 'solo', 'comfort', 'high_protein'],
     mains: [
       { name: '식빵', amount: '2장', iconKey: 'bread_crumbs' },
-      { name: '돼지고기', amount: '100g', iconKey: 'pork' },
+      { name: '소고기', amount: '100g', iconKey: 'beef' },
       { name: '양파', amount: '1/4개', iconKey: 'onion' },
     ],
     subs: [{ name: '양상추', amount: '2장', iconKey: 'cabbage' }],
@@ -467,7 +467,7 @@ const BATCH_19_SPECS: Batch46CRecipeSpec[] = [
     ],
     nutrition: { calorie: 450, protein: 24, carbohydrate: 42, fat: 20 },
     steps: [
-      { title: '불고기 볶기', instruction: '돼지고기와 양파를 간장·설탕·마늘에 재워 팬에서 볶아요.', tip: '센 불에서 빠르게 볶아요.' },
+      { title: '불고기 볶기', instruction: '소고기와 양파를 간장·설탕·마늘에 재워 팬에서 볶아요.', tip: '센 불에서 빠르게 볶아요.' },
       { title: '빵 토스팅', instruction: '식빵을 팬에서 노릇하게 구워요.', tip: '바삭하게 구우면 맛이 좋아요.' },
       { title: '야채 준비', instruction: '양상추를 씻어 물기를 빼요.', tip: '양상추는 마지막에 올려요.' },
       { title: '샌드 조립', instruction: '빵에 불고기와 양상추를 올리고 감아 완성해요.', tip: '참기름 향이 살아있는 불고기가 포인트예요.' },

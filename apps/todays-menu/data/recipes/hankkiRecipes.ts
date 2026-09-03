@@ -26,6 +26,22 @@ import { BATCH_21_INPUTS } from './batches/batch21';
 import { BATCH_22_INPUTS } from './batches/batch22';
 import { BATCH_23_INPUTS } from './batches/batch23';
 import { BATCH_24_INPUTS } from './batches/batch24';
+import { BATCH_25_INPUTS } from './batches/batch25';
+import { BATCH_26_INPUTS } from './batches/batch26';
+import { BATCH_27_INPUTS } from './batches/batch27';
+import { BATCH_28_INPUTS } from './batches/batch28';
+import { BATCH_29_INPUTS } from './batches/batch29';
+import { BATCH_30_INPUTS } from './batches/batch30';
+import { BATCH_31_INPUTS } from './batches/batch31';
+import { BATCH_32_INPUTS } from './batches/batch32';
+import { BATCH_33_INPUTS } from './batches/batch33';
+import { BATCH_34_INPUTS } from './batches/batch34';
+import { BATCH_35_INPUTS } from './batches/batch35';
+import { BATCH_36_INPUTS } from './batches/batch36';
+import { BATCH_37_INPUTS } from './batches/batch37';
+import { BATCH_38_INPUTS } from './batches/batch38';
+import { BATCH_39_INPUTS } from './batches/batch39';
+import { BATCH_40_INPUTS } from './batches/batch40';
 
 /**
  * Sprint RF-5 / RF-6 — HANKKI production recipe database (Batch 01–10).
@@ -734,7 +750,7 @@ const BATCH_01_INPUTS: HankkiRecipeInput[] = [
   },
 ];
 
-/** Production catalog — Batch 01–24 (001–100 + recipe_0101–0304). Sprint RF-6 / 58.4 / 66-C. */
+/** Production catalog — Batch 01–32 (001–100 + recipe_0101–0407). Child Content Expansion Batch #1. */
 export const HANKKI_RECIPES: Recipe[] = createHankkiRecipeBatch([
   ...BATCH_01_INPUTS,
   ...BATCH_02_INPUTS,
@@ -760,10 +776,35 @@ export const HANKKI_RECIPES: Recipe[] = createHankkiRecipeBatch([
   ...BATCH_22_INPUTS,
   ...BATCH_23_INPUTS,
   ...BATCH_24_INPUTS,
+  ...BATCH_25_INPUTS,
+  ...BATCH_26_INPUTS,
+  ...BATCH_27_INPUTS,
+  ...BATCH_28_INPUTS,
+  ...BATCH_29_INPUTS,
+  ...BATCH_30_INPUTS,
+  ...BATCH_31_INPUTS,
+  ...BATCH_32_INPUTS,
+  ...BATCH_33_INPUTS,
+  ...BATCH_34_INPUTS,
+  ...BATCH_35_INPUTS,
+  ...BATCH_36_INPUTS,
+  ...BATCH_37_INPUTS,
+  ...BATCH_38_INPUTS,
+  ...BATCH_39_INPUTS,
+  ...BATCH_40_INPUTS,
 ]);
 
+let hankkiRecipeByIdMap: Map<string, Recipe> | null = null;
+
+function getHankkiRecipeByIdMap(): Map<string, Recipe> {
+  if (!hankkiRecipeByIdMap) {
+    hankkiRecipeByIdMap = new Map(HANKKI_RECIPES.map((recipe) => [recipe.id, recipe]));
+  }
+  return hankkiRecipeByIdMap;
+}
+
 export function getHankkiRecipeById(id: string): Recipe | undefined {
-  return HANKKI_RECIPES.find((recipe) => recipe.id === id);
+  return getHankkiRecipeByIdMap().get(id);
 }
 
 export function listHankkiRecipes(): Recipe[] {

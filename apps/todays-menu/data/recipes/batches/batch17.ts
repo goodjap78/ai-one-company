@@ -581,7 +581,7 @@ const BATCH_17_SPECS: Batch46CRecipeSpec[] = [
     mains: [{ name: '감자', amount: '2개', iconKey: 'potato' }],
     subs: [{ name: '대파', amount: '1/2대', iconKey: 'green_onion' }],
     seasonings: [
-      { name: '마요네즈', amount: '2큰술', iconKey: 'butter' },
+      { name: '마요네즈', amount: '2큰술', iconKey: 'mayo' },
       { name: '소금', amount: '1/4작은술', iconKey: 'salt' },
       { name: '후추', amount: '1꼬집', iconKey: 'pepper' },
     ],
