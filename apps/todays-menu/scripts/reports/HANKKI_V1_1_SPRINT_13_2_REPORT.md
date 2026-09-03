@@ -68,8 +68,7 @@
 
 ## COMMIT
 
-`chore(todays-menu): prepare Hankki v1.1 release candidate`  
-(SHA filled after commit)
+`57a8978` — chore(todays-menu): prepare Hankki v1.1 release candidate
 
 ## PUSH
 
