@@ -69,7 +69,8 @@
 ## COMMIT
 
 `57a8978` — chore(todays-menu): prepare Hankki v1.1 release candidate  
-`0533bfa` — docs(todays-menu): record Sprint 13.2 release commit SHA
+`0533bfa` — docs(todays-menu): record Sprint 13.2 release commit SHA  
+`0f95317` — docs(todays-menu): finalize Sprint 13.2 push status in report
 
 ## PUSH
 
@@ -77,7 +78,7 @@
 
 ## REMOTE_SHA_MATCH
 
-**YES** — local `0533bfa` = `origin/hankki/ai-recommendation-metadata-stabilization`
+**YES** — local `0f95317` = `origin/hankki/ai-recommendation-metadata-stabilization`
 
 ## GIT_STATUS_FINAL
 
