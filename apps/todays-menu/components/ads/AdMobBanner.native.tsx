@@ -9,24 +9,25 @@ type Props = {
 };
 
 /**
- * Android-only AdMob banner (phase 1: Google TEST adaptive unit).
- * Hides completely on load failure — no empty reserved space.
+ * Android-only AdMob banner. Hidden when the gate has no unit, on iOS,
+ * and after load failure — no empty reserved space.
  */
 export function AdMobBanner({ style }: Props) {
   const [failed, setFailed] = useState(false);
+  const unitId = getAdMobBannerUnitId();
 
   const handleFailed = useCallback(() => {
     setFailed(true);
   }, []);
 
-  if (!isAdMobBannerEnabled() || Platform.OS !== 'android' || failed) {
+  if (!isAdMobBannerEnabled() || Platform.OS !== 'android' || failed || !unitId) {
     return null;
   }
 
   return (
     <View style={[styles.wrap, style]} accessibilityLabel="광고">
       <BannerAd
-        unitId={getAdMobBannerUnitId()}
+        unitId={unitId}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
         requestOptions={{
           // Align with AD_ID blockedPermissions + Firebase adid collection off.

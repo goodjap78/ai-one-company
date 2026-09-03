@@ -52,8 +52,8 @@ run('Banner URL matches user-provisioned widget', () => {
   assert(COUPANG_DYNAMIC_BANNER_WIDGET_HOST === 'ads-partners.coupang.com', 'widget host');
 });
 
-run('Component uses WebView + quiet failure + external open', () => {
-  const src = read('components/ads/CoupangDynamicBanner.tsx');
+run('Native component uses WebView + quiet failure + external open', () => {
+  const src = read('components/ads/CoupangDynamicBanner.native.tsx');
   assert(src.includes('from \'react-native-webview\''), 'react-native-webview');
   assert(src.includes('COUPANG_DYNAMIC_BANNER_URL'), 'loads banner URL');
   assert(src.includes('onShouldStartLoadWithRequest'), 'intercepts navigation');
@@ -64,6 +64,15 @@ run('Component uses WebView + quiet failure + external open', () => {
   assert(!src.includes('console.log(url)'), 'no raw url log');
   assert(!src.includes('console.log(request'), 'no request url dump');
   assert(!/boxShadow|elevation:\s*[1-9]/.test(src), 'no heavy card chrome');
+});
+
+run('Web preview uses QA placeholder — no partner widget load', () => {
+  const src = read('components/ads/CoupangDynamicBanner.web.tsx');
+  assert(!src.includes('react-native-webview'), 'web stub avoids WebView');
+  assert(!src.includes('COUPANG_DYNAMIC_BANNER_URL'), 'web stub does not load widget URL');
+  assert(src.includes('쿠팡 광고 영역 · 실기기에서 표시'), 'web QA placeholder label');
+  assert(src.includes('COUPANG_DYNAMIC_BANNER.height'), 'web reserves native banner height');
+  assert(!fs.existsSync(path.join(APP_ROOT, 'components/ads/CoupangDynamicBanner.tsx')), 'no shared tsx leak');
 });
 
 run('Home placement — after 나의 한끼 / Personal, scroll content', () => {
@@ -89,7 +98,7 @@ run('Ingredients placement — after shopping CTA + body end', () => {
   assert(src.includes('RecipePrepChoiceCta'), 'shopping CTA kept');
   const ctaIdx = src.indexOf('<RecipePrepChoiceCta');
   const stepsIdx = src.indexOf('<RecipeStepsList');
-  const bannerIdx = src.indexOf('<CoupangDynamicBanner');
+  const bannerIdx = src.indexOf('{coupangBanner}');
   assert(ctaIdx >= 0 && bannerIdx > ctaIdx, 'banner after shopping CTA');
   assert(stepsIdx >= 0 && bannerIdx > stepsIdx, 'banner after steps');
   assert(bannerIdx > src.indexOf('<RecipeFeedbackCard'), 'banner after feedback / near end');

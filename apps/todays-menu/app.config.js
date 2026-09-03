@@ -59,16 +59,32 @@ if (hasAndroidServices || hasIosServices) {
   ]);
 }
 
-// Google Mobile Ads (AdMob) — Android banner phase 1.
-// App ID from EAS/build env when set; otherwise Google official TEST App ID.
-// iOS App ID is plugin-only (UI ads not enabled). AD_ID blockedPermissions stay.
-const admobAndroidAppId =
+// Google Mobile Ads — Android banner. iOS App ID is plugin-only (UI/init off).
+// Linked GMA still requires GADApplicationIdentifier; do not drop iosAppId.
+const GOOGLE_TEST_ADMOB_ANDROID_APP_ID = 'ca-app-pub-3940256099942544~3347511713';
+const GOOGLE_TEST_ADMOB_IOS_APP_ID = 'ca-app-pub-3940256099942544~1458002511';
+const admobAndroidAppIdFromEnv =
   process.env.ADMOB_ANDROID_APP_ID?.trim() ||
   process.env.EXPO_PUBLIC_ADMOB_ANDROID_APP_ID?.trim() ||
-  'ca-app-pub-3940256099942544~3347511713';
+  '';
+const admobProductionGateOn =
+  process.env.EXPO_PUBLIC_ADMOB_USE_PRODUCTION_UNITS === 'true';
+const admobAndroidAppIdIsSample =
+  !admobAndroidAppIdFromEnv || admobAndroidAppIdFromEnv.includes('3940256099942544');
+
+if (
+  process.env.EAS_BUILD_PROFILE === 'production' &&
+  admobProductionGateOn &&
+  admobAndroidAppIdIsSample
+) {
+  throw new Error(
+    'ADMOB_ANDROID_APP_ID is required when EXPO_PUBLIC_ADMOB_USE_PRODUCTION_UNITS=true on EAS production builds',
+  );
+}
+
+const admobAndroidAppId = admobAndroidAppIdFromEnv || GOOGLE_TEST_ADMOB_ANDROID_APP_ID;
 const admobIosAppId =
-  process.env.ADMOB_IOS_APP_ID?.trim() ||
-  'ca-app-pub-3940256099942544~1458002511';
+  process.env.ADMOB_IOS_APP_ID?.trim() || GOOGLE_TEST_ADMOB_IOS_APP_ID;
 
 expo.plugins.push([
   'react-native-google-mobile-ads',

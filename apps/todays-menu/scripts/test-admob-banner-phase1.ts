@@ -45,7 +45,8 @@ assert(
 );
 assert(appConfig.includes('blockedPermissions'), 'blockedPermissions kept');
 
-const banner = read('components/ads/AdMobBanner.tsx');
+const banner = read('components/ads/AdMobBanner.native.tsx');
+assert(fs.existsSync(path.join(ROOT, 'components/ads/AdMobBanner.web.tsx')), 'web stub exists');
 assert(banner.includes('TestIds') || read('constants/admobConfig.ts').includes('TestIds'), 'uses TestIds path');
 assert(banner.includes('requestNonPersonalizedAdsOnly'), 'NPA request');
 assert(banner.includes("Platform.OS !== 'android'") || banner.includes("Platform.OS === 'android'"), 'Android gated');
@@ -55,7 +56,11 @@ assert(!banner.includes('RewardedAd'), 'no rewarded');
 
 const config = read('constants/admobConfig.ts');
 assert(config.includes('TestIds.ADAPTIVE_BANNER'), 'phase1 adaptive test unit');
-assert(config.includes('EXPO_PUBLIC_ADMOB_ANDROID_BANNER_UNIT_ID') || config.includes('production'), 'prod unit path reserved in comments/config');
+const gate = read('constants/admobGate.ts');
+assert(
+  gate.includes('EXPO_PUBLIC_ADMOB_ANDROID_BANNER_UNIT_ID'),
+  'prod unit path reserved in comments/config',
+);
 assert(!/ca-app-pub-\d{16}\/\d{10}/.test(config.replace(/3940256099942544/g, '')), 'no real production unit hardcoded');
 
 const home = read('components/home/HomeScreen.tsx');
@@ -67,9 +72,9 @@ const layout = read('app/_layout.tsx');
 assert(layout.includes('initAdMob'), 'root init');
 assert(layout.includes('initAnalytics'), 'analytics init kept');
 
-const init = read('services/ads/initAdMob.ts');
+const init = read('services/ads/initAdMob.native.ts');
 assert(init.includes('initStarted'), 'one-shot guard');
-assert(init.includes("Platform.OS !== 'android'"), 'Android-only init');
+assert(init.includes('shouldInitializeAdMob'), 'Android/gate init');
 
 const privacy = read('legal/privacy.html');
 assert(privacy.includes('Google AdMob'), 'privacy AdMob');
