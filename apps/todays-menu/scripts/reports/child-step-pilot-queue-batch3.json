@@ -1,0 +1,1616 @@
+{
+  "summary": {
+    "total": 18,
+    "baby": 8,
+    "toddler": 5,
+    "elementary": 5,
+    "stages": {
+      "early": 2,
+      "middle": 3,
+      "late": 1,
+      "completion": 2
+    },
+    "recipeIds": [
+      "recipe_0448",
+      "recipe_0449",
+      "recipe_0451",
+      "recipe_0452",
+      "recipe_0453",
+      "recipe_0454",
+      "recipe_0456",
+      "recipe_0457",
+      "recipe_0458",
+      "recipe_0461",
+      "recipe_0464",
+      "recipe_0468",
+      "recipe_0471",
+      "recipe_0472",
+      "recipe_0475",
+      "recipe_0477",
+      "recipe_0480",
+      "recipe_0483"
+    ]
+  },
+  "recipes": [
+    {
+      "recipeId": "recipe_0448",
+      "name": "콜리플라워미음",
+      "audience": "baby",
+      "heroImageKey": "baby_cauliflower_thin_porridge",
+      "heroFileExists": true,
+      "ingredients": [
+        {
+          "name": "쌀",
+          "amount": "20g"
+        },
+        {
+          "name": "콜리플라워",
+          "amount": "50g"
+        },
+        {
+          "name": "불리기 물",
+          "amount": "40ml"
+        },
+        {
+          "name": "끓일 물",
+          "amount": "200ml"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "쌀 불리기",
+          "instruction": "쌀 20g을 헹군 뒤 불리기 물 40ml에 담가 20분 불려요.",
+          "imageKey": "baby_cauliflower_thin_porridge_step_01"
+        },
+        {
+          "order": 2,
+          "title": "콜리플라워 꽃 부분만 남기기",
+          "instruction": "콜리플라워 50g에서 단단한 줄기와 겉껍질을 잘라 버리고 꽃 부분만 흐르는 물에 두 번 씻어요.",
+          "imageKey": "baby_cauliflower_thin_porridge_step_02"
+        },
+        {
+          "order": 3,
+          "title": "콜리플라워 무르게 삶기",
+          "instruction": "씻은 꽃 부분을 8분 삶아 포크로 눌러 으깨질 때까지 익힌 뒤 곱게 다져요.",
+          "imageKey": "baby_cauliflower_thin_porridge_step_03"
+        },
+        {
+          "order": 4,
+          "title": "죽 끓이기",
+          "instruction": "불린 쌀 20g과 끓일 물 200ml를 넣고 12분 저으며 끓인 뒤 다진 콜리플라워를 넣어 5분 더 끓여요.",
+          "imageKey": "baby_cauliflower_thin_porridge_step_04"
+        },
+        {
+          "order": 5,
+          "title": "체에 내려 묽게 만들기",
+          "instruction": "고운 체에 숟가락으로 눌러 내리거나 갈아 알갱이가 남지 않게 걸러 미음처럼 묽게 만들어요. 소금, 간장, 참기름, 꿀, 설탕은 넣지 않아요.",
+          "imageKey": "baby_cauliflower_thin_porridge_step_05"
+        }
+      ],
+      "finishDescription": "A small plain bowl of smooth, pourable thin puree from 쌀, 콜리플라워, completely lump-free and watery like thin rice gruel. Early weaning stage. Soft daylight, empty table. No people, hands, text, or collage.",
+      "stepSlots": {
+        "prep": {
+          "imageKey": "baby_cauliflower_thin_porridge_step_01",
+          "order": 1,
+          "title": "쌀 불리기",
+          "instruction": "쌀 20g을 헹군 뒤 불리기 물 40ml에 담가 20분 불려요.",
+          "visualDescription": "Prep: rinsed 쌀, 콜리플라워 soaking in a clear bowl of measured water on a clean counter (쌀 불리기). No people, hands, or text."
+        },
+        "cook": {
+          "imageKey": "baby_cauliflower_thin_porridge_step_03",
+          "order": 3,
+          "title": "콜리플라워 무르게 삶기",
+          "instruction": "씻은 꽃 부분을 8분 삶아 포크로 눌러 으깨질 때까지 익힌 뒤 곱게 다져요.",
+          "visualDescription": "Cook: 쌀, 콜리플라워 simmering in a pot until fully cooked through, then finely minced as described (콜리플라워 무르게 삶기). No people, hands, or text."
+        },
+        "finish": {
+          "imageKey": "baby_cauliflower_thin_porridge_step_05",
+          "order": 5,
+          "title": "체에 내려 묽게 만들기",
+          "instruction": "고운 체에 숟가락으로 눌러 내리거나 갈아 알갱이가 남지 않게 걸러 미음처럼 묽게 만들어요. 소금, 간장, 참기름, 꿀, 설탕은 넣지 않아요.",
+          "visualDescription": "Finish texture: strained thin puree of 쌀, 콜리플라워 in a small plain bowl, lump-free pourable look matching the step (체에 내려 묽게 만들기). No people, hands, text, or collage."
+        }
+      },
+      "stage": "early",
+      "texture": "thin_puree"
+    },
+    {
+      "recipeId": "recipe_0449",
+      "name": "비트미음",
+      "audience": "baby",
+      "heroImageKey": "baby_beet_thin_porridge",
+      "heroFileExists": true,
+      "ingredients": [
+        {
+          "name": "쌀",
+          "amount": "20g"
+        },
+        {
+          "name": "비트",
+          "amount": "40g"
+        },
+        {
+          "name": "불리기 물",
+          "amount": "40ml"
+        },
+        {
+          "name": "끓일 물",
+          "amount": "200ml"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "쌀 불리기",
+          "instruction": "쌀 20g을 헹군 뒤 불리기 물 40ml에 담가 20분 불려요.",
+          "imageKey": "baby_beet_thin_porridge_step_01"
+        },
+        {
+          "order": 2,
+          "title": "비트 껍질·심 제거",
+          "instruction": "비트 40g은 껍질을 벗기고 위쪽 초록 줄기와 단단한 심을 잘라 낸 뒤 흐르는 물에 두 번 씻어요.",
+          "imageKey": "baby_beet_thin_porridge_step_02"
+        },
+        {
+          "order": 3,
+          "title": "비트 무르게 삶기",
+          "instruction": "손질한 비트를 12분 삶아 포크로 눌러 으깨질 때까지 익힌 뒤 곱게 다져요.",
+          "imageKey": "baby_beet_thin_porridge_step_03"
+        },
+        {
+          "order": 4,
+          "title": "죽 끓이기",
+          "instruction": "불린 쌀 20g과 끓일 물 200ml를 넣고 12분 저으며 끓인 뒤 다진 비트를 넣어 5분 더 끓여요.",
+          "imageKey": "baby_beet_thin_porridge_step_04"
+        },
+        {
+          "order": 5,
+          "title": "체에 내려 묽게 만들기",
+          "instruction": "고운 체에 숟가락으로 눌러 내리거나 갈아 알갱이가 남지 않게 걸러 미음처럼 묽게 만들어요. 소금, 간장, 참기름, 꿀, 설탕은 넣지 않아요.",
+          "imageKey": "baby_beet_thin_porridge_step_05"
+        }
+      ],
+      "finishDescription": "A small plain bowl of smooth, pourable thin puree from 쌀, 비트, completely lump-free and watery like thin rice gruel. Early weaning stage. Soft daylight, empty table. No people, hands, text, or collage.",
+      "stepSlots": {
+        "prep": {
+          "imageKey": "baby_beet_thin_porridge_step_01",
+          "order": 1,
+          "title": "쌀 불리기",
+          "instruction": "쌀 20g을 헹군 뒤 불리기 물 40ml에 담가 20분 불려요.",
+          "visualDescription": "Prep: rinsed 쌀, 비트 soaking in a clear bowl of measured water on a clean counter (쌀 불리기). No people, hands, or text."
+        },
+        "cook": {
+          "imageKey": "baby_beet_thin_porridge_step_03",
+          "order": 3,
+          "title": "비트 무르게 삶기",
+          "instruction": "손질한 비트를 12분 삶아 포크로 눌러 으깨질 때까지 익힌 뒤 곱게 다져요.",
+          "visualDescription": "Cook: 쌀, 비트 simmering in a pot until fully cooked through, then finely minced as described (비트 무르게 삶기). No people, hands, or text."
+        },
+        "finish": {
+          "imageKey": "baby_beet_thin_porridge_step_05",
+          "order": 5,
+          "title": "체에 내려 묽게 만들기",
+          "instruction": "고운 체에 숟가락으로 눌러 내리거나 갈아 알갱이가 남지 않게 걸러 미음처럼 묽게 만들어요. 소금, 간장, 참기름, 꿀, 설탕은 넣지 않아요.",
+          "visualDescription": "Finish texture: strained thin puree of 쌀, 비트 in a small plain bowl, lump-free pourable look matching the step (체에 내려 묽게 만들기). No people, hands, text, or collage."
+        }
+      },
+      "stage": "early",
+      "texture": "thin_puree"
+    },
+    {
+      "recipeId": "recipe_0451",
+      "name": "소고기양배추죽",
+      "audience": "baby",
+      "heroImageKey": "baby_beef_cabbage_porridge",
+      "heroFileExists": true,
+      "ingredients": [
+        {
+          "name": "쌀",
+          "amount": "30g"
+        },
+        {
+          "name": "소고기",
+          "amount": "25g"
+        },
+        {
+          "name": "양배추",
+          "amount": "30g"
+        },
+        {
+          "name": "불리기 물",
+          "amount": "50ml"
+        },
+        {
+          "name": "고기 삶는 물",
+          "amount": "80ml"
+        },
+        {
+          "name": "죽 끓일 물",
+          "amount": "160ml"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "쌀 불리기",
+          "instruction": "쌀 30g을 헹군 뒤 불리기 물 50ml에 담가 20분 불려요.",
+          "imageKey": "baby_beef_cabbage_porridge_step_01"
+        },
+        {
+          "order": 2,
+          "title": "소고기 완전히 익히기",
+          "instruction": "기름기와 힘줄을 뗀 소고기 25g을 고기 삶는 물 80ml에 넣어 속까지 갈색이 될 때까지 8분 삶아 5mm 이하로 곱게 다져요.",
+          "imageKey": "baby_beef_cabbage_porridge_step_02"
+        },
+        {
+          "order": 3,
+          "title": "양배추 무르게 익히기",
+          "instruction": "양배추 30g은 두꺼운 흰 심을 잘라 버리고 잎만 8분 삶아 포크로 으깬 뒤 5mm 이하로 다져요.",
+          "imageKey": "baby_beef_cabbage_porridge_step_03"
+        },
+        {
+          "order": 4,
+          "title": "죽 끓이기",
+          "instruction": "불린 쌀 30g과 고기 삶은 물, 죽 끓일 물 160ml를 넣고 15분 저으며 끓인 뒤 다진 소고기와 양배추를 넣어 7분 더 끓여요.",
+          "imageKey": "baby_beef_cabbage_porridge_step_04"
+        },
+        {
+          "order": 5,
+          "title": "되직하게 마무리",
+          "instruction": "포크로 한 번 더 눌러 큰 덩어리가 없으면 식혀 내요. 소금, 간장, 참기름, 꿀, 설탕은 넣지 않아요.",
+          "imageKey": "baby_beef_cabbage_porridge_step_05"
+        }
+      ],
+      "finishDescription": "A small bowl of dense thick puree porridge from 쌀, 소고기, 양배추, 고기 삶는 물, 죽 끓일 물, soft enough to mound with a spoon trail and no hard pieces. Middle weaning stage. Soft daylight, empty table. No people, hands, text, or collage.",
+      "stepSlots": {
+        "prep": {
+          "imageKey": "baby_beef_cabbage_porridge_step_01",
+          "order": 1,
+          "title": "쌀 불리기",
+          "instruction": "쌀 30g을 헹군 뒤 불리기 물 50ml에 담가 20분 불려요.",
+          "visualDescription": "Prep: rinsed 쌀, 소고기, 양배추, 고기 삶는 물 soaking in a clear bowl of measured water on a clean counter (쌀 불리기). No people, hands, or text."
+        },
+        "cook": {
+          "imageKey": "baby_beef_cabbage_porridge_step_02",
+          "order": 2,
+          "title": "소고기 완전히 익히기",
+          "instruction": "기름기와 힘줄을 뗀 소고기 25g을 고기 삶는 물 80ml에 넣어 속까지 갈색이 될 때까지 8분 삶아 5mm 이하로 곱게 다져요.",
+          "visualDescription": "Cook: 쌀, 소고기, 양배추, 고기 삶는 물 simmering in a pot until fully cooked through, then finely minced as described (소고기 완전히 익히기). No people, hands, or text."
+        },
+        "finish": {
+          "imageKey": "baby_beef_cabbage_porridge_step_05",
+          "order": 5,
+          "title": "되직하게 마무리",
+          "instruction": "포크로 한 번 더 눌러 큰 덩어리가 없으면 식혀 내요. 소금, 간장, 참기름, 꿀, 설탕은 넣지 않아요.",
+          "visualDescription": "Finish plated thick puree baby dish of 쌀, 소고기, 양배추, 고기 삶는 물 after \"되직하게 마무리\". Small plain bowl, soft daylight. No people, hands, text, or collage."
+        }
+      },
+      "stage": "middle",
+      "texture": "thick_puree"
+    },
+    {
+      "recipeId": "recipe_0452",
+      "name": "닭고기감자죽",
+      "audience": "baby",
+      "heroImageKey": "baby_chicken_potato_thick_porridge",
+      "heroFileExists": true,
+      "ingredients": [
+        {
+          "name": "쌀",
+          "amount": "30g"
+        },
+        {
+          "name": "닭고기",
+          "amount": "25g"
+        },
+        {
+          "name": "감자",
+          "amount": "40g"
+        },
+        {
+          "name": "불리기 물",
+          "amount": "50ml"
+        },
+        {
+          "name": "고기 삶는 물",
+          "amount": "80ml"
+        },
+        {
+          "name": "죽 끓일 물",
+          "amount": "160ml"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "쌀 불리기",
+          "instruction": "쌀 30g을 헹군 뒤 불리기 물 50ml에 담가 20분 불려요.",
+          "imageKey": "baby_chicken_potato_thick_porridge_step_01"
+        },
+        {
+          "order": 2,
+          "title": "닭고기 완전히 익히기",
+          "instruction": "뼈와 껍질을 뗀 닭고기 25g을 고기 삶는 물 80ml에 넣어 속까지 하얗게 될 때까지 8분 삶아 결대로 찢고 5mm 이하로 다져요.",
+          "imageKey": "baby_chicken_potato_thick_porridge_step_02"
+        },
+        {
+          "order": 3,
+          "title": "감자 손질해 익히기",
+          "instruction": "감자 40g은 껍질을 벗기고 싹과 초록 부분을 잘라 낸 뒤 10분 삶아 포크로 으깨요.",
+          "imageKey": "baby_chicken_potato_thick_porridge_step_03"
+        },
+        {
+          "order": 4,
+          "title": "죽 끓이기",
+          "instruction": "불린 쌀 30g과 고기 삶은 물, 죽 끓일 물 160ml를 넣고 15분 저으며 끓인 뒤 다진 닭고기와 으깬 감자를 넣어 7분 더 끓여요.",
+          "imageKey": "baby_chicken_potato_thick_porridge_step_04"
+        },
+        {
+          "order": 5,
+          "title": "되직하게 마무리",
+          "instruction": "포크로 한 번 더 눌러 큰 덩어리가 없으면 식혀 내요. 소금, 간장, 참기름, 대파는 넣지 않아요.",
+          "imageKey": "baby_chicken_potato_thick_porridge_step_05"
+        }
+      ],
+      "finishDescription": "A small bowl of dense thick puree porridge from 쌀, 닭고기, 감자, 고기 삶는 물, 죽 끓일 물, soft enough to mound with a spoon trail and no hard pieces. Middle weaning stage. Soft daylight, empty table. No people, hands, text, or collage.",
+      "stepSlots": {
+        "prep": {
+          "imageKey": "baby_chicken_potato_thick_porridge_step_01",
+          "order": 1,
+          "title": "쌀 불리기",
+          "instruction": "쌀 30g을 헹군 뒤 불리기 물 50ml에 담가 20분 불려요.",
+          "visualDescription": "Prep: rinsed 쌀, 닭고기, 감자, 고기 삶는 물 soaking in a clear bowl of measured water on a clean counter (쌀 불리기). No people, hands, or text."
+        },
+        "cook": {
+          "imageKey": "baby_chicken_potato_thick_porridge_step_02",
+          "order": 2,
+          "title": "닭고기 완전히 익히기",
+          "instruction": "뼈와 껍질을 뗀 닭고기 25g을 고기 삶는 물 80ml에 넣어 속까지 하얗게 될 때까지 8분 삶아 결대로 찢고 5mm 이하로 다져요.",
+          "visualDescription": "Cook: 쌀, 닭고기, 감자, 고기 삶는 물 simmering in a pot until fully cooked through, then finely minced as described (닭고기 완전히 익히기). No people, hands, or text."
+        },
+        "finish": {
+          "imageKey": "baby_chicken_potato_thick_porridge_step_05",
+          "order": 5,
+          "title": "되직하게 마무리",
+          "instruction": "포크로 한 번 더 눌러 큰 덩어리가 없으면 식혀 내요. 소금, 간장, 참기름, 대파는 넣지 않아요.",
+          "visualDescription": "Finish plated thick puree baby dish of 쌀, 닭고기, 감자, 고기 삶는 물 after \"되직하게 마무리\". Small plain bowl, soft daylight. No people, hands, text, or collage."
+        }
+      },
+      "stage": "middle",
+      "texture": "thick_puree"
+    },
+    {
+      "recipeId": "recipe_0453",
+      "name": "두부브로콜리죽",
+      "audience": "baby",
+      "heroImageKey": "baby_tofu_broccoli_porridge",
+      "heroFileExists": true,
+      "ingredients": [
+        {
+          "name": "쌀",
+          "amount": "30g"
+        },
+        {
+          "name": "두부",
+          "amount": "40g"
+        },
+        {
+          "name": "브로콜리",
+          "amount": "40g"
+        },
+        {
+          "name": "불리기 물",
+          "amount": "50ml"
+        },
+        {
+          "name": "끓일 물",
+          "amount": "220ml"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "쌀 불리기",
+          "instruction": "쌀 30g을 헹군 뒤 불리기 물 50ml에 담가 20분 불려요.",
+          "imageKey": "baby_tofu_broccoli_porridge_step_01"
+        },
+        {
+          "order": 2,
+          "title": "브로콜리 손질해 익히기",
+          "instruction": "브로콜리 40g은 단단한 줄기와 겉껍질을 잘라 버리고 꽃 부분만 8분 삶아 포크로 으깬 뒤 5mm 이하로 다져요.",
+          "imageKey": "baby_tofu_broccoli_porridge_step_02"
+        },
+        {
+          "order": 3,
+          "title": "두부 으깨기",
+          "instruction": "두부 40g은 물기를 꼭 짠 뒤 포크로 완전히 으깨 5mm 이하로 다져요.",
+          "imageKey": "baby_tofu_broccoli_porridge_step_03"
+        },
+        {
+          "order": 4,
+          "title": "죽 끓이기",
+          "instruction": "불린 쌀 30g과 끓일 물 220ml를 12분 끓인 뒤 으깬 두부와 브로콜리를 넣고 8분 더 저어요.",
+          "imageKey": "baby_tofu_broccoli_porridge_step_04"
+        },
+        {
+          "order": 5,
+          "title": "되직하게 마무리",
+          "instruction": "포크로 한 번 더 눌러 큰 덩어리가 없으면 식혀 내요. 소금, 간장, 참기름은 넣지 않아요.",
+          "imageKey": "baby_tofu_broccoli_porridge_step_05"
+        }
+      ],
+      "finishDescription": "A small bowl of dense thick puree porridge from 쌀, 두부, 브로콜리, soft enough to mound with a spoon trail and no hard pieces. Middle weaning stage. Soft daylight, empty table. No people, hands, text, or collage.",
+      "stepSlots": {
+        "prep": {
+          "imageKey": "baby_tofu_broccoli_porridge_step_01",
+          "order": 1,
+          "title": "쌀 불리기",
+          "instruction": "쌀 30g을 헹군 뒤 불리기 물 50ml에 담가 20분 불려요.",
+          "visualDescription": "Prep: rinsed 쌀, 두부, 브로콜리 soaking in a clear bowl of measured water on a clean counter (쌀 불리기). No people, hands, or text."
+        },
+        "cook": {
+          "imageKey": "baby_tofu_broccoli_porridge_step_02",
+          "order": 2,
+          "title": "브로콜리 손질해 익히기",
+          "instruction": "브로콜리 40g은 단단한 줄기와 겉껍질을 잘라 버리고 꽃 부분만 8분 삶아 포크로 으깬 뒤 5mm 이하로 다져요.",
+          "visualDescription": "Cook: 쌀, 두부, 브로콜리 simmering in a pot until fully cooked through, then finely minced as described (브로콜리 손질해 익히기). No people, hands, or text."
+        },
+        "finish": {
+          "imageKey": "baby_tofu_broccoli_porridge_step_05",
+          "order": 5,
+          "title": "되직하게 마무리",
+          "instruction": "포크로 한 번 더 눌러 큰 덩어리가 없으면 식혀 내요. 소금, 간장, 참기름은 넣지 않아요.",
+          "visualDescription": "Finish plated thick puree baby dish of 쌀, 두부, 브로콜리 after \"되직하게 마무리\". Small plain bowl, soft daylight. No people, hands, text, or collage."
+        }
+      },
+      "stage": "middle",
+      "texture": "thick_puree"
+    },
+    {
+      "recipeId": "recipe_0454",
+      "name": "소고기단호박무른밥",
+      "audience": "baby",
+      "heroImageKey": "baby_beef_pumpkin_mashed_rice",
+      "heroFileExists": true,
+      "ingredients": [
+        {
+          "name": "쌀",
+          "amount": "40g"
+        },
+        {
+          "name": "소고기",
+          "amount": "30g"
+        },
+        {
+          "name": "단호박",
+          "amount": "40g"
+        },
+        {
+          "name": "불리기 물",
+          "amount": "50ml"
+        },
+        {
+          "name": "고기 삶는 물",
+          "amount": "80ml"
+        },
+        {
+          "name": "끓일 물",
+          "amount": "220ml"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "쌀 불리기",
+          "instruction": "쌀 40g을 헹군 뒤 불리기 물 50ml에 담가 20분 불려요.",
+          "imageKey": "baby_beef_pumpkin_mashed_rice_step_01"
+        },
+        {
+          "order": 2,
+          "title": "소고기 완전히 익히기",
+          "instruction": "기름기와 힘줄을 뗀 소고기 30g을 고기 삶는 물 80ml에 넣어 속까지 갈색이 될 때까지 8분 삶아 5mm 이하로 곱게 다져요.",
+          "imageKey": "baby_beef_pumpkin_mashed_rice_step_02"
+        },
+        {
+          "order": 3,
+          "title": "단호박 손질해 익히기",
+          "instruction": "단호박 40g은 껍질과 씨를 모두 제거한 뒤 8분 삶아 포크로 으깨고 5mm 이하로 다져요.",
+          "imageKey": "baby_beef_pumpkin_mashed_rice_step_03"
+        },
+        {
+          "order": 4,
+          "title": "무른밥 짓기",
+          "instruction": "불린 쌀 40g에 끓일 물 220ml를 넣고 18분 약한 불로 지어 밥알이 손가락으로 눌리는 무른밥으로 만들어요.",
+          "imageKey": "baby_beef_pumpkin_mashed_rice_step_04"
+        },
+        {
+          "order": 5,
+          "title": "섞어 내기",
+          "instruction": "다진 소고기와 단호박을 무른밥에 넣고 주걱으로 눌러 섞은 뒤 한입보다 작게 담아 식혀 내요. 소금, 간장, 참기름, 꿀, 설탕은 넣지 않아요.",
+          "imageKey": "baby_beef_pumpkin_mashed_rice_step_05"
+        }
+      ],
+      "finishDescription": "A small bowl of soft mashed baby food from 쌀, 소고기, 단호박, 고기 삶는 물, fork-mashed with only faint soft flecks and no large chunks. Late weaning stage. Soft daylight, empty table. No people, hands, text, or collage.",
+      "stepSlots": {
+        "prep": {
+          "imageKey": "baby_beef_pumpkin_mashed_rice_step_01",
+          "order": 1,
+          "title": "쌀 불리기",
+          "instruction": "쌀 40g을 헹군 뒤 불리기 물 50ml에 담가 20분 불려요.",
+          "visualDescription": "Prep: rinsed 쌀, 소고기, 단호박, 고기 삶는 물 soaking in a clear bowl of measured water on a clean counter (쌀 불리기). No people, hands, or text."
+        },
+        "cook": {
+          "imageKey": "baby_beef_pumpkin_mashed_rice_step_04",
+          "order": 4,
+          "title": "무른밥 짓기",
+          "instruction": "불린 쌀 40g에 끓일 물 220ml를 넣고 18분 약한 불로 지어 밥알이 손가락으로 눌리는 무른밥으로 만들어요.",
+          "visualDescription": "Cook: pot simmering 쌀, 소고기, 단호박, 고기 삶는 물 on low–medium heat, spoon trail showing thickening soft porridge/rice (무른밥 짓기). No people, hands, or text."
+        },
+        "finish": {
+          "imageKey": "baby_beef_pumpkin_mashed_rice_step_05",
+          "order": 5,
+          "title": "섞어 내기",
+          "instruction": "다진 소고기와 단호박을 무른밥에 넣고 주걱으로 눌러 섞은 뒤 한입보다 작게 담아 식혀 내요. 소금, 간장, 참기름, 꿀, 설탕은 넣지 않아요.",
+          "visualDescription": "Finish form: plated mashed serving of 쌀, 소고기, 단호박, 고기 삶는 물 in a small bowl, soft grains/pieces as described (섞어 내기). No people, hands, text, or collage."
+        }
+      },
+      "stage": "late",
+      "texture": "mashed"
+    },
+    {
+      "recipeId": "recipe_0456",
+      "name": "두부감자진밥",
+      "audience": "baby",
+      "heroImageKey": "baby_tofu_potato_jinjap",
+      "heroFileExists": true,
+      "ingredients": [
+        {
+          "name": "쌀",
+          "amount": "40g"
+        },
+        {
+          "name": "두부",
+          "amount": "40g"
+        },
+        {
+          "name": "감자",
+          "amount": "40g"
+        },
+        {
+          "name": "불리기 물",
+          "amount": "50ml"
+        },
+        {
+          "name": "끓일 물",
+          "amount": "180ml"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "쌀 불리기",
+          "instruction": "쌀 40g을 헹군 뒤 불리기 물 50ml에 담가 20분 불려요.",
+          "imageKey": "baby_tofu_potato_jinjap_step_01"
+        },
+        {
+          "order": 2,
+          "title": "감자 손질해 익히기",
+          "instruction": "감자 40g은 껍질을 벗기고 싹과 초록 부분을 잘라 낸 뒤 10분 삶아 포크로 으깨요.",
+          "imageKey": "baby_tofu_potato_jinjap_step_02"
+        },
+        {
+          "order": 3,
+          "title": "두부 으깨기",
+          "instruction": "두부 40g은 물기를 꼭 짠 뒤 포크로 완전히 으깨요.",
+          "imageKey": "baby_tofu_potato_jinjap_step_03"
+        },
+        {
+          "order": 4,
+          "title": "진밥 짓기",
+          "instruction": "불린 쌀 40g에 끓일 물 180ml를 넣고 15분 약한 불로 지어 밥알이 보이되 서로 붙는 진밥으로 만들어요.",
+          "imageKey": "baby_tofu_potato_jinjap_step_04"
+        },
+        {
+          "order": 5,
+          "title": "섞어 내기",
+          "instruction": "으깬 감자와 두부를 진밥에 넣고 주걱으로 눌러 섞은 뒤 한입보다 작게 담아 식혀 내요. 소금, 간장, 참기름, 꿀, 설탕은 넣지 않아요.",
+          "imageKey": "baby_tofu_potato_jinjap_step_05"
+        }
+      ],
+      "finishDescription": "A family-style soft rice bowl of 쌀, 두부, 감자 at family-transition soft rice texture: soft grains with finely minced soft vegetables/protein. Completion / family-transition stage. Soft daylight, empty table. No people, hands, text, or collage.",
+      "stepSlots": {
+        "prep": {
+          "imageKey": "baby_tofu_potato_jinjap_step_01",
+          "order": 1,
+          "title": "쌀 불리기",
+          "instruction": "쌀 40g을 헹군 뒤 불리기 물 50ml에 담가 20분 불려요.",
+          "visualDescription": "Prep: rinsed 쌀, 두부, 감자 soaking in a clear bowl of measured water on a clean counter (쌀 불리기). No people, hands, or text."
+        },
+        "cook": {
+          "imageKey": "baby_tofu_potato_jinjap_step_02",
+          "order": 2,
+          "title": "감자 손질해 익히기",
+          "instruction": "감자 40g은 껍질을 벗기고 싹과 초록 부분을 잘라 낸 뒤 10분 삶아 포크로 으깨요.",
+          "visualDescription": "Cook: 쌀, 두부, 감자 simmering in a pot until fully cooked through, then finely minced as described (감자 손질해 익히기). No people, hands, or text."
+        },
+        "finish": {
+          "imageKey": "baby_tofu_potato_jinjap_step_05",
+          "order": 5,
+          "title": "섞어 내기",
+          "instruction": "으깬 감자와 두부를 진밥에 넣고 주걱으로 눌러 섞은 뒤 한입보다 작게 담아 식혀 내요. 소금, 간장, 참기름, 꿀, 설탕은 넣지 않아요.",
+          "visualDescription": "Finish form: plated family-transition soft rice serving of 쌀, 두부, 감자 in a small bowl, soft grains/pieces as described (섞어 내기). No people, hands, text, or collage."
+        }
+      },
+      "stage": "completion",
+      "texture": "family_transition"
+    },
+    {
+      "recipeId": "recipe_0457",
+      "name": "흰살생선애호박진밥",
+      "audience": "baby",
+      "heroImageKey": "baby_white_fish_zucchini_jinjap",
+      "heroFileExists": true,
+      "ingredients": [
+        {
+          "name": "쌀",
+          "amount": "40g"
+        },
+        {
+          "name": "흰살생선",
+          "amount": "35g"
+        },
+        {
+          "name": "애호박",
+          "amount": "30g"
+        },
+        {
+          "name": "불리기 물",
+          "amount": "50ml"
+        },
+        {
+          "name": "끓일 물",
+          "amount": "180ml"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "쌀 불리기",
+          "instruction": "쌀 40g을 헹군 뒤 불리기 물 50ml에 담가 20분 불려요.",
+          "imageKey": "baby_white_fish_zucchini_jinjap_step_01"
+        },
+        {
+          "order": 2,
+          "title": "흰살생선 완전히 익히기",
+          "instruction": "흰살생선 35g을 속까지 하얗게 될 때까지 8분 찌고, 가운데를 갈라 투명한 부분이 없는지 확인해요.",
+          "imageKey": "baby_white_fish_zucchini_jinjap_step_02"
+        },
+        {
+          "order": 3,
+          "title": "가시 모두 골라내기",
+          "instruction": "찐 생선을 접시에 펴고 포크로 결을 따라 헤친 뒤 눈으로 보고 손가락으로 한 번 더 더듬어 가시를 모두 골라내고 살을 5mm 이하로 찢어요.",
+          "imageKey": "baby_white_fish_zucchini_jinjap_step_03"
+        },
+        {
+          "order": 4,
+          "title": "애호박 익히고 진밥 짓기",
+          "instruction": "애호박 30g은 껍질과 씨를 파낸 뒤 8분 삶아 으깨고, 불린 쌀 40g에 끓일 물 180ml를 넣어 15분 약한 불로 진밥을 지어요.",
+          "imageKey": "baby_white_fish_zucchini_jinjap_step_04"
+        },
+        {
+          "order": 5,
+          "title": "섞어 내기",
+          "instruction": "가시를 뺀 생선살과 으깬 애호박을 진밥에 넣고 주걱으로 눌러 섞은 뒤 한입보다 작게 담아 식혀 내요. 소금, 간장, 참기름은 넣지 않아요.",
+          "imageKey": "baby_white_fish_zucchini_jinjap_step_05"
+        }
+      ],
+      "finishDescription": "A family-style soft rice bowl of 쌀, 흰살생선, 애호박 at family-transition soft rice texture: soft grains with finely minced soft vegetables/protein. Completion / family-transition stage. Soft daylight, empty table. No people, hands, text, or collage.",
+      "stepSlots": {
+        "prep": {
+          "imageKey": "baby_white_fish_zucchini_jinjap_step_01",
+          "order": 1,
+          "title": "쌀 불리기",
+          "instruction": "쌀 40g을 헹군 뒤 불리기 물 50ml에 담가 20분 불려요.",
+          "visualDescription": "Prep: rinsed 쌀, 흰살생선, 애호박 soaking in a clear bowl of measured water on a clean counter (쌀 불리기). No people, hands, or text."
+        },
+        "cook": {
+          "imageKey": "baby_white_fish_zucchini_jinjap_step_02",
+          "order": 2,
+          "title": "흰살생선 완전히 익히기",
+          "instruction": "흰살생선 35g을 속까지 하얗게 될 때까지 8분 찌고, 가운데를 갈라 투명한 부분이 없는지 확인해요.",
+          "visualDescription": "Cook: 쌀, 흰살생선, 애호박 steaming until fork-soft in a pot/steamer (흰살생선 완전히 익히기). Visible soft cooked change. No people, hands, or text."
+        },
+        "finish": {
+          "imageKey": "baby_white_fish_zucchini_jinjap_step_05",
+          "order": 5,
+          "title": "섞어 내기",
+          "instruction": "가시를 뺀 생선살과 으깬 애호박을 진밥에 넣고 주걱으로 눌러 섞은 뒤 한입보다 작게 담아 식혀 내요. 소금, 간장, 참기름은 넣지 않아요.",
+          "visualDescription": "Finish form: plated family-transition soft rice serving of 쌀, 흰살생선, 애호박 in a small bowl, soft grains/pieces as described (섞어 내기). No people, hands, text, or collage."
+        }
+      },
+      "stage": "completion",
+      "texture": "family_transition"
+    },
+    {
+      "recipeId": "recipe_0458",
+      "name": "소고기두부덮밥",
+      "audience": "toddler",
+      "heroImageKey": "toddler_beef_tofu_donburi",
+      "heroFileExists": true,
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "2/3공기"
+        },
+        {
+          "name": "소고기",
+          "amount": "60g"
+        },
+        {
+          "name": "두부",
+          "amount": "80g"
+        },
+        {
+          "name": "양파",
+          "amount": "1큰술"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "물",
+          "amount": "3큰술"
+        },
+        {
+          "name": "간장",
+          "amount": "1/2작은술"
+        },
+        {
+          "name": "소금",
+          "amount": "1꼬집"
+        },
+        {
+          "name": "참기름",
+          "amount": "1/4작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "재료 잘게 썰기",
+          "instruction": "소고기 60g은 기름기를 떼고 5mm 이하로 썰고, 두부 80g은 물기를 짠 뒤 5mm 이하 큐브로 썰어요.",
+          "imageKey": "toddler_beef_tofu_donburi_step_01"
+        },
+        {
+          "order": 2,
+          "title": "소고기 속까지 익히기",
+          "instruction": "팬에 식용유 1작은술을 두르고 중약불에서 소고기를 3분 볶아 분홍기가 없게 익혀요.",
+          "imageKey": "toddler_beef_tofu_donburi_step_02"
+        },
+        {
+          "order": 3,
+          "title": "두부 무르게 볶기",
+          "instruction": "두부와 다진 양파 1큰술을 넣고 물 3큰술을 부어 뚜껑을 덮어 4분 볶아 부드럽게 해요.",
+          "imageKey": "toddler_beef_tofu_donburi_step_03"
+        },
+        {
+          "order": 4,
+          "title": "살짝 간하기",
+          "instruction": "간장 1/2작은술, 소금 1꼬집, 참기름 1/4작은술로 30초 더 볶아요.",
+          "imageKey": "toddler_beef_tofu_donburi_step_04"
+        },
+        {
+          "order": 5,
+          "title": "밥 위에 올려 내기",
+          "instruction": "밥 2/3공기를 포크로 작게 나눈 뒤 소고기두부를 올리고 2분 식혀 보호자가 한입씩 떠 내요.",
+          "imageKey": "toddler_beef_tofu_donburi_step_05"
+        }
+      ],
+      "finishDescription": "A toddler bowl or plate of 밥, 소고기, 두부, 양파, soft toddler-friendly small pieces, moist and easy to chew, mild home cooking look. Soft daylight, empty table. No people, hands, text, or collage.",
+      "stepSlots": {
+        "prep": {
+          "imageKey": "toddler_beef_tofu_donburi_step_01",
+          "order": 1,
+          "title": "재료 잘게 썰기",
+          "instruction": "소고기 60g은 기름기를 떼고 5mm 이하로 썰고, 두부 80g은 물기를 짠 뒤 5mm 이하 큐브로 썰어요.",
+          "visualDescription": "Prep: finely chopped or peeled 밥, 소고기, 두부, 양파 in small soft pieces on a clean board (재료 잘게 썰기). No people, hands, or text."
+        },
+        "cook": {
+          "imageKey": "toddler_beef_tofu_donburi_step_02",
+          "order": 2,
+          "title": "소고기 속까지 익히기",
+          "instruction": "팬에 식용유 1작은술을 두르고 중약불에서 소고기를 3분 볶아 분홍기가 없게 익혀요.",
+          "visualDescription": "Cook: pan gently stir-cooking 밥, 소고기, 두부, 양파 until soft and mixed (소고기 속까지 익히기). Mild color change only. No people, hands, or text."
+        },
+        "finish": {
+          "imageKey": "toddler_beef_tofu_donburi_step_05",
+          "order": 5,
+          "title": "밥 위에 올려 내기",
+          "instruction": "밥 2/3공기를 포크로 작게 나눈 뒤 소고기두부를 올리고 2분 식혀 보호자가 한입씩 떠 내요.",
+          "visualDescription": "Finish texture/form of 밥, 소고기, 두부, 양파 after \"밥 위에 올려 내기\": 밥 2/3공기를 포크로 작게 나눈 뒤 소고기두부를 올리고 2분 식혀 보호자가 한입씩 떠 내요. No people, hands, text, or collage."
+        }
+      }
+    },
+    {
+      "recipeId": "recipe_0461",
+      "name": "소고기감자볶음밥",
+      "audience": "toddler",
+      "heroImageKey": "toddler_beef_potato_fried_rice_batch3",
+      "heroFileExists": true,
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "2/3공기"
+        },
+        {
+          "name": "소고기",
+          "amount": "60g"
+        },
+        {
+          "name": "감자",
+          "amount": "1/2개(80g)"
+        },
+        {
+          "name": "양파",
+          "amount": "1큰술"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "물",
+          "amount": "3큰술"
+        },
+        {
+          "name": "소금",
+          "amount": "1꼬집"
+        },
+        {
+          "name": "참기름",
+          "amount": "1/4작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "재료 잘게 썰기",
+          "instruction": "소고기 60g은 5mm 이하로 썰고, 감자는 껍질을 벗겨 5~7mm 큐브로 썰어요.",
+          "imageKey": "toddler_beef_potato_fried_rice_batch3_step_01"
+        },
+        {
+          "order": 2,
+          "title": "소고기 속까지 익히기",
+          "instruction": "팬에 식용유 1작은술을 두르고 중약불에서 소고기를 3분 볶아 분홍기가 없게 익혀요.",
+          "imageKey": "toddler_beef_potato_fried_rice_batch3_step_02"
+        },
+        {
+          "order": 3,
+          "title": "감자 무르게 볶기",
+          "instruction": "감자와 다진 양파 1큰술을 넣고 물 3큰술을 부어 뚜껑을 덮어 5분 볶아요.",
+          "imageKey": "toddler_beef_potato_fried_rice_batch3_step_03"
+        },
+        {
+          "order": 4,
+          "title": "밥 섞기",
+          "instruction": "밥 2/3공기를 넣고 소금 1꼬집, 참기름 1/4작은술로 2분 볶아 고루 섞어요.",
+          "imageKey": "toddler_beef_potato_fried_rice_batch3_step_04"
+        },
+        {
+          "order": 5,
+          "title": "식혀 내기",
+          "instruction": "접시에 펴 담고 2분 식힌 뒤 보호자가 한입씩 떠 내요.",
+          "imageKey": "toddler_beef_potato_fried_rice_batch3_step_05"
+        }
+      ],
+      "finishDescription": "A toddler bowl or plate of 밥, 소고기, 감자, 양파, soft toddler-friendly small pieces, moist and easy to chew, mild home cooking look. Soft daylight, empty table. No people, hands, text, or collage.",
+      "stepSlots": {
+        "prep": {
+          "imageKey": "toddler_beef_potato_fried_rice_batch3_step_04",
+          "order": 4,
+          "title": "밥 섞기",
+          "instruction": "밥 2/3공기를 넣고 소금 1꼬집, 참기름 1/4작은술로 2분 볶아 고루 섞어요.",
+          "visualDescription": "Prep: mixing bowl with measured 밥, 소고기, 감자, 양파 stirred smooth as described (밥 섞기). No people, hands, or text."
+        },
+        "cook": {
+          "imageKey": "toddler_beef_potato_fried_rice_batch3_step_02",
+          "order": 2,
+          "title": "소고기 속까지 익히기",
+          "instruction": "팬에 식용유 1작은술을 두르고 중약불에서 소고기를 3분 볶아 분홍기가 없게 익혀요.",
+          "visualDescription": "Cook: pan gently stir-cooking 밥, 소고기, 감자, 양파 until soft and mixed (소고기 속까지 익히기). Mild color change only. No people, hands, or text."
+        },
+        "finish": {
+          "imageKey": "toddler_beef_potato_fried_rice_batch3_step_05",
+          "order": 5,
+          "title": "식혀 내기",
+          "instruction": "접시에 펴 담고 2분 식힌 뒤 보호자가 한입씩 떠 내요.",
+          "visualDescription": "Finish plated 밥, 소고기, 감자, 양파 ready to serve (식혀 내기): 접시에 펴 담고 2분 식힌 뒤 보호자가 한입씩 떠 내요. Empty table, soft daylight. No people, hands, text, or collage."
+        }
+      }
+    },
+    {
+      "recipeId": "recipe_0464",
+      "name": "소고기배추국",
+      "audience": "toddler",
+      "heroImageKey": "toddler_beef_cabbage_soup",
+      "heroFileExists": true,
+      "ingredients": [
+        {
+          "name": "소고기",
+          "amount": "60g"
+        },
+        {
+          "name": "배추",
+          "amount": "3장"
+        },
+        {
+          "name": "밥",
+          "amount": "1/2공기"
+        },
+        {
+          "name": "양파",
+          "amount": "2큰술"
+        },
+        {
+          "name": "물",
+          "amount": "350ml"
+        },
+        {
+          "name": "소금",
+          "amount": "1꼬집"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "재료 작게 썰기",
+          "instruction": "소고기 60g은 5mm 이하로 썰고, 배추 3장은 두꺼운 심을 떼어 5mm 이하로 잘게 썰어요.",
+          "imageKey": "toddler_beef_cabbage_soup_step_01"
+        },
+        {
+          "order": 2,
+          "title": "푹 끓이기",
+          "instruction": "냄비에 물 350ml와 소고기, 배추, 다진 양파 2큰술을 넣고 12분 끓여요.",
+          "imageKey": "toddler_beef_cabbage_soup_step_02"
+        },
+        {
+          "order": 3,
+          "title": "배추 반쯤 으깨기",
+          "instruction": "불을 줄이고 배추 절반을 국자 뒤로 눌러 으깨 국물을 부드럽게 만든 뒤 소금 1꼬집을 넣어요.",
+          "imageKey": "toddler_beef_cabbage_soup_step_03"
+        },
+        {
+          "order": 4,
+          "title": "밥과 함께 담기",
+          "instruction": "밥 1/2공기를 작게 나눠 국물에 조금 넣어 그릇에 담아요.",
+          "imageKey": "toddler_beef_cabbage_soup_step_04"
+        },
+        {
+          "order": 5,
+          "title": "식혀 내기",
+          "instruction": "5분 식혀 미지근해진 뒤 보호자가 한 숟갈씩 떠 내요.",
+          "imageKey": "toddler_beef_cabbage_soup_step_05"
+        }
+      ],
+      "finishDescription": "A toddler bowl or plate of 소고기, 배추, 밥, 양파, soft toddler-friendly small pieces, moist and easy to chew, mild home cooking look. Soft daylight, empty table. No people, hands, text, or collage.",
+      "stepSlots": {
+        "prep": {
+          "imageKey": "toddler_beef_cabbage_soup_step_03",
+          "order": 3,
+          "title": "배추 반쯤 으깨기",
+          "instruction": "불을 줄이고 배추 절반을 국자 뒤로 눌러 으깨 국물을 부드럽게 만든 뒤 소금 1꼬집을 넣어요.",
+          "visualDescription": "Prep: 소고기, 배추, 밥, 양파 fully fork-mashed in a bowl until no large lumps remain (배추 반쯤 으깨기). No people, hands, or text."
+        },
+        "cook": {
+          "imageKey": "toddler_beef_cabbage_soup_step_02",
+          "order": 2,
+          "title": "푹 끓이기",
+          "instruction": "냄비에 물 350ml와 소고기, 배추, 다진 양파 2큰술을 넣고 12분 끓여요.",
+          "visualDescription": "Cook: pot simmering 소고기, 배추, 밥, 양파 on low–medium heat, spoon trail showing thickening soft porridge/rice (푹 끓이기). No people, hands, or text."
+        },
+        "finish": {
+          "imageKey": "toddler_beef_cabbage_soup_step_05",
+          "order": 5,
+          "title": "식혀 내기",
+          "instruction": "5분 식혀 미지근해진 뒤 보호자가 한 숟갈씩 떠 내요.",
+          "visualDescription": "Finish texture/form of 소고기, 배추, 밥, 양파 after \"식혀 내기\": 5분 식혀 미지근해진 뒤 보호자가 한 숟갈씩 떠 내요. No people, hands, text, or collage."
+        }
+      }
+    },
+    {
+      "recipeId": "recipe_0468",
+      "name": "애호박조림",
+      "audience": "toddler",
+      "heroImageKey": "toddler_zucchini_braise",
+      "heroFileExists": true,
+      "ingredients": [
+        {
+          "name": "애호박",
+          "amount": "1/3개(100g)"
+        },
+        {
+          "name": "밥",
+          "amount": "1/2공기"
+        },
+        {
+          "name": "양파",
+          "amount": "1큰술"
+        },
+        {
+          "name": "물",
+          "amount": "80ml"
+        },
+        {
+          "name": "간장",
+          "amount": "1/2작은술"
+        },
+        {
+          "name": "소금",
+          "amount": "1꼬집"
+        },
+        {
+          "name": "참기름",
+          "amount": "1/4작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "애호박 작게 썰기",
+          "instruction": "애호박 1/3개는 5mm 이하 조각으로 썰고, 양파 1큰술은 잘게 다져요.",
+          "imageKey": "toddler_zucchini_braise_step_01"
+        },
+        {
+          "order": 2,
+          "title": "애호박 조리기",
+          "instruction": "냄비에 물 80ml와 애호박, 양파를 넣고 5분 끓여 무르게 해요.",
+          "imageKey": "toddler_zucchini_braise_step_02"
+        },
+        {
+          "order": 3,
+          "title": "간하고 졸이기",
+          "instruction": "간장 1/2작은술, 소금 1꼬집으로 간한 뒤 중약불에서 5분 조려 부드럽게 해요.",
+          "imageKey": "toddler_zucchini_braise_step_03"
+        },
+        {
+          "order": 4,
+          "title": "밥과 담기",
+          "instruction": "참기름 1/4작은술을 두르고 작게 나눈 밥 1/2공기와 함께 담아요.",
+          "imageKey": "toddler_zucchini_braise_step_04"
+        },
+        {
+          "order": 5,
+          "title": "식혀 내기",
+          "instruction": "3분 식힌 뒤 보호자가 한 숟갈씩 떠 내요.",
+          "imageKey": "toddler_zucchini_braise_step_05"
+        }
+      ],
+      "finishDescription": "A toddler bowl or plate of 애호박, 밥, 양파, soft toddler-friendly small pieces, moist and easy to chew, mild home cooking look. Soft daylight, empty table. No people, hands, text, or collage.",
+      "stepSlots": {
+        "prep": {
+          "imageKey": "toddler_zucchini_braise_step_01",
+          "order": 1,
+          "title": "애호박 작게 썰기",
+          "instruction": "애호박 1/3개는 5mm 이하 조각으로 썰고, 양파 1큰술은 잘게 다져요.",
+          "visualDescription": "Prep: finely chopped or peeled 애호박, 밥, 양파 in small soft pieces on a clean board (애호박 작게 썰기). No people, hands, or text."
+        },
+        "cook": {
+          "imageKey": "toddler_zucchini_braise_step_02",
+          "order": 2,
+          "title": "애호박 조리기",
+          "instruction": "냄비에 물 80ml와 애호박, 양파를 넣고 5분 끓여 무르게 해요.",
+          "visualDescription": "Cook: pot simmering 애호박, 밥, 양파 on low–medium heat, spoon trail showing thickening soft porridge/rice (애호박 조리기). No people, hands, or text."
+        },
+        "finish": {
+          "imageKey": "toddler_zucchini_braise_step_05",
+          "order": 5,
+          "title": "식혀 내기",
+          "instruction": "3분 식힌 뒤 보호자가 한 숟갈씩 떠 내요.",
+          "visualDescription": "Finish texture/form of 애호박, 밥, 양파 after \"식혀 내기\": 3분 식힌 뒤 보호자가 한 숟갈씩 떠 내요. No people, hands, text, or collage."
+        }
+      }
+    },
+    {
+      "recipeId": "recipe_0471",
+      "name": "배요거트",
+      "audience": "toddler",
+      "heroImageKey": "toddler_pear_yogurt",
+      "heroFileExists": true,
+      "ingredients": [
+        {
+          "name": "배",
+          "amount": "1/2개"
+        },
+        {
+          "name": "플레인요구르트",
+          "amount": "100g"
+        },
+        {
+          "name": "물",
+          "amount": "1큰술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "배 껍질·씨 제거",
+          "instruction": "배 1/2개를 씻고 껍질을 벗긴 뒤 씨와 단단한 심을 모두 파내요.",
+          "imageKey": "toddler_pear_yogurt_step_01"
+        },
+        {
+          "order": 2,
+          "title": "배 으깨기",
+          "instruction": "껍질을 벗긴 배를 포크로 완전히 으깨 덩어리가 남지 않게 해요.",
+          "imageKey": "toddler_pear_yogurt_step_02"
+        },
+        {
+          "order": 3,
+          "title": "요거트와 섞기",
+          "instruction": "플레인요구르트 100g에 으깬 배를 넣고 고루 섞어요. 너무 되직하면 물 1큰술을 더해요.",
+          "imageKey": "toddler_pear_yogurt_step_03"
+        },
+        {
+          "order": 4,
+          "title": "바로 내기",
+          "instruction": "그릇에 담고 보호자가 한 숟갈씩 떠 내요.",
+          "imageKey": "toddler_pear_yogurt_step_04"
+        }
+      ],
+      "finishDescription": "A toddler bowl or plate of 배, 플레인요구르트, soft mashed toddler texture with only tiny soft pieces, not baby puree, mild home cooking look. Soft daylight, empty table. No people, hands, text, or collage.",
+      "stepSlots": {
+        "prep": {
+          "imageKey": "toddler_pear_yogurt_step_01",
+          "order": 1,
+          "title": "배 껍질·씨 제거",
+          "instruction": "배 1/2개를 씻고 껍질을 벗긴 뒤 씨와 단단한 심을 모두 파내요.",
+          "visualDescription": "Prep: finely chopped or peeled 배, 플레인요구르트 in small soft pieces on a clean board (배 껍질·씨 제거). No people, hands, or text."
+        },
+        "cook": {
+          "imageKey": "toddler_pear_yogurt_step_02",
+          "order": 2,
+          "title": "배 으깨기",
+          "instruction": "껍질을 벗긴 배를 포크로 완전히 으깨 덩어리가 남지 않게 해요.",
+          "visualDescription": "Key cooking/assembly change for 배, 플레인요구르트: \"배 으깨기\" — 껍질을 벗긴 배를 포크로 완전히 으깨 덩어리가 남지 않게 해요. No people, hands, or text."
+        },
+        "finish": {
+          "imageKey": "toddler_pear_yogurt_step_04",
+          "order": 4,
+          "title": "바로 내기",
+          "instruction": "그릇에 담고 보호자가 한 숟갈씩 떠 내요.",
+          "visualDescription": "Finish plated 배, 플레인요구르트 ready to serve (바로 내기): 그릇에 담고 보호자가 한 숟갈씩 떠 내요. Empty table, soft daylight. No people, hands, text, or collage."
+        }
+      }
+    },
+    {
+      "recipeId": "recipe_0472",
+      "name": "소고기주먹밥",
+      "audience": "elementary",
+      "heroImageKey": "elementary_beef_rice_ball",
+      "heroFileExists": true,
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "1공기"
+        },
+        {
+          "name": "소고기",
+          "amount": "80g"
+        },
+        {
+          "name": "김가루",
+          "amount": "2큰술"
+        },
+        {
+          "name": "대파",
+          "amount": "1/4대"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "참기름",
+          "amount": "1/2작은술"
+        },
+        {
+          "name": "소금",
+          "amount": "1/8작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "소고기 썰기",
+          "instruction": "소고기 80g을 0.5cm 두께로 잘게 썰고 대파 1/4대는 송송 썰어요.",
+          "imageKey": "elementary_beef_rice_ball_step_01"
+        },
+        {
+          "order": 2,
+          "title": "소고기 볶기",
+          "instruction": "팬에 식용유 1작은술을 두르고 소고기를 중불에서 4분 볶아 소금 1/8작은술로 간해요.",
+          "imageKey": "elementary_beef_rice_ball_step_02"
+        },
+        {
+          "order": 3,
+          "title": "밥 밑간",
+          "instruction": "밥 1공기에 참기름 1/2작은술, 소금 1/8작은술을 넣고 고르게 섞어요.",
+          "imageKey": "elementary_beef_rice_ball_step_03"
+        },
+        {
+          "order": 4,
+          "title": "소고기 섞기",
+          "instruction": "볶은 소고기와 대파, 김가루 1큰술을 밥에 넣고 가볍게 섞어 2등분해요.",
+          "imageKey": "elementary_beef_rice_ball_step_04"
+        },
+        {
+          "order": 5,
+          "title": "주먹밥 쥐기",
+          "instruction": "밥을 동그랗게 쥐고 남은 김가루 1큰술을 겉면에 묻혀 내요.",
+          "imageKey": "elementary_beef_rice_ball_step_05"
+        }
+      ],
+      "finishDescription": "School-breakfast style plated 밥, 소고기, 김가루, 대파, finished and ready to eat on a clean plate. Soft daylight, empty table. No people, hands, text, or collage.",
+      "stepSlots": {
+        "prep": {
+          "imageKey": "elementary_beef_rice_ball_step_04",
+          "order": 4,
+          "title": "소고기 섞기",
+          "instruction": "볶은 소고기와 대파, 김가루 1큰술을 밥에 넣고 가볍게 섞어 2등분해요.",
+          "visualDescription": "Prep: mixing bowl with measured 밥, 소고기, 김가루, 대파 stirred smooth as described (소고기 섞기). No people, hands, or text."
+        },
+        "cook": {
+          "imageKey": "elementary_beef_rice_ball_step_02",
+          "order": 2,
+          "title": "소고기 볶기",
+          "instruction": "팬에 식용유 1작은술을 두르고 소고기를 중불에서 4분 볶아 소금 1/8작은술로 간해요.",
+          "visualDescription": "Cook: pan gently stir-cooking 밥, 소고기, 김가루, 대파 until soft and mixed (소고기 볶기). Mild color change only. No people, hands, or text."
+        },
+        "finish": {
+          "imageKey": "elementary_beef_rice_ball_step_05",
+          "order": 5,
+          "title": "주먹밥 쥐기",
+          "instruction": "밥을 동그랗게 쥐고 남은 김가루 1큰술을 겉면에 묻혀 내요.",
+          "visualDescription": "Finish form: completed rice balls of 밥, 소고기, 김가루, 대파 coated/shaped as described (주먹밥 쥐기). Plate only. No people, hands, text, or collage."
+        }
+      }
+    },
+    {
+      "recipeId": "recipe_0475",
+      "name": "햄계란김밥",
+      "audience": "elementary",
+      "heroImageKey": "elementary_ham_egg_gimbap",
+      "heroFileExists": true,
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "1공기"
+        },
+        {
+          "name": "햄",
+          "amount": "3장"
+        },
+        {
+          "name": "계란",
+          "amount": "2개"
+        },
+        {
+          "name": "김",
+          "amount": "2장"
+        },
+        {
+          "name": "당근",
+          "amount": "2큰술"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "참기름",
+          "amount": "1/2작은술"
+        },
+        {
+          "name": "소금",
+          "amount": "1/4작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "재료 준비하기",
+          "instruction": "햄 3장을 1cm 폭으로 썰고, 당근 2큰술은 가늘게 채 썰어요.",
+          "imageKey": "elementary_ham_egg_gimbap_step_01"
+        },
+        {
+          "order": 2,
+          "title": "계란말이 만들기",
+          "instruction": "푼 계란 2개에 소금 1/8작은술을 넣어 팬에 부쳐 3~4분 동안 노른자까지 완전히 익힌 계란말이를 만들어요.",
+          "imageKey": "elementary_ham_egg_gimbap_step_02"
+        },
+        {
+          "order": 3,
+          "title": "밥 밑간",
+          "instruction": "밥 1공기에 참기름 1/2작은술, 소금 1/8작은술을 넣고 섞어요.",
+          "imageKey": "elementary_ham_egg_gimbap_step_03"
+        },
+        {
+          "order": 4,
+          "title": "김밥 말기",
+          "instruction": "김 위에 밥을 펴고 햄, 계란말이, 당근을 올려 단단히 말아 1cm 두께로 썰어요.",
+          "imageKey": "elementary_ham_egg_gimbap_step_04"
+        }
+      ],
+      "finishDescription": "School-breakfast style plated 밥, 햄, 계란, 김, 당근, finished and ready to eat on a clean plate. Soft daylight, empty table. No people, hands, text, or collage.",
+      "stepSlots": {
+        "prep": {
+          "imageKey": "elementary_ham_egg_gimbap_step_01",
+          "order": 1,
+          "title": "재료 준비하기",
+          "instruction": "햄 3장을 1cm 폭으로 썰고, 당근 2큰술은 가늘게 채 썰어요.",
+          "visualDescription": "Prep: finely chopped or peeled 밥, 햄, 계란, 김 in small soft pieces on a clean board (재료 준비하기). No people, hands, or text."
+        },
+        "cook": {
+          "imageKey": "elementary_ham_egg_gimbap_step_02",
+          "order": 2,
+          "title": "계란말이 만들기",
+          "instruction": "푼 계란 2개에 소금 1/8작은술을 넣어 팬에 부쳐 3~4분 동안 노른자까지 완전히 익힌 계란말이를 만들어요.",
+          "visualDescription": "Cook: pan on low heat softly setting 밥, 햄, 계란, 김 while stirring (계란말이 만들기). Moist curds, not browned hard. No people, hands, or text."
+        },
+        "finish": {
+          "imageKey": "elementary_ham_egg_gimbap_step_04",
+          "order": 4,
+          "title": "김밥 말기",
+          "instruction": "김 위에 밥을 펴고 햄, 계란말이, 당근을 올려 단단히 말아 1cm 두께로 썰어요.",
+          "visualDescription": "Finish texture/form of 밥, 햄, 계란, 김 after \"김밥 말기\": 김 위에 밥을 펴고 햄, 계란말이, 당근을 올려 단단히 말아 1cm 두께로 썰어요. No people, hands, text, or collage."
+        }
+      }
+    },
+    {
+      "recipeId": "recipe_0477",
+      "name": "계란치즈또띠아",
+      "audience": "elementary",
+      "heroImageKey": "elementary_egg_cheese_tortilla",
+      "heroFileExists": true,
+      "ingredients": [
+        {
+          "name": "또띠아",
+          "amount": "1장"
+        },
+        {
+          "name": "계란",
+          "amount": "2개"
+        },
+        {
+          "name": "치즈",
+          "amount": "2장"
+        },
+        {
+          "name": "버터",
+          "amount": "1작은술"
+        },
+        {
+          "name": "소금",
+          "amount": "1/8작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "계란 풀기",
+          "instruction": "계란 2개를 그릇에 풀고 소금 1/8작은술을 넣어 섞어요.",
+          "imageKey": "elementary_egg_cheese_tortilla_step_01"
+        },
+        {
+          "order": 2,
+          "title": "또띠아에 계란 부치기",
+          "instruction": "팬에 버터 1작은술을 녹이고 또띠아를 올린 뒤 계란을 부어 3~4분 동안 노른자까지 완전히 익혀요.",
+          "imageKey": "elementary_egg_cheese_tortilla_step_02"
+        },
+        {
+          "order": 3,
+          "title": "치즈 올리기",
+          "instruction": "치즈 2장을 올리고 뚜껑을 덮어 1분 더 녹여요.",
+          "imageKey": "elementary_egg_cheese_tortilla_step_03"
+        },
+        {
+          "order": 4,
+          "title": "접어 자르기",
+          "instruction": "불을 끄고 반으로 접은 뒤 30초 식혀 반으로 잘라 내요.",
+          "imageKey": "elementary_egg_cheese_tortilla_step_04"
+        }
+      ],
+      "finishDescription": "School-breakfast style plated 또띠아, 계란, 치즈, finished and ready to eat on a clean plate. Soft daylight, empty table. No people, hands, text, or collage.",
+      "stepSlots": {
+        "prep": {
+          "imageKey": "elementary_egg_cheese_tortilla_step_01",
+          "order": 1,
+          "title": "계란 풀기",
+          "instruction": "계란 2개를 그릇에 풀고 소금 1/8작은술을 넣어 섞어요.",
+          "visualDescription": "Prep: mixing bowl with measured 또띠아, 계란, 치즈 stirred smooth as described (계란 풀기). No people, hands, or text."
+        },
+        "cook": {
+          "imageKey": "elementary_egg_cheese_tortilla_step_03",
+          "order": 3,
+          "title": "치즈 올리기",
+          "instruction": "치즈 2장을 올리고 뚜껑을 덮어 1분 더 녹여요.",
+          "visualDescription": "Key cooking/assembly change for 또띠아, 계란, 치즈: \"치즈 올리기\" — 치즈 2장을 올리고 뚜껑을 덮어 1분 더 녹여요. No people, hands, or text."
+        },
+        "finish": {
+          "imageKey": "elementary_egg_cheese_tortilla_step_04",
+          "order": 4,
+          "title": "접어 자르기",
+          "instruction": "불을 끄고 반으로 접은 뒤 30초 식혀 반으로 잘라 내요.",
+          "visualDescription": "Finish texture/form of 또띠아, 계란, 치즈 after \"접어 자르기\": 불을 끄고 반으로 접은 뒤 30초 식혀 반으로 잘라 내요. No people, hands, text, or collage."
+        }
+      }
+    },
+    {
+      "recipeId": "recipe_0480",
+      "name": "소고기야채덮밥",
+      "audience": "elementary",
+      "heroImageKey": "elementary_beef_veg_donburi",
+      "heroFileExists": true,
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "1공기"
+        },
+        {
+          "name": "소고기",
+          "amount": "80g"
+        },
+        {
+          "name": "당근",
+          "amount": "2큰술"
+        },
+        {
+          "name": "애호박",
+          "amount": "2큰술"
+        },
+        {
+          "name": "양파",
+          "amount": "1/4개"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "간장",
+          "amount": "1큰술"
+        },
+        {
+          "name": "설탕",
+          "amount": "1/2작은술"
+        },
+        {
+          "name": "참기름",
+          "amount": "1/2작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "재료 썰기",
+          "instruction": "소고기 80g은 한입 크기로 썰고 당근·애호박은 얇게 채 썰며 양파 1/4개는 얇게 썰어요.",
+          "imageKey": "elementary_beef_veg_donburi_step_01"
+        },
+        {
+          "order": 2,
+          "title": "소고기 볶기",
+          "instruction": "팬에 식용유 1작은술을 두르고 양파와 소고기를 중불에서 3분 볶아요.",
+          "imageKey": "elementary_beef_veg_donburi_step_02"
+        },
+        {
+          "order": 3,
+          "title": "야채 넣어 볶기",
+          "instruction": "당근과 애호박을 넣고 간장 1큰술, 설탕 1/2작은술을 넣어 2분 더 볶아요.",
+          "imageKey": "elementary_beef_veg_donburi_step_03"
+        },
+        {
+          "order": 4,
+          "title": "밥 위에 올리기",
+          "instruction": "그릇에 밥 1공기를 담고 소고기야채를 올리고 참기름 1/2작은술을 뿌려 바로 내요.",
+          "imageKey": "elementary_beef_veg_donburi_step_04"
+        }
+      ],
+      "finishDescription": "Home dinner bowl or plate of 밥, 소고기, 당근, 애호박, 양파, protein and sauce visibly distinct over rice or main. Soft daylight, empty table. No people, hands, text, or collage.",
+      "stepSlots": {
+        "prep": {
+          "imageKey": "elementary_beef_veg_donburi_step_01",
+          "order": 1,
+          "title": "재료 썰기",
+          "instruction": "소고기 80g은 한입 크기로 썰고 당근·애호박은 얇게 채 썰며 양파 1/4개는 얇게 썰어요.",
+          "visualDescription": "Prep: finely chopped or peeled 밥, 소고기, 당근, 애호박 in small soft pieces on a clean board (재료 썰기). No people, hands, or text."
+        },
+        "cook": {
+          "imageKey": "elementary_beef_veg_donburi_step_02",
+          "order": 2,
+          "title": "소고기 볶기",
+          "instruction": "팬에 식용유 1작은술을 두르고 양파와 소고기를 중불에서 3분 볶아요.",
+          "visualDescription": "Cook: pan gently stir-cooking 밥, 소고기, 당근, 애호박 until soft and mixed (소고기 볶기). Mild color change only. No people, hands, or text."
+        },
+        "finish": {
+          "imageKey": "elementary_beef_veg_donburi_step_04",
+          "order": 4,
+          "title": "밥 위에 올리기",
+          "instruction": "그릇에 밥 1공기를 담고 소고기야채를 올리고 참기름 1/2작은술을 뿌려 바로 내요.",
+          "visualDescription": "Finish plated 밥, 소고기, 당근, 애호박 ready to serve (밥 위에 올리기): 그릇에 밥 1공기를 담고 소고기야채를 올리고 참기름 1/2작은술을 뿌려 바로 내요. Empty table, soft daylight. No people, hands, text, or collage."
+        }
+      }
+    },
+    {
+      "recipeId": "recipe_0483",
+      "name": "고구마요거트볼",
+      "audience": "elementary",
+      "heroImageKey": "elementary_sweet_potato_yogurt_bowl",
+      "heroFileExists": true,
+      "ingredients": [
+        {
+          "name": "고구마",
+          "amount": "1개(150g)"
+        },
+        {
+          "name": "플레인요구르트",
+          "amount": "100g"
+        },
+        {
+          "name": "물",
+          "amount": "1큰술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "고구마 찌기",
+          "instruction": "씻은 고구마에 구멍을 내고 키친타월로 감싸 600W에서 6분 돌려요.",
+          "imageKey": "elementary_sweet_potato_yogurt_bowl_step_01"
+        },
+        {
+          "order": 2,
+          "title": "껍질 벗겨 으깨기",
+          "instruction": "껍질을 벗기고 포크로 완전히 으깨 덩어리가 남지 않게 해요.",
+          "imageKey": "elementary_sweet_potato_yogurt_bowl_step_02"
+        },
+        {
+          "order": 3,
+          "title": "식히기",
+          "instruction": "으깬 고구마를 3분 식혀 미지근하게 만들어요.",
+          "imageKey": "elementary_sweet_potato_yogurt_bowl_step_03"
+        },
+        {
+          "order": 4,
+          "title": "요거트와 섞어 내기",
+          "instruction": "플레인요구르트 100g을 넣고 섞어 그릇에 담아요. 너무 되직하면 물 1큰술을 더해요.",
+          "imageKey": "elementary_sweet_potato_yogurt_bowl_step_04"
+        }
+      ],
+      "finishDescription": "After-school snack of 고구마, 플레인요구르트 on a clean plate, home-style not cafe dessert. Soft daylight, empty table. No people, hands, text, or collage.",
+      "stepSlots": {
+        "prep": {
+          "imageKey": "elementary_sweet_potato_yogurt_bowl_step_02",
+          "order": 2,
+          "title": "껍질 벗겨 으깨기",
+          "instruction": "껍질을 벗기고 포크로 완전히 으깨 덩어리가 남지 않게 해요.",
+          "visualDescription": "Prep: finely chopped or peeled 고구마, 플레인요구르트 in small soft pieces on a clean board (껍질 벗겨 으깨기). No people, hands, or text."
+        },
+        "cook": {
+          "imageKey": "elementary_sweet_potato_yogurt_bowl_step_01",
+          "order": 1,
+          "title": "고구마 찌기",
+          "instruction": "씻은 고구마에 구멍을 내고 키친타월로 감싸 600W에서 6분 돌려요.",
+          "visualDescription": "Cook: 고구마, 플레인요구르트 steaming until fork-soft in a pot/steamer (고구마 찌기). Visible soft cooked change. No people, hands, or text."
+        },
+        "finish": {
+          "imageKey": "elementary_sweet_potato_yogurt_bowl_step_04",
+          "order": 4,
+          "title": "요거트와 섞어 내기",
+          "instruction": "플레인요구르트 100g을 넣고 섞어 그릇에 담아요. 너무 되직하면 물 1큰술을 더해요.",
+          "visualDescription": "Finish plated 고구마, 플레인요구르트 ready to serve (요거트와 섞어 내기): 플레인요구르트 100g을 넣고 섞어 그릇에 담아요. 너무 되직하면 물 1큰술을 더해요. Empty table, soft daylight. No people, hands, text, or collage."
+        }
+      }
+    }
+  ]
+}

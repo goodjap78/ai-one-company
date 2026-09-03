@@ -1,0 +1,560 @@
+{
+  "generatedAt": "2026-08-28T09:45:24.291Z",
+  "dryRun": false,
+  "scope": {
+    "mode": "since",
+    "label": "since recipe_0484",
+    "recipesChecked": 34
+  },
+  "consistency": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "findings": []
+  },
+  "audience": {
+    "babyChecked": 0,
+    "toddlerChecked": 16,
+    "elementaryChecked": 18,
+    "blockers": []
+  },
+  "hero": {
+    "found": 34,
+    "optimized": 0,
+    "missing": 0,
+    "planned": []
+  },
+  "step": {
+    "found": 46,
+    "optimized": 46,
+    "missing": 121,
+    "planned": [
+      {
+        "path": "assets/recipe-steps/elementary_banana_yogurt_bowl_step_01.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1547613,
+        "afterBytes": 106664
+      },
+      {
+        "path": "assets/recipe-steps/elementary_banana_yogurt_bowl_step_02.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1392969,
+        "afterBytes": 77690
+      },
+      {
+        "path": "assets/recipe-steps/elementary_banana_yogurt_bowl_step_03.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1241210,
+        "afterBytes": 53123
+      },
+      {
+        "path": "assets/recipe-steps/elementary_chicken_curry_fried_rice_step_01.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1425653,
+        "afterBytes": 96097
+      },
+      {
+        "path": "assets/recipe-steps/elementary_chicken_curry_fried_rice_step_02.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1527961,
+        "afterBytes": 91220
+      },
+      {
+        "path": "assets/recipe-steps/elementary_chicken_curry_fried_rice_step_05.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1469218,
+        "afterBytes": 94114
+      },
+      {
+        "path": "assets/recipe-steps/elementary_chicken_soy_donburi_step_01.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1396672,
+        "afterBytes": 75876
+      },
+      {
+        "path": "assets/recipe-steps/elementary_chicken_soy_donburi_step_02.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1576264,
+        "afterBytes": 116937
+      },
+      {
+        "path": "assets/recipe-steps/elementary_chicken_soy_donburi_step_05.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1638636,
+        "afterBytes": 126513
+      },
+      {
+        "path": "assets/recipe-steps/elementary_ham_egg_fried_rice_step_01.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1407285,
+        "afterBytes": 76266
+      },
+      {
+        "path": "assets/recipe-steps/elementary_ham_egg_fried_rice_step_02.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1484147,
+        "afterBytes": 100285
+      },
+      {
+        "path": "assets/recipe-steps/elementary_ham_egg_fried_rice_step_05.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1338246,
+        "afterBytes": 78921
+      },
+      {
+        "path": "assets/recipe-steps/elementary_pizza_tortilla_step_01.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1434040,
+        "afterBytes": 85278
+      },
+      {
+        "path": "assets/recipe-steps/elementary_pizza_tortilla_step_04.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1520218,
+        "afterBytes": 99704
+      },
+      {
+        "path": "assets/recipe-steps/elementary_pizza_tortilla_step_05.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 2038130,
+        "afterBytes": 209467
+      },
+      {
+        "path": "assets/recipe-steps/elementary_sweet_potato_cheese_toast_step_01.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1423943,
+        "afterBytes": 82427
+      },
+      {
+        "path": "assets/recipe-steps/elementary_sweet_potato_cheese_toast_step_02.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1489500,
+        "afterBytes": 100435
+      },
+      {
+        "path": "assets/recipe-steps/elementary_sweet_potato_cheese_toast_step_05.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1465308,
+        "afterBytes": 88032
+      },
+      {
+        "path": "assets/recipe-steps/elementary_tuna_egg_donburi_step_01.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1534988,
+        "afterBytes": 105207
+      },
+      {
+        "path": "assets/recipe-steps/elementary_tuna_egg_donburi_step_02.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1623428,
+        "afterBytes": 133903
+      },
+      {
+        "path": "assets/recipe-steps/elementary_tuna_egg_donburi_step_05.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1406043,
+        "afterBytes": 77331
+      },
+      {
+        "path": "assets/recipe-steps/elementary_tuna_tortilla_roll_step_01.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1668926,
+        "afterBytes": 128328
+      },
+      {
+        "path": "assets/recipe-steps/elementary_tuna_tortilla_roll_step_03.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1657244,
+        "afterBytes": 129427
+      },
+      {
+        "path": "assets/recipe-steps/elementary_tuna_tortilla_roll_step_04.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1597129,
+        "afterBytes": 125357
+      },
+      {
+        "path": "assets/recipe-steps/toddler_banana_pancake_snack_step_01.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1545045,
+        "afterBytes": 104753
+      },
+      {
+        "path": "assets/recipe-steps/toddler_banana_pancake_snack_step_03.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1531190,
+        "afterBytes": 99535
+      },
+      {
+        "path": "assets/recipe-steps/toddler_banana_pancake_snack_step_04.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1374198,
+        "afterBytes": 71470
+      },
+      {
+        "path": "assets/recipe-steps/toddler_beef_egg_rice_breakfast_step_01.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1471628,
+        "afterBytes": 101045
+      },
+      {
+        "path": "assets/recipe-steps/toddler_beef_egg_rice_breakfast_step_02.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1618616,
+        "afterBytes": 135036
+      },
+      {
+        "path": "assets/recipe-steps/toddler_beef_egg_rice_breakfast_step_05.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1609279,
+        "afterBytes": 135435
+      },
+      {
+        "path": "assets/recipe-steps/toddler_blueberry_yogurt_snack_step_01.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1433445,
+        "afterBytes": 79421
+      },
+      {
+        "path": "assets/recipe-steps/toddler_blueberry_yogurt_snack_step_03.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1410178,
+        "afterBytes": 86076
+      },
+      {
+        "path": "assets/recipe-steps/toddler_blueberry_yogurt_snack_step_04.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1334299,
+        "afterBytes": 70533
+      },
+      {
+        "path": "assets/recipe-steps/toddler_chicken_rice_ball_breakfast_step_01.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1413950,
+        "afterBytes": 88847
+      },
+      {
+        "path": "assets/recipe-steps/toddler_chicken_rice_ball_breakfast_step_03.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1663587,
+        "afterBytes": 153035
+      },
+      {
+        "path": "assets/recipe-steps/toddler_chicken_rice_ball_breakfast_step_05.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1331103,
+        "afterBytes": 73461
+      },
+      {
+        "path": "assets/recipe-steps/toddler_egg_bread_snack_step_01.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1494895,
+        "afterBytes": 94117
+      },
+      {
+        "path": "assets/recipe-steps/toddler_egg_bread_snack_step_03.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1385341,
+        "afterBytes": 77691
+      },
+      {
+        "path": "assets/recipe-steps/toddler_egg_cheese_rice_breakfast_step_01.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1409815,
+        "afterBytes": 78622
+      },
+      {
+        "path": "assets/recipe-steps/toddler_egg_cheese_rice_breakfast_step_05.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1482053,
+        "afterBytes": 99622
+      },
+      {
+        "path": "assets/recipe-steps/toddler_potato_cheese_pancake_snack_step_03.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1562363,
+        "afterBytes": 115438
+      },
+      {
+        "path": "assets/recipe-steps/toddler_potato_cheese_pancake_snack_step_04.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1542509,
+        "afterBytes": 104538
+      },
+      {
+        "path": "assets/recipe-steps/toddler_potato_cheese_pancake_snack_step_05.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1624667,
+        "afterBytes": 123418
+      },
+      {
+        "path": "assets/recipe-steps/toddler_steamed_pumpkin_snack_step_01.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1486395,
+        "afterBytes": 100280
+      },
+      {
+        "path": "assets/recipe-steps/toddler_steamed_pumpkin_snack_step_02.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1421914,
+        "afterBytes": 76107
+      },
+      {
+        "path": "assets/recipe-steps/toddler_steamed_pumpkin_snack_step_05.jpg",
+        "kind": "step",
+        "action": "normalize",
+        "beforeBytes": 1478063,
+        "afterBytes": 92182
+      }
+    ]
+  },
+  "registrySync": {
+    "mealsUpdated": false,
+    "stepsUpdated": false,
+    "dryRun": false
+  },
+  "imageSize": {
+    "mealsBefore": 6368299,
+    "mealsAfter": 6368299,
+    "stepsBefore": 68929304,
+    "stepsAfter": 4619264,
+    "savedBytes": 64310040,
+    "scopedHeroAvgBefore": 187303,
+    "scopedHeroAvgAfter": 187303,
+    "scopedStepAvgBefore": 1498463,
+    "scopedStepAvgAfter": 100419
+  },
+  "tests": [
+    {
+      "name": "validate:hankki-recipes",
+      "script": "validate:hankki-recipes",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "name": "validate:recipe-metadata",
+      "script": "validate:recipe-metadata",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "name": "validate:hero-runtime",
+      "script": "validate:hero-runtime",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "name": "consistency",
+      "script": "test:child-content-expansion-batch4",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "name": "test:family-audience",
+      "script": "test:family-audience",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "name": "test:baby-food-policy",
+      "script": "test:baby-food-policy",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "name": "test:toddler-safety-policy",
+      "script": "test:toddler-safety-policy",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "name": "test:fridge-raid",
+      "script": "test:fridge-raid",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "name": "test:home-final-qa",
+      "script": "test:home-final-qa",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "name": "test:child-image-registry",
+      "script": "test:child-image-registry",
+      "exitCode": 0,
+      "passed": true
+    }
+  ],
+  "warnings": [
+    "STEP_IMAGE_MISSING: elementary_apple_yogurt_bowl_step_01 (recipe_0514)",
+    "STEP_IMAGE_MISSING: elementary_apple_yogurt_bowl_step_02 (recipe_0514)",
+    "STEP_IMAGE_MISSING: elementary_apple_yogurt_bowl_step_03 (recipe_0514)",
+    "STEP_IMAGE_MISSING: elementary_apple_yogurt_bowl_step_04 (recipe_0514)",
+    "STEP_IMAGE_MISSING: elementary_apple_yogurt_bowl_step_05 (recipe_0514)",
+    "STEP_IMAGE_MISSING: elementary_banana_yogurt_bowl_step_04 (recipe_0513)",
+    "STEP_IMAGE_MISSING: elementary_beef_mushroom_fried_rice_step_01 (recipe_0504)",
+    "STEP_IMAGE_MISSING: elementary_beef_mushroom_fried_rice_step_02 (recipe_0504)",
+    "STEP_IMAGE_MISSING: elementary_beef_mushroom_fried_rice_step_03 (recipe_0504)",
+    "STEP_IMAGE_MISSING: elementary_beef_mushroom_fried_rice_step_04 (recipe_0504)",
+    "STEP_IMAGE_MISSING: elementary_beef_mushroom_fried_rice_step_05 (recipe_0504)",
+    "STEP_IMAGE_MISSING: elementary_beef_potato_stew_rice_step_01 (recipe_0508)",
+    "STEP_IMAGE_MISSING: elementary_beef_potato_stew_rice_step_02 (recipe_0508)",
+    "STEP_IMAGE_MISSING: elementary_beef_potato_stew_rice_step_03 (recipe_0508)",
+    "STEP_IMAGE_MISSING: elementary_beef_potato_stew_rice_step_04 (recipe_0508)",
+    "STEP_IMAGE_MISSING: elementary_beef_potato_stew_rice_step_05 (recipe_0508)",
+    "STEP_IMAGE_MISSING: elementary_chicken_curry_fried_rice_step_03 (recipe_0503)",
+    "STEP_IMAGE_MISSING: elementary_chicken_curry_fried_rice_step_04 (recipe_0503)",
+    "STEP_IMAGE_MISSING: elementary_chicken_potato_donburi_step_01 (recipe_0509)",
+    "STEP_IMAGE_MISSING: elementary_chicken_potato_donburi_step_02 (recipe_0509)",
+    "STEP_IMAGE_MISSING: elementary_chicken_potato_donburi_step_03 (recipe_0509)",
+    "STEP_IMAGE_MISSING: elementary_chicken_potato_donburi_step_04 (recipe_0509)",
+    "STEP_IMAGE_MISSING: elementary_chicken_potato_donburi_step_05 (recipe_0509)",
+    "STEP_IMAGE_MISSING: elementary_chicken_soy_donburi_step_03 (recipe_0500)",
+    "STEP_IMAGE_MISSING: elementary_chicken_soy_donburi_step_04 (recipe_0500)",
+    "STEP_IMAGE_MISSING: elementary_chicken_soy_grill_step_01 (recipe_0506)",
+    "STEP_IMAGE_MISSING: elementary_chicken_soy_grill_step_02 (recipe_0506)",
+    "STEP_IMAGE_MISSING: elementary_chicken_soy_grill_step_03 (recipe_0506)",
+    "STEP_IMAGE_MISSING: elementary_chicken_soy_grill_step_04 (recipe_0506)",
+    "STEP_IMAGE_MISSING: elementary_chicken_soy_grill_step_05 (recipe_0506)",
+    "STEP_IMAGE_MISSING: elementary_corn_cheese_pancake_step_01 (recipe_0511)",
+    "STEP_IMAGE_MISSING: elementary_corn_cheese_pancake_step_02 (recipe_0511)",
+    "STEP_IMAGE_MISSING: elementary_corn_cheese_pancake_step_03 (recipe_0511)",
+    "STEP_IMAGE_MISSING: elementary_corn_cheese_pancake_step_04 (recipe_0511)",
+    "STEP_IMAGE_MISSING: elementary_corn_cheese_pancake_step_05 (recipe_0511)",
+    "STEP_IMAGE_MISSING: elementary_ham_egg_fried_rice_step_03 (recipe_0505)",
+    "STEP_IMAGE_MISSING: elementary_ham_egg_fried_rice_step_04 (recipe_0505)",
+    "STEP_IMAGE_MISSING: elementary_pizza_tortilla_step_02 (recipe_0515)",
+    "STEP_IMAGE_MISSING: elementary_pizza_tortilla_step_03 (recipe_0515)",
+    "STEP_IMAGE_MISSING: elementary_pork_cabbage_donburi_step_01 (recipe_0502)",
+    "STEP_IMAGE_MISSING: elementary_pork_cabbage_donburi_step_02 (recipe_0502)",
+    "STEP_IMAGE_MISSING: elementary_pork_cabbage_donburi_step_03 (recipe_0502)",
+    "STEP_IMAGE_MISSING: elementary_pork_cabbage_donburi_step_04 (recipe_0502)",
+    "STEP_IMAGE_MISSING: elementary_pork_cabbage_donburi_step_05 (recipe_0502)",
+    "STEP_IMAGE_MISSING: elementary_potato_toast_step_01 (recipe_0516)",
+    "STEP_IMAGE_MISSING: elementary_potato_toast_step_02 (recipe_0516)",
+    "STEP_IMAGE_MISSING: elementary_potato_toast_step_03 (recipe_0516)",
+    "STEP_IMAGE_MISSING: elementary_potato_toast_step_04 (recipe_0516)",
+    "STEP_IMAGE_MISSING: elementary_potato_toast_step_05 (recipe_0516)",
+    "STEP_IMAGE_MISSING: elementary_roasted_potato_snack_step_01 (recipe_0517)",
+    "STEP_IMAGE_MISSING: elementary_roasted_potato_snack_step_02 (recipe_0517)",
+    "STEP_IMAGE_MISSING: elementary_roasted_potato_snack_step_03 (recipe_0517)",
+    "STEP_IMAGE_MISSING: elementary_roasted_potato_snack_step_04 (recipe_0517)",
+    "STEP_IMAGE_MISSING: elementary_roasted_potato_snack_step_05 (recipe_0517)",
+    "STEP_IMAGE_MISSING: elementary_sweet_potato_cheese_toast_step_03 (recipe_0510)",
+    "STEP_IMAGE_MISSING: elementary_sweet_potato_cheese_toast_step_04 (recipe_0510)",
+    "STEP_IMAGE_MISSING: elementary_tofu_egg_simmer_rice_step_01 (recipe_0507)",
+    "STEP_IMAGE_MISSING: elementary_tofu_egg_simmer_rice_step_02 (recipe_0507)",
+    "STEP_IMAGE_MISSING: elementary_tofu_egg_simmer_rice_step_03 (recipe_0507)",
+    "STEP_IMAGE_MISSING: elementary_tofu_egg_simmer_rice_step_04 (recipe_0507)",
+    "STEP_IMAGE_MISSING: elementary_tofu_egg_simmer_rice_step_05 (recipe_0507)",
+    "STEP_IMAGE_MISSING: elementary_tuna_egg_donburi_step_03 (recipe_0501)",
+    "STEP_IMAGE_MISSING: elementary_tuna_egg_donburi_step_04 (recipe_0501)",
+    "STEP_IMAGE_MISSING: elementary_tuna_tortilla_roll_step_02 (recipe_0512)",
+    "STEP_IMAGE_MISSING: elementary_tuna_tortilla_roll_step_05 (recipe_0512)",
+    "STEP_IMAGE_MISSING: toddler_banana_oatmeal_bowl_snack_step_01 (recipe_0499)",
+    "STEP_IMAGE_MISSING: toddler_banana_oatmeal_bowl_snack_step_02 (recipe_0499)",
+    "STEP_IMAGE_MISSING: toddler_banana_oatmeal_bowl_snack_step_03 (recipe_0499)",
+    "STEP_IMAGE_MISSING: toddler_banana_oatmeal_bowl_snack_step_04 (recipe_0499)",
+    "STEP_IMAGE_MISSING: toddler_banana_oatmeal_bowl_snack_step_05 (recipe_0499)",
+    "STEP_IMAGE_MISSING: toddler_banana_pancake_snack_step_02 (recipe_0492)",
+    "STEP_IMAGE_MISSING: toddler_banana_pancake_snack_step_05 (recipe_0492)",
+    "STEP_IMAGE_MISSING: toddler_beef_egg_rice_breakfast_step_03 (recipe_0485)",
+    "STEP_IMAGE_MISSING: toddler_beef_egg_rice_breakfast_step_04 (recipe_0485)",
+    "STEP_IMAGE_MISSING: toddler_blueberry_yogurt_snack_step_02 (recipe_0496)",
+    "STEP_IMAGE_MISSING: toddler_broccoli_egg_rice_breakfast_step_01 (recipe_0490)",
+    "STEP_IMAGE_MISSING: toddler_broccoli_egg_rice_breakfast_step_02 (recipe_0490)",
+    "STEP_IMAGE_MISSING: toddler_broccoli_egg_rice_breakfast_step_03 (recipe_0490)",
+    "STEP_IMAGE_MISSING: toddler_broccoli_egg_rice_breakfast_step_04 (recipe_0490)",
+    "STEP_IMAGE_MISSING: toddler_broccoli_egg_rice_breakfast_step_05 (recipe_0490)",
+    "STEP_IMAGE_MISSING: toddler_carrot_egg_rice_breakfast_step_01 (recipe_0489)",
+    "STEP_IMAGE_MISSING: toddler_carrot_egg_rice_breakfast_step_02 (recipe_0489)",
+    "STEP_IMAGE_MISSING: toddler_carrot_egg_rice_breakfast_step_03 (recipe_0489)",
+    "STEP_IMAGE_MISSING: toddler_carrot_egg_rice_breakfast_step_04 (recipe_0489)",
+    "STEP_IMAGE_MISSING: toddler_carrot_egg_rice_breakfast_step_05 (recipe_0489)",
+    "STEP_IMAGE_MISSING: toddler_chicken_rice_ball_breakfast_step_02 (recipe_0487)",
+    "STEP_IMAGE_MISSING: toddler_chicken_rice_ball_breakfast_step_04 (recipe_0487)",
+    "STEP_IMAGE_MISSING: toddler_egg_bread_snack_step_02 (recipe_0498)",
+    "STEP_IMAGE_MISSING: toddler_egg_bread_snack_step_04 (recipe_0498)",
+    "STEP_IMAGE_MISSING: toddler_egg_bread_snack_step_05 (recipe_0498)",
+    "STEP_IMAGE_MISSING: toddler_egg_cheese_rice_breakfast_step_02 (recipe_0484)",
+    "STEP_IMAGE_MISSING: toddler_egg_cheese_rice_breakfast_step_03 (recipe_0484)",
+    "STEP_IMAGE_MISSING: toddler_egg_cheese_rice_breakfast_step_04 (recipe_0484)",
+    "STEP_IMAGE_MISSING: toddler_egg_veg_porridge_breakfast_step_01 (recipe_0491)",
+    "STEP_IMAGE_MISSING: toddler_egg_veg_porridge_breakfast_step_02 (recipe_0491)",
+    "STEP_IMAGE_MISSING: toddler_egg_veg_porridge_breakfast_step_03 (recipe_0491)",
+    "STEP_IMAGE_MISSING: toddler_egg_veg_porridge_breakfast_step_04 (recipe_0491)",
+    "STEP_IMAGE_MISSING: toddler_egg_veg_porridge_breakfast_step_05 (recipe_0491)",
+    "STEP_IMAGE_MISSING: toddler_potato_cheese_pancake_snack_step_01 (recipe_0494)",
+    "STEP_IMAGE_MISSING: toddler_potato_cheese_pancake_snack_step_02 (recipe_0494)",
+    "STEP_IMAGE_MISSING: toddler_pumpkin_yogurt_snack_step_01 (recipe_0497)",
+    "STEP_IMAGE_MISSING: toddler_pumpkin_yogurt_snack_step_02 (recipe_0497)",
+    "STEP_IMAGE_MISSING: toddler_pumpkin_yogurt_snack_step_03 (recipe_0497)",
+    "STEP_IMAGE_MISSING: toddler_pumpkin_yogurt_snack_step_04 (recipe_0497)",
+    "STEP_IMAGE_MISSING: toddler_steamed_pumpkin_snack_step_03 (recipe_0495)",
+    "STEP_IMAGE_MISSING: toddler_steamed_pumpkin_snack_step_04 (recipe_0495)",
+    "STEP_IMAGE_MISSING: toddler_sweet_potato_pancake_snack_step_01 (recipe_0493)",
+    "STEP_IMAGE_MISSING: toddler_sweet_potato_pancake_snack_step_02 (recipe_0493)",
+    "STEP_IMAGE_MISSING: toddler_sweet_potato_pancake_snack_step_03 (recipe_0493)",
+    "STEP_IMAGE_MISSING: toddler_sweet_potato_pancake_snack_step_04 (recipe_0493)",
+    "STEP_IMAGE_MISSING: toddler_sweet_potato_pancake_snack_step_05 (recipe_0493)",
+    "STEP_IMAGE_MISSING: toddler_tofu_egg_rice_breakfast_step_01 (recipe_0486)",
+    "STEP_IMAGE_MISSING: toddler_tofu_egg_rice_breakfast_step_02 (recipe_0486)",
+    "STEP_IMAGE_MISSING: toddler_tofu_egg_rice_breakfast_step_03 (recipe_0486)",
+    "STEP_IMAGE_MISSING: toddler_tofu_egg_rice_breakfast_step_04 (recipe_0486)",
+    "STEP_IMAGE_MISSING: toddler_tofu_egg_rice_breakfast_step_05 (recipe_0486)",
+    "STEP_IMAGE_MISSING: toddler_zucchini_egg_rice_breakfast_step_01 (recipe_0488)",
+    "STEP_IMAGE_MISSING: toddler_zucchini_egg_rice_breakfast_step_02 (recipe_0488)",
+    "STEP_IMAGE_MISSING: toddler_zucchini_egg_rice_breakfast_step_03 (recipe_0488)",
+    "STEP_IMAGE_MISSING: toddler_zucchini_egg_rice_breakfast_step_04 (recipe_0488)",
+    "STEP_IMAGE_MISSING: toddler_zucchini_egg_rice_breakfast_step_05 (recipe_0488)"
+  ],
+  "blockers": [],
+  "pipelineResult": "PASS"
+}

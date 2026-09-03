@@ -3,15 +3,19 @@
  * Run: npm run test:fridge-raid
  */
 import { northStarHomeCopy } from '../constants/northStarHomeCopy';
+import { HOME_PURPOSES } from '../constants/homeIaCopy';
 import { listSideDishRecipeIds } from '../data/recipes/sideDishRecipeIds';
 import { isSideDishRecipe } from '../data/recipes/sideDishPolicy';
 import { buildRecommendationCandidatePool } from '../services/recommendation/buildCandidatePool';
 import { recipeToFridgeMenuItem } from '../services/fridge/recipeToFridgeMenuItem';
+import { isExcludedFromGeneralHomeByRecipeId } from '../data/recipes/generalHomeFeedExclusion';
 import { HANKKI_RECIPES } from '../data/recipes/hankkiRecipes';
+import { TODDLER_PILOT_IDS } from '../data/recipes/toddlerPilotOverrides';
 import fs from 'node:fs';
 import path from 'node:path';
 import {
   buildFridgeRaidCandidatesFromIconKeys,
+  buildFridgeRaidResultsBundle,
   countFridgeScoredCandidates,
   countPrimaryFridgeCandidates,
   scoreFridgeRaidCandidates,
@@ -355,12 +359,18 @@ runScenario('pantry matchKey 스냅샷 복원', () => {
   assert(pantry.matchKeys.includes('onion') && pantry.matchKeys.includes('egg'), 'match keys restored');
 });
 
-runScenario('홈 준비 중 카드 설문 배지 유지 (상단 냉장고 제외)', () => {
+runScenario('홈 준비 중 카드 설문 배지 유지 (child entries moved to purpose IA)', () => {
   const cards = northStarHomeCopy.comingSoon.cards;
-  assert(cards.length === 4, 'coming soon grid should have 4 cards');
+  assert(cards.length === 3, 'coming soon grid should have 3 cards');
+  const kidsPurpose = HOME_PURPOSES.find((purpose) => purpose.id === 'kids');
+  const weeklyPurpose = HOME_PURPOSES.find((purpose) => purpose.id === 'weekly');
+  assert(Boolean(kidsPurpose?.entries?.find((entry) => entry.id === 'babyFood')), 'baby entry in kids purpose');
+  assert(Boolean(kidsPurpose?.entries?.find((entry) => entry.id === 'toddlerMeals')), 'toddler entry in kids purpose');
+  assert(Boolean(kidsPurpose?.entries?.find((entry) => entry.id === 'elementary')), 'elementary entry in kids purpose');
+  assert(Boolean(weeklyPurpose?.entries?.find((entry) => entry.id === 'elemBreakfast')), 'breakfast week in weekly purpose');
   assert(
-    cards.every((card) => card.badge === '준비 중'),
-    'coming-soon cards should show 준비 중 badge',
+    cards.every((card) => 'badge' in card && card.badge === '준비 중'),
+    'remaining coming-soon cards should show 준비 중 badge',
   );
   assert(
     !cards.some((card) => card.id === 'fridge' || card.id === 'pet'),
@@ -698,6 +708,121 @@ runScenario('쇼핑 브릿지 — production config', () => {
   assert(FRIDGE_SHOPPING_CONFIG.enabled === true, 'fridge shopping enabled');
   assert(FRIDGE_SHOPPING_CONFIG.provider === 'coupang', 'coupang provider');
   assert(FRIDGE_SHOPPING_CONFIG.isAffiliate === true, 'affiliate flag');
+});
+
+runScenario('toddler approved 74 — Fridge Raid 자동 추천 0', () => {
+  const toddlerSet = new Set<string>(TODDLER_PILOT_IDS);
+  assert(TODDLER_PILOT_IDS.length === 74, 'toddler approved 74');
+  assert(
+    TODDLER_PILOT_IDS.every((id) => isExcludedFromGeneralHomeByRecipeId(id)),
+    'toddler ids reuse general home exclusion',
+  );
+
+  const eggRice = ALL_RECIPES.find((item) => item.id === '002');
+  assert(Boolean(eggRice), '계란볶음밥 missing');
+
+  const scored = scoreWithIconKeys(['egg', 'rice', 'tofu', 'banana', 'milk', 'potato', 'chicken', 'carrot']);
+  const scoredIds = [
+    ...scored.tier5,
+    ...scored.tier4,
+    ...scored.tier3,
+    ...scored.extended,
+    ...scored.sideDishes,
+  ].map((item) => item.recipeId);
+  assert(
+    scoredIds.every((id) => !toddlerSet.has(id)),
+    'scored fridge candidates must not include toddler approved ids',
+  );
+  assert(
+    scoredIds.some((id) => id === '002'),
+    'general egg-rice menu remains eligible',
+  );
+
+  const bundle = buildFridgeRaidResultsBundle({
+    recipes: ALL_RECIPES,
+    pantry: pantryFromIconKeys(['egg', 'rice', 'tofu', 'banana', 'milk']),
+    context: contextFor(),
+    attachHeroImages: false,
+  });
+  const bundleIds = [...bundle.primaryFeed, ...bundle.extended, ...bundle.sideDishes].map(
+    (item) => item.recipeId,
+  );
+  assert(
+    bundleIds.every((id) => !toddlerSet.has(id)),
+    'fridge results bundle toddler eligible = 0',
+  );
+
+  const isolated = ALL_RECIPES.filter((recipe) => toddlerSet.has(recipe.id));
+  assert(isolated.length === 74, 'isolated toddler catalog 74');
+  const isolatedScored = scoreWithIconKeys(['egg', 'rice', 'tofu', 'banana', 'milk'], isolated);
+  assert(countScored(isolatedScored) === 0, 'toddler-only input still scores to 0');
+});
+
+runScenario('baby approved 70 — Fridge Raid 자동 추천 0', () => {
+  const babyIds = ALL_RECIPES.filter((recipe) =>
+    recipe.familyAudience.audiences.includes('baby'),
+  ).map((recipe) => recipe.id);
+  assert(babyIds.length === 70, 'baby approved 70');
+  assert(
+    babyIds.every((id) => isExcludedFromGeneralHomeByRecipeId(id)),
+    'baby ids reuse general home exclusion',
+  );
+
+  const scored = scoreWithIconKeys(['egg', 'rice', 'tofu', 'beef', 'potato', 'chicken', 'carrot']);
+  const scoredIds = [
+    ...scored.tier5,
+    ...scored.tier4,
+    ...scored.tier3,
+    ...scored.extended,
+    ...scored.sideDishes,
+  ].map((item) => item.recipeId);
+  assert(
+    scoredIds.every((id) => !babyIds.includes(id)),
+    'scored fridge candidates must not include baby approved ids',
+  );
+
+  const isolated = ALL_RECIPES.filter((recipe) => babyIds.includes(recipe.id));
+  assert(isolated.length === 70, 'isolated baby catalog 70');
+  const isolatedScored = scoreWithIconKeys(['egg', 'rice', 'tofu', 'beef', 'potato'], isolated);
+  assert(countScored(isolatedScored) === 0, 'baby-only input still scores to 0');
+});
+
+runScenario('toddler exclusion is Fridge Raid only — user-intent sources unchanged', () => {
+  const fridgeSrc = fs.readFileSync(
+    path.join(__dirname, '../services/fridge/buildFridgeRaidCandidates.ts'),
+    'utf8',
+  );
+  assert(
+    fridgeSrc.includes('isExcludedFromGeneralHomeByRecipeId'),
+    'fridge scorer reuses general home exclusion',
+  );
+  assert(!fridgeSrc.includes("audiences.includes('toddler')"), 'no raw familyAudience filter in fridge scorer');
+
+  const favoriteSrc = fs.readFileSync(
+    path.join(__dirname, '../services/favorite/favoriteDisplay.ts'),
+    'utf8',
+  );
+  const viewedSrc = fs.readFileSync(
+    path.join(__dirname, '../services/viewedRecipe/viewedRecipeDisplay.ts'),
+    'utf8',
+  );
+  const searchSrc = fs.readFileSync(
+    path.join(__dirname, '../services/search/recipeSearchService.ts'),
+    'utf8',
+  );
+  const toddlerFeedSrc = fs.readFileSync(
+    path.join(__dirname, '../data/recipes/toddlerMealFeed.ts'),
+    'utf8',
+  );
+  const babyFeedSrc = fs.readFileSync(
+    path.join(__dirname, '../data/recipes/babyFoodFeed.ts'),
+    'utf8',
+  );
+  assert(!favoriteSrc.includes('isExcludedFromGeneralHomeByRecipeId'), 'favorites resolver unchanged');
+  assert(!viewedSrc.includes('isExcludedFromGeneralHomeByRecipeId'), 'recent viewed resolver unchanged');
+  assert(!searchSrc.includes('isExcludedFromGeneralHomeByRecipeId'), 'search policy unchanged');
+  assert(!toddlerFeedSrc.includes('isExcludedFromGeneralHomeByRecipeId'), 'toddler feed unchanged');
+  assert(!babyFeedSrc.includes('isExcludedFromGeneralHomeByRecipeId'), 'baby feed unchanged');
 });
 
 console.log('\nFridge Raid QA — done');

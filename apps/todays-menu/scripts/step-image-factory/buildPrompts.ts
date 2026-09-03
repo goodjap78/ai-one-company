@@ -1,14 +1,12 @@
-/**
- * Cooking-step photography prompts (16:9).
- */
 import fs from 'node:fs';
 import path from 'node:path';
+import { getChildStepVisualDescription } from './childStepPromptOverrides';
 import { PATHS, STEP_IMAGE_SPEC } from './config';
 import type { StepManifestEntry } from './types';
 
 const STYLE = [
   'realistic Korean home cooking photography',
-  'landscape 16:9',
+  'square 1:1',
   'warm natural kitchen lighting',
   'cookware and ingredients as the focus',
   'no text',
@@ -40,6 +38,17 @@ export function buildStepPromptText(entry: {
   visibleIngredients: string[];
   notYetIngredients: string[];
 }): string {
+  const childVisual = getChildStepVisualDescription(entry.imageKey);
+  if (childVisual) {
+    return [
+      childVisual,
+      `Korean home cooking step photo for "${entry.recipeName}", step ${entry.stepOrder}: ${entry.stepTitle}.`,
+      `Square 1:1 composition (${STEP_IMAGE_SPEC.width}x${STEP_IMAGE_SPEC.height}).`,
+      `Shot requirements: ${STYLE}.`,
+      `Output key: ${entry.imageKey}.jpg.`,
+    ].join(' ');
+  }
+
   const visible =
     entry.visibleIngredients.length > 0
       ? entry.visibleIngredients.join(', ')

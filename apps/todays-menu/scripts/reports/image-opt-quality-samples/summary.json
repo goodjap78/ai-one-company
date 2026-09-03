@@ -1,0 +1,187 @@
+{
+  "heroAvgBytes": {
+    "q90": 161982,
+    "q85": 127232,
+    "q80": 107509
+  },
+  "stepAvgBytes": {
+    "q90": 136868,
+    "q85": 104762,
+    "q80": 86991
+  },
+  "recommendation": {
+    "heroQuality": 85,
+    "stepQuality": 80,
+    "rationale": "q85 typically ~25-40% smaller than q90 with minimal banding on food photos; step images display ~100x100 so q80 remains texture-readable while saving more."
+  },
+  "samples": [
+    {
+      "source": "baby_rice_thin_porridge.jpg",
+      "quality": 90,
+      "bytes": 115294,
+      "width": 1344,
+      "height": 768,
+      "out": "scripts/reports/image-opt-quality-samples/hero_baby_rice_thin_porridge_q90.jpg"
+    },
+    {
+      "source": "baby_rice_thin_porridge.jpg",
+      "quality": 85,
+      "bytes": 86655,
+      "width": 1344,
+      "height": 768,
+      "out": "scripts/reports/image-opt-quality-samples/hero_baby_rice_thin_porridge_q85.jpg"
+    },
+    {
+      "source": "baby_rice_thin_porridge.jpg",
+      "quality": 80,
+      "bytes": 70356,
+      "width": 1344,
+      "height": 768,
+      "out": "scripts/reports/image-opt-quality-samples/hero_baby_rice_thin_porridge_q80.jpg"
+    },
+    {
+      "source": "baby_beef_zucchini_porridge.jpg",
+      "quality": 90,
+      "bytes": 161110,
+      "width": 1344,
+      "height": 768,
+      "out": "scripts/reports/image-opt-quality-samples/hero_baby_beef_zucchini_porridge_q90.jpg"
+    },
+    {
+      "source": "baby_beef_zucchini_porridge.jpg",
+      "quality": 85,
+      "bytes": 126258,
+      "width": 1344,
+      "height": 768,
+      "out": "scripts/reports/image-opt-quality-samples/hero_baby_beef_zucchini_porridge_q85.jpg"
+    },
+    {
+      "source": "baby_beef_zucchini_porridge.jpg",
+      "quality": 80,
+      "bytes": 106330,
+      "width": 1344,
+      "height": 768,
+      "out": "scripts/reports/image-opt-quality-samples/hero_baby_beef_zucchini_porridge_q80.jpg"
+    },
+    {
+      "source": "toddler_tuna_veg_fried_rice.jpg",
+      "quality": 90,
+      "bytes": 174866,
+      "width": 1344,
+      "height": 768,
+      "out": "scripts/reports/image-opt-quality-samples/hero_toddler_tuna_veg_fried_rice_q90.jpg"
+    },
+    {
+      "source": "toddler_tuna_veg_fried_rice.jpg",
+      "quality": 85,
+      "bytes": 138317,
+      "width": 1344,
+      "height": 768,
+      "out": "scripts/reports/image-opt-quality-samples/hero_toddler_tuna_veg_fried_rice_q85.jpg"
+    },
+    {
+      "source": "toddler_tuna_veg_fried_rice.jpg",
+      "quality": 80,
+      "bytes": 117798,
+      "width": 1344,
+      "height": 768,
+      "out": "scripts/reports/image-opt-quality-samples/hero_toddler_tuna_veg_fried_rice_q80.jpg"
+    },
+    {
+      "source": "elementary_tuna_mayo_rice_ball.jpg",
+      "quality": 90,
+      "bytes": 196660,
+      "width": 1344,
+      "height": 768,
+      "out": "scripts/reports/image-opt-quality-samples/hero_elementary_tuna_mayo_rice_ball_q90.jpg"
+    },
+    {
+      "source": "elementary_tuna_mayo_rice_ball.jpg",
+      "quality": 85,
+      "bytes": 157700,
+      "width": 1344,
+      "height": 768,
+      "out": "scripts/reports/image-opt-quality-samples/hero_elementary_tuna_mayo_rice_ball_q85.jpg"
+    },
+    {
+      "source": "elementary_tuna_mayo_rice_ball.jpg",
+      "quality": 80,
+      "bytes": 135554,
+      "width": 1344,
+      "height": 768,
+      "out": "scripts/reports/image-opt-quality-samples/hero_elementary_tuna_mayo_rice_ball_q80.jpg"
+    },
+    {
+      "source": "baby_rice_thin_porridge_step_01.jpg",
+      "quality": 90,
+      "bytes": 155438,
+      "width": 1024,
+      "height": 1024,
+      "out": "scripts/reports/image-opt-quality-samples/step_baby_rice_thin_porridge_step_01_q90.jpg"
+    },
+    {
+      "source": "baby_rice_thin_porridge_step_01.jpg",
+      "quality": 85,
+      "bytes": 118163,
+      "width": 1024,
+      "height": 1024,
+      "out": "scripts/reports/image-opt-quality-samples/step_baby_rice_thin_porridge_step_01_q85.jpg"
+    },
+    {
+      "source": "baby_rice_thin_porridge_step_01.jpg",
+      "quality": 80,
+      "bytes": 97623,
+      "width": 1024,
+      "height": 1024,
+      "out": "scripts/reports/image-opt-quality-samples/step_baby_rice_thin_porridge_step_01_q80.jpg"
+    },
+    {
+      "source": "baby_rice_thin_porridge_step_02.jpg",
+      "quality": 90,
+      "bytes": 123415,
+      "width": 1024,
+      "height": 1024,
+      "out": "scripts/reports/image-opt-quality-samples/step_baby_rice_thin_porridge_step_02_q90.jpg"
+    },
+    {
+      "source": "baby_rice_thin_porridge_step_02.jpg",
+      "quality": 85,
+      "bytes": 95228,
+      "width": 1024,
+      "height": 1024,
+      "out": "scripts/reports/image-opt-quality-samples/step_baby_rice_thin_porridge_step_02_q85.jpg"
+    },
+    {
+      "source": "baby_rice_thin_porridge_step_02.jpg",
+      "quality": 80,
+      "bytes": 79412,
+      "width": 1024,
+      "height": 1024,
+      "out": "scripts/reports/image-opt-quality-samples/step_baby_rice_thin_porridge_step_02_q80.jpg"
+    },
+    {
+      "source": "baby_rice_thin_porridge_step_03.jpg",
+      "quality": 90,
+      "bytes": 131753,
+      "width": 1024,
+      "height": 1024,
+      "out": "scripts/reports/image-opt-quality-samples/step_baby_rice_thin_porridge_step_03_q90.jpg"
+    },
+    {
+      "source": "baby_rice_thin_porridge_step_03.jpg",
+      "quality": 85,
+      "bytes": 100896,
+      "width": 1024,
+      "height": 1024,
+      "out": "scripts/reports/image-opt-quality-samples/step_baby_rice_thin_porridge_step_03_q85.jpg"
+    },
+    {
+      "source": "baby_rice_thin_porridge_step_03.jpg",
+      "quality": 80,
+      "bytes": 83938,
+      "width": 1024,
+      "height": 1024,
+      "out": "scripts/reports/image-opt-quality-samples/step_baby_rice_thin_porridge_step_03_q80.jpg"
+    }
+  ]
+}

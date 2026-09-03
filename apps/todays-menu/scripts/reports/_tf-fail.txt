@@ -1,0 +1,1 @@
+FAIL: refresh stays in mealType and does not repeat consecutively :: 3 alternatives

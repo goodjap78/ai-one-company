@@ -1,0 +1,2236 @@
+{
+  "summary": {
+    "totalMissing": 34,
+    "byAudience": {
+      "baby": 0,
+      "toddler": 16,
+      "elementary": 18
+    }
+  },
+  "recipes": [
+    {
+      "recipeId": "recipe_0484",
+      "name": "계란치즈밥",
+      "audience": "toddler",
+      "heroImageKey": "toddler_egg_cheese_rice_breakfast",
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "2/3공기"
+        },
+        {
+          "name": "계란",
+          "amount": "1개"
+        },
+        {
+          "name": "슬라이스치즈",
+          "amount": "1/2장"
+        },
+        {
+          "name": "대파",
+          "amount": "1작은술"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "소금",
+          "amount": "1꼬집"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "치즈 작게 썰기",
+          "instruction": "슬라이스치즈 1/2장을 5mm 이하 작은 조각으로 잘라요.",
+          "imageKey": "toddler_egg_cheese_rice_breakfast_step_01"
+        },
+        {
+          "order": 2,
+          "title": "계란 부드럽게 익히기",
+          "instruction": "팬에 식용유 1작은술을 두르고 약불에서 푼 계란 1개를 저으며 3분 익혀요.",
+          "imageKey": "toddler_egg_cheese_rice_breakfast_step_02"
+        },
+        {
+          "order": 3,
+          "title": "치즈 녹이기",
+          "instruction": "잘게 썬 치즈를 넣고 1분 더 저어 녹인 뒤 소금 1꼬집으로 간해요.",
+          "imageKey": "toddler_egg_cheese_rice_breakfast_step_03"
+        },
+        {
+          "order": 4,
+          "title": "밥 작게 나누기",
+          "instruction": "따뜻한 밥 2/3공기를 그릇에 담고 포크로 눌러 작은 덩어리로 나눠요.",
+          "imageKey": "toddler_egg_cheese_rice_breakfast_step_04"
+        },
+        {
+          "order": 5,
+          "title": "섞어 식혀 내기",
+          "instruction": "계란치즈를 밥에 올리고 아주 잘게 다진 대파 1작은술과 섞은 뒤 2분 식혀 보호자가 한 숟갈씩 떠 내요.",
+          "imageKey": "toddler_egg_cheese_rice_breakfast_step_05"
+        }
+      ],
+      "finishDescription": "A toddler bowl or plate of 밥, 계란, 슬라이스치즈, 대파, soft toddler-friendly small pieces, moist and easy to chew, mild home cooking look. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0485",
+      "name": "소고기계란밥",
+      "audience": "toddler",
+      "heroImageKey": "toddler_beef_egg_rice_breakfast",
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "2/3공기"
+        },
+        {
+          "name": "소고기",
+          "amount": "60g"
+        },
+        {
+          "name": "계란",
+          "amount": "1개"
+        },
+        {
+          "name": "양파",
+          "amount": "1큰술"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "소금",
+          "amount": "1꼬집"
+        },
+        {
+          "name": "참기름",
+          "amount": "1/4작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "소고기 잘게 썰기",
+          "instruction": "소고기 60g은 기름기를 떼고 5mm 이하로 잘게 썰어요.",
+          "imageKey": "toddler_beef_egg_rice_breakfast_step_01"
+        },
+        {
+          "order": 2,
+          "title": "소고기 속까지 익히기",
+          "instruction": "팬에 식용유 1작은술을 두르고 중약불에서 소고기와 다진 양파 1큰술을 3분 볶아 분홍기가 없게 익혀요.",
+          "imageKey": "toddler_beef_egg_rice_breakfast_step_02"
+        },
+        {
+          "order": 3,
+          "title": "계란 부드럽게 익히기",
+          "instruction": "푼 계란 1개를 넣고 약불에서 2분 저어 부드럽게 익힌 뒤 소금 1꼬집으로 간해요.",
+          "imageKey": "toddler_beef_egg_rice_breakfast_step_03"
+        },
+        {
+          "order": 4,
+          "title": "밥 작게 나누기",
+          "instruction": "따뜻한 밥 2/3공기를 그릇에 담고 포크로 눌러 작은 덩어리로 나눠요.",
+          "imageKey": "toddler_beef_egg_rice_breakfast_step_04"
+        },
+        {
+          "order": 5,
+          "title": "섞어 식혀 내기",
+          "instruction": "소고기계란을 밥에 올리고 참기름 1/4작은술을 넣어 섞은 뒤 2분 식혀 보호자가 한 숟갈씩 떠 내요.",
+          "imageKey": "toddler_beef_egg_rice_breakfast_step_05"
+        }
+      ],
+      "finishDescription": "A toddler bowl or plate of 밥, 소고기, 계란, 양파, soft toddler-friendly small pieces, moist and easy to chew, mild home cooking look. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0486",
+      "name": "두부계란밥",
+      "audience": "toddler",
+      "heroImageKey": "toddler_tofu_egg_rice_breakfast",
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "2/3공기"
+        },
+        {
+          "name": "두부",
+          "amount": "80g"
+        },
+        {
+          "name": "계란",
+          "amount": "1개"
+        },
+        {
+          "name": "대파",
+          "amount": "1작은술"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "소금",
+          "amount": "1꼬집"
+        },
+        {
+          "name": "참기름",
+          "amount": "1/4작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "두부 작게 으깨기",
+          "instruction": "두부 80g은 물기를 꼭 짠 뒤 포크로 5mm 이하로 으깨요.",
+          "imageKey": "toddler_tofu_egg_rice_breakfast_step_01"
+        },
+        {
+          "order": 2,
+          "title": "두부계란 익히기",
+          "instruction": "팬에 식용유 1작은술을 두르고 으깬 두부와 푼 계란 1개를 넣어 약불에서 3분 저어 부드럽게 익혀요.",
+          "imageKey": "toddler_tofu_egg_rice_breakfast_step_02"
+        },
+        {
+          "order": 3,
+          "title": "살짝 간하기",
+          "instruction": "소금 1꼬집과 아주 잘게 다진 대파 1작은술을 넣고 30초 더 저어요.",
+          "imageKey": "toddler_tofu_egg_rice_breakfast_step_03"
+        },
+        {
+          "order": 4,
+          "title": "밥 작게 나누기",
+          "instruction": "따뜻한 밥 2/3공기를 그릇에 담고 포크로 눌러 작은 덩어리로 나눠요.",
+          "imageKey": "toddler_tofu_egg_rice_breakfast_step_04"
+        },
+        {
+          "order": 5,
+          "title": "섞어 식혀 내기",
+          "instruction": "두부계란을 밥에 올리고 참기름 1/4작은술을 넣어 섞은 뒤 2분 식혀 보호자가 한 숟갈씩 떠 내요.",
+          "imageKey": "toddler_tofu_egg_rice_breakfast_step_05"
+        }
+      ],
+      "finishDescription": "A toddler bowl or plate of 밥, 두부, 계란, 대파, soft toddler-friendly small pieces, moist and easy to chew, mild home cooking look. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0487",
+      "name": "닭고기주먹밥",
+      "audience": "toddler",
+      "heroImageKey": "toddler_chicken_rice_ball_breakfast",
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "2/3공기"
+        },
+        {
+          "name": "닭고기",
+          "amount": "70g"
+        },
+        {
+          "name": "당근",
+          "amount": "1큰술"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "물",
+          "amount": "2큰술"
+        },
+        {
+          "name": "소금",
+          "amount": "1꼬집"
+        },
+        {
+          "name": "참기름",
+          "amount": "1/4작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "재료 잘게 썰기",
+          "instruction": "뼈 없는 닭고기 70g은 5mm 이하로 썰고, 당근 1큰술은 5mm 이하로 다져요.",
+          "imageKey": "toddler_chicken_rice_ball_breakfast_step_01"
+        },
+        {
+          "order": 2,
+          "title": "닭고기 속까지 익히기",
+          "instruction": "팬에 식용유 1작은술을 두르고 중약불에서 닭고기와 당근을 3분 볶아 분홍기가 없게 익혀요.",
+          "imageKey": "toddler_chicken_rice_ball_breakfast_step_02"
+        },
+        {
+          "order": 3,
+          "title": "밥과 섞기",
+          "instruction": "밥 2/3공기, 물 2큰술, 소금 1꼬집, 참기름 1/4작은술을 넣고 2분 볶아 고루 섞어요.",
+          "imageKey": "toddler_chicken_rice_ball_breakfast_step_03"
+        },
+        {
+          "order": 4,
+          "title": "작은 주먹밥 만들기",
+          "instruction": "손에 물을 살짝 묻혀 동전 크기 주먹밥 4~5개를 만들어요.",
+          "imageKey": "toddler_chicken_rice_ball_breakfast_step_04"
+        },
+        {
+          "order": 5,
+          "title": "식혀 내기",
+          "instruction": "접시에 펴 담고 2분 식힌 뒤 보호자가 한입씩 떼어 내요.",
+          "imageKey": "toddler_chicken_rice_ball_breakfast_step_05"
+        }
+      ],
+      "finishDescription": "A toddler bowl or plate of 밥, 닭고기, 당근, soft toddler-friendly small pieces, moist and easy to chew, mild home cooking look. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0488",
+      "name": "애호박계란밥",
+      "audience": "toddler",
+      "heroImageKey": "toddler_zucchini_egg_rice_breakfast",
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "2/3공기"
+        },
+        {
+          "name": "애호박",
+          "amount": "1/3개(70g)"
+        },
+        {
+          "name": "계란",
+          "amount": "1개"
+        },
+        {
+          "name": "양파",
+          "amount": "1큰술"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "물",
+          "amount": "2큰술"
+        },
+        {
+          "name": "소금",
+          "amount": "1꼬집"
+        },
+        {
+          "name": "참기름",
+          "amount": "1/4작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "애호박 잘게 썰기",
+          "instruction": "애호박 1/3개는 5mm 이하 조각으로 썰고, 양파 1큰술은 잘게 다져요.",
+          "imageKey": "toddler_zucchini_egg_rice_breakfast_step_01"
+        },
+        {
+          "order": 2,
+          "title": "애호박 무르게 볶기",
+          "instruction": "팬에 식용유 1작은술을 두르고 애호박과 양파를 넣어 물 2큰술을 부어 뚜껑을 덮어 4분 볶아요.",
+          "imageKey": "toddler_zucchini_egg_rice_breakfast_step_02"
+        },
+        {
+          "order": 3,
+          "title": "계란 부드럽게 익히기",
+          "instruction": "푼 계란 1개를 넣고 약불에서 2분 저어 부드럽게 익힌 뒤 소금 1꼬집으로 간해요.",
+          "imageKey": "toddler_zucchini_egg_rice_breakfast_step_03"
+        },
+        {
+          "order": 4,
+          "title": "밥 작게 나누기",
+          "instruction": "따뜻한 밥 2/3공기를 그릇에 담고 포크로 눌러 작은 덩어리로 나눠요.",
+          "imageKey": "toddler_zucchini_egg_rice_breakfast_step_04"
+        },
+        {
+          "order": 5,
+          "title": "섞어 식혀 내기",
+          "instruction": "애호박계란을 밥에 올리고 참기름 1/4작은술을 넣어 섞은 뒤 2분 식혀 보호자가 한 숟갈씩 떠 내요.",
+          "imageKey": "toddler_zucchini_egg_rice_breakfast_step_05"
+        }
+      ],
+      "finishDescription": "A toddler bowl or plate of 밥, 애호박, 계란, 양파, soft toddler-friendly small pieces, moist and easy to chew, mild home cooking look. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0489",
+      "name": "당근계란밥",
+      "audience": "toddler",
+      "heroImageKey": "toddler_carrot_egg_rice_breakfast",
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "2/3공기"
+        },
+        {
+          "name": "당근",
+          "amount": "40g"
+        },
+        {
+          "name": "계란",
+          "amount": "1개"
+        },
+        {
+          "name": "대파",
+          "amount": "1작은술"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "물",
+          "amount": "2큰술"
+        },
+        {
+          "name": "소금",
+          "amount": "1꼬집"
+        },
+        {
+          "name": "참기름",
+          "amount": "1/4작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "당근 잘게 다지기",
+          "instruction": "당근 40g은 껍질을 벗기고 5mm 이하로 잘게 다져요.",
+          "imageKey": "toddler_carrot_egg_rice_breakfast_step_01"
+        },
+        {
+          "order": 2,
+          "title": "당근 무르게 볶기",
+          "instruction": "팬에 식용유 1작은술을 두르고 당근을 넣어 물 2큰술을 부어 뚜껑을 덮어 4분 볶아요.",
+          "imageKey": "toddler_carrot_egg_rice_breakfast_step_02"
+        },
+        {
+          "order": 3,
+          "title": "계란 부드럽게 익히기",
+          "instruction": "푼 계란 1개를 넣고 약불에서 2분 저어 부드럽게 익힌 뒤 소금 1꼬집으로 간해요.",
+          "imageKey": "toddler_carrot_egg_rice_breakfast_step_03"
+        },
+        {
+          "order": 4,
+          "title": "밥 작게 나누기",
+          "instruction": "따뜻한 밥 2/3공기를 그릇에 담고 포크로 눌러 작은 덩어리로 나눠요.",
+          "imageKey": "toddler_carrot_egg_rice_breakfast_step_04"
+        },
+        {
+          "order": 5,
+          "title": "섞어 식혀 내기",
+          "instruction": "당근계란을 밥에 올리고 참기름 1/4작은술과 잘게 다진 대파 1작은술을 넣어 섞은 뒤 2분 식혀 보호자가 한 숟갈씩 떠 내요.",
+          "imageKey": "toddler_carrot_egg_rice_breakfast_step_05"
+        }
+      ],
+      "finishDescription": "A toddler bowl or plate of 밥, 당근, 계란, 대파, soft toddler-friendly small pieces, moist and easy to chew, mild home cooking look. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0490",
+      "name": "브로콜리계란밥",
+      "audience": "toddler",
+      "heroImageKey": "toddler_broccoli_egg_rice_breakfast",
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "2/3공기"
+        },
+        {
+          "name": "브로콜리",
+          "amount": "50g"
+        },
+        {
+          "name": "계란",
+          "amount": "1개"
+        },
+        {
+          "name": "당근",
+          "amount": "1큰술"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "물",
+          "amount": "2큰술"
+        },
+        {
+          "name": "소금",
+          "amount": "1꼬집"
+        },
+        {
+          "name": "참기름",
+          "amount": "1/4작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "브로콜리 잘게 다지기",
+          "instruction": "브로콜리 50g은 줄기 심을 빼고 꽃송이를 5mm 이하로 다져요.",
+          "imageKey": "toddler_broccoli_egg_rice_breakfast_step_01"
+        },
+        {
+          "order": 2,
+          "title": "브로콜리 무르게 볶기",
+          "instruction": "팬에 식용유 1작은술을 두르고 브로콜리와 다진 당근 1큰술을 넣어 물 2큰술을 부어 뚜껑을 덮어 4분 볶아요.",
+          "imageKey": "toddler_broccoli_egg_rice_breakfast_step_02"
+        },
+        {
+          "order": 3,
+          "title": "계란 부드럽게 익히기",
+          "instruction": "푼 계란 1개를 넣고 약불에서 2분 저어 부드럽게 익힌 뒤 소금 1꼬집으로 간해요.",
+          "imageKey": "toddler_broccoli_egg_rice_breakfast_step_03"
+        },
+        {
+          "order": 4,
+          "title": "밥 작게 나누기",
+          "instruction": "따뜻한 밥 2/3공기를 그릇에 담고 포크로 눌러 작은 덩어리로 나눠요.",
+          "imageKey": "toddler_broccoli_egg_rice_breakfast_step_04"
+        },
+        {
+          "order": 5,
+          "title": "섞어 식혀 내기",
+          "instruction": "브로콜리계란을 밥에 올리고 참기름 1/4작은술을 넣어 섞은 뒤 2분 식혀 보호자가 한 숟갈씩 떠 내요.",
+          "imageKey": "toddler_broccoli_egg_rice_breakfast_step_05"
+        }
+      ],
+      "finishDescription": "A toddler bowl or plate of 밥, 브로콜리, 계란, 당근, soft toddler-friendly small pieces, moist and easy to chew, mild home cooking look. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0491",
+      "name": "계란채소죽",
+      "audience": "toddler",
+      "heroImageKey": "toddler_egg_veg_porridge_breakfast",
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "1/2공기"
+        },
+        {
+          "name": "계란",
+          "amount": "1개"
+        },
+        {
+          "name": "애호박",
+          "amount": "2큰술"
+        },
+        {
+          "name": "당근",
+          "amount": "2큰술"
+        },
+        {
+          "name": "물",
+          "amount": "300ml"
+        },
+        {
+          "name": "소금",
+          "amount": "1꼬집"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "채소 잘게 다지기",
+          "instruction": "애호박 2큰술과 당근 2큰술을 5mm 이하로 잘게 다져요.",
+          "imageKey": "toddler_egg_veg_porridge_breakfast_step_01"
+        },
+        {
+          "order": 2,
+          "title": "죽 끓이기",
+          "instruction": "냄비에 물 300ml와 밥 1/2공기, 다진 채소를 넣고 10분 끓여 부드럽게 풀어요.",
+          "imageKey": "toddler_egg_veg_porridge_breakfast_step_02"
+        },
+        {
+          "order": 3,
+          "title": "계란 풀어 넣기",
+          "instruction": "푼 계란 1개를 천천히 넣으며 2분 저어 부드럽게 익혀요.",
+          "imageKey": "toddler_egg_veg_porridge_breakfast_step_03"
+        },
+        {
+          "order": 4,
+          "title": "농도 맞추기",
+          "instruction": "소금 1꼬집으로 간하고, 너무 되직하면 물 2큰술을 더 넣어 숟가락으로 뜨기 쉽게 해요.",
+          "imageKey": "toddler_egg_veg_porridge_breakfast_step_04"
+        },
+        {
+          "order": 5,
+          "title": "식혀 내기",
+          "instruction": "5분 식혀 미지근해진 뒤 보호자가 한 숟갈씩 떠 내요.",
+          "imageKey": "toddler_egg_veg_porridge_breakfast_step_05"
+        }
+      ],
+      "finishDescription": "A toddler bowl or plate of 밥, 계란, 애호박, 당근, soft mashed toddler texture with only tiny soft pieces, not baby puree, mild home cooking look. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0492",
+      "name": "바나나팬케이크",
+      "audience": "toddler",
+      "heroImageKey": "toddler_banana_pancake_snack",
+      "ingredients": [
+        {
+          "name": "바나나",
+          "amount": "1/2개"
+        },
+        {
+          "name": "밀가루",
+          "amount": "50g"
+        },
+        {
+          "name": "계란",
+          "amount": "1개"
+        },
+        {
+          "name": "우유",
+          "amount": "60ml"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "소금",
+          "amount": "1꼬집"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "바나나 으깨기",
+          "instruction": "바나나 1/2개를 포크로 완전히 으깨 덩어리가 남지 않게 해요.",
+          "imageKey": "toddler_banana_pancake_snack_step_01"
+        },
+        {
+          "order": 2,
+          "title": "반죽 섞기",
+          "instruction": "볼에 밀가루 50g, 푼 계란 1개, 우유 60ml, 소금 1꼬집, 으깬 바나나를 넣고 덩어리 없이 섞어요.",
+          "imageKey": "toddler_banana_pancake_snack_step_02"
+        },
+        {
+          "order": 3,
+          "title": "팬 달구기",
+          "instruction": "팬에 식용유 1작은술을 두르고 키친타월로 얇게 닦은 뒤 약불로 달궈요.",
+          "imageKey": "toddler_banana_pancake_snack_step_03"
+        },
+        {
+          "order": 4,
+          "title": "작게 구워 내기",
+          "instruction": "반죽을 국자 1/2국자씩 올려 동전보다 조금 큰 크기로 3장 구워요.",
+          "imageKey": "toddler_banana_pancake_snack_step_04"
+        },
+        {
+          "order": 5,
+          "title": "식혀 내기",
+          "instruction": "3분 식힌 뒤 보호자가 한 조각씩 떼어 내요.",
+          "imageKey": "toddler_banana_pancake_snack_step_05"
+        }
+      ],
+      "finishDescription": "A toddler bowl or plate of 바나나, 밀가루, 계란, 우유, home-style small toddler portions, not thick cafe dessert, mild home cooking look. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0493",
+      "name": "고구마팬케이크",
+      "audience": "toddler",
+      "heroImageKey": "toddler_sweet_potato_pancake_snack",
+      "ingredients": [
+        {
+          "name": "고구마",
+          "amount": "1개(120g)"
+        },
+        {
+          "name": "밀가루",
+          "amount": "40g"
+        },
+        {
+          "name": "계란",
+          "amount": "1개"
+        },
+        {
+          "name": "우유",
+          "amount": "40ml"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "소금",
+          "amount": "1꼬집"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "고구마 찌기",
+          "instruction": "씻은 고구마 1개에 구멍을 내고 600W에서 5분 돌려 익혀요.",
+          "imageKey": "toddler_sweet_potato_pancake_snack_step_01"
+        },
+        {
+          "order": 2,
+          "title": "고구마 으깨기",
+          "instruction": "조금 식혀 껍질을 벗기고 포크로 완전히 으깨 덩어리가 남지 않게 해요.",
+          "imageKey": "toddler_sweet_potato_pancake_snack_step_02"
+        },
+        {
+          "order": 3,
+          "title": "반죽 섞기",
+          "instruction": "볼에 으깬 고구마, 밀가루 40g, 푼 계란 1개, 우유 40ml, 소금 1꼬집을 넣고 섞어요.",
+          "imageKey": "toddler_sweet_potato_pancake_snack_step_03"
+        },
+        {
+          "order": 4,
+          "title": "작게 구워 내기",
+          "instruction": "팬에 식용유 1작은술을 두르고 반죽을 동전보다 조금 큰 크기로 3장 구워요.",
+          "imageKey": "toddler_sweet_potato_pancake_snack_step_04"
+        },
+        {
+          "order": 5,
+          "title": "식혀 내기",
+          "instruction": "3분 식힌 뒤 보호자가 한 조각씩 떼어 내요.",
+          "imageKey": "toddler_sweet_potato_pancake_snack_step_05"
+        }
+      ],
+      "finishDescription": "A toddler bowl or plate of 고구마, 밀가루, 계란, 우유, home-style small toddler portions, not thick cafe dessert, mild home cooking look. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0494",
+      "name": "감자치즈전",
+      "audience": "toddler",
+      "heroImageKey": "toddler_potato_cheese_pancake_snack",
+      "ingredients": [
+        {
+          "name": "감자",
+          "amount": "1/2개(80g)"
+        },
+        {
+          "name": "슬라이스치즈",
+          "amount": "1/2장"
+        },
+        {
+          "name": "계란",
+          "amount": "1개"
+        },
+        {
+          "name": "양파",
+          "amount": "1큰술"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "소금",
+          "amount": "1꼬집"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "감자 갈기",
+          "instruction": "감자 1/2개는 껍질을 벗기고 강판에 5mm 이하로 갈고 물기를 짜요.",
+          "imageKey": "toddler_potato_cheese_pancake_snack_step_01"
+        },
+        {
+          "order": 2,
+          "title": "치즈 잘게 썰기",
+          "instruction": "슬라이스치즈 1/2장을 5mm 이하 작은 조각으로 잘라요.",
+          "imageKey": "toddler_potato_cheese_pancake_snack_step_02"
+        },
+        {
+          "order": 3,
+          "title": "반죽 섞기",
+          "instruction": "볼에 갈은 감자, 푼 계란 1개, 잘게 썬 치즈, 다진 양파 1큰술, 소금 1꼬집을 넣고 섞어요.",
+          "imageKey": "toddler_potato_cheese_pancake_snack_step_03"
+        },
+        {
+          "order": 4,
+          "title": "작게 부치기",
+          "instruction": "팬에 식용유 1작은술을 두르고 동전보다 조금 큰 크기로 3장 부쳐 앞뒤 2분씩 구워요.",
+          "imageKey": "toddler_potato_cheese_pancake_snack_step_04"
+        },
+        {
+          "order": 5,
+          "title": "식혀 내기",
+          "instruction": "3분 식힌 뒤 보호자가 한 조각씩 떼어 내요.",
+          "imageKey": "toddler_potato_cheese_pancake_snack_step_05"
+        }
+      ],
+      "finishDescription": "A toddler bowl or plate of 감자, 슬라이스치즈, 계란, 양파, home-style small toddler portions, not thick cafe dessert, mild home cooking look. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0495",
+      "name": "찐단호박",
+      "audience": "toddler",
+      "heroImageKey": "toddler_steamed_pumpkin_snack",
+      "ingredients": [
+        {
+          "name": "단호박",
+          "amount": "100g"
+        },
+        {
+          "name": "물",
+          "amount": "2큰술"
+        },
+        {
+          "name": "식용유",
+          "amount": "1/4작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "단호박 손질하기",
+          "instruction": "단호박 100g의 껍질과 씨와 속을 모두 제거하고 1cm 이하 큐브로 썰어요.",
+          "imageKey": "toddler_steamed_pumpkin_snack_step_01"
+        },
+        {
+          "order": 2,
+          "title": "단호박 찌기",
+          "instruction": "찜기 물을 끓인 뒤 단호박을 넣고 10분 쪄요.",
+          "imageKey": "toddler_steamed_pumpkin_snack_step_02"
+        },
+        {
+          "order": 3,
+          "title": "반쯤 으깨기",
+          "instruction": "절반은 포크로 으깨고 절반은 1cm 이하 작은 조각으로 남겨요.",
+          "imageKey": "toddler_steamed_pumpkin_snack_step_03"
+        },
+        {
+          "order": 4,
+          "title": "담아 내기",
+          "instruction": "그릇에 담고 식용유 1/4작은술을 살짝 발라 달라붙지 않게 해요.",
+          "imageKey": "toddler_steamed_pumpkin_snack_step_04"
+        },
+        {
+          "order": 5,
+          "title": "식혀 내기",
+          "instruction": "3분 식힌 뒤 보호자가 한 숟갈씩 떠 내요.",
+          "imageKey": "toddler_steamed_pumpkin_snack_step_05"
+        }
+      ],
+      "finishDescription": "A toddler bowl or plate of 단호박, soft toddler-friendly small pieces, moist and easy to chew, mild home cooking look. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0496",
+      "name": "블루베리요거트",
+      "audience": "toddler",
+      "heroImageKey": "toddler_blueberry_yogurt_snack",
+      "ingredients": [
+        {
+          "name": "플레인요구르트",
+          "amount": "100g"
+        },
+        {
+          "name": "블루베리",
+          "amount": "40g"
+        },
+        {
+          "name": "우유",
+          "amount": "1큰술"
+        },
+        {
+          "name": "물",
+          "amount": "1큰술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "블루베리 으깨기",
+          "instruction": "블루베리 40g을 포크로 완전히 으깨 덩어리가 남지 않게 해요.",
+          "imageKey": "toddler_blueberry_yogurt_snack_step_01"
+        },
+        {
+          "order": 2,
+          "title": "요거트 섞기",
+          "instruction": "플레인요구르트 100g과 우유 1큰술을 넣고 고루 섞어요.",
+          "imageKey": "toddler_blueberry_yogurt_snack_step_02"
+        },
+        {
+          "order": 3,
+          "title": "블루베리 넣기",
+          "instruction": "으깬 블루베리를 넣고 30초 더 섞어요. 너무 되직하면 물 1큰술을 더해요.",
+          "imageKey": "toddler_blueberry_yogurt_snack_step_03"
+        },
+        {
+          "order": 4,
+          "title": "그릇에 담기",
+          "instruction": "그릇에 담고 보호자가 한 숟갈씩 떠 내요.",
+          "imageKey": "toddler_blueberry_yogurt_snack_step_04"
+        }
+      ],
+      "finishDescription": "A toddler bowl or plate of 플레인요구르트, 블루베리, 우유, soft mashed toddler texture with only tiny soft pieces, not baby puree, mild home cooking look. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0497",
+      "name": "단호박요거트",
+      "audience": "toddler",
+      "heroImageKey": "toddler_pumpkin_yogurt_snack",
+      "ingredients": [
+        {
+          "name": "플레인요구르트",
+          "amount": "100g"
+        },
+        {
+          "name": "단호박",
+          "amount": "60g"
+        },
+        {
+          "name": "물",
+          "amount": "2큰술"
+        },
+        {
+          "name": "우유",
+          "amount": "1큰술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "단호박 손질하기",
+          "instruction": "단호박 60g의 껍질과 씨와 속을 모두 제거하고 1cm 이하 큐브로 썰어요.",
+          "imageKey": "toddler_pumpkin_yogurt_snack_step_01"
+        },
+        {
+          "order": 2,
+          "title": "단호박 무르게 익히기",
+          "instruction": "작은 냄비에 물 2큰술과 단호박을 넣고 8분 끓여 포크로 완전히 으깨요.",
+          "imageKey": "toddler_pumpkin_yogurt_snack_step_02"
+        },
+        {
+          "order": 3,
+          "title": "요거트 섞기",
+          "instruction": "플레인요구르트 100g, 우유 1큰술, 으깬 단호박을 넣고 고루 섞어요.",
+          "imageKey": "toddler_pumpkin_yogurt_snack_step_03"
+        },
+        {
+          "order": 4,
+          "title": "그릇에 담기",
+          "instruction": "그릇에 담고 보호자가 한 숟갈씩 떠 내요.",
+          "imageKey": "toddler_pumpkin_yogurt_snack_step_04"
+        }
+      ],
+      "finishDescription": "A toddler bowl or plate of 플레인요구르트, 단호박, 우유, soft mashed toddler texture with only tiny soft pieces, not baby puree, mild home cooking look. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0498",
+      "name": "계란빵",
+      "audience": "toddler",
+      "heroImageKey": "toddler_egg_bread_snack",
+      "ingredients": [
+        {
+          "name": "밀가루",
+          "amount": "60g"
+        },
+        {
+          "name": "계란",
+          "amount": "1개"
+        },
+        {
+          "name": "우유",
+          "amount": "80ml"
+        },
+        {
+          "name": "버터",
+          "amount": "5g"
+        },
+        {
+          "name": "소금",
+          "amount": "1꼬집"
+        },
+        {
+          "name": "식용유",
+          "amount": "1/2작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "반죽 섞기",
+          "instruction": "볼에 밀가루 60g, 푼 계란 1개, 우유 80ml, 녹인 버터 5g, 소금 1꼬집을 넣고 덩어리 없이 섞어요.",
+          "imageKey": "toddler_egg_bread_snack_step_01"
+        },
+        {
+          "order": 2,
+          "title": "틀에 담기",
+          "instruction": "종이컵 2개에 식용유 1/2작은술을 발라 반죽을 각각 1/2씩 담아요.",
+          "imageKey": "toddler_egg_bread_snack_step_02"
+        },
+        {
+          "order": 3,
+          "title": "전자레인지 굽기",
+          "instruction": "600W에서 2분 돌린 뒤 1분 더 돌려 부드럽게 익혀요.",
+          "imageKey": "toddler_egg_bread_snack_step_03"
+        },
+        {
+          "order": 4,
+          "title": "한입 크기로 자르기",
+          "instruction": "조금 식혀 1cm 이하 작은 조각으로 잘라요.",
+          "imageKey": "toddler_egg_bread_snack_step_04"
+        },
+        {
+          "order": 5,
+          "title": "식혀 내기",
+          "instruction": "3분 더 식힌 뒤 보호자가 한 조각씩 떼어 내요.",
+          "imageKey": "toddler_egg_bread_snack_step_05"
+        }
+      ],
+      "finishDescription": "A toddler bowl or plate of 밀가루, 계란, 우유, home-style small toddler portions, not thick cafe dessert, mild home cooking look. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0499",
+      "name": "바나나오트밀볼",
+      "audience": "toddler",
+      "heroImageKey": "toddler_banana_oatmeal_bowl_snack",
+      "ingredients": [
+        {
+          "name": "오트밀",
+          "amount": "25g"
+        },
+        {
+          "name": "바나나",
+          "amount": "1/2개"
+        },
+        {
+          "name": "물",
+          "amount": "2큰술"
+        },
+        {
+          "name": "우유",
+          "amount": "150ml"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "바나나 으깨기",
+          "instruction": "바나나 1/2개를 포크로 완전히 으깨 덩어리가 남지 않게 해요.",
+          "imageKey": "toddler_banana_oatmeal_bowl_snack_step_01"
+        },
+        {
+          "order": 2,
+          "title": "오트밀 끓이기",
+          "instruction": "냄비에 우유 150ml와 오트밀 25g을 넣고 중약불에서 4분 저으며 끓여요.",
+          "imageKey": "toddler_banana_oatmeal_bowl_snack_step_02"
+        },
+        {
+          "order": 3,
+          "title": "바나나 섞기",
+          "instruction": "으깬 바나나를 넣고 1분 더 저어 부드럽게 섞어요.",
+          "imageKey": "toddler_banana_oatmeal_bowl_snack_step_03"
+        },
+        {
+          "order": 4,
+          "title": "농도 맞추기",
+          "instruction": "너무 되직하면 물 2큰술을 넣어 숟가락으로 뜨기 쉽게 만들어요.",
+          "imageKey": "toddler_banana_oatmeal_bowl_snack_step_04"
+        },
+        {
+          "order": 5,
+          "title": "식혀 내기",
+          "instruction": "그릇에 담고 2분 식힌 뒤 보호자가 한 숟갈씩 떠 내요.",
+          "imageKey": "toddler_banana_oatmeal_bowl_snack_step_05"
+        }
+      ],
+      "finishDescription": "A toddler bowl or plate of 오트밀, 바나나, 우유, soft mashed toddler texture with only tiny soft pieces, not baby puree, mild home cooking look. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0500",
+      "name": "닭고기간장덮밥",
+      "audience": "elementary",
+      "heroImageKey": "elementary_chicken_soy_donburi",
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "1공기"
+        },
+        {
+          "name": "닭가슴살",
+          "amount": "80g"
+        },
+        {
+          "name": "양파",
+          "amount": "1/4개"
+        },
+        {
+          "name": "대파",
+          "amount": "1/4대"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "간장",
+          "amount": "1.5큰술"
+        },
+        {
+          "name": "설탕",
+          "amount": "1/2작은술"
+        },
+        {
+          "name": "참기름",
+          "amount": "1/2작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "재료 썰기",
+          "instruction": "닭가슴살 80g은 한입 크기로 썰고 양파 1/4개는 얇게 채 썰며 대파는 송송 썰어요.",
+          "imageKey": "elementary_chicken_soy_donburi_step_01"
+        },
+        {
+          "order": 2,
+          "title": "닭고기 볶기",
+          "instruction": "팬에 식용유 1작은술을 두르고 양파와 닭고기를 중불에서 3분 볶아요.",
+          "imageKey": "elementary_chicken_soy_donburi_step_02"
+        },
+        {
+          "order": 3,
+          "title": "간장 양념하기",
+          "instruction": "간장 1.5큰술과 설탕 1/2작은술을 넣고 2분 더 볶아 양념이 배게 해요.",
+          "imageKey": "elementary_chicken_soy_donburi_step_03"
+        },
+        {
+          "order": 4,
+          "title": "대파 넣기",
+          "instruction": "대파와 참기름 1/2작은술을 넣고 30초 더 볶아요.",
+          "imageKey": "elementary_chicken_soy_donburi_step_04"
+        },
+        {
+          "order": 5,
+          "title": "밥 위에 올리기",
+          "instruction": "그릇에 밥 1공기를 담고 닭고기간장을 올려 바로 내요.",
+          "imageKey": "elementary_chicken_soy_donburi_step_05"
+        }
+      ],
+      "finishDescription": "Home dinner bowl or plate of 밥, 닭가슴살, 양파, 대파, protein and sauce visibly distinct over rice or main. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0501",
+      "name": "참치계란덮밥",
+      "audience": "elementary",
+      "heroImageKey": "elementary_tuna_egg_donburi",
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "1공기"
+        },
+        {
+          "name": "참치캔",
+          "amount": "1/2캔"
+        },
+        {
+          "name": "계란",
+          "amount": "1개"
+        },
+        {
+          "name": "대파",
+          "amount": "1/4대"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "간장",
+          "amount": "1큰술"
+        },
+        {
+          "name": "참기름",
+          "amount": "1/2작은술"
+        },
+        {
+          "name": "소금",
+          "amount": "1/8작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "참치 기름 빼기",
+          "instruction": "참치 1/2캔을 체에 밭쳐 숟가락으로 눌러 기름을 빼요.",
+          "imageKey": "elementary_tuna_egg_donburi_step_01"
+        },
+        {
+          "order": 2,
+          "title": "참치 볶기",
+          "instruction": "팬에 식용유 1작은술을 두르고 참치를 중불에서 2분 볶아요.",
+          "imageKey": "elementary_tuna_egg_donburi_step_02"
+        },
+        {
+          "order": 3,
+          "title": "계란 스크램블",
+          "instruction": "한쪽으로 밀고 푼 계란 1개를 둘러 1분 저어 스크램블로 완전히 익혀요.",
+          "imageKey": "elementary_tuna_egg_donburi_step_03"
+        },
+        {
+          "order": 4,
+          "title": "양념하기",
+          "instruction": "간장 1큰술, 소금 1/8작은술, 대파, 참기름 1/2작은술을 넣고 가볍게 섞어요.",
+          "imageKey": "elementary_tuna_egg_donburi_step_04"
+        },
+        {
+          "order": 5,
+          "title": "밥 위에 올리기",
+          "instruction": "그릇에 밥 1공기를 담고 참치계란을 올려 바로 내요.",
+          "imageKey": "elementary_tuna_egg_donburi_step_05"
+        }
+      ],
+      "finishDescription": "Home dinner bowl or plate of 밥, 참치캔, 계란, 대파, protein and sauce visibly distinct over rice or main. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0502",
+      "name": "돼지고기양배추덮밥",
+      "audience": "elementary",
+      "heroImageKey": "elementary_pork_cabbage_donburi",
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "1공기"
+        },
+        {
+          "name": "돼지고기",
+          "amount": "80g"
+        },
+        {
+          "name": "양배추",
+          "amount": "1/4개"
+        },
+        {
+          "name": "양파",
+          "amount": "1/4개"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "간장",
+          "amount": "1큰술"
+        },
+        {
+          "name": "설탕",
+          "amount": "1/2작은술"
+        },
+        {
+          "name": "참기름",
+          "amount": "1/2작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "재료 썰기",
+          "instruction": "돼지고기 80g은 한입 크기로 썰고 양배추 1/4개와 양파 1/4개는 얇게 채 썰어요.",
+          "imageKey": "elementary_pork_cabbage_donburi_step_01"
+        },
+        {
+          "order": 2,
+          "title": "돼지고기 볶기",
+          "instruction": "팬에 식용유 1작은술을 두르고 돼지고기를 중불에서 3분 볶아요.",
+          "imageKey": "elementary_pork_cabbage_donburi_step_02"
+        },
+        {
+          "order": 3,
+          "title": "양배추 넣기",
+          "instruction": "양배추와 양파를 넣고 2분 더 볶아요.",
+          "imageKey": "elementary_pork_cabbage_donburi_step_03"
+        },
+        {
+          "order": 4,
+          "title": "양념하기",
+          "instruction": "간장 1큰술, 설탕 1/2작은술, 참기름 1/2작은술을 넣고 1분 더 볶아요.",
+          "imageKey": "elementary_pork_cabbage_donburi_step_04"
+        },
+        {
+          "order": 5,
+          "title": "밥 위에 올리기",
+          "instruction": "그릇에 밥 1공기를 담고 돼지고기양배추를 올려 바로 내요.",
+          "imageKey": "elementary_pork_cabbage_donburi_step_05"
+        }
+      ],
+      "finishDescription": "Home dinner bowl or plate of 밥, 돼지고기, 양배추, 양파, protein and sauce visibly distinct over rice or main. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0503",
+      "name": "닭고기카레볶음밥",
+      "audience": "elementary",
+      "heroImageKey": "elementary_chicken_curry_fried_rice",
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "1공기"
+        },
+        {
+          "name": "닭가슴살",
+          "amount": "80g"
+        },
+        {
+          "name": "양파",
+          "amount": "1/4개"
+        },
+        {
+          "name": "당근",
+          "amount": "2큰술"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "카레가루",
+          "amount": "1큰술"
+        },
+        {
+          "name": "간장",
+          "amount": "1/2큰술"
+        },
+        {
+          "name": "소금",
+          "amount": "1/8작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "재료 썰기",
+          "instruction": "닭가슴살 80g은 한입 크기로 썰고 양파 1/4개와 당근 2큰술은 잘게 다져요.",
+          "imageKey": "elementary_chicken_curry_fried_rice_step_01"
+        },
+        {
+          "order": 2,
+          "title": "닭고기 볶기",
+          "instruction": "팬에 식용유 1작은술을 두르고 닭고기를 중불에서 3분 볶아요.",
+          "imageKey": "elementary_chicken_curry_fried_rice_step_02"
+        },
+        {
+          "order": 3,
+          "title": "채소·카레 볶기",
+          "instruction": "양파와 당근을 넣고 카레가루 1큰술을 뿌려 2분 더 볶아요.",
+          "imageKey": "elementary_chicken_curry_fried_rice_step_03"
+        },
+        {
+          "order": 4,
+          "title": "밥 볶기",
+          "instruction": "밥 1공기를 넣고 간장 1/2큰술, 소금 1/8작은술을 넣어 3분 볶아요.",
+          "imageKey": "elementary_chicken_curry_fried_rice_step_04"
+        },
+        {
+          "order": 5,
+          "title": "그릇에 담기",
+          "instruction": "카레향이 고르게 배면 불을 끄고 그릇에 담아 바로 내요.",
+          "imageKey": "elementary_chicken_curry_fried_rice_step_05"
+        }
+      ],
+      "finishDescription": "Home dinner bowl or plate of 밥, 닭가슴살, 양파, 당근, 카레가루, protein and sauce visibly distinct over rice or main. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0504",
+      "name": "소고기버섯볶음밥",
+      "audience": "elementary",
+      "heroImageKey": "elementary_beef_mushroom_fried_rice",
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "1공기"
+        },
+        {
+          "name": "소고기",
+          "amount": "80g"
+        },
+        {
+          "name": "버섯",
+          "amount": "4개"
+        },
+        {
+          "name": "양파",
+          "amount": "1/4개"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "간장",
+          "amount": "1큰술"
+        },
+        {
+          "name": "참기름",
+          "amount": "1/2작은술"
+        },
+        {
+          "name": "소금",
+          "amount": "1/8작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "재료 썰기",
+          "instruction": "소고기 80g은 한입 크기로 썰고 버섯 4개와 양파 1/4개는 잘게 다져요.",
+          "imageKey": "elementary_beef_mushroom_fried_rice_step_01"
+        },
+        {
+          "order": 2,
+          "title": "소고기 볶기",
+          "instruction": "팬에 식용유 1작은술을 두르고 소고기를 중불에서 3분 볶아요.",
+          "imageKey": "elementary_beef_mushroom_fried_rice_step_02"
+        },
+        {
+          "order": 3,
+          "title": "버섯·양파 볶기",
+          "instruction": "버섯과 양파를 넣고 2분 더 볶아요.",
+          "imageKey": "elementary_beef_mushroom_fried_rice_step_03"
+        },
+        {
+          "order": 4,
+          "title": "밥 볶기",
+          "instruction": "밥 1공기를 넣고 간장 1큰술, 소금 1/8작은술을 넣어 3분 볶아요.",
+          "imageKey": "elementary_beef_mushroom_fried_rice_step_04"
+        },
+        {
+          "order": 5,
+          "title": "참기름으로 마무리",
+          "instruction": "참기름 1/2작은술을 넣고 30초 더 볶아 그릇에 담아 내요.",
+          "imageKey": "elementary_beef_mushroom_fried_rice_step_05"
+        }
+      ],
+      "finishDescription": "Home dinner bowl or plate of 밥, 소고기, 버섯, 양파, protein and sauce visibly distinct over rice or main. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0505",
+      "name": "햄계란볶음밥",
+      "audience": "elementary",
+      "heroImageKey": "elementary_ham_egg_fried_rice",
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "1공기"
+        },
+        {
+          "name": "햄",
+          "amount": "3장"
+        },
+        {
+          "name": "계란",
+          "amount": "1개"
+        },
+        {
+          "name": "대파",
+          "amount": "1/4대"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "간장",
+          "amount": "1큰술"
+        },
+        {
+          "name": "소금",
+          "amount": "1/8작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "햄 썰기",
+          "instruction": "햄 3장을 1cm 폭으로 썰고 대파 1/4대는 송송 썰어요.",
+          "imageKey": "elementary_ham_egg_fried_rice_step_01"
+        },
+        {
+          "order": 2,
+          "title": "햄 볶기",
+          "instruction": "팬에 식용유 1작은술을 두르고 햄을 중불에서 2분 볶아요.",
+          "imageKey": "elementary_ham_egg_fried_rice_step_02"
+        },
+        {
+          "order": 3,
+          "title": "계란 스크램블",
+          "instruction": "한쪽으로 밀고 푼 계란 1개를 둘러 1분 저어 스크램블로 완전히 익혀요.",
+          "imageKey": "elementary_ham_egg_fried_rice_step_03"
+        },
+        {
+          "order": 4,
+          "title": "밥 볶기",
+          "instruction": "밥 1공기를 넣고 간장 1큰술, 소금 1/8작은술, 대파를 넣어 3분 볶아요.",
+          "imageKey": "elementary_ham_egg_fried_rice_step_04"
+        },
+        {
+          "order": 5,
+          "title": "그릇에 담기",
+          "instruction": "재료가 고르게 섞이면 불을 끄고 그릇에 담아 바로 내요.",
+          "imageKey": "elementary_ham_egg_fried_rice_step_05"
+        }
+      ],
+      "finishDescription": "Home dinner bowl or plate of 밥, 햄, 계란, 대파, protein and sauce visibly distinct over rice or main. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0506",
+      "name": "닭안심간장구이",
+      "audience": "elementary",
+      "heroImageKey": "elementary_chicken_soy_grill",
+      "ingredients": [
+        {
+          "name": "닭가슴살",
+          "amount": "120g"
+        },
+        {
+          "name": "밥",
+          "amount": "1공기"
+        },
+        {
+          "name": "브로콜리",
+          "amount": "3송이"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "간장",
+          "amount": "1.5큰술"
+        },
+        {
+          "name": "설탕",
+          "amount": "1/2작은술"
+        },
+        {
+          "name": "참기름",
+          "amount": "1/2작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "닭고기 재우기",
+          "instruction": "닭가슴살 120g을 1cm 두께로 펴고 간장 1큰술, 설탕 1/2작은술을 발라 5분 재워요.",
+          "imageKey": "elementary_chicken_soy_grill_step_01"
+        },
+        {
+          "order": 2,
+          "title": "닭고기 굽기",
+          "instruction": "팬에 식용유 1작은술을 두르고 닭고기를 중불에서 앞뒤 3분씩 구워요.",
+          "imageKey": "elementary_chicken_soy_grill_step_02"
+        },
+        {
+          "order": 3,
+          "title": "브로콜리 데치기",
+          "instruction": "끓는 물에 브로콜리 3송이를 2분 데친 뒤 물기를 빼요.",
+          "imageKey": "elementary_chicken_soy_grill_step_03"
+        },
+        {
+          "order": 4,
+          "title": "간장 소스 만들기",
+          "instruction": "남은 간장 1/2큰술과 참기름 1/2작은술을 섞어 소스를 만들어요.",
+          "imageKey": "elementary_chicken_soy_grill_step_04"
+        },
+        {
+          "order": 5,
+          "title": "담아 내기",
+          "instruction": "접시에 밥 1공기와 구운 닭안심, 브로콜리를 담고 소스를 뿌려 내요.",
+          "imageKey": "elementary_chicken_soy_grill_step_05"
+        }
+      ],
+      "finishDescription": "Home dinner bowl or plate of 닭가슴살, 밥, 브로콜리, protein and sauce visibly distinct over rice or main. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0507",
+      "name": "두부계란조림밥",
+      "audience": "elementary",
+      "heroImageKey": "elementary_tofu_egg_simmer_rice",
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "1공기"
+        },
+        {
+          "name": "두부",
+          "amount": "100g"
+        },
+        {
+          "name": "계란",
+          "amount": "1개"
+        },
+        {
+          "name": "대파",
+          "amount": "1/4대"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "물",
+          "amount": "1/2컵"
+        },
+        {
+          "name": "간장",
+          "amount": "1큰술"
+        },
+        {
+          "name": "참기름",
+          "amount": "1/2작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "두부 준비하기",
+          "instruction": "두부 100g은 키친타월로 물기를 빼고 1cm 큐브로 썰어요.",
+          "imageKey": "elementary_tofu_egg_simmer_rice_step_01"
+        },
+        {
+          "order": 2,
+          "title": "두부 볶기",
+          "instruction": "팬에 식용유 1작은술을 두르고 두부를 중불에서 2분 볶아요.",
+          "imageKey": "elementary_tofu_egg_simmer_rice_step_02"
+        },
+        {
+          "order": 3,
+          "title": "조림 끓이기",
+          "instruction": "물 1/2컵, 간장 1큰술을 넣고 3분 끓여 두부에 양념이 배게 해요.",
+          "imageKey": "elementary_tofu_egg_simmer_rice_step_03"
+        },
+        {
+          "order": 4,
+          "title": "계란 넣기",
+          "instruction": "푼 계란 1개를 둘러 2분 끓여 노른자까지 완전히 익혀요.",
+          "imageKey": "elementary_tofu_egg_simmer_rice_step_04"
+        },
+        {
+          "order": 5,
+          "title": "밥 위에 올리기",
+          "instruction": "그릇에 밥 1공기를 담고 두부계란조림을 올리고 대파와 참기름 1/2작은술을 뿌려 내요.",
+          "imageKey": "elementary_tofu_egg_simmer_rice_step_05"
+        }
+      ],
+      "finishDescription": "Home dinner bowl or plate of 밥, 두부, 계란, 대파, protein and sauce visibly distinct over rice or main. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0508",
+      "name": "소고기감자조림밥",
+      "audience": "elementary",
+      "heroImageKey": "elementary_beef_potato_stew_rice",
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "1공기"
+        },
+        {
+          "name": "소고기",
+          "amount": "80g"
+        },
+        {
+          "name": "감자",
+          "amount": "1개(100g)"
+        },
+        {
+          "name": "양파",
+          "amount": "1/4개"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "물",
+          "amount": "1/2컵"
+        },
+        {
+          "name": "간장",
+          "amount": "1큰술"
+        },
+        {
+          "name": "설탕",
+          "amount": "1/2작은술"
+        },
+        {
+          "name": "참기름",
+          "amount": "1/2작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "재료 썰기",
+          "instruction": "소고기 80g은 한입 크기로 썰고 감자 1개는 1.5cm 큐브로 썰며 양파 1/4개는 얇게 썰어요.",
+          "imageKey": "elementary_beef_potato_stew_rice_step_01"
+        },
+        {
+          "order": 2,
+          "title": "소고기 볶기",
+          "instruction": "팬에 식용유 1작은술을 두르고 소고기를 중불에서 3분 볶아요.",
+          "imageKey": "elementary_beef_potato_stew_rice_step_02"
+        },
+        {
+          "order": 3,
+          "title": "감자·양파 넣기",
+          "instruction": "감자와 양파를 넣고 물 1/2컵, 간장 1큰술, 설탕 1/2작은술을 넣어 8분 끓여요.",
+          "imageKey": "elementary_beef_potato_stew_rice_step_03"
+        },
+        {
+          "order": 4,
+          "title": "국물 줄이기",
+          "instruction": "감자가 포크로 쉽게 찔릴 정도면 뚜껑을 열고 2분 더 끓여 국물을 줄여요.",
+          "imageKey": "elementary_beef_potato_stew_rice_step_04"
+        },
+        {
+          "order": 5,
+          "title": "밥 위에 올리기",
+          "instruction": "그릇에 밥 1공기를 담고 소고기감자조림을 올리고 참기름 1/2작은술을 뿌려 내요.",
+          "imageKey": "elementary_beef_potato_stew_rice_step_05"
+        }
+      ],
+      "finishDescription": "Home dinner bowl or plate of 밥, 소고기, 감자, 양파, protein and sauce visibly distinct over rice or main. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0509",
+      "name": "닭고기감자덮밥",
+      "audience": "elementary",
+      "heroImageKey": "elementary_chicken_potato_donburi",
+      "ingredients": [
+        {
+          "name": "밥",
+          "amount": "1공기"
+        },
+        {
+          "name": "닭가슴살",
+          "amount": "80g"
+        },
+        {
+          "name": "감자",
+          "amount": "1/2개(60g)"
+        },
+        {
+          "name": "양파",
+          "amount": "1/4개"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "간장",
+          "amount": "1큰술"
+        },
+        {
+          "name": "설탕",
+          "amount": "1/2작은술"
+        },
+        {
+          "name": "참기름",
+          "amount": "1/2작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "재료 썰기",
+          "instruction": "닭가슴살 80g은 한입 크기로 썰고 감자 1/2개는 1cm 큐브로 썰며 양파 1/4개는 얇게 썰어요.",
+          "imageKey": "elementary_chicken_potato_donburi_step_01"
+        },
+        {
+          "order": 2,
+          "title": "닭고기 볶기",
+          "instruction": "팬에 식용유 1작은술을 두르고 닭고기를 중불에서 3분 볶아요.",
+          "imageKey": "elementary_chicken_potato_donburi_step_02"
+        },
+        {
+          "order": 3,
+          "title": "감자·양파 볶기",
+          "instruction": "감자와 양파를 넣고 4분 더 볶아 감자가 부드러워지게 해요.",
+          "imageKey": "elementary_chicken_potato_donburi_step_03"
+        },
+        {
+          "order": 4,
+          "title": "양념하기",
+          "instruction": "간장 1큰술, 설탕 1/2작은술, 참기름 1/2작은술을 넣고 1분 더 볶아요.",
+          "imageKey": "elementary_chicken_potato_donburi_step_04"
+        },
+        {
+          "order": 5,
+          "title": "밥 위에 올리기",
+          "instruction": "그릇에 밥 1공기를 담고 닭고기감자를 올려 바로 내요.",
+          "imageKey": "elementary_chicken_potato_donburi_step_05"
+        }
+      ],
+      "finishDescription": "Home dinner bowl or plate of 밥, 닭가슴살, 감자, 양파, protein and sauce visibly distinct over rice or main. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0510",
+      "name": "고구마치즈토스트",
+      "audience": "elementary",
+      "heroImageKey": "elementary_sweet_potato_cheese_toast",
+      "ingredients": [
+        {
+          "name": "식빵",
+          "amount": "2장"
+        },
+        {
+          "name": "고구마",
+          "amount": "1개(120g)"
+        },
+        {
+          "name": "치즈",
+          "amount": "2장"
+        },
+        {
+          "name": "버터",
+          "amount": "1작은술"
+        },
+        {
+          "name": "소금",
+          "amount": "1꼬집"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "고구마 찌기",
+          "instruction": "고구마 1개를 씻어 포크로 구멍을 내고 전자레인지에 5분 돌려 부드럽게 익혀요.",
+          "imageKey": "elementary_sweet_potato_cheese_toast_step_01"
+        },
+        {
+          "order": 2,
+          "title": "고구마 으깨기",
+          "instruction": "껍질을 벗기고 포크로 으깬 뒤 소금 1꼬집을 넣어 섞어요.",
+          "imageKey": "elementary_sweet_potato_cheese_toast_step_02"
+        },
+        {
+          "order": 3,
+          "title": "식빵 굽기",
+          "instruction": "식빵 2장에 버터 1작은술을 바르고 팬에서 앞뒤 1분씩 노릇하게 구워요.",
+          "imageKey": "elementary_sweet_potato_cheese_toast_step_03"
+        },
+        {
+          "order": 4,
+          "title": "고구마·치즈 올리기",
+          "instruction": "식빵 1장에 으깬 고구마를 펴고 치즈 2장을 올려 나머지 식빵으로 덮어요.",
+          "imageKey": "elementary_sweet_potato_cheese_toast_step_04"
+        },
+        {
+          "order": 5,
+          "title": "치즈 녹여 자르기",
+          "instruction": "팬에서 뚜껑을 덮고 2분 더 데워 치즈가 녹으면 반으로 잘라 내요.",
+          "imageKey": "elementary_sweet_potato_cheese_toast_step_05"
+        }
+      ],
+      "finishDescription": "After-school snack of 식빵, 고구마, 치즈 on a clean plate, home-style not cafe dessert. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0511",
+      "name": "옥수수치즈전",
+      "audience": "elementary",
+      "heroImageKey": "elementary_corn_cheese_pancake",
+      "ingredients": [
+        {
+          "name": "캔옥수수",
+          "amount": "1/2컵"
+        },
+        {
+          "name": "치즈",
+          "amount": "2장"
+        },
+        {
+          "name": "계란",
+          "amount": "1개"
+        },
+        {
+          "name": "밀가루",
+          "amount": "2큰술"
+        },
+        {
+          "name": "식용유",
+          "amount": "1작은술"
+        },
+        {
+          "name": "소금",
+          "amount": "1/8작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "옥수수 물기 빼기",
+          "instruction": "캔옥수수 1/2컵을 체에 밭쳐 물기를 꼭 짜요.",
+          "imageKey": "elementary_corn_cheese_pancake_step_01"
+        },
+        {
+          "order": 2,
+          "title": "반죽 만들기",
+          "instruction": "볼에 옥수수, 푼 계란 1개, 밀가루 2큰술, 소금 1/8작은술을 넣고 섞어요.",
+          "imageKey": "elementary_corn_cheese_pancake_step_02"
+        },
+        {
+          "order": 3,
+          "title": "치즈 넣기",
+          "instruction": "잘게 썬 치즈 2장을 반죽에 넣고 가볍게 섞어요.",
+          "imageKey": "elementary_corn_cheese_pancake_step_03"
+        },
+        {
+          "order": 4,
+          "title": "전 부치기",
+          "instruction": "팬에 식용유 1작은술을 두르고 반죽을 1cm 두께로 펴 3분 부쳐요.",
+          "imageKey": "elementary_corn_cheese_pancake_step_04"
+        },
+        {
+          "order": 5,
+          "title": "뒤집어 마무리",
+          "instruction": "뒤집어 2분 더 부쳐 노릇해지면 4등분해 내요.",
+          "imageKey": "elementary_corn_cheese_pancake_step_05"
+        }
+      ],
+      "finishDescription": "After-school snack of 캔옥수수, 치즈, 계란, 밀가루 on a clean plate, home-style not cafe dessert. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0512",
+      "name": "참치또띠아롤",
+      "audience": "elementary",
+      "heroImageKey": "elementary_tuna_tortilla_roll",
+      "ingredients": [
+        {
+          "name": "또띠아",
+          "amount": "1장"
+        },
+        {
+          "name": "참치캔",
+          "amount": "1/2캔"
+        },
+        {
+          "name": "양배추",
+          "amount": "2장"
+        },
+        {
+          "name": "오이",
+          "amount": "1/4개"
+        },
+        {
+          "name": "마요네즈",
+          "amount": "1큰술"
+        },
+        {
+          "name": "소금",
+          "amount": "1꼬집"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "참치 기름 빼기",
+          "instruction": "참치 1/2캔을 체에 밭쳐 숟가락으로 눌러 기름을 빼요.",
+          "imageKey": "elementary_tuna_tortilla_roll_step_01"
+        },
+        {
+          "order": 2,
+          "title": "참치 섞기",
+          "instruction": "볼에 참치, 마요네즈 1큰술, 소금 1꼬집을 넣고 섞어요.",
+          "imageKey": "elementary_tuna_tortilla_roll_step_02"
+        },
+        {
+          "order": 3,
+          "title": "채소 썰기",
+          "instruction": "양배추 2장과 오이 1/4개를 가늘게 채 썰어요.",
+          "imageKey": "elementary_tuna_tortilla_roll_step_03"
+        },
+        {
+          "order": 4,
+          "title": "또띠아 데워 올리기",
+          "instruction": "또띠아 1장을 팬에서 20초씩 데운 뒤 참치, 양배추, 오이를 가운데에 올려요.",
+          "imageKey": "elementary_tuna_tortilla_roll_step_04"
+        },
+        {
+          "order": 5,
+          "title": "말아 자르기",
+          "instruction": "양쪽을 접어 단단히 말고 1cm 두께로 5~6조각 잘라 내요.",
+          "imageKey": "elementary_tuna_tortilla_roll_step_05"
+        }
+      ],
+      "finishDescription": "After-school snack of 또띠아, 참치캔, 양배추, 오이, 마요네즈 on a clean plate, home-style not cafe dessert. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0513",
+      "name": "바나나요거트볼",
+      "audience": "elementary",
+      "heroImageKey": "elementary_banana_yogurt_bowl",
+      "ingredients": [
+        {
+          "name": "바나나",
+          "amount": "1개"
+        },
+        {
+          "name": "플레인요구르트",
+          "amount": "120g"
+        },
+        {
+          "name": "물",
+          "amount": "1큰술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "바나나 으깨기",
+          "instruction": "바나나 1개를 그릇에 넣고 포크로 완전히 으깨요.",
+          "imageKey": "elementary_banana_yogurt_bowl_step_01"
+        },
+        {
+          "order": 2,
+          "title": "요거트 넣기",
+          "instruction": "플레인요구르트 120g을 넣고 섞어요.",
+          "imageKey": "elementary_banana_yogurt_bowl_step_02"
+        },
+        {
+          "order": 3,
+          "title": "그릇에 담기",
+          "instruction": "그릇에 담아 바로 내요.",
+          "imageKey": "elementary_banana_yogurt_bowl_step_03"
+        },
+        {
+          "order": 4,
+          "title": "한입 크기로 나누기",
+          "instruction": "숟가락으로 한입 크기씩 떠 주세요.",
+          "imageKey": "elementary_banana_yogurt_bowl_step_04"
+        }
+      ],
+      "finishDescription": "After-school snack of 바나나, 플레인요구르트 on a clean plate, home-style not cafe dessert. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0514",
+      "name": "사과요거트볼",
+      "audience": "elementary",
+      "heroImageKey": "elementary_apple_yogurt_bowl",
+      "ingredients": [
+        {
+          "name": "사과",
+          "amount": "1/2개"
+        },
+        {
+          "name": "플레인요구르트",
+          "amount": "120g"
+        },
+        {
+          "name": "레몬즙",
+          "amount": "1/2작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "사과 다지기",
+          "instruction": "사과 1/2개를 껍질을 벗기고 5mm 이하로 잘게 다져요.",
+          "imageKey": "elementary_apple_yogurt_bowl_step_01"
+        },
+        {
+          "order": 2,
+          "title": "레몬즙 넣기",
+          "instruction": "다진 사과에 레몬즙 1/2작은술을 넣고 섞어요.",
+          "imageKey": "elementary_apple_yogurt_bowl_step_02"
+        },
+        {
+          "order": 3,
+          "title": "요거트 섞기",
+          "instruction": "플레인요구르트 120g을 넣고 섞어요.",
+          "imageKey": "elementary_apple_yogurt_bowl_step_03"
+        },
+        {
+          "order": 4,
+          "title": "그릇에 담기",
+          "instruction": "그릇에 담아 바로 내요.",
+          "imageKey": "elementary_apple_yogurt_bowl_step_04"
+        },
+        {
+          "order": 5,
+          "title": "한입 크기로 나누기",
+          "instruction": "숟가락으로 한입 크기씩 떠 주세요.",
+          "imageKey": "elementary_apple_yogurt_bowl_step_05"
+        }
+      ],
+      "finishDescription": "After-school snack of 사과, 플레인요구르트, 레몬즙 on a clean plate, home-style not cafe dessert. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0515",
+      "name": "피자또띠아",
+      "audience": "elementary",
+      "heroImageKey": "elementary_pizza_tortilla",
+      "ingredients": [
+        {
+          "name": "또띠아",
+          "amount": "1장"
+        },
+        {
+          "name": "치즈",
+          "amount": "2장"
+        },
+        {
+          "name": "토마토소스",
+          "amount": "2큰술"
+        },
+        {
+          "name": "햄",
+          "amount": "2장"
+        },
+        {
+          "name": "식용유",
+          "amount": "1/2작은술"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "재료 준비하기",
+          "instruction": "햄 2장을 잘게 다지고 치즈 2장도 잘게 썰어요.",
+          "imageKey": "elementary_pizza_tortilla_step_01"
+        },
+        {
+          "order": 2,
+          "title": "또띠아에 소스 바르기",
+          "instruction": "또띠아 1장에 토마토소스 2큰술을 고르게 펴 발라요.",
+          "imageKey": "elementary_pizza_tortilla_step_02"
+        },
+        {
+          "order": 3,
+          "title": "토핑 올리기",
+          "instruction": "다진 햄과 치즈를 또띠아 위에 고르게 올려요.",
+          "imageKey": "elementary_pizza_tortilla_step_03"
+        },
+        {
+          "order": 4,
+          "title": "팬에서 구우기",
+          "instruction": "팬에 식용유 1/2작은술을 두르고 또띠아를 올린 뒤 뚜껑을 덮어 3분 구워요.",
+          "imageKey": "elementary_pizza_tortilla_step_04"
+        },
+        {
+          "order": 5,
+          "title": "자르기",
+          "instruction": "치즈가 녹으면 불을 끄고 4등분해 내요.",
+          "imageKey": "elementary_pizza_tortilla_step_05"
+        }
+      ],
+      "finishDescription": "After-school snack of 또띠아, 치즈, 토마토소스, 햄 on a clean plate, home-style not cafe dessert. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0516",
+      "name": "감자토스트",
+      "audience": "elementary",
+      "heroImageKey": "elementary_potato_toast",
+      "ingredients": [
+        {
+          "name": "식빵",
+          "amount": "2장"
+        },
+        {
+          "name": "감자",
+          "amount": "1개(100g)"
+        },
+        {
+          "name": "버터",
+          "amount": "1작은술"
+        },
+        {
+          "name": "소금",
+          "amount": "1/8작은술"
+        },
+        {
+          "name": "후추",
+          "amount": "1꼬집"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "감자 찌기",
+          "instruction": "감자 1개를 씻어 포크로 구멍을 내고 전자레인지에 4분 돌려 부드럽게 익혀요.",
+          "imageKey": "elementary_potato_toast_step_01"
+        },
+        {
+          "order": 2,
+          "title": "감자 으깨기",
+          "instruction": "껍질을 벗기고 포크로 으깬 뒤 소금 1/8작은술, 후추 1꼬집을 넣어 섞어요.",
+          "imageKey": "elementary_potato_toast_step_02"
+        },
+        {
+          "order": 3,
+          "title": "식빵 굽기",
+          "instruction": "식빵 2장에 버터 1작은술을 바르고 팬에서 앞뒤 1분씩 노릇하게 구워요.",
+          "imageKey": "elementary_potato_toast_step_03"
+        },
+        {
+          "order": 4,
+          "title": "감자 올리기",
+          "instruction": "식빵 1장에 으깬 감자를 펴고 나머지 식빵으로 덮어요.",
+          "imageKey": "elementary_potato_toast_step_04"
+        },
+        {
+          "order": 5,
+          "title": "반으로 자르기",
+          "instruction": "30초 식힌 뒤 반으로 잘라 내요.",
+          "imageKey": "elementary_potato_toast_step_05"
+        }
+      ],
+      "finishDescription": "After-school snack of 식빵, 감자, 후추 on a clean plate, home-style not cafe dessert. Soft daylight, empty table. No people, hands, text, or collage."
+    },
+    {
+      "recipeId": "recipe_0517",
+      "name": "감자구이",
+      "audience": "elementary",
+      "heroImageKey": "elementary_roasted_potato_snack",
+      "ingredients": [
+        {
+          "name": "감자",
+          "amount": "2개(200g)"
+        },
+        {
+          "name": "식용유",
+          "amount": "1큰술"
+        },
+        {
+          "name": "소금",
+          "amount": "1/4작은술"
+        },
+        {
+          "name": "후추",
+          "amount": "1꼬집"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "감자 썰기",
+          "instruction": "감자 2개를 씻어 껍질째 1cm 두께 쐐기 모양으로 썰어요.",
+          "imageKey": "elementary_roasted_potato_snack_step_01"
+        },
+        {
+          "order": 2,
+          "title": "물에 데치기",
+          "instruction": "끓는 물에 감자를 3분 데친 뒤 물기를 빼요.",
+          "imageKey": "elementary_roasted_potato_snack_step_02"
+        },
+        {
+          "order": 3,
+          "title": "양념하기",
+          "instruction": "감자에 식용유 1큰술, 소금 1/4작은술, 후추 1꼬집을 넣고 고르게 섞어요.",
+          "imageKey": "elementary_roasted_potato_snack_step_03"
+        },
+        {
+          "order": 4,
+          "title": "오븐·에어프라이어 굽기",
+          "instruction": "200도에서 12분 구워 가장자리가 노릇해지면 내요.",
+          "imageKey": "elementary_roasted_potato_snack_step_04"
+        },
+        {
+          "order": 5,
+          "title": "식혀 내기",
+          "instruction": "1분 식힌 뒤 접시에 담아 내요.",
+          "imageKey": "elementary_roasted_potato_snack_step_05"
+        }
+      ],
+      "finishDescription": "After-school snack of 감자, 후추 on a clean plate, home-style not cafe dessert. Soft daylight, empty table. No people, hands, text, or collage."
+    }
+  ]
+}

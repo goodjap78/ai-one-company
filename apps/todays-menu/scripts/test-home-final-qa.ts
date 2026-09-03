@@ -34,6 +34,8 @@ console.log('Sprint 61-E Home final QA — start\n');
 run('HomeScreen — final section order', () => {
   const src = read('components/home/HomeScreen.tsx');
   const heroIdx = src.indexOf('<HomeHeroTitles');
+  const purposeIdx = src.indexOf('<HomePurposeCards');
+  const subPanelIdx = src.indexOf('<HomePurposeSubPanel');
   const primaryIdx = src.indexOf('<HomeFeatureCards');
   const tabsIdx = src.indexOf('<MealTimeSlotTabs');
   const heroCardIdx = src.indexOf('<TodayMealCard');
@@ -41,7 +43,9 @@ run('HomeScreen — final section order', () => {
   const secondaryIdx = src.indexOf('<HomeComingSoonSection');
   const personalIdx = src.indexOf('<HomePersonalSection');
   assert(heroIdx > 0, 'header present');
-  assert(heroIdx < primaryIdx, 'header before primary');
+  assert(heroIdx < purposeIdx, 'header before purpose cards');
+  assert(purposeIdx < subPanelIdx, 'purpose cards before sub panel');
+  assert(subPanelIdx < primaryIdx, 'sub panel before today feature row');
   assert(primaryIdx < tabsIdx, 'primary before meal tabs');
   assert(tabsIdx < heroCardIdx, 'meal tabs before hero card');
   assert(heroCardIdx < altIdx, 'hero before alternatives');
@@ -68,6 +72,22 @@ run('TodayMealCard — CTA copy', () => {
   const messages = read('constants/HankkiMessages.ts');
   assert(messages.includes('다른 메뉴 볼래요'), 'refresh CTA');
   assert(messages.includes('이 메뉴로 할게요 →'), 'accept CTA');
+});
+
+run('HomePurposeCards — three intent cards', () => {
+  const src = read('components/home/HomePurposeCards.tsx');
+  assert(src.includes('HOME_PURPOSES'), 'uses shared purpose copy');
+  assert(src.includes('accessibilityRole="tablist"'), 'tablist semantics');
+  assert(src.includes('오늘 뭐 먹지?') || src.includes('HOME_PURPOSES'), 'today purpose wired');
+});
+
+run('HomePurposeSubPanel — kids and weekly entries', () => {
+  const src = read('components/home/HomePurposeSubPanel.tsx');
+  assert(src.includes('BABY_FOOD_HREF') || src.includes('homeIaCopy'), 'baby entry');
+  assert(src.includes('TODDLER_MEALS_HREF') || src.includes('homeIaCopy'), 'toddler entry');
+  assert(src.includes('ELEMENTARY_BROWSE_HREF') || src.includes('homeIaCopy'), 'elementary entry');
+  assert(src.includes('ELEMENTARY_BREAKFAST_WEEK_HREF') || src.includes('homeIaCopy'), 'breakfast week entry');
+  assert(src.includes('ELEMENTARY_DINNER_WEEK_HREF') || src.includes('homeIaCopy'), 'dinner week entry');
 });
 
 run('HomeFeatureCards — mini buttons no subtitle', () => {

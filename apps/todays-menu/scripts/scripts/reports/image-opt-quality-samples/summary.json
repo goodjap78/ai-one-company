@@ -1,0 +1,18 @@
+{
+  "heroAvgBytes": {
+    "q90": 0,
+    "q85": 0,
+    "q80": 0
+  },
+  "stepAvgBytes": {
+    "q90": 0,
+    "q85": 0,
+    "q80": 0
+  },
+  "recommendation": {
+    "heroQuality": 85,
+    "stepQuality": 80,
+    "rationale": "q85 typically ~25-40% smaller than q90 with minimal banding on food photos; step images display ~100x100 so q80 remains texture-readable while saving more."
+  },
+  "samples": []
+}

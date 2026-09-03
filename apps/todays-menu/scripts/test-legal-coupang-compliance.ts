@@ -65,8 +65,12 @@ run('Privacy distinguishes third-party provision vs external services', () => {
   assert(src.includes('제3자 제공'), 'third-party section kept');
   assert(!src.includes('쿠팡에 개인정보를 제공합니다'), 'no false PII-to-Coupang claim');
   assert(src.includes('광고 식별자'), 'ad id not in shopping request (stated)');
+  assert(
+    !src.includes('사진 라이브러리 접근을 현재 수행하지 않습니다'),
+    'no absolute no-photo-library claim',
+  );
   assert(src.includes('장보기 요청에 포함하지'), 'shopping request exclusion stated');
-  assert(src.includes('2026-08-15'), 'updated date');
+  assert(src.includes('2026-08-29'), 'updated date');
   assert(src.includes('Firebase Analytics'), 'Firebase Analytics disclosed');
   assert(src.includes('Google Analytics for Firebase'), 'GA for Firebase named');
   assert(

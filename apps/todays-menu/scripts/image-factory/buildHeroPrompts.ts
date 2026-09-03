@@ -14,6 +14,7 @@ import {
   SIDE_DISH_HERO_V2_VERSION,
   SIDE_DISH_SHOT_REQUIREMENTS,
 } from './sideDishHeroHints';
+import { getChildHeroFinishDescription } from './childHeroPromptOverrides';
 
 /** Sprint 60.11.1 — selective regen visual overrides (recipe-scoped). */
 const HERO_PROMPT_APPEND_BY_RECIPE_ID: Record<string, string> = {
@@ -22,6 +23,18 @@ const HERO_PROMPT_APPEND_BY_RECIPE_ID: Record<string, string> = {
 };
 
 function buildPromptParagraphs(recipe: CollectedRecipe): string[] {
+  const childFinish = getChildHeroFinishDescription(recipe.id);
+  if (childFinish) {
+    return [
+      childFinish,
+      `HANKKI child meal hero photograph for ${recipe.recipeTitle} (${recipe.heroImageKey}).`,
+      'Child recipe rules: ingredients and texture must match the description exactly; no extra garnish or foods not in the recipe; no people, hands, text, logos, or chopsticks.',
+      `HANKKI Official Hero Style ${HANKKI_HERO_STYLE_VERSION}. Soft natural daylight; food clearly identifiable; realistic home-cooked appearance.`,
+      'Food must look real, fresh, and edible — not glossy 3D or synthetic AI art.',
+      HERO_PROMPT_APPEND_BY_RECIPE_ID[recipe.id],
+    ].filter(Boolean);
+  }
+
   const mains =
     recipe.mainIngredients.length > 0
       ? recipe.mainIngredients.join(', ')

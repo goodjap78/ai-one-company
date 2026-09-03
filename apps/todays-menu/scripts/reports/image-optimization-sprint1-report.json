@@ -1,0 +1,38 @@
+{
+  "sprint": "HANKKI_IMAGE_OPTIMIZATION_SPRINT_1",
+  "recordedAt": "2026-08-26",
+  "selectedHeroQuality": 85,
+  "selectedStepQuality": 80,
+  "qualityRationale": "q85 ≈22% smaller than q90 on hero samples with no noticeable banding on food; step q80 acceptable at ~100×100 UI display while preserving puree texture.",
+  "auditBefore": {
+    "totalFiles": 449,
+    "pngAsJpg": 208,
+    "wrongDimension": 72,
+    "unused": 0,
+    "duplicateGroups": 0,
+    "mealsBytes": 344151963,
+    "stepsBytes": 56161906
+  },
+  "after": {
+    "pngAsJpg": 0,
+    "wrongDimension": 0,
+    "mealsBytes": 69633428,
+    "stepsBytes": 4270824,
+    "childHeroAvgBefore": 1421450,
+    "childHeroAvgAfter": 139945,
+    "stepAvgBefore": 1517889,
+    "stepAvgAfter": 115412
+  },
+  "savings": {
+    "mealsSavedMB": 261.8,
+    "mealsSavedPercent": 79.8,
+    "stepsSavedMB": 49.49,
+    "stepsSavedPercent": 92.4,
+    "totalSavedMB": 311.29,
+    "totalSavedPercent": 81.5
+  },
+  "stepDuplicateRenderFix": "Removed ChildStepImageSlots from IngredientsScreen; RecipeStepsList is canonical text+image path.",
+  "estimatedFullStepAssetMB": 182.4,
+  "recommendedStrategy": "HYBRID",
+  "backup": "assets/_backup/image-opt-sprint1"
+}

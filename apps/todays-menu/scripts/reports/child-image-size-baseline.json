@@ -1,0 +1,16 @@
+{
+  "sprint": "HANKKI_CHILD_IMAGE_PRODUCTION_PILOT",
+  "recordedAt": "2026-08-26",
+  "assetsMealsBytesBefore": 196408171,
+  "assetsMealsBytesAfter": 344151963,
+  "assetsMealsMBBefore": 187.31,
+  "assetsMealsMBAfter": 328.21,
+  "heroBytesAdded": 147743792,
+  "heroMBAdded": 140.9,
+  "recipeStepsBytesAfter": 56161906,
+  "recipeStepsMBAfter": 53.56,
+  "recipeStepsFileCount": 37,
+  "childHeroMissingBefore": 72,
+  "childHeroMissingAfter": 0,
+  "note": "Generated hero/step files may be PNG payload saved as .jpg. Optimization sprint should re-encode to true JPEG at locked pixel specs."
+}

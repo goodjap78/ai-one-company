@@ -1,0 +1,198 @@
+{
+  "BABY_FOOD_COUNT": 70,
+  "TODDLER_MEAL_COUNT": 74,
+  "ELEMENTARY_COUNT": 78,
+  "BABY_BY_STAGE": {
+    "early": 17,
+    "middle": 17,
+    "late": 17,
+    "completion": 19
+  },
+  "TODDLER_BY_MEAL_TYPE": {
+    "breakfast": 15,
+    "lunch": 19,
+    "dinner": 24,
+    "snack": 16,
+    "other": 0
+  },
+  "ELEMENTARY_BY_MEAL_TYPE": {
+    "breakfast": 45,
+    "lunch": 31,
+    "dinner": 27,
+    "snack": 11,
+    "other": 0
+  },
+  "BREAKFAST_ELEMENTARY_COUNT": 45,
+  "DINNER_ELEMENTARY_COUNT": 27,
+  "RECIPES_COMPLETE": 222,
+  "RECIPES_INCOMPLETE": 0,
+  "IMAGE_MISSING": 0,
+  "IMAGE_DUPLICATES": 0,
+  "IMAGE_DUPLICATE_GROUPS": [],
+  "NAME_DUPLICATES": {
+    "exactGroups": 0,
+    "similarGroups": 0,
+    "exact": [],
+    "similar": []
+  },
+  "RECIPE_DUPLICATE_GROUPS": 2,
+  "RECIPE_DUPLICATE_DETAILS": [
+    [
+      "recipe_0463:두부계란볶음밥",
+      "recipe_0486:두부계란밥"
+    ],
+    [
+      "recipe_0445:참치또띠아랩",
+      "recipe_0512:참치또띠아롤"
+    ]
+  ],
+  "BABY_AGE_RANGE_UNSPECIFIED_IDS": [
+    {
+      "id": "recipe_0336",
+      "name": "쌀미음",
+      "stage": "early"
+    },
+    {
+      "id": "recipe_0337",
+      "name": "단호박미음",
+      "stage": "early"
+    },
+    {
+      "id": "recipe_0338",
+      "name": "고구마미음",
+      "stage": "early"
+    },
+    {
+      "id": "recipe_0339",
+      "name": "감자미음",
+      "stage": "early"
+    },
+    {
+      "id": "recipe_0340",
+      "name": "애호박미음",
+      "stage": "early"
+    },
+    {
+      "id": "recipe_0341",
+      "name": "소고기미음",
+      "stage": "early"
+    },
+    {
+      "id": "recipe_0372",
+      "name": "브로콜리미음",
+      "stage": "early"
+    },
+    {
+      "id": "recipe_0373",
+      "name": "양배추미음",
+      "stage": "early"
+    },
+    {
+      "id": "recipe_0374",
+      "name": "청경채미음",
+      "stage": "early"
+    },
+    {
+      "id": "recipe_0375",
+      "name": "당근미음",
+      "stage": "early"
+    },
+    {
+      "id": "recipe_0376",
+      "name": "닭고기미음",
+      "stage": "early"
+    },
+    {
+      "id": "recipe_0408",
+      "name": "소고기시금치죽",
+      "stage": "early"
+    },
+    {
+      "id": "recipe_0411",
+      "name": "두부당근죽",
+      "stage": "early"
+    },
+    {
+      "id": "recipe_0412",
+      "name": "브로콜리죽",
+      "stage": "early"
+    },
+    {
+      "id": "recipe_0448",
+      "name": "콜리플라워미음",
+      "stage": "early"
+    },
+    {
+      "id": "recipe_0449",
+      "name": "비트미음",
+      "stage": "early"
+    },
+    {
+      "id": "recipe_0450",
+      "name": "배추미음",
+      "stage": "early"
+    }
+  ],
+  "BABY_STAGE_MISSING": 0,
+  "BABY_AGE_RANGE_MISSING": 17,
+  "BABY_TEXTURE_MISSING": 0,
+  "BABY_ALLERGY_ISSUES": 0,
+  "TODDLER_BREAKFAST_COUNT": 15,
+  "TODDLER_BREAKFAST_SUFFICIENT": true,
+  "WEEKLY_BREAKFAST_POOL": 45,
+  "WEEKLY_DINNER_POOL": 27,
+  "WEEKLY_BREAKFAST_GEN_SUCCESS_RATE": 1,
+  "WEEKLY_DINNER_GEN_SUCCESS_RATE": 1,
+  "CAN_CREATE_7_DAY_WITHOUT_REPEAT": true,
+  "CAN_CREATE_14_DAY_WITHOUT_REPEAT": false,
+  "CAN_CREATE_14_DAY_POOL_CAPACITY": true,
+  "CAN_CREATE_14_DAY_INDEPENDENT_SEEDS": true,
+  "BREAKFAST_14_DAY_SUCCESS_RATE": 0,
+  "DINNER_14_DAY_SUCCESS_RATE": 0.04,
+  "DATA_SCHEMA_CURRENT": {
+    "calories": true,
+    "protein": true,
+    "carbs": true,
+    "fat": true,
+    "sugar": false,
+    "sodium": false,
+    "fiber": false,
+    "cost": false,
+    "storage": false,
+    "mealType": true,
+    "ageGroup": true,
+    "allergy": true,
+    "prepTime": false,
+    "cookTime": true
+  },
+  "DATA_SCHEMA_MISSING_FOR_FUTURE": [
+    "sugar",
+    "sodium",
+    "fiber",
+    "cost",
+    "storage",
+    "prepTime (only cookTime/time exists)",
+    "explicit ageGroup enum (audiences[] used instead)",
+    "particleSize (baby uses texture enum only)",
+    "forbiddenIngredients list (honeyListed flag only)"
+  ],
+  "TOP_20_DATA_QUALITY_ISSUES": [
+    "nutrition_unverified_shown (213)",
+    "baby_age_range_unspecified (17)"
+  ],
+  "WEEKLY_PLAN_LOGIC": {
+    "breakfastPoolSource": "elementary + explicit + mealTypes includes breakfast + collision gate",
+    "dinnerPoolSource": "elementary + explicit + mealTypes includes dinner + collision gate",
+    "breakfastSeed": "normalizeWeeklyPlanSeed → mulberry32 shuffle → backtracking with hard/soft diversity",
+    "dinnerSeed": "hashWeeklyPlanSeed → mulberry32 shuffle → backtracking with protein/form streak rules",
+    "duplicatePrevention": "Within-week only (no consecutive same form/protein; streak caps). No cross-week avoid list.",
+    "fallbackOnInsufficient": "Returns INSUFFICIENT_CANDIDATES when pool < 7; soft diversity phases relax before hard rules relax"
+  },
+  "BLOCKERS": [],
+  "WARNINGS": [
+    "17 baby recipes with unspecified monthRange (all early/시작기)",
+    "2 ingredient-identical recipe groups"
+  ],
+  "INCOMPLETE_SAMPLES": [],
+  "IMAGE_MISSING_SAMPLES": []
+}
