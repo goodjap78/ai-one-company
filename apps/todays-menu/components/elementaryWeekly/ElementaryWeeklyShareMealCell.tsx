@@ -1,10 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { ds } from '../../constants/designSystem';
 import {
+  SHARE_CARD_CELL_BG,
+  SHARE_CARD_IMAGE_BG,
+  SHARE_CARD_TEXT_BAND,
+  SHARE_CELL_RADIUS,
   SHARE_GRID_IMAGE_FLEX,
   SHARE_GRID_TEXT_BAND_MIN_HEIGHT,
   SHARE_GRID_TEXT_FLEX,
   SHARE_SUNDAY_CARD_HEIGHT,
+  SHARE_SUNDAY_IMAGE_FLEX,
+  SHARE_SUNDAY_TEXT_FLEX,
 } from '../../constants/elementaryWeeklyShareCardLayout';
 import type { ElementaryWeeklyShareCardItem } from '../../services/weeklyPlan/elementaryWeeklyShareCardModel';
 import { resolveMealHeroImage } from '../../utils/mealHeroImage';
@@ -36,9 +42,9 @@ export function ElementaryWeeklyShareMealCell({
             variant="hero"
             style={styles.sundayImage}
             containerStyle={styles.sundayImageContainer}
-            resizeMode="contain"
+            resizeMode="cover"
             showEmojiFallback
-            emojiSize={36}
+            emojiSize={40}
             remountKey={item.recipeId}
             accessibilityLabel={item.name}
           />
@@ -66,9 +72,9 @@ export function ElementaryWeeklyShareMealCell({
           variant="hero"
           style={styles.gridImage}
           containerStyle={styles.gridImageContainer}
-          resizeMode="contain"
+          resizeMode="cover"
           showEmojiFallback
-          emojiSize={28}
+          emojiSize={30}
           remountKey={item.recipeId}
           accessibilityLabel={item.name}
         />
@@ -90,9 +96,9 @@ const styles = StyleSheet.create({
     flex: 1,
     minWidth: 0,
     minHeight: 0,
-    backgroundColor: ds.colors.card,
-    borderRadius: 8,
-    borderWidth: 1,
+    backgroundColor: SHARE_CARD_CELL_BG,
+    borderRadius: SHARE_CELL_RADIUS,
+    borderWidth: StyleSheet.hairlineWidth,
     borderColor: ds.colors.borderLight,
     overflow: 'hidden',
   },
@@ -103,18 +109,18 @@ const styles = StyleSheet.create({
     minHeight: 0,
     width: '100%',
     overflow: 'hidden',
-    backgroundColor: '#FFF8F0',
+    backgroundColor: SHARE_CARD_IMAGE_BG,
     position: 'relative',
   },
   dayBadgeOnImage: {
     position: 'absolute',
-    top: 3,
-    left: 3,
+    top: 4,
+    left: 4,
     zIndex: 2,
-    backgroundColor: 'rgba(255, 252, 247, 0.94)',
-    borderRadius: 4,
-    paddingHorizontal: 5,
-    paddingVertical: 1,
+    backgroundColor: ds.colors.primary,
+    borderRadius: 5,
+    paddingHorizontal: 6,
+    paddingVertical: 2,
   },
   gridImageContainer: {
     width: '100%',
@@ -131,13 +137,11 @@ const styles = StyleSheet.create({
     minHeight: SHARE_GRID_TEXT_BAND_MIN_HEIGHT,
     width: '100%',
     justifyContent: 'center',
-    paddingHorizontal: 4,
-    paddingTop: 2,
-    paddingBottom: 2,
-    gap: 0,
-    backgroundColor: '#FFFCF7',
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: ds.colors.borderLight,
+    paddingHorizontal: 5,
+    paddingTop: 3,
+    paddingBottom: 3,
+    gap: 1,
+    backgroundColor: SHARE_CARD_TEXT_BAND,
   },
   gridName: {
     fontSize: 12,
@@ -156,18 +160,18 @@ const styles = StyleSheet.create({
   sundayCard: {
     width: '100%',
     height: SHARE_SUNDAY_CARD_HEIGHT,
-    backgroundColor: ds.colors.card,
-    borderRadius: 8,
-    borderWidth: 1,
+    backgroundColor: SHARE_CARD_CELL_BG,
+    borderRadius: SHARE_CELL_RADIUS,
+    borderWidth: StyleSheet.hairlineWidth,
     borderColor: ds.colors.borderLight,
     overflow: 'hidden',
   },
   sundayImageWrap: {
-    flex: 0.74,
+    flex: SHARE_SUNDAY_IMAGE_FLEX,
     minHeight: 0,
     width: '100%',
     overflow: 'hidden',
-    backgroundColor: '#FFF8F0',
+    backgroundColor: SHARE_CARD_IMAGE_BG,
     position: 'relative',
   },
   sundayImageContainer: {
@@ -179,24 +183,22 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   sundayTextBand: {
-    flex: 0.26,
+    flex: SHARE_SUNDAY_TEXT_FLEX,
     flexShrink: 0,
-    minHeight: 26,
+    minHeight: 28,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: 8,
-    paddingHorizontal: 8,
-    paddingVertical: 3,
-    backgroundColor: '#FFFCF7',
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: ds.colors.borderLight,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    backgroundColor: SHARE_CARD_TEXT_BAND,
   },
   dayText: {
     fontSize: 9,
-    lineHeight: 12,
+    lineHeight: 11,
     fontWeight: '800',
-    color: ds.colors.primaryDark,
+    color: '#FFFFFF',
   },
   sundayName: {
     flex: 1,

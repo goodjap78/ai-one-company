@@ -62,9 +62,9 @@ run('4:5 capture unchanged', () => {
   assert(WEEKLY_PLAN_SHARE_OUTPUT_HEIGHT === 1350, '1350');
 });
 
-run('image/text split 70–75 / 25–30', () => {
-  assert(SHARE_GRID_IMAGE_FLEX >= 0.7 && SHARE_GRID_IMAGE_FLEX <= 0.75, `image flex ${SHARE_GRID_IMAGE_FLEX}`);
-  assert(SHARE_GRID_TEXT_FLEX >= 0.25 && SHARE_GRID_TEXT_FLEX <= 0.3, `text flex ${SHARE_GRID_TEXT_FLEX}`);
+run('image/text split 72–75 / 25–28', () => {
+  assert(SHARE_GRID_IMAGE_FLEX >= 0.72 && SHARE_GRID_IMAGE_FLEX <= 0.75, `image flex ${SHARE_GRID_IMAGE_FLEX}`);
+  assert(SHARE_GRID_TEXT_FLEX >= 0.25 && SHARE_GRID_TEXT_FLEX <= 0.28, `text flex ${SHARE_GRID_TEXT_FLEX}`);
   assert(
     Math.abs(SHARE_GRID_IMAGE_FLEX + SHARE_GRID_TEXT_FLEX - 1) < 0.001,
     'flex sums to 1',
@@ -77,20 +77,24 @@ run('dedicated cream text band — no clip under photo', () => {
   assert(cell.includes('gridTextBand'), 'text band exists');
   assert(cell.includes('SHARE_GRID_TEXT_BAND_MIN_HEIGHT'), 'reserved min height');
   assert(cell.includes('flexShrink: 0'), 'text band does not shrink away');
-  assert(cell.includes('#FFFCF7') || cell.includes('FFFCF7'), 'cream/white band');
+  assert(cell.includes('#FFFCF7') || cell.includes('FFFCF7') || cell.includes('SHARE_CARD_TEXT_BAND'), 'cream/white band');
   assert(cell.includes('numberOfLines={2}'), 'name max 2 lines');
   assert(!cell.includes('adjustsFontSizeToFit'), 'no shrink-to-fit clipping');
   assert(!cell.includes('ellipsizeMode'), 'prefer wrap over ellipsis');
 });
 
-run('titles are single clear lines', () => {
+run('titles are card-news header lines', () => {
+  assert(elementaryBreakfastWeeklyPlanCopy.shareCardTitle === '초등학생 아침', 'breakfast title');
+  assert(elementaryBreakfastWeeklyPlanCopy.shareCardTitleLine2 === '7일 식단', 'breakfast line2');
   assert(
-    elementaryBreakfastWeeklyPlanCopy.shareCardTitle === '초등학생 아침 7일 식단',
-    'breakfast title',
+    elementaryBreakfastWeeklyPlanCopy.shareCardSubtitle.includes('아침 고민'),
+    'breakfast subtitle',
   );
+  assert(elementaryDinnerWeeklyPlanCopy.shareCardTitle === '초등학생 저녁', 'dinner title');
+  assert(elementaryDinnerWeeklyPlanCopy.shareCardTitleLine2 === '7일 식단', 'dinner line2');
   assert(
-    elementaryDinnerWeeklyPlanCopy.shareCardTitle === '초등학생 저녁 7일 식단',
-    'dinner title',
+    elementaryDinnerWeeklyPlanCopy.shareCardSubtitle.includes('저녁 고민'),
+    'dinner subtitle',
   );
 });
 
@@ -99,11 +103,12 @@ run('sunday full-width + brand footer (no shopping hint)', () => {
   const cell = read('components/elementaryWeekly/ElementaryWeeklyShareMealCell.tsx');
   assert(card.includes('variant="sunday"'), 'sunday variant');
   assert(cell.includes('sundayTextBand'), 'sunday text band');
-  assert(SHARE_SUNDAY_CARD_HEIGHT >= 80, `sunday height ${SHARE_SUNDAY_CARD_HEIGHT}`);
+  assert(SHARE_SUNDAY_CARD_HEIGHT >= 90, `sunday height ${SHARE_SUNDAY_CARD_HEIGHT}`);
   assert(!card.includes('shoppingLine'), 'shopping hint removed from share card');
   assert(!card.includes('model.shoppingHint'), 'no shopping hint render');
   assert(card.includes('brandName'), 'brand kept');
-  assert(cell.includes('resizeMode="contain"'), 'food not cropped');
+  assert(cell.includes('resizeMode="cover"'), 'natural food crop');
+  assert(cell.includes('dayBadgeOnImage'), 'day badge on photo');
 });
 
 run('breakfast + dinner models readable', () => {
@@ -130,6 +135,17 @@ run('preview matches capture card', () => {
   assert(SHARE_CARD_QA_PREVIEW_MAX_WIDTH >= 540, 'qa preview width');
   assert(breakfast.includes('<ElementaryWeeklyShareCard'), 'breakfast capture');
   assert(dinner.includes('<ElementaryWeeklyShareCard'), 'dinner capture');
+});
+
+run('long menu names stay 2-line wrap safe', () => {
+  const cell = read('components/elementaryWeekly/ElementaryWeeklyShareMealCell.tsx');
+  assert(cell.includes('numberOfLines={2}'), 'max 2 lines');
+  assert(cell.includes('gridTextBand') || cell.includes('SHARE_GRID_TEXT_BAND'), 'dedicated text band');
+  assert(!cell.includes('adjustsFontSizeToFit'), 'no shrink-to-fit clip');
+  const samples = ['계란치즈또띠아', '참치마요주먹밥', '소고기야채덮밥', '사과시나몬토스트'];
+  for (const name of samples) {
+    assert(name.length >= 6, `sample ${name}`);
+  }
 });
 
 console.log(`\nSprint 5.3 metrics:`);

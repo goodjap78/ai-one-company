@@ -60,9 +60,11 @@ assert(layout.includes('toddler-dinner-week'), 'layout dn');
 
 assert(toddlerBreakfastWeeklyPlanCopy.screenEyebrow === '유아 아침', 'bf eyebrow');
 assert(toddlerBreakfastWeeklyPlanCopy.screenTitle === '7일 식단', 'bf title');
-assert(toddlerBreakfastWeeklyPlanCopy.shareCardTitle === '유아 아침 7일 식단', 'bf share title');
+assert(toddlerBreakfastWeeklyPlanCopy.shareCardTitle === '유아 아침', 'bf share title');
+assert(toddlerBreakfastWeeklyPlanCopy.shareCardTitleLine2 === '7일 식단', 'bf share line2');
 assert(toddlerDinnerWeeklyPlanCopy.screenEyebrow === '유아 저녁', 'dn eyebrow');
-assert(toddlerDinnerWeeklyPlanCopy.shareCardTitle === '유아 저녁 7일 식단', 'dn share title');
+assert(toddlerDinnerWeeklyPlanCopy.shareCardTitle === '유아 저녁', 'dn share title');
+assert(toddlerDinnerWeeklyPlanCopy.shareCardTitleLine2 === '7일 식단', 'dn share line2');
 assert(toddlerBreakfastWeeklyPlanCopy.shareCardBrandName === '한끼', 'brand');
 assert(
   toddlerBreakfastWeeklyPlanCopy.shareCardBrandTagline === '우리 아이 밥 고민을 덜어드려요',
@@ -80,8 +82,8 @@ assert(screen.includes('trackToddlerWeeklyPlanRefresh'), 'analytics refresh');
 assert(screen.includes('router.push(`/recipe/${slot.recipeId}`)'), 'recipe detail');
 assert(!screen.includes('grade'), 'no grade in UI');
 
-assert(SHARE_GRID_IMAGE_FLEX >= 0.7 && SHARE_GRID_IMAGE_FLEX <= 0.75, `image flex ${SHARE_GRID_IMAGE_FLEX}`);
-assert(SHARE_GRID_TEXT_FLEX >= 0.25 && SHARE_GRID_TEXT_FLEX <= 0.3, `text flex ${SHARE_GRID_TEXT_FLEX}`);
+assert(SHARE_GRID_IMAGE_FLEX >= 0.72 && SHARE_GRID_IMAGE_FLEX <= 0.75, `image flex ${SHARE_GRID_IMAGE_FLEX}`);
+assert(SHARE_GRID_TEXT_FLEX >= 0.25 && SHARE_GRID_TEXT_FLEX <= 0.28, `text flex ${SHARE_GRID_TEXT_FLEX}`);
 assert(WEEKLY_PLAN_SHARE_OUTPUT_WIDTH === 1080, 'share width');
 assert(WEEKLY_PLAN_SHARE_OUTPUT_HEIGHT === 1350, 'share height');
 

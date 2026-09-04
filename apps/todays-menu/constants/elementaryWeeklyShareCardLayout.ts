@@ -1,37 +1,41 @@
 /**
- * Sprint 5.3 / 14.1 — photo-first share card (360×450 → 1080×1350).
+ * Sprint 15 — card-news share layout (360×450 → 1080×1350).
  */
 import {
   WEEKLY_PLAN_SHARE_CARD_HEIGHT,
   WEEKLY_PLAN_SHARE_CARD_WIDTH,
 } from './elementaryBreakfastShareCard';
 
-export const SHARE_CARD_PADDING_H = 8;
-export const SHARE_CARD_PADDING_TOP = 6;
-export const SHARE_CARD_PADDING_BOTTOM = 5;
+/** Warm cream canvas — matches design-system canvas. */
+export const SHARE_CARD_CANVAS = '#FFF8EF';
+export const SHARE_CARD_CELL_BG = '#FFFFFF';
+export const SHARE_CARD_TEXT_BAND = '#FFFCF7';
+export const SHARE_CARD_IMAGE_BG = '#FFF0E6';
 
-export const SHARE_GRID_GAP = 3;
+export const SHARE_CARD_PADDING_H = 12;
+export const SHARE_CARD_PADDING_TOP = 10;
+export const SHARE_CARD_PADDING_BOTTOM = 8;
+
+export const SHARE_GRID_GAP = 5;
+export const SHARE_CELL_RADIUS = 10;
 
 /**
- * Image area target ~70–75% of Mon–Sat cell.
- * Text band is flexShrink:0 so names never clip under the photo.
+ * Mon–Sat cell: photo ~72–75%, text ~25–28%.
  */
-export const SHARE_GRID_IMAGE_FLEX = 0.73;
-export const SHARE_GRID_TEXT_FLEX = 0.27;
+export const SHARE_GRID_IMAGE_FLEX = 0.74;
+export const SHARE_GRID_TEXT_FLEX = 0.26;
 
-/** Soft floor for food photo when row is tall enough. */
-export const SHARE_GRID_IMAGE_MIN_HEIGHT = 56;
+export const SHARE_GRID_IMAGE_MIN_HEIGHT = 58;
+export const SHARE_GRID_TEXT_BAND_MIN_HEIGHT = 32;
 
-/** Reserved text band — fits 2-line name + small cook time. */
-export const SHARE_GRID_TEXT_BAND_MIN_HEIGHT = 30;
-
-/** Prefer a less-wide crop than a thin strip (≈5:4 food frame). */
 export const SHARE_GRID_IMAGE_ASPECT_RATIO = 5 / 4;
 
-/** Sunday full-width card — image-forward, isolated from footer. */
-export const SHARE_SUNDAY_CARD_HEIGHT = 92;
+/** Sunday full-width — photo ~75–78%. */
+export const SHARE_SUNDAY_CARD_HEIGHT = 98;
+export const SHARE_SUNDAY_IMAGE_FLEX = 0.76;
+export const SHARE_SUNDAY_TEXT_FLEX = 0.24;
 
-/** QA browser preview — does not affect capture resolution. */
+/** QA browser preview — min(90vw, 560). */
 export const SHARE_CARD_QA_PREVIEW_MAX_WIDTH = 560;
 
 export const SHARE_CARD_INNER_WIDTH =
