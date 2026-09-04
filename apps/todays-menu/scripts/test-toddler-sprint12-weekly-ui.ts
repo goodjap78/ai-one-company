@@ -80,10 +80,13 @@ assert(screen.includes('trackToddlerWeeklyPlanRefresh'), 'analytics refresh');
 assert(screen.includes('router.push(`/recipe/${slot.recipeId}`)'), 'recipe detail');
 assert(!screen.includes('grade'), 'no grade in UI');
 
-assert(SHARE_GRID_IMAGE_FLEX === 0.68, 'image flex 68%');
-assert(SHARE_GRID_TEXT_FLEX === 0.32, 'text flex 32%');
+assert(SHARE_GRID_IMAGE_FLEX >= 0.7 && SHARE_GRID_IMAGE_FLEX <= 0.75, `image flex ${SHARE_GRID_IMAGE_FLEX}`);
+assert(SHARE_GRID_TEXT_FLEX >= 0.25 && SHARE_GRID_TEXT_FLEX <= 0.3, `text flex ${SHARE_GRID_TEXT_FLEX}`);
 assert(WEEKLY_PLAN_SHARE_OUTPUT_WIDTH === 1080, 'share width');
 assert(WEEKLY_PLAN_SHARE_OUTPUT_HEIGHT === 1350, 'share height');
+
+assert(screen.includes('HankkiHomeBrandLink'), 'brand home link');
+assert(!screen.includes('ScreenBackButton'), 'no breadcrumb back');
 
 const weekly = HOME_PURPOSES.find((p) => p.id === 'weekly');
 assert(Boolean(weekly?.entries?.find((e) => e.id === 'toddlerBreakfast')), 'home toddler bf');
@@ -94,6 +97,8 @@ assert(HOME_WEEKLY_AUDIENCES.length === 2, '2 audiences');
 const homePanel = read('components/home/HomePurposeSubPanel.tsx');
 assert(homePanel.includes('HOME_WEEKLY_AUDIENCES'), '2-step audience');
 assert(homePanel.includes('HOME_WEEKLY_MEAL_LABELS'), '2-step meal');
+assert(!homePanel.includes('← '), 'no arrow breadcrumb');
+assert(homePanel.includes('audienceChip'), 'audience chips');
 
 const qa = read('components/qa/ElementaryWeeklyShareQaScreen.tsx');
 assert(qa.includes('toddler'), 'qa toddler');

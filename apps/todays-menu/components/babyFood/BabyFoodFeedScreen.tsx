@@ -3,7 +3,7 @@ import { useRouter } from 'expo-router';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { APP_HOME_HREF, BABY_FOOD_HREF, BABY_FOOD_WEEKLY_HREF } from '../../constants/appRoutes';
+import { BABY_FOOD_HREF, BABY_FOOD_WEEKLY_HREF } from '../../constants/appRoutes';
 import {
   BABY_FOOD_FEED_ALLERGY_LABELS,
   BABY_FOOD_FEED_STAGE_LABELS,
@@ -12,7 +12,6 @@ import {
 import { childSearchCopy } from '../../constants/childSearchCopy';
 import { ds } from '../../constants/designSystem';
 import { mobileShell } from '../../constants/mobileShell';
-import { NAV_BACK } from '../../constants/navigationCopy';
 import { theme } from '../../constants/theme';
 import { BabyChildFilters } from '../child/BabyChildFilters';
 import { ChildRecipeBrowseList } from '../child/ChildRecipeBrowseList';
@@ -47,7 +46,7 @@ import {
   loadBabyFoodFeedStage,
   saveBabyFoodFeedStage,
 } from '../../services/babyFood/babyFoodFeedStageStorage';
-import { ScreenBackButton } from '../ui/ScreenBackButton';
+import { HankkiHomeBrandLink } from '../ui/HankkiHomeBrandLink';
 import { appChrome } from '../ui/appChrome';
 
 function allergyLabels(tags: readonly StandardAllergyTag[]): string[] {
@@ -161,7 +160,7 @@ export function BabyFoodFeedScreen() {
           showsVerticalScrollIndicator={false}
         >
           <View style={styles.frame}>
-            <ScreenBackButton label={NAV_BACK.home} fallbackHref={APP_HOME_HREF} />
+            <HankkiHomeBrandLink />
 
             <View style={styles.header}>
               <Text style={styles.title}>{copy.screenTitle}</Text>

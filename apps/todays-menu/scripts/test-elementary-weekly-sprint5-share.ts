@@ -67,7 +67,8 @@ run('new share card component — card-news layout', () => {
   assert(card.includes('gridRow'), '2-column rows');
   assert(card.includes('variant="sunday"'), 'sunday full width');
   assert(!card.includes('SeedMascot'), 'no seed on share card');
-  assert(card.includes('shoppingHint'), 'shopping hint section');
+  assert(!card.includes('model.shoppingHint'), 'shopping hint not rendered');
+  assert(card.includes('brandName'), 'brand footer');
   assert(!card.includes('calorie'), 'no calorie text');
   assert(!card.includes('protein'), 'no protein grams');
 });

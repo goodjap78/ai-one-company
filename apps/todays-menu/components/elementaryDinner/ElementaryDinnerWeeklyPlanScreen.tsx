@@ -3,14 +3,10 @@ import { useRouter } from 'expo-router';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Alert, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import {
-  APP_HOME_HREF,
-  ELEMENTARY_BREAKFAST_WEEK_HREF,
-} from '../../constants/appRoutes';
+import { ELEMENTARY_BREAKFAST_WEEK_HREF } from '../../constants/appRoutes';
 import { elementaryDinnerWeeklyPlanCopy as copy } from '../../constants/elementaryDinnerWeeklyPlanCopy';
 import { ds } from '../../constants/designSystem';
 import { mobileShell } from '../../constants/mobileShell';
-import { NAV_BACK } from '../../constants/navigationCopy';
 import { generateElementaryDinnerWeek, type WeeklyMealPlan, type WeeklyPlanSlot } from '../../data/recipes';
 import {
   setRecipeOpenSource,
@@ -44,7 +40,7 @@ import { ElementaryWeeklyPlanHeader } from '../elementaryWeekly/ElementaryWeekly
 import { ElementaryWeeklyShareCard } from '../elementaryWeekly/ElementaryWeeklyShareCard';
 import { WeeklyPlanErrorPanel } from '../elementaryWeekly/WeeklyPlanErrorPanel';
 import { appChrome } from '../ui/appChrome';
-import { ScreenBackButton } from '../ui/ScreenBackButton';
+import { HankkiHomeBrandLink } from '../ui/HankkiHomeBrandLink';
 import { ScreenLoading } from '../ui/ScreenLoading';
 
 type ScreenStatus = 'loading' | 'ready' | 'error';
@@ -242,7 +238,7 @@ export function ElementaryDinnerWeeklyPlanScreen() {
           showsVerticalScrollIndicator={false}
         >
           <View style={styles.frame}>
-            <ScreenBackButton label={NAV_BACK.home} fallbackHref={APP_HOME_HREF} />
+            <HankkiHomeBrandLink />
 
             <ElementaryWeeklyPlanHeader
               eyebrow={copy.screenEyebrow}

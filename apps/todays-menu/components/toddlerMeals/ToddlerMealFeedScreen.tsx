@@ -3,11 +3,10 @@ import { useRouter } from 'expo-router';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { APP_HOME_HREF, TODDLER_BREAKFAST_WEEK_HREF } from '../../constants/appRoutes';
+import { TODDLER_BREAKFAST_WEEK_HREF } from '../../constants/appRoutes';
 import { childSearchCopy } from '../../constants/childSearchCopy';
 import { ds } from '../../constants/designSystem';
 import { mobileShell } from '../../constants/mobileShell';
-import { NAV_BACK } from '../../constants/navigationCopy';
 import { theme } from '../../constants/theme';
 import { ChildRecipeBrowseList } from '../child/ChildRecipeBrowseList';
 import { ChildSearchBar } from '../child/ChildSearchBar';
@@ -46,7 +45,7 @@ import { saveToddlerWeeklyPlanLastMeal } from '../../services/weeklyPlan/toddler
 import { resolveMealHeroImage } from '../../utils/mealHeroImage';
 import { MealImageView } from '../meal/MealImageView';
 import { appChrome } from '../ui/appChrome';
-import { ScreenBackButton } from '../ui/ScreenBackButton';
+import { HankkiHomeBrandLink } from '../ui/HankkiHomeBrandLink';
 import { FOOTER_SCROLL_PADDING, screenLayout } from '../ui/screenLayout';
 
 export function ToddlerMealFeedScreen() {
@@ -153,7 +152,7 @@ export function ToddlerMealFeedScreen() {
           showsVerticalScrollIndicator={false}
         >
           <View style={styles.frame}>
-            <ScreenBackButton label={NAV_BACK.home} fallbackHref={APP_HOME_HREF} />
+            <HankkiHomeBrandLink />
 
             <View style={styles.header}>
               <Text style={styles.title}>{copy.screenTitle}</Text>

@@ -103,19 +103,39 @@ export const HomePurposeSubPanel = memo(function HomePurposeSubPanel({ activePur
 
     return (
       <View style={styles.weeklyStack}>
-        <Pressable
-          onPress={() => {
-            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-            setWeeklyAudience(null);
-          }}
-          accessibilityRole="button"
-          accessibilityLabel="대상 다시 선택"
-          hitSlop={8}
-        >
-          <Text style={styles.backAudience}>
-            ← {weeklyAudience === 'toddler' ? '유아' : '초등학생'}
-          </Text>
-        </Pressable>
+        <View style={styles.audienceSwitch} accessibilityRole="tablist">
+          {HOME_WEEKLY_AUDIENCES.map((audience) => {
+            const selected = weeklyAudience === audience.id;
+            return (
+              <Pressable
+                key={audience.id}
+                style={({ pressed }) => [
+                  styles.audienceChip,
+                  selected && styles.audienceChipSelected,
+                  pressed && styles.btnPressed,
+                ]}
+                onPress={() => {
+                  Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                  if (selected) {
+                    setWeeklyAudience(null);
+                    return;
+                  }
+                  setWeeklyAudience(audience.id);
+                }}
+                accessibilityRole="tab"
+                accessibilityState={{ selected }}
+                accessibilityLabel={audience.title}
+              >
+                <Text
+                  style={[styles.audienceChipText, selected && styles.audienceChipTextSelected]}
+                  numberOfLines={1}
+                >
+                  {audience.title}
+                </Text>
+              </Pressable>
+            );
+          })}
+        </View>
         <View style={styles.row}>
           {weeklyMealEntries.map((entry) => {
             const mealLabel = entry.id.endsWith('Breakfast')
@@ -186,12 +206,30 @@ const styles = StyleSheet.create({
     width: '100%',
     gap: 8,
   },
-  backAudience: {
+  audienceSwitch: {
+    flexDirection: 'row',
+    alignSelf: 'flex-start',
+    gap: 6,
+  },
+  audienceChip: {
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    borderRadius: 999,
+    backgroundColor: 'transparent',
+  },
+  audienceChipSelected: {
+    backgroundColor: ds.colors.primarySoft,
+  },
+  audienceChipText: {
     fontSize: 12,
     lineHeight: 15,
-    fontWeight: '700',
+    fontWeight: '600',
     color: ds.colors.textSecondary,
     letterSpacing: -0.2,
+  },
+  audienceChipTextSelected: {
+    fontWeight: '800',
+    color: ds.colors.primaryDark,
   },
   row: {
     flexDirection: 'row',

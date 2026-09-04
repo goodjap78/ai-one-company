@@ -22,6 +22,8 @@ type Props = {
   emojiSize?: number;
   /** Remount Image when meal identity changes (fixes stale local assets on refresh). */
   remountKey?: string;
+  /** Default cover; share cards use contain so food is not cropped. */
+  resizeMode?: 'cover' | 'contain' | 'stretch' | 'center' | 'repeat';
 };
 
 /**
@@ -47,6 +49,7 @@ export function MealImageView({
   emojiFallbackLabel,
   emojiSize,
   remountKey,
+  resizeMode = 'cover',
 }: Props) {
   const imageIdentity = resolveImageIdentity(remountKey, image);
   const [tier, setTier] = useState(() => initialTier(image));
@@ -65,7 +68,7 @@ export function MealImageView({
         key={imageIdentity}
         source={{ uri: image.url }}
         style={photoStyle}
-        resizeMode="cover"
+        resizeMode={resizeMode}
         onError={() => setTier(1)}
         accessibilityRole="image"
         accessibilityLabel={label}
@@ -79,7 +82,7 @@ export function MealImageView({
         key={imageIdentity}
         source={image.source}
         style={photoStyle}
-        resizeMode="cover"
+        resizeMode={resizeMode}
         onError={() => setTier(3)}
         accessibilityRole="image"
         accessibilityLabel={label}

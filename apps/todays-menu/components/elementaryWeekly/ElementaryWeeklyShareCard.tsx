@@ -30,8 +30,8 @@ type Props = {
 };
 
 /**
- * Share-only card-news layout for elementary weekly plans.
- * Optimized for 4:5 capture (360×450 → 1080×1350). Not used in-app list UI.
+ * Share-only card-news layout for elementary / toddler weekly plans.
+ * Sprint 14.1 — photo-dominant (no shopping hint). 4:5 capture 360×450 → 1080×1350.
  */
 export function ElementaryWeeklyShareCard({ model, copy }: Props) {
   const [mon, tue, wed, thu, fri, sat, sun] = model.items;
@@ -42,9 +42,6 @@ export function ElementaryWeeklyShareCard({ model, copy }: Props) {
       <View style={styles.header}>
         <Text style={styles.title}>{copy.shareCardTitle}</Text>
         {titleLine2 ? <Text style={styles.titleSecondary}>{titleLine2}</Text> : null}
-        <Text style={styles.subtitle} numberOfLines={2}>
-          {copy.shareCardSubtitle}
-        </Text>
       </View>
 
       <View style={styles.body}>
@@ -71,12 +68,6 @@ export function ElementaryWeeklyShareCard({ model, copy }: Props) {
       </View>
 
       <View style={styles.footer}>
-        {model.shoppingHint ? (
-          <Text style={styles.shoppingLine} numberOfLines={2}>
-            <Text style={styles.shoppingLabel}>{copy.shareCardShoppingHintLabel} </Text>
-            <Text style={styles.shoppingText}>{model.shoppingHint}</Text>
-          </Text>
-        ) : null}
         <View style={styles.brand}>
           <Text style={styles.brandName}>{copy.shareCardBrandName}</Text>
           <Text style={styles.brandTagline}>{copy.shareCardBrandTagline}</Text>
@@ -97,28 +88,22 @@ const styles = StyleSheet.create({
   },
   header: {
     flexShrink: 0,
-    gap: 1,
-    marginBottom: 3,
+    gap: 0,
+    marginBottom: 2,
   },
   title: {
-    fontSize: 17,
-    lineHeight: 21,
+    fontSize: 15,
+    lineHeight: 18,
     fontWeight: '800',
     color: ds.colors.textPrimary,
     letterSpacing: -0.35,
   },
   titleSecondary: {
-    fontSize: 11,
-    lineHeight: 14,
+    fontSize: 10,
+    lineHeight: 12,
     fontWeight: '700',
     color: ds.colors.primary,
     letterSpacing: -0.2,
-  },
-  subtitle: {
-    fontSize: 9,
-    lineHeight: 12,
-    fontWeight: '500',
-    color: ds.colors.textSecondary,
   },
   body: {
     flex: 1,
@@ -133,36 +118,22 @@ const styles = StyleSheet.create({
   },
   footer: {
     flexShrink: 0,
-    gap: 2,
-    marginTop: 3,
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: ds.colors.border,
-    paddingTop: 4,
-  },
-  shoppingLine: {
-    fontSize: 9,
-    lineHeight: 12,
-  },
-  shoppingLabel: {
-    fontWeight: '700',
-    color: ds.colors.primary,
-  },
-  shoppingText: {
-    fontWeight: '600',
-    color: ds.colors.warmText,
+    marginTop: 2,
+    paddingTop: 2,
   },
   brand: {
     gap: 0,
+    alignItems: 'center',
   },
   brandName: {
     fontFamily: fontFamily.titleRound,
-    fontSize: 10,
-    lineHeight: 12,
+    fontSize: 8,
+    lineHeight: 10,
     color: ds.colors.primary,
   },
   brandTagline: {
-    fontSize: 8,
-    lineHeight: 10,
+    fontSize: 7,
+    lineHeight: 9,
     fontWeight: '500',
     color: ds.colors.textMuted,
   },

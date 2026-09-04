@@ -8,7 +8,6 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Alert, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
-  APP_HOME_HREF,
   TODDLER_BREAKFAST_WEEK_HREF,
   TODDLER_DINNER_WEEK_HREF,
 } from '../../constants/appRoutes';
@@ -16,7 +15,6 @@ import { toddlerBreakfastWeeklyPlanCopy } from '../../constants/toddlerBreakfast
 import { toddlerDinnerWeeklyPlanCopy } from '../../constants/toddlerDinnerWeeklyPlanCopy';
 import { ds } from '../../constants/designSystem';
 import { mobileShell } from '../../constants/mobileShell';
-import { NAV_BACK } from '../../constants/navigationCopy';
 import {
   generateToddlerBreakfastWeek,
   generateToddlerDinnerWeek,
@@ -58,7 +56,7 @@ import { ElementaryWeeklyPlanHeader } from '../elementaryWeekly/ElementaryWeekly
 import { ElementaryWeeklyShareCard } from '../elementaryWeekly/ElementaryWeeklyShareCard';
 import { WeeklyPlanErrorPanel } from '../elementaryWeekly/WeeklyPlanErrorPanel';
 import { appChrome } from '../ui/appChrome';
-import { ScreenBackButton } from '../ui/ScreenBackButton';
+import { HankkiHomeBrandLink } from '../ui/HankkiHomeBrandLink';
 import { ScreenLoading } from '../ui/ScreenLoading';
 
 type MealMode = 'breakfast' | 'dinner';
@@ -278,7 +276,7 @@ export function ToddlerBfDnWeeklyPlanScreen({ mealType }: Props) {
           showsVerticalScrollIndicator={false}
         >
           <View style={styles.frame}>
-            <ScreenBackButton label={NAV_BACK.home} fallbackHref={APP_HOME_HREF} />
+            <HankkiHomeBrandLink />
 
             <ElementaryWeeklyPlanHeader
               eyebrow={copy.screenEyebrow}

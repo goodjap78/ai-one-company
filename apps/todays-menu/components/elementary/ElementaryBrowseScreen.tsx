@@ -4,14 +4,12 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {
-  APP_HOME_HREF,
   ELEMENTARY_BREAKFAST_WEEK_HREF,
   ELEMENTARY_DINNER_WEEK_HREF,
 } from '../../constants/appRoutes';
 import { childSearchCopy } from '../../constants/childSearchCopy';
 import { ds } from '../../constants/designSystem';
 import { mobileShell } from '../../constants/mobileShell';
-import { NAV_BACK } from '../../constants/navigationCopy';
 import {
   countActiveElementaryFilters,
   elementaryFilterTypeKeys,
@@ -32,7 +30,7 @@ import { ChildRecipeBrowseList } from '../child/ChildRecipeBrowseList';
 import { ChildSearchBar } from '../child/ChildSearchBar';
 import { ElementaryChildFilters } from '../child/ElementaryChildFilters';
 import { appChrome } from '../ui/appChrome';
-import { ScreenBackButton } from '../ui/ScreenBackButton';
+import { HankkiHomeBrandLink } from '../ui/HankkiHomeBrandLink';
 
 export function ElementaryBrowseScreen() {
   const router = useRouter();
@@ -93,7 +91,7 @@ export function ElementaryBrowseScreen() {
           showsVerticalScrollIndicator={false}
         >
           <View style={styles.frame}>
-            <ScreenBackButton label={NAV_BACK.home} fallbackHref={APP_HOME_HREF} />
+            <HankkiHomeBrandLink />
 
             <View style={styles.header}>
               <Text style={styles.title}>{childSearchCopy.elementaryBrowseTitle}</Text>

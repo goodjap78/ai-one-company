@@ -92,16 +92,23 @@ run('Route files mount expected screens', () => {
   }
 });
 
-run('Child screens have back navigation fallback', () => {
-  const checks: Array<{ file: string; need: string[] }> = [
-    {
-      file: 'components/babyFood/BabyFoodFeedScreen.tsx',
-      need: ['ScreenBackButton', 'fallbackHref', 'APP_HOME_HREF'],
-    },
-    {
-      file: 'components/babyFood/BabyFoodWeeklyPlanScreen.tsx',
-      need: ['ScreenBackButton', 'fallbackHref', 'APP_HOME_HREF'],
-    },
+run('Child screens have home brand navigation', () => {
+  const brandScreens = [
+    'components/babyFood/BabyFoodFeedScreen.tsx',
+    'components/babyFood/BabyFoodWeeklyPlanScreen.tsx',
+    'components/toddlerMeals/ToddlerMealFeedScreen.tsx',
+    'components/toddlerMeals/ToddlerWeeklyPlanScreen.tsx',
+    'components/elementary/ElementaryBrowseScreen.tsx',
+    'components/elementaryBreakfast/ElementaryBreakfastWeeklyPlanScreen.tsx',
+    'components/elementaryDinner/ElementaryDinnerWeeklyPlanScreen.tsx',
+  ];
+  for (const file of brandScreens) {
+    const src = read(file);
+    assert(src.includes('HankkiHomeBrandLink'), `${file} has HankkiHomeBrandLink`);
+    assert(!src.includes('ScreenBackButton'), `${file} no ScreenBackButton breadcrumb`);
+  }
+
+  const batchBack: Array<{ file: string; need: string[] }> = [
     {
       file: 'components/babyFood/BabyBatchCookingSelectScreen.tsx',
       need: ['ScreenBackButton', 'fallbackHref', 'BABY_FOOD_WEEKLY_HREF'],
@@ -110,33 +117,17 @@ run('Child screens have back navigation fallback', () => {
       file: 'components/babyFood/BabyBatchCookingResultScreen.tsx',
       need: ['ScreenBackButton', 'fallbackHref', 'BABY_FOOD_WEEKLY_HREF', 'emptyPlanTitle'],
     },
-    {
-      file: 'components/toddlerMeals/ToddlerMealFeedScreen.tsx',
-      need: ['ScreenBackButton', 'fallbackHref', 'APP_HOME_HREF'],
-    },
-    {
-      file: 'components/toddlerMeals/ToddlerWeeklyPlanScreen.tsx',
-      need: ['ScreenBackButton', 'fallbackHref', 'APP_HOME_HREF'],
-    },
-    {
-      file: 'components/elementary/ElementaryBrowseScreen.tsx',
-      need: ['ScreenBackButton', 'fallbackHref', 'APP_HOME_HREF'],
-    },
-    {
-      file: 'components/elementaryBreakfast/ElementaryBreakfastWeeklyPlanScreen.tsx',
-      need: ['ScreenBackButton', 'fallbackHref', 'APP_HOME_HREF'],
-    },
-    {
-      file: 'components/elementaryDinner/ElementaryDinnerWeeklyPlanScreen.tsx',
-      need: ['ScreenBackButton', 'fallbackHref', 'APP_HOME_HREF'],
-    },
   ];
-  for (const { file, need } of checks) {
+  for (const { file, need } of batchBack) {
     const src = read(file);
     for (const token of need) {
       assert(src.includes(token), `${file} has ${token}`);
     }
   }
+
+  const brand = read('components/ui/HankkiHomeBrandLink.tsx');
+  assert(brand.includes('한끼 홈으로 이동'), 'a11y home label');
+  assert(brand.includes('APP_HOME_HREF') || brand.includes('/(tabs)'), 'routes to home');
 });
 
 run('Batch result handles missing in-memory session', () => {

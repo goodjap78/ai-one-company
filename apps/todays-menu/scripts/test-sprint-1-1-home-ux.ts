@@ -86,6 +86,7 @@ run('weekly sub panel — 2-step audience then meal', () => {
   assert(src.includes('HOME_WEEKLY_AUDIENCES'), 'audience step');
   assert(src.includes('HOME_WEEKLY_MEAL_LABELS'), 'meal step labels');
   assert(src.includes('toddlerBreakfast') || src.includes('elemBreakfast'), 'entry ids wired');
+  assert(!src.includes('← '), 'no arrow breadcrumb');
 });
 
 run('sub panel has no duplicate purpose title', () => {

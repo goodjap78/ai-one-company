@@ -62,14 +62,14 @@ run('4:5 capture unchanged', () => {
   assert(WEEKLY_PLAN_SHARE_OUTPUT_HEIGHT === 1350, '1350');
 });
 
-run('image/text split 65–70 / 30–35', () => {
-  assert(SHARE_GRID_IMAGE_FLEX >= 0.65 && SHARE_GRID_IMAGE_FLEX <= 0.7, `image flex ${SHARE_GRID_IMAGE_FLEX}`);
-  assert(SHARE_GRID_TEXT_FLEX >= 0.3 && SHARE_GRID_TEXT_FLEX <= 0.35, `text flex ${SHARE_GRID_TEXT_FLEX}`);
+run('image/text split 70–75 / 25–30', () => {
+  assert(SHARE_GRID_IMAGE_FLEX >= 0.7 && SHARE_GRID_IMAGE_FLEX <= 0.75, `image flex ${SHARE_GRID_IMAGE_FLEX}`);
+  assert(SHARE_GRID_TEXT_FLEX >= 0.25 && SHARE_GRID_TEXT_FLEX <= 0.3, `text flex ${SHARE_GRID_TEXT_FLEX}`);
   assert(
     Math.abs(SHARE_GRID_IMAGE_FLEX + SHARE_GRID_TEXT_FLEX - 1) < 0.001,
     'flex sums to 1',
   );
-  assert(SHARE_GRID_TEXT_BAND_MIN_HEIGHT >= 32, `text band min ${SHARE_GRID_TEXT_BAND_MIN_HEIGHT}`);
+  assert(SHARE_GRID_TEXT_BAND_MIN_HEIGHT >= 28, `text band min ${SHARE_GRID_TEXT_BAND_MIN_HEIGHT}`);
 });
 
 run('dedicated cream text band — no clip under photo', () => {
@@ -94,14 +94,16 @@ run('titles are single clear lines', () => {
   );
 });
 
-run('sunday full-width + shopping readability', () => {
+run('sunday full-width + brand footer (no shopping hint)', () => {
   const card = read('components/elementaryWeekly/ElementaryWeeklyShareCard.tsx');
   const cell = read('components/elementaryWeekly/ElementaryWeeklyShareMealCell.tsx');
   assert(card.includes('variant="sunday"'), 'sunday variant');
   assert(cell.includes('sundayTextBand'), 'sunday text band');
   assert(SHARE_SUNDAY_CARD_HEIGHT >= 80, `sunday height ${SHARE_SUNDAY_CARD_HEIGHT}`);
-  assert(card.includes('fontSize: 9'), 'shopping hint larger than 8');
-  assert(card.includes('numberOfLines={2}'), 'shopping can wrap once');
+  assert(!card.includes('shoppingLine'), 'shopping hint removed from share card');
+  assert(!card.includes('model.shoppingHint'), 'no shopping hint render');
+  assert(card.includes('brandName'), 'brand kept');
+  assert(cell.includes('resizeMode="contain"'), 'food not cropped');
 });
 
 run('breakfast + dinner models readable', () => {

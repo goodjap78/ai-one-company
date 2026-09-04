@@ -36,6 +36,7 @@ export function ElementaryWeeklyShareMealCell({
             variant="hero"
             style={styles.sundayImage}
             containerStyle={styles.sundayImageContainer}
+            resizeMode="contain"
             showEmojiFallback
             emojiSize={36}
             remountKey={item.recipeId}
@@ -65,6 +66,7 @@ export function ElementaryWeeklyShareMealCell({
           variant="hero"
           style={styles.gridImage}
           containerStyle={styles.gridImageContainer}
+          resizeMode="contain"
           showEmojiFallback
           emojiSize={28}
           remountKey={item.recipeId}
@@ -98,11 +100,10 @@ const styles = StyleSheet.create({
     flex: SHARE_GRID_IMAGE_FLEX,
     flexGrow: SHARE_GRID_IMAGE_FLEX,
     flexShrink: 1,
-    // Yield to text band when the row is tight — names must never clip.
     minHeight: 0,
     width: '100%',
     overflow: 'hidden',
-    backgroundColor: ds.colors.primarySoft,
+    backgroundColor: '#FFF8F0',
     position: 'relative',
   },
   dayBadgeOnImage: {
@@ -123,7 +124,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-  /** Dedicated cream band — never overlaps / never yields to the photo. */
   gridTextBand: {
     flex: SHARE_GRID_TEXT_FLEX,
     flexGrow: SHARE_GRID_TEXT_FLEX,
@@ -131,24 +131,24 @@ const styles = StyleSheet.create({
     minHeight: SHARE_GRID_TEXT_BAND_MIN_HEIGHT,
     width: '100%',
     justifyContent: 'center',
-    paddingHorizontal: 5,
-    paddingTop: 3,
-    paddingBottom: 3,
-    gap: 1,
+    paddingHorizontal: 4,
+    paddingTop: 2,
+    paddingBottom: 2,
+    gap: 0,
     backgroundColor: '#FFFCF7',
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: ds.colors.borderLight,
   },
   gridName: {
-    fontSize: 11,
-    lineHeight: 14,
+    fontSize: 12,
+    lineHeight: 15,
     fontWeight: '800',
     color: ds.colors.textPrimary,
-    letterSpacing: -0.25,
+    letterSpacing: -0.3,
   },
   meta: {
-    fontSize: 9,
-    lineHeight: 11,
+    fontSize: 8,
+    lineHeight: 10,
     fontWeight: '600',
     color: ds.colors.textSecondary,
     alignSelf: 'flex-end',
@@ -163,11 +163,11 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   sundayImageWrap: {
-    flex: 0.7,
+    flex: 0.74,
     minHeight: 0,
     width: '100%',
     overflow: 'hidden',
-    backgroundColor: ds.colors.primarySoft,
+    backgroundColor: '#FFF8F0',
     position: 'relative',
   },
   sundayImageContainer: {
@@ -179,15 +179,15 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   sundayTextBand: {
-    flex: 0.3,
+    flex: 0.26,
     flexShrink: 0,
-    minHeight: 28,
+    minHeight: 26,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: 8,
     paddingHorizontal: 8,
-    paddingVertical: 4,
+    paddingVertical: 3,
     backgroundColor: '#FFFCF7',
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: ds.colors.borderLight,
@@ -201,17 +201,17 @@ const styles = StyleSheet.create({
   sundayName: {
     flex: 1,
     minWidth: 0,
-    fontSize: 12,
-    lineHeight: 15,
+    fontSize: 13,
+    lineHeight: 16,
     fontWeight: '800',
     color: ds.colors.textPrimary,
-    letterSpacing: -0.2,
+    letterSpacing: -0.25,
   },
   sundayTime: {
     flexShrink: 0,
-    fontSize: 9,
-    lineHeight: 12,
-    fontWeight: '700',
+    fontSize: 8,
+    lineHeight: 10,
+    fontWeight: '600',
     color: ds.colors.textSecondary,
   },
 });

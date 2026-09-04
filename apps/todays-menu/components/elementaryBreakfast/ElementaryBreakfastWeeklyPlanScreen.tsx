@@ -3,11 +3,10 @@ import { useRouter } from 'expo-router';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Alert, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { APP_HOME_HREF, ELEMENTARY_DINNER_WEEK_HREF } from '../../constants/appRoutes';
+import { ELEMENTARY_DINNER_WEEK_HREF } from '../../constants/appRoutes';
 import { elementaryBreakfastWeeklyPlanCopy as copy } from '../../constants/elementaryBreakfastWeeklyPlanCopy';
 import { ds } from '../../constants/designSystem';
 import { mobileShell } from '../../constants/mobileShell';
-import { NAV_BACK } from '../../constants/navigationCopy';
 import {
   generateElementaryBreakfastWeek,
   type WeeklyMealPlan,
@@ -46,7 +45,7 @@ import {
 import { ElementaryWeeklyPlanHeader } from '../elementaryWeekly/ElementaryWeeklyPlanHeader';
 import { ElementaryWeeklyShareCard } from '../elementaryWeekly/ElementaryWeeklyShareCard';
 import { appChrome } from '../ui/appChrome';
-import { ScreenBackButton } from '../ui/ScreenBackButton';
+import { HankkiHomeBrandLink } from '../ui/HankkiHomeBrandLink';
 import { ScreenLoading } from '../ui/ScreenLoading';
 import { WeeklyPlanErrorPanel } from '../elementaryWeekly/WeeklyPlanErrorPanel';
 
@@ -245,7 +244,7 @@ export function ElementaryBreakfastWeeklyPlanScreen() {
           showsVerticalScrollIndicator={false}
         >
           <View style={styles.frame}>
-            <ScreenBackButton label={NAV_BACK.home} fallbackHref={APP_HOME_HREF} />
+            <HankkiHomeBrandLink />
 
             <ElementaryWeeklyPlanHeader
               eyebrow={copy.screenEyebrow}

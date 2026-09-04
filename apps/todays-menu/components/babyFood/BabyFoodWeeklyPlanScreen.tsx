@@ -3,7 +3,7 @@ import { useRouter } from 'expo-router';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Alert, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { APP_HOME_HREF, BABY_FOOD_BATCH_HREF, BABY_FOOD_HREF } from '../../constants/appRoutes';
+import { BABY_FOOD_BATCH_HREF, BABY_FOOD_HREF } from '../../constants/appRoutes';
 import { babyBatchCookingCopy as batchCopy } from '../../constants/babyBatchCookingCopy';
 import {
   BABY_FOOD_FEED_STAGE_LABELS,
@@ -11,7 +11,6 @@ import {
 import { babyWeeklyPlanCopy as copy, BABY_WEEKLY_PLAN_WEEKDAY_KO } from '../../constants/babyWeeklyPlanCopy';
 import { ds } from '../../constants/designSystem';
 import { mobileShell } from '../../constants/mobileShell';
-import { NAV_BACK } from '../../constants/navigationCopy';
 import { theme } from '../../constants/theme';
 import {
   BABY_FOOD_FEED_DEFAULT_STAGE,
@@ -48,7 +47,7 @@ import { resolveMealHeroImage } from '../../utils/mealHeroImage';
 import { MealImageView } from '../meal/MealImageView';
 import { ElementaryWeeklyPlanShareCard } from '../elementaryWeekly/ElementaryWeeklyPlanShareCard';
 import { appChrome } from '../ui/appChrome';
-import { ScreenBackButton } from '../ui/ScreenBackButton';
+import { HankkiHomeBrandLink } from '../ui/HankkiHomeBrandLink';
 import { ScreenLoading } from '../ui/ScreenLoading';
 import { FOOTER_SCROLL_PADDING, screenLayout } from '../ui/screenLayout';
 
@@ -316,7 +315,7 @@ export function BabyFoodWeeklyPlanScreen() {
           showsVerticalScrollIndicator={false}
         >
           <View style={styles.frame}>
-            <ScreenBackButton label={NAV_BACK.home} fallbackHref={APP_HOME_HREF} />
+            <HankkiHomeBrandLink />
 
             <View style={styles.header}>
               <Text style={styles.title}>{copy.screenTitle}</Text>
