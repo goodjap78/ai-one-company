@@ -54,9 +54,12 @@ run('image area ratio >= 50%', () => {
   assert(SHARE_GRID_IMAGE_MIN_HEIGHT > 44, 'taller than sprint 5 strip');
 });
 
-run('sunday full-width layout', () => {
+run('sunday / featured accent in grid', () => {
   const card = read('components/elementaryWeekly/ElementaryWeeklyShareCard.tsx');
-  assert(card.includes('variant="sunday"'), 'sunday variant');
+  assert(
+    card.includes('variant="featured"') || card.includes('variant="sunday"'),
+    'featured or sunday variant',
+  );
   assert(!card.includes('ElementaryWeeklyShareTipCell'), 'no tip food card');
 });
 
@@ -69,10 +72,13 @@ run('seed removed from share card', () => {
 run('meal cell image heights', () => {
   const cell = read('components/elementaryWeekly/ElementaryWeeklyShareMealCell.tsx');
   assert(
-    cell.includes('SHARE_GRID_IMAGE_FLEX') || cell.includes('SHARE_GRID_IMAGE_MIN_HEIGHT'),
-    'grid image sizing',
+    cell.includes('SHARE_GRID_IMAGE_FLEX') || cell.includes('SHARE_HERO_IMAGE_FLEX'),
+    'grid/hero image sizing',
   );
-  assert(cell.includes('SHARE_SUNDAY_CARD_HEIGHT'), 'sunday card height');
+  assert(
+    cell.includes('variant === \'hero\'') || cell.includes('isHero'),
+    'hero variant present',
+  );
   assert(!cell.includes('height: 44'), 'no 44px strip');
   assert(cell.includes('dayBadgeOnImage'), 'badge overlays image');
   assert(!cell.includes('foodPoint'), 'no food point clutter');

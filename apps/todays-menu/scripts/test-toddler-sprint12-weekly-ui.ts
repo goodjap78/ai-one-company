@@ -82,8 +82,8 @@ assert(screen.includes('trackToddlerWeeklyPlanRefresh'), 'analytics refresh');
 assert(screen.includes('router.push(`/recipe/${slot.recipeId}`)'), 'recipe detail');
 assert(!screen.includes('grade'), 'no grade in UI');
 
-assert(SHARE_GRID_IMAGE_FLEX >= 0.72 && SHARE_GRID_IMAGE_FLEX <= 0.75, `image flex ${SHARE_GRID_IMAGE_FLEX}`);
-assert(SHARE_GRID_TEXT_FLEX >= 0.25 && SHARE_GRID_TEXT_FLEX <= 0.28, `text flex ${SHARE_GRID_TEXT_FLEX}`);
+assert(SHARE_GRID_IMAGE_FLEX >= 0.78 && SHARE_GRID_IMAGE_FLEX <= 0.82, `image flex ${SHARE_GRID_IMAGE_FLEX}`);
+assert(SHARE_GRID_TEXT_FLEX >= 0.18 && SHARE_GRID_TEXT_FLEX <= 0.22, `text flex ${SHARE_GRID_TEXT_FLEX}`);
 assert(WEEKLY_PLAN_SHARE_OUTPUT_WIDTH === 1080, 'share width');
 assert(WEEKLY_PLAN_SHARE_OUTPUT_HEIGHT === 1350, 'share height');
 

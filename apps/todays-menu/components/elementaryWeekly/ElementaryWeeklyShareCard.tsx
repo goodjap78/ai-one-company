@@ -4,6 +4,8 @@ import {
   WEEKLY_PLAN_SHARE_CARD_WIDTH,
 } from '../../constants/elementaryBreakfastShareCard';
 import {
+  SHARE_BODY_GRID_FLEX,
+  SHARE_BODY_HERO_FLEX,
   SHARE_CARD_CANVAS,
   SHARE_CARD_PADDING_BOTTOM,
   SHARE_CARD_PADDING_H,
@@ -31,7 +33,7 @@ type Props = {
 };
 
 /**
- * Card-news weekly share (Sprint 15).
+ * Sprint 16 card-news: header → Mon hero → Tue–Sun 2×3 grid → brand footer.
  * Capture 360×450 @3x → 1080×1350. Preview uses the same component.
  */
 export function ElementaryWeeklyShareCard({ model, copy }: Props) {
@@ -42,8 +44,8 @@ export function ElementaryWeeklyShareCard({ model, copy }: Props) {
   return (
     <View style={styles.card} collapsable={false}>
       <View style={styles.header}>
-        <Text style={styles.title}>{copy.shareCardTitle}</Text>
-        {titleLine2 ? <Text style={styles.titleSecondary}>{titleLine2}</Text> : null}
+        <Text style={styles.label}>{copy.shareCardTitle}</Text>
+        {titleLine2 ? <Text style={styles.headline}>{titleLine2}</Text> : null}
         {subtitle ? (
           <Text style={styles.subtitle} numberOfLines={2}>
             {subtitle}
@@ -52,26 +54,32 @@ export function ElementaryWeeklyShareCard({ model, copy }: Props) {
       </View>
 
       <View style={styles.body}>
-        <View style={styles.gridRow}>
-          {mon ? <ElementaryWeeklyShareMealCell item={mon} cookTime={copy.cookTime} /> : null}
-          {tue ? <ElementaryWeeklyShareMealCell item={tue} cookTime={copy.cookTime} /> : null}
-        </View>
-        <View style={styles.gridRow}>
-          {wed ? <ElementaryWeeklyShareMealCell item={wed} cookTime={copy.cookTime} /> : null}
-          {thu ? <ElementaryWeeklyShareMealCell item={thu} cookTime={copy.cookTime} /> : null}
-        </View>
-        <View style={styles.gridRow}>
-          {fri ? <ElementaryWeeklyShareMealCell item={fri} cookTime={copy.cookTime} /> : null}
-          {sat ? <ElementaryWeeklyShareMealCell item={sat} cookTime={copy.cookTime} /> : null}
-        </View>
-
-        {sun ? (
-          <ElementaryWeeklyShareMealCell
-            item={sun}
-            cookTime={copy.cookTime}
-            variant="sunday"
-          />
+        {mon ? (
+          <View style={styles.heroSlot}>
+            <ElementaryWeeklyShareMealCell item={mon} cookTime={copy.cookTime} variant="hero" />
+          </View>
         ) : null}
+
+        <View style={styles.gridBlock}>
+          <View style={styles.gridRow}>
+            {tue ? <ElementaryWeeklyShareMealCell item={tue} cookTime={copy.cookTime} /> : null}
+            {wed ? <ElementaryWeeklyShareMealCell item={wed} cookTime={copy.cookTime} /> : null}
+          </View>
+          <View style={styles.gridRow}>
+            {thu ? <ElementaryWeeklyShareMealCell item={thu} cookTime={copy.cookTime} /> : null}
+            {fri ? <ElementaryWeeklyShareMealCell item={fri} cookTime={copy.cookTime} /> : null}
+          </View>
+          <View style={styles.gridRow}>
+            {sat ? <ElementaryWeeklyShareMealCell item={sat} cookTime={copy.cookTime} /> : null}
+            {sun ? (
+              <ElementaryWeeklyShareMealCell
+                item={sun}
+                cookTime={copy.cookTime}
+                variant="featured"
+              />
+            ) : null}
+          </View>
+        </View>
       </View>
 
       <View style={styles.footer}>
@@ -94,32 +102,43 @@ const styles = StyleSheet.create({
   header: {
     flexShrink: 0,
     gap: 1,
-    marginBottom: 6,
+    marginBottom: 5,
   },
-  title: {
-    fontSize: 18,
-    lineHeight: 22,
+  /** Small audience/meal label */
+  label: {
+    fontSize: 10,
+    lineHeight: 12,
+    fontWeight: '700',
+    color: ds.colors.primary,
+    letterSpacing: -0.15,
+  },
+  /** Dominant title */
+  headline: {
+    fontSize: 20,
+    lineHeight: 24,
     fontWeight: '800',
     color: ds.colors.textPrimary,
-    letterSpacing: -0.45,
-  },
-  titleSecondary: {
-    fontSize: 16,
-    lineHeight: 20,
-    fontWeight: '800',
-    color: ds.colors.primary,
-    letterSpacing: -0.4,
+    letterSpacing: -0.5,
   },
   subtitle: {
-    marginTop: 2,
+    marginTop: 1,
     fontSize: 9,
-    lineHeight: 12,
+    lineHeight: 11,
     fontWeight: '500',
     color: ds.colors.textSecondary,
-    letterSpacing: -0.15,
+    letterSpacing: -0.1,
   },
   body: {
     flex: 1,
+    minHeight: 0,
+    gap: SHARE_GRID_GAP,
+  },
+  heroSlot: {
+    flex: SHARE_BODY_HERO_FLEX,
+    minHeight: 0,
+  },
+  gridBlock: {
+    flex: SHARE_BODY_GRID_FLEX,
     minHeight: 0,
     gap: SHARE_GRID_GAP,
   },
@@ -131,19 +150,19 @@ const styles = StyleSheet.create({
   },
   footer: {
     flexShrink: 0,
-    marginTop: 5,
+    marginTop: 4,
     alignItems: 'center',
     gap: 0,
   },
   brandName: {
     fontFamily: fontFamily.titleRound,
-    fontSize: 9,
-    lineHeight: 11,
+    fontSize: 8,
+    lineHeight: 10,
     color: ds.colors.primary,
   },
   brandTagline: {
-    fontSize: 7,
-    lineHeight: 9,
+    fontSize: 6.5,
+    lineHeight: 8,
     fontWeight: '500',
     color: ds.colors.textMuted,
   },

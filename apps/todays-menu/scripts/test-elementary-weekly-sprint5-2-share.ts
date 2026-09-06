@@ -92,14 +92,16 @@ run('simplified card info', () => {
   assert(!card.includes('recipeId'), 'no recipeId render');
 });
 
-run('sunday full-width isolated from footer', () => {
+run('sunday featured accent (Sprint 16 grid)', () => {
   const card = read('components/elementaryWeekly/ElementaryWeeklyShareCard.tsx');
   const cell = read('components/elementaryWeekly/ElementaryWeeklyShareMealCell.tsx');
-  assert(card.includes('variant="sunday"'), 'sunday variant');
-  assert(cell.includes('SHARE_SUNDAY_CARD_HEIGHT'), 'fixed sunday height');
-  assert(SHARE_SUNDAY_CARD_HEIGHT >= 80, `sunday height ${SHARE_SUNDAY_CARD_HEIGHT}`);
-  assert(cell.includes('sundayTextBand'), 'sunday text band');
+  assert(
+    card.includes('variant="featured"') || card.includes('variant="sunday"'),
+    'featured or sunday variant',
+  );
+  assert(cell.includes('featuredCell') || cell.includes('sunday'), 'featured styling');
   assert(card.includes('flexShrink: 0'), 'footer does not overlap body');
+  assert(card.includes('variant="hero"'), 'mon hero lead');
 });
 
 run('shopping hint 4–6 ingredients', () => {

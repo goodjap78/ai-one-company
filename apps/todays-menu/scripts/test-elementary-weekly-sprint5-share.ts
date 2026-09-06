@@ -65,7 +65,8 @@ run('new share card component — card-news layout', () => {
   assert(card.includes('ElementaryWeeklyShareMealCell'), 'meal cells');
   assert(card.includes('shareCardTitleLine2'), 'header title lines');
   assert(card.includes('gridRow'), '2-column rows');
-  assert(card.includes('variant="sunday"'), 'sunday full width');
+  assert(card.includes('variant="hero"') || card.includes('heroSlot'), 'hero lead');
+  assert(card.includes('variant="featured"') || card.includes('variant="sunday"'), 'featured/sunday');
   assert(!card.includes('SeedMascot'), 'no seed on share card');
   assert(!card.includes('model.shoppingHint'), 'shopping hint not rendered');
   assert(card.includes('brandName'), 'brand footer');
