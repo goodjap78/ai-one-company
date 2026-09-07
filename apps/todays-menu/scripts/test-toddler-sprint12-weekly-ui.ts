@@ -106,6 +106,7 @@ const qa = read('components/qa/ElementaryWeeklyShareQaScreen.tsx');
 assert(qa.includes('toddler'), 'qa toddler');
 assert(qa.includes('elementary'), 'qa elementary');
 assert(qa.includes('generateToddlerBreakfastWeek'), 'qa toddler bf');
+assert(qa.includes('다른 7일 식단 보기'), 'qa alternate button');
 assert(read('components/qa/ElementaryWeeklyShareQaEntry.tsx').includes('isInternalQaEnabled'), 'qa gated');
 
 const feed = read('components/toddlerMeals/ToddlerMealFeedScreen.tsx');

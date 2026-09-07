@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { elementaryBreakfastWeeklyPlanCopy as elemBreakfastCopy } from '../../constants/elementaryBreakfastWeeklyPlanCopy';
@@ -22,37 +22,60 @@ import { ScreenBackButton } from '../ui/ScreenBackButton';
 
 type Audience = 'elementary' | 'toddler';
 type MealMode = 'breakfast' | 'dinner';
+type PlanKey = `${Audience}:${MealMode}`;
+
+const DEFAULT_SEED = 42;
+
+function planKey(audience: Audience, mode: MealMode): PlanKey {
+  return `${audience}:${mode}`;
+}
+
+function uniqueRecipeCount(ids: readonly string[]): number {
+  return new Set(ids).size;
+}
 
 /** Dev-only preview for family weekly share cards (not shown in production). */
 export function ElementaryWeeklyShareQaScreen() {
   const [audience, setAudience] = useState<Audience>('toddler');
   const [mode, setMode] = useState<MealMode>('breakfast');
+  /** Per audience+meal seeds so switching chips keeps each plan's alternate state. */
+  const [seedsByKey, setSeedsByKey] = useState<Record<PlanKey, number>>({
+    'elementary:breakfast': DEFAULT_SEED,
+    'elementary:dinner': DEFAULT_SEED,
+    'toddler:breakfast': DEFAULT_SEED,
+    'toddler:dinner': DEFAULT_SEED,
+  });
 
-  const models = useMemo(() => {
-    const elemBf = generateElementaryBreakfastWeek(42);
-    const elemDn = generateElementaryDinnerWeek(42);
-    const todBf = generateToddlerBreakfastWeek(42);
-    const todDn = generateToddlerDinnerWeek(42);
-    return {
-      elementary: {
-        breakfast:
-          elemBf.ok && elemBf.plan
-            ? buildElementaryBreakfastWeeklyShareCardModel(elemBf.plan)
-            : null,
-        dinner:
-          elemDn.ok && elemDn.plan
-            ? buildElementaryDinnerWeeklyShareCardModel(elemDn.plan)
-            : null,
-      },
-      toddler: {
-        breakfast:
-          todBf.ok && todBf.plan ? buildToddlerBreakfastWeeklyShareCardModel(todBf.plan) : null,
-        dinner: todDn.ok && todDn.plan ? buildToddlerDinnerWeeklyShareCardModel(todDn.plan) : null,
-      },
-    };
-  }, []);
+  const activeKey = planKey(audience, mode);
+  const activeSeed = seedsByKey[activeKey] ?? DEFAULT_SEED;
 
-  const activeModel = models[audience][mode];
+  const activePlan = useMemo(() => {
+    if (audience === 'elementary' && mode === 'breakfast') {
+      return generateElementaryBreakfastWeek(activeSeed);
+    }
+    if (audience === 'elementary' && mode === 'dinner') {
+      return generateElementaryDinnerWeek(activeSeed);
+    }
+    if (audience === 'toddler' && mode === 'breakfast') {
+      return generateToddlerBreakfastWeek(activeSeed);
+    }
+    return generateToddlerDinnerWeek(activeSeed);
+  }, [audience, mode, activeSeed]);
+
+  const activeModel = useMemo(() => {
+    if (!activePlan.ok || !activePlan.plan) return null;
+    if (audience === 'elementary' && mode === 'breakfast') {
+      return buildElementaryBreakfastWeeklyShareCardModel(activePlan.plan);
+    }
+    if (audience === 'elementary' && mode === 'dinner') {
+      return buildElementaryDinnerWeeklyShareCardModel(activePlan.plan);
+    }
+    if (audience === 'toddler' && mode === 'breakfast') {
+      return buildToddlerBreakfastWeeklyShareCardModel(activePlan.plan);
+    }
+    return buildToddlerDinnerWeeklyShareCardModel(activePlan.plan);
+  }, [activePlan, audience, mode]);
+
   const activeCopy =
     audience === 'elementary'
       ? mode === 'breakfast'
@@ -61,6 +84,18 @@ export function ElementaryWeeklyShareQaScreen() {
       : mode === 'breakfast'
         ? toddlerBreakfastCopy
         : toddlerDinnerCopy;
+
+  const recipeIds = activePlan.ok && activePlan.plan
+    ? activePlan.plan.slots.map((s) => s.recipeId)
+    : [];
+  const uniqueOk = recipeIds.length === 7 && uniqueRecipeCount(recipeIds) === 7;
+
+  const handleAlternate = useCallback(() => {
+    setSeedsByKey((prev) => {
+      const current = prev[activeKey] ?? DEFAULT_SEED;
+      return { ...prev, [activeKey]: current + 1 };
+    });
+  }, [activeKey]);
 
   return (
     <SafeAreaView style={styles.safe} edges={['top', 'bottom']}>
@@ -121,13 +156,32 @@ export function ElementaryWeeklyShareQaScreen() {
         </View>
 
         <Text style={styles.section}>
-          {audience === 'toddler' ? '유아' : '초등학생'} · {mode === 'breakfast' ? '아침' : '저녁'} 7일
+          {audience === 'toddler' ? '유아' : '초등학생'} · {mode === 'breakfast' ? '아침' : '저녁'}{' '}
+          7일
         </Text>
+
+        <Pressable
+          style={({ pressed }) => [styles.alternateBtn, pressed && styles.alternateBtnPressed]}
+          onPress={handleAlternate}
+          accessibilityRole="button"
+          accessibilityLabel="다른 7일 식단 보기"
+        >
+          <Text style={styles.alternateBtnText}>다른 7일 식단 보기</Text>
+        </Pressable>
+
+        <Text style={styles.seedDebug} accessibilityLabel={`QA seed ${activeSeed}`}>
+          QA seed: {activeSeed}
+          {activePlan.ok ? ` · plan ${activePlan.seed}` : ' · generate fail'}
+          {uniqueOk ? ' · unique 7' : ' · DUP?'}
+        </Text>
+
         {activeModel ? (
           <View style={styles.previewWrap}>
             <ElementaryWeeklyShareCardPreview model={activeModel} copy={activeCopy} />
           </View>
-        ) : null}
+        ) : (
+          <Text style={styles.errorText}>이 seed로 식단을 만들지 못했어요. 다시 눌러 보세요.</Text>
+        )}
       </ScrollView>
     </SafeAreaView>
   );
@@ -184,8 +238,35 @@ const styles = StyleSheet.create({
     color: ds.colors.primary,
     alignSelf: 'flex-start',
   },
+  alternateBtn: {
+    alignSelf: 'stretch',
+    borderRadius: ds.radius.button,
+    backgroundColor: ds.colors.primary,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    alignItems: 'center',
+  },
+  alternateBtnPressed: {
+    opacity: 0.9,
+  },
+  alternateBtnText: {
+    ...ds.typography.button,
+    color: ds.colors.card,
+  },
+  seedDebug: {
+    fontSize: 11,
+    lineHeight: 14,
+    fontWeight: '600',
+    color: ds.colors.textMuted,
+    alignSelf: 'flex-start',
+  },
   previewWrap: {
     alignItems: 'center',
     width: '100%',
+  },
+  errorText: {
+    ...ds.typography.caption,
+    color: ds.colors.textSecondary,
+    alignSelf: 'flex-start',
   },
 });
