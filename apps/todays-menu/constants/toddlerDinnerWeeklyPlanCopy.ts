@@ -44,6 +44,7 @@ export const toddlerDinnerWeeklyPlanCopy = {
   shareCardSubtitle: '이번 주 저녁 고민,\n한 번에 해결해보세요.',
   shareCardBrandName: '한끼',
   shareCardBrandTagline: '우리 아이 밥 고민을 덜어드려요',
+  shareCardRecipeHint: '레시피는 한끼 앱에서 확인하세요',
   loadingMessage: '이번 주 저녁을 고르고 있어요',
   errorTitle: '식단을 만들지 못했어요',
   errorMessage: '지금은 추천을 만들지 못했어요. 잠시 후 다시 시도해 주세요.',

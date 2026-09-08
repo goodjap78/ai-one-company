@@ -143,6 +143,11 @@ export function ToddlerDetailExtraSections({ hankki }: SafetyProps) {
       ? hankki.standardMetadata.allergyTags
       : hankki.familyAudience.safetySignals.allergyTags;
   const allergyLabels = allergyUserLabels(allergyTags);
+  const quality = hankki.elementaryQuality;
+  const showQuality =
+    quality &&
+    (quality.contentVerificationStatus === 'reviewed' ||
+      quality.contentVerificationStatus === 'verified');
 
   return (
     <View style={styles.stack}>
@@ -154,10 +159,42 @@ export function ToddlerDetailExtraSections({ hankki }: SafetyProps) {
           </Text>
         ))}
       </View>
+      {showQuality && hankki.prepTimeMinutes != null ? (
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>{childDetailCopy.elementaryPrepTitle}</Text>
+          <Text style={styles.body}>
+            {childDetailCopy.elementaryTimeTotal(hankki.prepTimeMinutes, hankki.time)}
+          </Text>
+        </View>
+      ) : null}
+      {showQuality && quality.kidAdjustmentTip ? (
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>{childDetailCopy.elementaryKidTipTitle}</Text>
+          <Text style={styles.body}>{quality.kidAdjustmentTip}</Text>
+        </View>
+      ) : null}
+      {showQuality && quality.substituteIngredients ? (
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>{childDetailCopy.elementarySubstituteTitle}</Text>
+          <Text style={styles.body}>{quality.substituteIngredients}</Text>
+        </View>
+      ) : null}
       {allergyLabels.length > 0 ? (
         <View style={styles.card}>
           <Text style={styles.cardTitle}>{childDetailCopy.allergyTitle}</Text>
           <Text style={styles.body}>{allergyLabels.join(', ')}</Text>
+        </View>
+      ) : null}
+      {showQuality && quality.storageInfo ? (
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>{childDetailCopy.elementaryStorageTitle}</Text>
+          <Text style={styles.body}>{quality.storageInfo}</Text>
+        </View>
+      ) : null}
+      {showQuality && quality.reheatingMethod ? (
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>{childDetailCopy.elementaryReheatTitle}</Text>
+          <Text style={styles.body}>{quality.reheatingMethod}</Text>
         </View>
       ) : null}
     </View>

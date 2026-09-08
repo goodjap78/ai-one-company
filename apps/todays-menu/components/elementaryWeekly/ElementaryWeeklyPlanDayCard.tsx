@@ -1,6 +1,7 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { ds } from '../../constants/designSystem';
 import { theme } from '../../constants/theme';
+import { weeklyRecipeAccessCopy } from '../../constants/weeklyRecipeAccessCopy';
 import { resolveMealHeroImage } from '../../utils/mealHeroImage';
 import { MealImageView } from '../meal/MealImageView';
 import { appChrome } from '../ui/appChrome';
@@ -67,10 +68,10 @@ export function ElementaryWeeklyPlanDayCard({
           </Text>
         ) : null}
         <Text style={styles.cookTime}>{cookTimeLabel(timeMinutes)}</Text>
+        <Text style={styles.recipeCta} accessibilityElementsHidden importantForAccessibility="no">
+          {weeklyRecipeAccessCopy.recipeViewCta}
+        </Text>
       </View>
-      <Text style={styles.chevron} accessibilityElementsHidden importantForAccessibility="no">
-        ›
-      </Text>
     </Pressable>
   );
 }
@@ -135,11 +136,11 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: ds.colors.textSecondary,
   },
-  chevron: {
-    fontSize: 22,
-    lineHeight: 24,
-    fontWeight: '300',
-    color: ds.colors.textMuted,
-    paddingLeft: 2,
+  recipeCta: {
+    fontSize: 12,
+    lineHeight: 16,
+    fontWeight: '600',
+    color: ds.colors.warmText,
+    marginTop: 2,
   },
 });

@@ -12,6 +12,21 @@ export const TODDLER_MEALS_WEEKLY_HREF = '/toddler-meals-week' as const;
 export const TODDLER_BREAKFAST_WEEK_HREF = '/toddler-breakfast-week' as const;
 export const TODDLER_DINNER_WEEK_HREF = '/toddler-dinner-week' as const;
 
+export const WEEKLY_RECIPES_HREF = '/weekly-recipes' as const;
+
+export type WeeklyRecipesSource =
+  | 'elementary-breakfast'
+  | 'elementary-dinner'
+  | 'toddler-breakfast'
+  | 'toddler-dinner';
+
+export function weeklyRecipesHref(source: WeeklyRecipesSource): Href {
+  return {
+    pathname: '/weekly-recipes',
+    params: { source },
+  };
+}
+
 export const BABY_FOOD_HREF = '/baby-food' as const;
 export const BABY_FOOD_WEEKLY_HREF = '/baby-food-week' as const;
 export const BABY_FOOD_BATCH_HREF = '/baby-food-batch' as const;

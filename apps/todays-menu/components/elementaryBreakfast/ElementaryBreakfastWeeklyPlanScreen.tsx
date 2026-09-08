@@ -3,7 +3,7 @@ import { useRouter } from 'expo-router';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Alert, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { ELEMENTARY_DINNER_WEEK_HREF } from '../../constants/appRoutes';
+import { ELEMENTARY_DINNER_WEEK_HREF, weeklyRecipesHref } from '../../constants/appRoutes';
 import { elementaryBreakfastWeeklyPlanCopy as copy } from '../../constants/elementaryBreakfastWeeklyPlanCopy';
 import { ds } from '../../constants/designSystem';
 import { mobileShell } from '../../constants/mobileShell';
@@ -43,6 +43,7 @@ import {
   elementaryWeeklyPlanFooterScrollPadding,
 } from '../elementaryWeekly/ElementaryWeeklyPlanFooter';
 import { ElementaryWeeklyPlanHeader } from '../elementaryWeekly/ElementaryWeeklyPlanHeader';
+import { WeeklyRecipeIndexLink } from '../elementaryWeekly/WeeklyRecipeIndexLink';
 import { ElementaryWeeklyShareCard } from '../elementaryWeekly/ElementaryWeeklyShareCard';
 import { appChrome } from '../ui/appChrome';
 import { HankkiHomeBrandLink } from '../ui/HankkiHomeBrandLink';
@@ -295,6 +296,10 @@ export function ElementaryBreakfastWeeklyPlanScreen() {
                     />
                   );
                 })}
+                <WeeklyRecipeIndexLink
+                  disabled={busy}
+                  onPress={() => router.push(weeklyRecipesHref('elementary-breakfast'))}
+                />
               </View>
             )}
           </View>

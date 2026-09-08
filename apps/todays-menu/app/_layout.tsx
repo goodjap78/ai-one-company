@@ -60,6 +60,7 @@ export default function RootLayout() {
         <Stack.Screen name="toddler-meals-week" />
         <Stack.Screen name="toddler-breakfast-week" />
         <Stack.Screen name="toddler-dinner-week" />
+        <Stack.Screen name="weekly-recipes" />
         <Stack.Screen name="baby-food" />
         <Stack.Screen name="baby-food-week" />
         <Stack.Screen name="baby-food-batch" />

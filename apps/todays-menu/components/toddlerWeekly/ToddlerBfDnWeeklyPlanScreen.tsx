@@ -10,6 +10,7 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import {
   TODDLER_BREAKFAST_WEEK_HREF,
   TODDLER_DINNER_WEEK_HREF,
+  weeklyRecipesHref,
 } from '../../constants/appRoutes';
 import { toddlerBreakfastWeeklyPlanCopy } from '../../constants/toddlerBreakfastWeeklyPlanCopy';
 import { toddlerDinnerWeeklyPlanCopy } from '../../constants/toddlerDinnerWeeklyPlanCopy';
@@ -53,6 +54,7 @@ import {
   elementaryWeeklyPlanFooterScrollPadding,
 } from '../elementaryWeekly/ElementaryWeeklyPlanFooter';
 import { ElementaryWeeklyPlanHeader } from '../elementaryWeekly/ElementaryWeeklyPlanHeader';
+import { WeeklyRecipeIndexLink } from '../elementaryWeekly/WeeklyRecipeIndexLink';
 import { ElementaryWeeklyShareCard } from '../elementaryWeekly/ElementaryWeeklyShareCard';
 import { WeeklyPlanErrorPanel } from '../elementaryWeekly/WeeklyPlanErrorPanel';
 import { appChrome } from '../ui/appChrome';
@@ -341,6 +343,16 @@ export function ToddlerBfDnWeeklyPlanScreen({ mealType }: Props) {
                     />
                   );
                 })}
+                <WeeklyRecipeIndexLink
+                  disabled={busy}
+                  onPress={() =>
+                    router.push(
+                      weeklyRecipesHref(
+                        mealType === 'breakfast' ? 'toddler-breakfast' : 'toddler-dinner',
+                      ),
+                    )
+                  }
+                />
               </View>
             )}
           </View>

@@ -24,6 +24,7 @@ export type ElementaryWeeklyShareCardCopy = {
   shareCardShoppingHintLabel: string;
   shareCardBrandName: string;
   shareCardBrandTagline: string;
+  shareCardRecipeHint?: string;
   cookTime: (minutes: number) => string;
 };
 
@@ -85,6 +86,9 @@ export function ElementaryWeeklyShareCard({ model, copy }: Props) {
       <View style={styles.footer}>
         <Text style={styles.brandName}>{copy.shareCardBrandName}</Text>
         <Text style={styles.brandTagline}>{copy.shareCardBrandTagline}</Text>
+        {copy.shareCardRecipeHint?.trim() ? (
+          <Text style={styles.recipeHint}>{copy.shareCardRecipeHint}</Text>
+        ) : null}
       </View>
     </View>
   );
@@ -163,6 +167,13 @@ const styles = StyleSheet.create({
   brandTagline: {
     fontSize: 6.5,
     lineHeight: 8,
+    fontWeight: '500',
+    color: ds.colors.textMuted,
+  },
+  recipeHint: {
+    marginTop: 1,
+    fontSize: 5.5,
+    lineHeight: 7,
     fontWeight: '500',
     color: ds.colors.textMuted,
   },

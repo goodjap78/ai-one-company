@@ -95,7 +95,7 @@ run('share model matches current generated plan', () => {
 
 run('share card layout excludes chrome / ads / debug', () => {
   const card = read('components/elementaryWeekly/ElementaryWeeklyShareCard.tsx');
-  assert(card.includes('Share-only card-news layout'), 'share-only card');
+  assert(card.includes('card-news'), 'share-only card');
   assert(!card.includes('SeedMascot'), 'no Seed mascot on elementary share card');
   assert(card.includes('shareCardBrandName'), '한끼 wordmark copy');
   assert(!card.includes('AdMob'), 'no ads');

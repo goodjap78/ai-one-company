@@ -54,6 +54,7 @@
     "test:toddler-sprint10-breakfast-diversity": "npx tsx scripts/test-toddler-sprint10-breakfast-diversity.ts",
     "test:toddler-sprint11-weekly-generators": "npx tsx scripts/test-toddler-sprint11-weekly-generators.ts",
     "test:toddler-sprint12-weekly-ui": "npx tsx scripts/test-toddler-sprint12-weekly-ui.ts",
+    "test:weekly-recipe-access": "npx tsx scripts/test-weekly-recipe-access.ts",
     "test:weekly-plan-ui": "npx tsx scripts/test-elementary-breakfast-weekly-plan-ui.ts",
     "test:weekly-plan-share": "npx tsx scripts/test-elementary-breakfast-weekly-plan-share.ts",
     "test:ai-recommendation-metadata": "npx tsx scripts/test-ai-recommendation-metadata.ts",
