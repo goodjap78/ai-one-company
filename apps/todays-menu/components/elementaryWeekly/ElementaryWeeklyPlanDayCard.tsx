@@ -55,6 +55,7 @@ export function ElementaryWeeklyPlanDayCard({
           showEmojiFallback
           emojiSize={32}
           remountKey={recipeId}
+          debugScreen="WeeklyPlanDayCard"
           accessibilityLabel={name}
         />
       </View>

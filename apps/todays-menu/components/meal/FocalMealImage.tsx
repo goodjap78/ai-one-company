@@ -2,6 +2,7 @@ import { Image, StyleSheet, View, type ImageStyle, type StyleProp, type ViewStyl
 import { HOME_HERO_DISPLAY } from '../../constants/homeHeroDisplay';
 import type { RecipeImage } from '../../types/recipe';
 import { computeHomeHeroImageLayout } from '../../utils/computeHomeHeroImageLayout';
+import { logMealImageLoadError, mealImageErrorMessage } from '../../utils/logMealImageLoadError';
 import { resolveHomeHeroFocalPoint } from '../../utils/resolveHomeHeroFocalPoint';
 
 type Props = {
@@ -55,7 +56,16 @@ export function FocalMealImage({
         source={source}
         style={[styles.image, layout]}
         resizeMode="cover"
-        onError={onError}
+        onError={(error) => {
+          logMealImageLoadError({
+            recipeId,
+            screen: 'FocalMealImage',
+            sourceKind: useRemote && image.url ? 'url' : 'source',
+            url: useRemote ? image.url : null,
+            message: mealImageErrorMessage(error),
+          });
+          onError?.();
+        }}
         accessibilityRole="image"
         accessibilityLabel={accessibilityLabel}
       />

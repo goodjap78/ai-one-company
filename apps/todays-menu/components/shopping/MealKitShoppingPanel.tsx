@@ -83,6 +83,9 @@ export function MealKitShoppingPanel({ recipeId }: Props) {
                 containerStyle={styles.heroThumb}
                 style={styles.heroThumbInner}
                 variant="thumb"
+                showEmojiFallback
+                remountKey={recipeId}
+                debugScreen="MealKitShoppingPanel"
               />
             ) : null}
             <View style={styles.headerCopy}>

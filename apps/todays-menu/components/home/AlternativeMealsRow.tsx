@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo, useEffect, useMemo, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { getHankkiHomeDecisionMessages } from '../../constants/HankkiMessages';
 import { theme } from '../../constants/theme';
@@ -54,10 +54,16 @@ type ItemProps = {
 };
 
 function AlternativeColumn({ alt, disabled, onSelect }: ItemProps) {
+  const [photoFailed, setPhotoFailed] = useState(false);
   const heroImage = useMemo(
     () => resolveMealHeroImage(alt.recipe.id, 'homemade', null),
     [alt.recipe.id],
   );
+  const showPhoto = Boolean(heroImage.url || heroImage.source) && !photoFailed;
+
+  useEffect(() => {
+    setPhotoFailed(false);
+  }, [alt.recipe.id]);
 
   return (
     <Pressable
@@ -72,7 +78,7 @@ function AlternativeColumn({ alt, disabled, onSelect }: ItemProps) {
       accessibilityLabel={`${alt.recipe.title}, ${alt.recipe.cookingTimeMinutes}분`}
     >
       <View style={styles.imageWrap}>
-        {heroImage.url || heroImage.source ? (
+        {showPhoto ? (
           <FocalMealImage
             image={heroImage}
             recipeId={alt.recipe.id}
@@ -80,6 +86,7 @@ function AlternativeColumn({ alt, disabled, onSelect }: ItemProps) {
             accessibilityLabel={alt.recipe.title}
             useRemote={Boolean(heroImage.url)}
             focalScale={1.22}
+            onError={() => setPhotoFailed(true)}
           />
         ) : (
           <MealImageView
@@ -87,6 +94,7 @@ function AlternativeColumn({ alt, disabled, onSelect }: ItemProps) {
             variant="thumb"
             showEmojiFallback
             remountKey={alt.recipe.id}
+            debugScreen="AlternativeMealsRow"
             containerStyle={styles.imageFill}
             style={styles.imageFill}
           />

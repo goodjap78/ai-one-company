@@ -1,6 +1,7 @@
 import { Image, StyleSheet, View, type ImageStyle, type StyleProp } from 'react-native';
 import type { RecipeImage } from '../../types/recipe';
 import { computeHomeHeroImageLayout } from '../../utils/computeHomeHeroImageLayout';
+import { logMealImageLoadError, mealImageErrorMessage } from '../../utils/logMealImageLoadError';
 import { resolveHomeHeroFocalPoint } from '../../utils/resolveHomeHeroFocalPoint';
 
 type Props = {
@@ -50,7 +51,16 @@ export function HomeHeroFocalImage({
         source={source}
         style={[styles.image, layout, style]}
         resizeMode="cover"
-        onError={onError}
+        onError={(error) => {
+          logMealImageLoadError({
+            recipeId,
+            screen: 'HomeHeroFocalImage',
+            sourceKind: useRemote && image.url ? 'url' : 'source',
+            url: useRemote ? image.url : null,
+            message: mealImageErrorMessage(error),
+          });
+          onError?.();
+        }}
         accessibilityRole="image"
         accessibilityLabel={accessibilityLabel}
       />

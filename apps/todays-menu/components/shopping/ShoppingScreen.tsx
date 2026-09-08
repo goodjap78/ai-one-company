@@ -230,6 +230,9 @@ function IngredientShoppingScreen({
                   containerStyle={styles.heroThumb}
                   style={styles.heroThumbInner}
                   variant="thumb"
+                  showEmojiFallback
+                  remountKey={recipeId}
+                  debugScreen="ShoppingScreen"
                 />
               ) : null}
               <View style={styles.headerCopy}>

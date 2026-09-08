@@ -1,4 +1,5 @@
 import { LinearGradient } from 'expo-linear-gradient';
+import { useEffect, useState } from 'react';
 import { StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { getHankkiRecipeMessages } from '../../constants/HankkiMessages';
 import { MOBILE_MAX_WIDTH, MOBILE_SCREEN_PADDING } from '../../constants/mobileShell';
@@ -33,17 +34,25 @@ function useRecipeHeroHeight(): number {
 export function RecipeHeroImage({ image, recipeId, seedMessage }: Props) {
   const height = useRecipeHeroHeight();
   const hasPhoto = Boolean(image.url || image.source);
+  const [photoFailed, setPhotoFailed] = useState(false);
   const tip = seedMessage?.trim() ?? '';
+
+  useEffect(() => {
+    setPhotoFailed(false);
+  }, [recipeId, image.url, image.source]);
+
+  const showPhoto = hasPhoto && !photoFailed;
 
   return (
     <View style={[styles.container, { height }]}>
-      {hasPhoto ? (
+      {showPhoto ? (
         <HomeHeroFocalImage
           image={image}
           recipeId={recipeId}
           style={styles.imageFill}
           accessibilityLabel="메뉴 사진"
           useRemote={Boolean(image.url)}
+          onError={() => setPhotoFailed(true)}
         />
       ) : (
         <MealImageView
@@ -52,6 +61,8 @@ export function RecipeHeroImage({ image, recipeId, seedMessage }: Props) {
           accessibilityLabel={labels.imagePlaceholder}
           showEmojiFallback
           emojiFallbackLabel={labels.imagePlaceholder}
+          remountKey={recipeId}
+          debugScreen="RecipeHeroImage"
         />
       )}
       <LinearGradient

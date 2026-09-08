@@ -49,6 +49,7 @@ export function ElementaryWeeklyShareMealCell({
             showEmojiFallback
             emojiSize={48}
             remountKey={item.recipeId}
+            debugScreen="WeeklyShareMealCell"
             accessibilityLabel={item.name}
           />
         </View>
@@ -79,6 +80,7 @@ export function ElementaryWeeklyShareMealCell({
           showEmojiFallback
           emojiSize={28}
           remountKey={item.recipeId}
+          debugScreen="WeeklyShareMealCell"
           accessibilityLabel={item.name}
         />
       </View>

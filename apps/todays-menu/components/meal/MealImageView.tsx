@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { theme } from '../../constants/theme';
 import type { RecipeImage } from '../../types/recipe';
+import { logMealImageLoadError, mealImageErrorMessage } from '../../utils/logMealImageLoadError';
 
 type Props = {
   image: RecipeImage;
@@ -22,6 +23,8 @@ type Props = {
   emojiSize?: number;
   /** Remount Image when meal identity changes (fixes stale local assets on refresh). */
   remountKey?: string;
+  /** QA log label only — not shown in UI. */
+  debugScreen?: string;
   /** Default cover; share cards use contain so food is not cropped. */
   resizeMode?: 'cover' | 'contain' | 'stretch' | 'center' | 'repeat';
 };
@@ -49,6 +52,7 @@ export function MealImageView({
   emojiFallbackLabel,
   emojiSize,
   remountKey,
+  debugScreen,
   resizeMode = 'cover',
 }: Props) {
   const imageIdentity = resolveImageIdentity(remountKey, image);
@@ -69,7 +73,16 @@ export function MealImageView({
         source={{ uri: image.url }}
         style={photoStyle}
         resizeMode={resizeMode}
-        onError={() => setTier(1)}
+        onError={(error) => {
+          logMealImageLoadError({
+            recipeId: remountKey,
+            screen: debugScreen,
+            sourceKind: 'url',
+            url: image.url,
+            message: mealImageErrorMessage(error),
+          });
+          setTier(1);
+        }}
         accessibilityRole="image"
         accessibilityLabel={label}
       />
@@ -83,7 +96,15 @@ export function MealImageView({
         source={image.source}
         style={photoStyle}
         resizeMode={resizeMode}
-        onError={() => setTier(3)}
+        onError={(error) => {
+          logMealImageLoadError({
+            recipeId: remountKey,
+            screen: debugScreen,
+            sourceKind: 'source',
+            message: mealImageErrorMessage(error),
+          });
+          setTier(3);
+        }}
         accessibilityRole="image"
         accessibilityLabel={label}
       />
