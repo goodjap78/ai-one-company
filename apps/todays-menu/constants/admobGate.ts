@@ -68,9 +68,8 @@ export function isAdMobTestAdEnvironment(
   isDev = false,
 ): boolean {
   if (isDev) return true;
-  if (readTrimmed(env.EXPO_PUBLIC_QA_TOOLS) === '1') return true;
-  const profile = readTrimmed(env.EAS_BUILD_PROFILE);
-  return profile === 'development' || profile === 'preview';
+  // Client preview: EXPO_PUBLIC_QA_TOOLS only. EAS_BUILD_PROFILE is not inlined in JS.
+  return readTrimmed(env.EXPO_PUBLIC_QA_TOOLS) === '1';
 }
 
 export function readConfiguredAndroidAdMobAppId(env: AdMobRuntimeEnv = {}): string | null {

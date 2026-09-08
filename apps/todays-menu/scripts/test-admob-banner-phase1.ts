@@ -51,11 +51,23 @@ assert(banner.includes('TestIds') || read('constants/admobConfig.ts').includes('
 assert(banner.includes('requestNonPersonalizedAdsOnly'), 'NPA request');
 assert(banner.includes("Platform.OS !== 'android'") || banner.includes("Platform.OS === 'android'"), 'Android gated');
 assert(banner.includes('onAdFailedToLoad'), 'hides on failure');
+assert(banner.includes('[AdMob QA] onAdFailedToLoad'), 'QA-only load failure log');
+assert(banner.includes('isInternalQaEnabled'), 'load diagnostics not shown in production');
 assert(!banner.includes('InterstitialAd'), 'no interstitial');
 assert(!banner.includes('RewardedAd'), 'no rewarded');
 
 const config = read('constants/admobConfig.ts');
 assert(config.includes('TestIds.ADAPTIVE_BANNER'), 'phase1 adaptive test unit');
+assert(!/return\s+process\.env\b/.test(config), 'admobConfig does not return process.env');
+assert(config.includes('readClientAdMobRuntimeEnv'), 'admobConfig uses explicit client env');
+
+const clientEnv = read('constants/admobClientEnv.ts');
+assert(clientEnv.includes('process.env.EXPO_PUBLIC_QA_TOOLS'), 'static QA_TOOLS reference');
+assert(
+  clientEnv.includes('process.env.EXPO_PUBLIC_ADMOB_ANDROID_APP_ID'),
+  'static EXPO_PUBLIC AdMob App ID reference',
+);
+
 const gate = read('constants/admobGate.ts');
 assert(
   gate.includes('EXPO_PUBLIC_ADMOB_ANDROID_BANNER_UNIT_ID'),
@@ -75,6 +87,8 @@ assert(layout.includes('initAnalytics'), 'analytics init kept');
 const init = read('services/ads/initAdMob.native.ts');
 assert(init.includes('initStarted'), 'one-shot guard');
 assert(init.includes('shouldInitializeAdMob'), 'Android/gate init');
+assert(init.includes('readClientAdMobRuntimeEnv'), 'init uses explicit client env');
+assert(!/env:\s*process\.env\b/.test(init), 'init does not pass whole process.env');
 
 const privacy = read('legal/privacy.html');
 assert(privacy.includes('Google AdMob'), 'privacy AdMob');

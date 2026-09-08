@@ -1,8 +1,9 @@
 import { useCallback, useState } from 'react';
-import { Platform, StyleSheet, View, type StyleProp, type ViewStyle } from 'react-native';
+import { Platform, StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
 import { BannerAd, BannerAdSize } from 'react-native-google-mobile-ads';
 import { getAdMobBannerUnitId, isAdMobBannerEnabled } from '../../constants/admobConfig';
 import { MOBILE_SCREEN_PADDING } from '../../constants/mobileShell';
+import { isInternalQaEnabled } from '../../utils/isInternalQaEnabled';
 
 type Props = {
   style?: StyleProp<ViewStyle>;
@@ -14,13 +15,46 @@ type Props = {
  */
 export function AdMobBanner({ style }: Props) {
   const [failed, setFailed] = useState(false);
+  const [qaFailDetail, setQaFailDetail] = useState<string | null>(null);
   const unitId = getAdMobBannerUnitId();
+  const qa = isInternalQaEnabled();
 
-  const handleFailed = useCallback(() => {
-    setFailed(true);
-  }, []);
+  const handleFailed = useCallback(
+    (error: { code?: string | number; message?: string } | Error) => {
+      const code = 'code' in error ? String(error.code ?? '') : '';
+      const message = error instanceof Error ? error.message : String(error.message ?? error);
+      if (qa) {
+        console.warn('[AdMob QA] onAdFailedToLoad', { code, message });
+        setQaFailDetail([code, message].filter(Boolean).join(' · ') || 'load failed');
+      }
+      setFailed(true);
+    },
+    [qa],
+  );
 
-  if (!isAdMobBannerEnabled() || Platform.OS !== 'android' || failed || !unitId) {
+  if (Platform.OS !== 'android') {
+    return null;
+  }
+
+  if (!isAdMobBannerEnabled() || !unitId) {
+    if (qa) {
+      return (
+        <Text style={styles.qaDebug} accessibilityLabel="AdMob QA gated off">
+          AdMob QA: gated off
+        </Text>
+      );
+    }
+    return null;
+  }
+
+  if (failed) {
+    if (qa) {
+      return (
+        <Text style={styles.qaDebug} accessibilityLabel="AdMob QA load failed">
+          AdMob QA: {qaFailDetail ?? 'load failed'}
+        </Text>
+      );
+    }
     return null;
   }
 
@@ -46,5 +80,13 @@ const styles = StyleSheet.create({
     marginTop: 10,
     paddingHorizontal: MOBILE_SCREEN_PADDING,
     overflow: 'hidden',
+  },
+  qaDebug: {
+    width: '100%',
+    marginTop: 8,
+    paddingHorizontal: MOBILE_SCREEN_PADDING,
+    fontSize: 11,
+    lineHeight: 14,
+    color: '#8A7464',
   },
 });

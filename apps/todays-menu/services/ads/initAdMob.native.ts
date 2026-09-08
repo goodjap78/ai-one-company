@@ -3,6 +3,7 @@
  * Skipped on iOS and when the production/test gate has no unit to show.
  */
 import { Platform } from 'react-native';
+import { readClientAdMobRuntimeEnv } from '../../constants/admobClientEnv';
 import { shouldInitializeAdMob } from '../../constants/admobGate';
 
 let initStarted = false;
@@ -16,7 +17,7 @@ export function initAdMob(): void {
     initStarted ||
     !shouldInitializeAdMob({
       platform: Platform.OS,
-      env: process.env,
+      env: readClientAdMobRuntimeEnv(),
       isDev: isDevRuntime(),
     })
   ) {

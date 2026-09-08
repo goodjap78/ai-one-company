@@ -3,12 +3,12 @@
  */
 import { Platform } from 'react-native';
 import { TestIds } from 'react-native-google-mobile-ads';
+import { readClientAdMobRuntimeEnv } from './admobClientEnv';
 import {
   GOOGLE_TEST_ADAPTIVE_BANNER_UNIT_ID,
   isAdMobBannerEnabledFor,
   resolveAdMobBannerUnitId,
   shouldInitializeAdMob as shouldInitializeAdMobFor,
-  type AdMobRuntimeEnv,
 } from './admobGate';
 
 export {
@@ -25,8 +25,8 @@ export {
   shouldFailEasProductionWithoutAppId,
 } from './admobGate';
 
-function runtimeEnv(): AdMobRuntimeEnv {
-  return process.env;
+function runtimeEnv() {
+  return readClientAdMobRuntimeEnv();
 }
 
 function isDevRuntime(): boolean {
