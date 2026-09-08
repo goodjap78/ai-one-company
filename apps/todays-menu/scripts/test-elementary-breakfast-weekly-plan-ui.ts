@@ -95,9 +95,9 @@ run('week display — Korean weekdays and required fields', () => {
   assert(elementaryBreakfastWeeklyPlanCopy.refreshButton === '다른 일주일 추천', 'refresh copy');
 });
 
-run('recipe detail reuses existing recipe route', () => {
+run('recipe detail uses canonical ingredients route', () => {
   const screen = read('components/elementaryBreakfast/ElementaryBreakfastWeeklyPlanScreen.tsx');
-  assert(screen.includes('`/recipe/${slot.recipeId}`'), 'recipeId detail route');
+  assert(screen.includes('weeklyRecipeDetailHref(slot.recipeId)'), 'recipeId detail route');
   assert(!screen.includes('ElementaryBreakfastRecipeDetail'), 'no new detail screen');
 });
 

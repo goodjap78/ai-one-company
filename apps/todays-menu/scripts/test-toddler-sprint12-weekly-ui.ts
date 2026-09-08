@@ -79,7 +79,7 @@ assert(screen.includes('generateToddlerBreakfastWeek'), 'bf generator');
 assert(screen.includes('generateToddlerDinnerWeek'), 'dn generator');
 assert(screen.includes('trackToddlerWeeklyPlanView'), 'analytics view');
 assert(screen.includes('trackToddlerWeeklyPlanRefresh'), 'analytics refresh');
-assert(screen.includes('router.push(`/recipe/${slot.recipeId}`)'), 'recipe detail');
+assert(screen.includes('weeklyRecipeDetailHref(slot.recipeId)'), 'recipe detail');
 assert(!screen.includes('grade'), 'no grade in UI');
 
 assert(SHARE_GRID_IMAGE_FLEX >= 0.78 && SHARE_GRID_IMAGE_FLEX <= 0.82, `image flex ${SHARE_GRID_IMAGE_FLEX}`);

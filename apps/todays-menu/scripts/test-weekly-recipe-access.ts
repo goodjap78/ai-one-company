@@ -60,7 +60,8 @@ const screens: Array<[string, string, string]> = [
 
 for (const [label, rel] of screens) {
   const src = read(rel);
-  assert(src.includes('router.push(`/recipe/${slot.recipeId}`)'), `${label} → /recipe/{id}`);
+  assert(src.includes('weeklyRecipeDetailHref(slot.recipeId)'), `${label} → /ingredients/{id}`);
+  assert(src.includes('logWeeklyRecipePressQa'), `${label} QA press log`);
   assert(src.includes('WeeklyRecipeIndexLink'), `${label} index CTA`);
   assert(src.includes('HankkiHomeBrandLink'), `${label} logo home`);
   assert(!src.includes('recipeQualityGrade'), `${label} no grade`);
@@ -90,7 +91,8 @@ assert(read('app/_layout.tsx').includes('weekly-recipes'), 'layout registers ind
 const index = read('components/weeklyRecipes/WeeklyRecipeIndexScreen.tsx');
 assert(index.includes('loadCurrentWeeklyPlanForIndex'), 'index loads live stored plan');
 assert(index.includes('useFocusEffect'), 'index reloads on focus (regenerate sync)');
-assert(index.includes('router.push(`/recipe/${slot.recipeId}`)'), 'index → recipe detail');
+assert(index.includes('weeklyRecipeDetailHref(slot.recipeId)'), 'index → ingredients detail');
+assert(index.includes('logWeeklyRecipePressQa'), 'index QA press log');
 assert(index.includes('HankkiHomeBrandLink'), 'index logo home');
 assert(index.includes('ScreenBackButton'), 'index back');
 assert(index.includes('plan.slots.map'), 'index uses current slots');
@@ -172,6 +174,18 @@ assert(
 assert(!card.includes('AdMob'), 'day card no ads');
 assert(!index.includes('Coupang'), 'index no coupang');
 assert(!index.includes('generateElementary'), 'index does not call generators');
+
+const bfScreen = read('components/elementaryBreakfast/ElementaryBreakfastWeeklyPlanScreen.tsx');
+assert(bfScreen.includes('left: -4000'), 'elem bf capture host off-screen');
+assert(bfScreen.includes("setRecipeOpenSource('kids_weekly_plan')"), 'elem bf open source');
+assert(
+  read('app/recipe/[id].tsx').includes('getHankkiRecipeById(recipeId)'),
+  'recipe bridge resolves Hankki catalog',
+);
+assert(
+  read('components/elementary/ElementaryBrowseScreen.tsx').includes('`/recipe/${recipeId}`'),
+  'browse still uses /recipe bridge',
+);
 
 if (failed > 0) {
   console.error(`\nFAIL — ${failed}`);

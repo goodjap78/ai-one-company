@@ -115,6 +115,7 @@ run('screen captures share card, not the visible screen', () => {
   assert(screen.includes('saveImageButton'), 'save button');
   assert(screen.includes('shareButton'), 'share button');
   assert(screen.includes('opacity: 1'), 'capture host is fully opaque for PNG quality');
+  assert(screen.includes('left: -4000'), 'capture host is parked off-screen so it cannot steal touches');
   assert(!screen.includes('opacity: 0.011'), 'does not use near-zero opacity capture');
   assert(share.includes("from 'react-native-view-shot'"), 'uses view-shot');
   assert(share.includes('captureRef'), 'captures a view ref');

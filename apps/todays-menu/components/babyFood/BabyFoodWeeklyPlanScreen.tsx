@@ -536,7 +536,7 @@ const styles = StyleSheet.create({
   captureHost: {
     position: 'absolute',
     top: 0,
-    left: 0,
+    left: -4000,
     opacity: 1,
     zIndex: 0,
   },

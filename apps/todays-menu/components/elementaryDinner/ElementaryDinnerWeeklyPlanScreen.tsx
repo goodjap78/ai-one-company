@@ -4,6 +4,10 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Alert, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ELEMENTARY_BREAKFAST_WEEK_HREF, weeklyRecipesHref } from '../../constants/appRoutes';
+import {
+  logWeeklyRecipePressQa,
+  weeklyRecipeDetailHref,
+} from '../../utils/weeklyRecipeNavigation';
 import { elementaryDinnerWeeklyPlanCopy as copy } from '../../constants/elementaryDinnerWeeklyPlanCopy';
 import { ds } from '../../constants/designSystem';
 import { mobileShell } from '../../constants/mobileShell';
@@ -210,7 +214,14 @@ export function ElementaryDinnerWeeklyPlanScreen() {
         seed: plan.seed,
       });
       setRecipeOpenSource('kids_weekly_plan');
-      router.push(`/recipe/${slot.recipeId}`);
+      const targetRoute = weeklyRecipeDetailHref(slot.recipeId);
+      logWeeklyRecipePressQa({
+        recipeId: slot.recipeId,
+        audience: 'elementary',
+        mealType: 'dinner',
+        targetRoute,
+      });
+      router.push(targetRoute);
     },
     [plan, refreshing, router, sharing],
   );
@@ -223,7 +234,7 @@ export function ElementaryDinnerWeeklyPlanScreen() {
       <View style={mobileShell.container}>
         {shareModel ? (
           <View style={styles.captureHost} pointerEvents="none" collapsable={false}>
-            <View ref={shareCardRef} collapsable={false}>
+            <View ref={shareCardRef} pointerEvents="none" collapsable={false}>
               <ElementaryWeeklyShareCard model={shareModel} copy={copy} />
             </View>
           </View>
@@ -333,7 +344,7 @@ const styles = StyleSheet.create({
   captureHost: {
     position: 'absolute',
     top: 0,
-    left: 0,
+    left: -4000,
     opacity: 1,
     zIndex: 0,
   },

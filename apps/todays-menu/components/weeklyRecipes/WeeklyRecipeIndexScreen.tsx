@@ -26,6 +26,12 @@ import { appChrome } from '../ui/appChrome';
 import { HankkiHomeBrandLink } from '../ui/HankkiHomeBrandLink';
 import { ScreenBackButton } from '../ui/ScreenBackButton';
 import { ScreenLoading } from '../ui/ScreenLoading';
+import {
+  logWeeklyRecipePressQa,
+  weeklyRecipeDetailHref,
+  type WeeklyRecipeQaAudience,
+  type WeeklyRecipeQaMealType,
+} from '../../utils/weeklyRecipeNavigation';
 
 type Status = 'loading' | 'ready' | 'error';
 
@@ -86,7 +92,22 @@ export function WeeklyRecipeIndexScreen() {
         });
       }
       setRecipeOpenSource('kids_weekly_plan');
-      router.push(`/recipe/${slot.recipeId}`);
+      const targetRoute = weeklyRecipeDetailHref(slot.recipeId);
+      const audience: WeeklyRecipeQaAudience =
+        source === 'elementary-breakfast' || source === 'elementary-dinner'
+          ? 'elementary'
+          : 'toddler';
+      const mealType: WeeklyRecipeQaMealType =
+        source === 'elementary-breakfast' || source === 'toddler-breakfast'
+          ? 'breakfast'
+          : 'dinner';
+      logWeeklyRecipePressQa({
+        recipeId: slot.recipeId,
+        audience,
+        mealType,
+        targetRoute,
+      });
+      router.push(targetRoute);
     },
     [plan, router, source],
   );

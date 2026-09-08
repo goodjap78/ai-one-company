@@ -4,8 +4,10 @@ import { StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScreenLoading } from '../../components/ui/ScreenLoading';
 import { appChrome } from '../../components/ui/appChrome';
+import { getHankkiRecipeById } from '../../data/recipes/hankkiRecipes';
 import { fetchRecipe, getMenuById } from '../../services/recipe';
 import { parseRouteParam } from '../../utils/routeParams';
+import { logWeeklyRecipeResolveFailedQa } from '../../utils/weeklyRecipeNavigation';
 
 export default function RecipeDetailRoute() {
   const router = useRouter();
@@ -28,9 +30,20 @@ export default function RecipeDetailRoute() {
       return;
     }
 
+    if (getHankkiRecipeById(recipeId)) {
+      router.replace(`/ingredients/${recipeId}`);
+      return;
+    }
+
     fetchRecipe(recipeId).then((recipe) => {
       if (cancelled) return;
       if (!recipe) {
+        logWeeklyRecipeResolveFailedQa({
+          recipeId,
+          getMenuById: false,
+          getHankkiRecipeById: false,
+          fetchRecipe: false,
+        });
         router.replace('/');
         return;
       }

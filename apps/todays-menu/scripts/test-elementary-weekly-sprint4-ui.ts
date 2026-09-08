@@ -91,7 +91,7 @@ run('breakfast screen — shared layout + meal switch', () => {
   assert(src.includes('elementaryWeeklyPlanFooterScrollPadding'), 'footer scroll padding');
   assert(src.includes('ELEMENTARY_DINNER_WEEK_HREF'), 'dinner navigation');
   assert(!src.includes('ELEMENTARY_BROWSE_HREF'), 'browse chip removed');
-  assert(src.includes('`/recipe/${slot.recipeId}`'), 'recipe detail route');
+  assert(src.includes('weeklyRecipeDetailHref(slot.recipeId)'), 'recipe detail route');
   assert(src.includes('seed: plan.seed'), 'seed in analytics');
 });
 

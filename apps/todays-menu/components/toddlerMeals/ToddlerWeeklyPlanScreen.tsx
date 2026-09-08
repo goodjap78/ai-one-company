@@ -491,7 +491,7 @@ function DaySlotCard({ slot, disabled, onPress }: DaySlotCardProps) {
 
 const styles = StyleSheet.create({
   safeArea: { flex: 1, width: '100%' },
-  captureHost: { position: 'absolute', top: 0, left: 0, opacity: 1, zIndex: 0 },
+  captureHost: { position: 'absolute', top: 0, left: -4000, opacity: 1, zIndex: 0 },
   scroll: { flex: 1, width: '100%', zIndex: 1, backgroundColor: ds.colors.canvas },
   scrollContent: { paddingTop: ds.spacing.md },
   frame: { width: '100%', gap: ds.spacing.section },
